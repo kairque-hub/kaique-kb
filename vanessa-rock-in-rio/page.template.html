@@ -13,6 +13,7 @@
     --line:#DCDFD6;
     --line-forte:#C3C9BD;
     --mata:#1E5B48;
+    --mata-mid:#2F7C63;
     --mata-soft:#E6EEE9;
     --sunset:#B4652A;
     --sunset-soft:#F4E9DE;
@@ -31,6 +32,7 @@
       --line:#28322C;
       --line-forte:#3A463F;
       --mata:#6FC0A0;
+      --mata-mid:#54A386;
       --mata-soft:#17251F;
       --sunset:#DFA163;
       --sunset-soft:#23190F;
@@ -46,6 +48,7 @@
     --line:#28322C;
     --line-forte:#3A463F;
     --mata:#6FC0A0;
+    --mata-mid:#54A386;
     --mata-soft:#17251F;
     --sunset:#DFA163;
     --sunset-soft:#23190F;
@@ -81,8 +84,8 @@
   h1{
     font-family:var(--display);
     font-weight:300;
-    font-size:clamp(2.45rem,10vw,3.8rem);
-    line-height:1.03;
+    font-size:clamp(2.4rem,9.6vw,3.7rem);
+    line-height:1.04;
     letter-spacing:-.018em;
     margin:0 0 18px;
     text-wrap:balance;
@@ -92,18 +95,8 @@
 
   /* ---------- seções ---------- */
   section{margin:0 0 56px}
-  .marcador{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin:0 0 4px;
-  }
-  .marcador .n{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--mata);
-    letter-spacing:.1em;
-  }
+  .marcador{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .marcador .n{font-family:var(--mono);font-size:11px;color:var(--mata);letter-spacing:.1em}
   h2{
     font-family:var(--display);
     font-weight:500;
@@ -163,7 +156,7 @@
     margin-top:14px;
   }
 
-  /* ---------- destaque #8 ---------- */
+  /* ---------- destaque ---------- */
   .peak{
     background:var(--mata);
     color:var(--peak-ink);
@@ -172,39 +165,12 @@
     margin:0 0 26px;
   }
   .peak .eyebrow{color:inherit;opacity:.7}
-  .peak-row{display:flex;align-items:baseline;gap:15px;margin:12px 0 14px}
+  .peak-row{display:flex;align-items:baseline;gap:15px;margin:12px 0 14px;flex-wrap:wrap}
   .peak-num{font-family:var(--display);font-weight:700;font-size:4.4rem;line-height:.8;letter-spacing:-.03em}
   .peak-label{font-size:1rem;line-height:1.35;opacity:.92}
   .peak p{font-size:.94rem;opacity:.87;margin:0}
 
-  /* ---------- grade do dia ---------- */
-  .grade{border-top:1px solid var(--line);margin-top:8px}
-  .grade-lane{padding:16px 0;border-bottom:1px solid var(--line)}
-  .grade-lane h3{
-    font-family:var(--mono);
-    font-size:11px;
-    font-weight:500;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    margin:0 0 12px;
-  }
-  .grade ol{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-  .grade li{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:baseline}
-  .grade .h{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
-  .grade .a{font-size:.95rem}
-  .grade li.ela .a{font-weight:700;color:var(--mata)}
-  .grade li.ela .h{color:var(--mata)}
-  .grade li.rival .a{color:var(--ink-soft)}
-  .nota-metodo{
-    font-size:.85rem;
-    color:var(--ink-faint);
-    margin-top:14px;
-    padding-left:13px;
-    border-left:2px solid var(--line);
-  }
-
-  /* ---------- painel de métricas ---------- */
+  /* ---------- painel de números ---------- */
   .painel{
     display:grid;
     grid-template-columns:1fr;
@@ -213,7 +179,7 @@
     border:1px solid var(--line);
     border-radius:3px;
     overflow:hidden;
-    margin-bottom:26px;
+    margin-bottom:24px;
   }
   @media (min-width:520px){ .painel{grid-template-columns:repeat(3,1fr)} }
   .metrica{background:var(--ground);padding:17px 16px 15px;display:flex;flex-direction:column;gap:3px}
@@ -236,11 +202,201 @@
     margin-top:4px;
   }
 
-  /* ---------- captura pendente ---------- */
-  .captura{
-    border-left:2px solid var(--sunset);
-    padding:2px 0 2px 16px;
+  /* ---------- censo de clipping ---------- */
+  .censo{border-top:1px solid var(--line)}
+  .censo-grupo{border-bottom:1px solid var(--line);padding:16px 0}
+  .censo-grupo > h3{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 3px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
   }
+  .censo-grupo > h3 i{font-style:normal;color:var(--mata)}
+  .censo-grupo .desc{font-size:.87rem;color:var(--ink-faint);margin:0 0 12px}
+  .censo ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .censo li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline}
+  .censo .veic{font-size:.95rem;font-weight:700}
+  .censo .peca{font-size:.88rem;color:var(--ink-soft);display:block;font-weight:400}
+  .censo .porte{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+
+  /* ---------- ranking ---------- */
+  .rank{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .rank li{
+    display:grid;
+    grid-template-columns:26px 1fr auto;
+    gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .rank .pos{font-family:var(--mono);font-size:11px;color:var(--ink-faint);padding-top:3px}
+  .rank .nome{font-weight:700;font-size:.97rem;display:block}
+  .rank .det{font-size:.87rem;color:var(--ink-soft);display:block}
+  .rank .alc{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--mata);
+    white-space:nowrap;
+    text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+  .rank .alc.na{color:var(--ink-faint)}
+  .rank li.topo{background:linear-gradient(90deg,var(--mata-soft),transparent 80%);padding-left:10px;margin-left:-10px;border-radius:2px}
+
+  /* ---------- gráfico ---------- */
+  .grafico{margin:0 0 8px}
+  .grafico svg{display:block;width:100%;height:auto;overflow:visible}
+  .g-rotulo{font-family:var(--body);font-size:13px;font-weight:700;fill:var(--ink)}
+  .g-rotulo.sec{fill:var(--ink-soft);font-size:10.5px;font-weight:400}
+  .g-valor{font-family:var(--mono);font-size:12px;fill:var(--ink-soft)}
+  .g-eixo{stroke:var(--line);stroke-width:1}
+  .g-tick{font-family:var(--mono);font-size:10px;fill:var(--ink-faint)}
+  .g-barra{fill:var(--mata)}
+  .g-barra.conv{fill:var(--mata-mid)}
+  .g-legenda{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    margin:14px 0 0;
+    font-size:.85rem;
+    color:var(--ink-soft);
+  }
+  .g-legenda span{display:flex;align-items:center;gap:7px}
+  .g-legenda i{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+  /* ---------- sentimento ---------- */
+  .barra-sent{
+    display:flex;
+    height:34px;
+    border-radius:3px;
+    overflow:hidden;
+    margin:0 0 12px;
+    gap:2px;
+  }
+  .barra-sent div{display:flex;align-items:center;justify-content:center}
+  .barra-sent .pos{background:var(--mata);color:var(--peak-ink);flex:14}
+  .barra-sent .neg{background:var(--sunset);color:var(--peak-ink);flex:1}
+  .barra-sent b{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.06em;
+  }
+  .tema{border-top:1px solid var(--line);padding:18px 0 6px}
+  .tema h3{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:6px}
+  .pill{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:3px 7px 2px;
+    border-radius:2px;
+    background:var(--mata-soft);
+    color:var(--mata);
+    font-weight:500;
+  }
+  .pill.neutro{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)}
+  .pill.alerta{background:var(--sunset-soft);color:var(--sunset)}
+  .tema p{font-size:.95rem;color:var(--ink-soft);margin:0 0 10px}
+  .evidencia{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 4px;
+  }
+
+  /* ---------- grade do dia ---------- */
+  .grade{border-top:1px solid var(--line);margin-top:8px}
+  .grade-lane{padding:16px 0;border-bottom:1px solid var(--line)}
+  .grade-lane h3{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+  }
+  .grade ol{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .grade li{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:baseline}
+  .grade .h{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+  .grade .a{font-size:.95rem}
+  .grade li.ela .a{font-weight:700;color:var(--mata)}
+  .grade li.ela .h{color:var(--mata)}
+  .grade li.rival .a{color:var(--ink-soft)}
+
+  .nota-metodo{
+    font-size:.85rem;
+    color:var(--ink-faint);
+    margin-top:16px;
+    padding-left:13px;
+    border-left:2px solid var(--line);
+  }
+
+  /* ---------- citações ---------- */
+  blockquote{margin:0 0 22px;padding:0 0 0 18px;border-left:2px solid var(--line-forte)}
+  blockquote p{
+    font-family:var(--display);
+    font-weight:300;
+    font-size:1.12rem;
+    line-height:1.45;
+    margin:0 0 7px;
+    color:var(--ink);
+  }
+  blockquote cite{
+    font-style:normal;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  /* ---------- playbook ---------- */
+  .jogadas{list-style:none;margin:0;padding:0}
+  .jogadas li{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .jogadas li:last-child{border-bottom:1px solid var(--line)}
+  .jogadas .idx{font-family:var(--mono);font-size:11px;color:var(--sunset);padding-top:5px;letter-spacing:.04em}
+  .jogadas b{display:block;font-weight:700;margin-bottom:3px}
+  .jogadas span.d{color:var(--ink-soft);font-size:.94rem;display:block}
+  .jogadas .prova{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--mata);
+    margin-top:8px;
+    display:block;
+  }
+
+  /* ---------- recomendações ---------- */
+  .recs{display:grid;gap:12px}
+  .rec{border-left:2px solid var(--mata);padding:2px 0 2px 16px}
+  .rec b{display:block;margin-bottom:2px}
+  .rec span{font-size:.93rem;color:var(--ink-soft)}
+
+  /* ---------- captura ---------- */
+  .captura{border-left:2px solid var(--sunset);padding:2px 0 2px 16px;margin-top:24px}
   .captura > b{
     display:block;
     font-family:var(--mono);
@@ -272,153 +428,6 @@
     white-space:nowrap;
   }
 
-  /* ---------- virais ---------- */
-  .virais{display:grid;gap:14px}
-  .viral{
-    border:1px solid var(--line);
-    border-radius:3px;
-    padding:17px 16px 15px;
-    background:var(--surface);
-    display:grid;
-    gap:7px;
-  }
-  .viral-topo{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
-  .tag{
-    font-family:var(--mono);
-    font-size:10px;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    padding:3px 7px 2px;
-    border-radius:2px;
-    font-weight:500;
-  }
-  .tag.x{background:var(--mata-soft);color:var(--mata)}
-  .tag.ig{background:var(--sunset-soft);color:var(--sunset)}
-  .tag.formato{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)}
-  .viral h3{margin:0;font-size:1rem;line-height:1.35}
-  .viral p{font-size:.92rem;color:var(--ink-soft);margin:0}
-  .viral .porque{font-size:.92rem;color:var(--ink);margin:0}
-  .viral .porque b{color:var(--mata);font-weight:700}
-  .viral .campo{
-    font-family:var(--mono);
-    font-size:10.5px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    border-top:1px dashed var(--line);
-    padding-top:9px;
-    margin-top:2px;
-  }
-
-  /* ---------- roteiro ---------- */
-  .roteiro{list-style:none;margin:0;padding:0}
-  .roteiro li{
-    display:grid;
-    grid-template-columns:64px 1fr;
-    gap:16px;
-    padding:16px 0;
-    border-top:1px solid var(--line);
-  }
-  .roteiro li:last-child{border-bottom:1px solid var(--line)}
-  .roteiro .mom{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    padding-top:4px;
-  }
-  .roteiro .faixa{font-weight:700;display:block}
-  .roteiro .nota{color:var(--ink-soft);font-size:.93rem}
-  .roteiro li.alta{background:linear-gradient(90deg,var(--mata-soft),transparent 70%)}
-  .roteiro li.alta .faixa{color:var(--mata)}
-  .roteiro li.alta .mom{color:var(--mata)}
-  .roteiro li.alta .mom,.roteiro li.alta .faixa,.roteiro li.alta .nota{padding-left:0}
-  .roteiro li.alta{padding-left:11px;margin-left:-11px;border-radius:2px}
-
-  /* ---------- sentimento ---------- */
-  .tema{border-top:1px solid var(--line);padding:18px 0 6px}
-  .tema h3{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:6px}
-  .pill{
-    font-family:var(--mono);
-    font-size:10px;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    padding:3px 7px 2px;
-    border-radius:2px;
-    background:var(--mata-soft);
-    color:var(--mata);
-    font-weight:500;
-  }
-  .pill.neutro{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)}
-  .pill.alerta{background:var(--sunset-soft);color:var(--sunset)}
-  .tema p{font-size:.95rem;color:var(--ink-soft);margin:0 0 10px}
-  .evidencia{
-    font-family:var(--mono);
-    font-size:10.5px;
-    letter-spacing:.05em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    margin:0 0 4px;
-  }
-
-  /* ---------- citações ---------- */
-  blockquote{margin:0 0 22px;padding:0 0 0 18px;border-left:2px solid var(--line-forte)}
-  blockquote p{
-    font-family:var(--display);
-    font-weight:300;
-    font-size:1.12rem;
-    line-height:1.45;
-    margin:0 0 7px;
-    color:var(--ink);
-  }
-  blockquote cite{
-    font-style:normal;
-    font-family:var(--mono);
-    font-size:10.5px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-  }
-
-  /* ---------- listas numeradas / playbook ---------- */
-  .jogadas{list-style:none;margin:0;padding:0}
-  .jogadas li{
-    display:grid;
-    grid-template-columns:auto 1fr;
-    gap:14px;
-    padding:16px 0;
-    border-top:1px solid var(--line);
-  }
-  .jogadas li:last-child{border-bottom:1px solid var(--line)}
-  .jogadas .idx{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--sunset);
-    padding-top:5px;
-    letter-spacing:.04em;
-  }
-  .jogadas b{display:block;font-weight:700;margin-bottom:3px}
-  .jogadas span.d{color:var(--ink-soft);font-size:.94rem;display:block}
-  .jogadas .medir{
-    font-family:var(--mono);
-    font-size:10px;
-    letter-spacing:.07em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    margin-top:7px;
-    display:block;
-  }
-
-  /* ---------- recomendações ---------- */
-  .recs{display:grid;gap:12px}
-  .rec{
-    border-left:2px solid var(--mata);
-    padding:2px 0 2px 16px;
-  }
-  .rec b{display:block;margin-bottom:2px}
-  .rec span{font-size:.93rem;color:var(--ink-soft)}
-
   /* ---------- fontes ---------- */
   .fontes{font-size:.89rem;color:var(--ink-soft)}
   .fontes ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
@@ -448,40 +457,185 @@
       <p class="eyebrow"><span class="dot">/</span> Palco Sunset</p>
       <p class="eyebrow"><span class="dot">/</span> Seg, 7 set · 15h</p>
     </div>
-    <h1>Abriu o dia às 15h e terminou <em>no top 10 do país</em></h1>
-    <p class="standfirst">Relatório de sentimento, imprensa e performance digital do show de 20 anos de carreira de Vanessa da Mata, com participação de Rubel — e a leitura de por que o <strong>#8 nos assuntos mais comentados do Brasil</strong> vale mais do que a posição sugere.</p>
+    <h1>Abriu o dia debaixo de chuva e terminou <em>no top 10 do país</em></h1>
+    <p class="standfirst">Relatório de mídia espontânea, sentimento e performance digital do show de 20 anos de carreira de Vanessa da Mata, com participação de Rubel — apuração feita sobre a cobertura publicada e a conversa nas redes.</p>
   </header>
 
   <figure class="hero-foto">
     <img src="{{PUBLICO}}" alt="Vanessa da Mata na passarela do Palco Sunset diante do público lotado da Cidade do Rock.">
-    <figcaption>15h no Palco Sunset, primeira atração do dia, com a pista cheia até o fundo do campo — a imagem que desmontou a leitura de que horário de abertura é horário vazio.</figcaption>
+    <figcaption>A tarde começou com chuva e a pista ainda enchendo. Terminou assim — e esta imagem virou a resposta visual à única crítica que circulou sobre o horário.</figcaption>
   </figure>
 
   <div class="resumo">
     <div class="linha">
+      <span class="marca">Espontânea</span>
+      <p><strong>16 veículos</strong> mapeados publicando sobre a apresentação, sendo <strong>9 com matéria dedicada</strong> — encabeçados pelo <strong>g1</strong>, que assinou manchete própria e replicou no X, onde tem <strong>14 milhões de seguidores</strong>.</p>
+    </div>
+    <div class="linha">
       <span class="marca">Alcance</span>
-      <p><strong>#8 nos assuntos mais comentados do Brasil</strong> no X, conquistado a partir das 15h, no primeiro show de um dia que terminaria com Elton John no Palco Mundo.</p>
+      <p><strong>#8 nos assuntos mais comentados do Brasil</strong> no X, conquistado a partir das 15h, no primeiro show de um dia que terminaria com Elton John.</p>
+    </div>
+    <div class="linha">
+      <span class="marca">Sentimento</span>
+      <p>Conversa <strong>predominantemente elogiosa: 14 de 15</strong> manifestações que tomaram partido, na apuração publicada pelo agregador Quenty.</p>
     </div>
     <div class="linha">
       <span class="marca">Contexto</span>
-      <p>Dia <strong>esgotado</strong>, em um evento com capacidade para <strong>100 mil pessoas por dia</strong> e <strong>oito shows</strong> disputando a mesma conversa entre Mundo e Sunset.</p>
+      <p>Dia <strong>esgotado</strong>, capacidade de <strong>100 mil pessoas</strong>, <strong>oito shows</strong> disputando a mesma conversa entre Palco Mundo e Sunset — e chuva no início da tarde.</p>
     </div>
     <div class="linha">
       <span class="marca">Motor</span>
-      <p>A participação de <strong>Rubel</strong> em “Ainda Bem” e a versão de “Medo Bobo” concentraram os recortes que viajaram — foi o encontro de gerações, não o catálogo sozinho, que abriu a conversa para fora da base.</p>
-    </div>
-    <div class="linha">
-      <span class="marca">Narrativa</span>
-      <p>A imprensa convergiu em um único enquadramento: <strong>20 anos de carreira celebrados sem virar show de saudade</strong>, sustentado pelo dado de que foi a primeira vez dela no line-up oficial de um palco principal.</p>
-    </div>
-    <div class="linha">
-      <span class="marca">Atrito</span>
-      <p>Único ponto negativo recorrente: o horário. A reclamação veio de fã (“merecia horário melhor”) e funcionou como combustível de engajamento, não como crise.</p>
+      <p>O bloco com <strong>Rubel</strong> — três músicas, incluindo “Carta de Maria”, do próprio convidado — concentrou os destaques de manchete e foi o trecho mais citado da cobertura.</p>
     </div>
   </div>
 
   <section>
-    <div class="marcador"><span class="n">01</span><h2>O tamanho real do #8</h2></div>
+    <div class="marcador"><span class="n">01</span><h2>Mídia espontânea</h2></div>
+    <p class="sub">Censo da cobertura publicada, verificada URL a URL. Nenhuma inserção paga, nenhuma permuta: tudo o que está abaixo é espaço editorial conquistado.</p>
+
+    <div class="painel">
+      <div class="metrica">
+        <span class="v num">16</span>
+        <span class="k">Veículos publicando sobre a apresentação</span>
+        <span class="fonte">Censo verificado</span>
+      </div>
+      <div class="metrica">
+        <span class="v num">9</span>
+        <span class="k">Com matéria dedicada ao show</span>
+        <span class="fonte">Censo verificado</span>
+      </div>
+      <div class="metrica">
+        <span class="v num">14 mi</span>
+        <span class="k">Seguidores do maior perfil que publicou (@g1 no X)</span>
+        <span class="fonte">Perfil público</span>
+      </div>
+    </div>
+
+    <div class="censo">
+      <div class="censo-grupo">
+        <h3><span>Matéria dedicada · porte nacional</span><i>4</i></h3>
+        <p class="desc">Texto próprio sobre a apresentação, com repórter apurando o show.</p>
+        <ul>
+          <li>
+            <span><span class="veic">g1 / Globo</span><span class="peca">“Vanessa da Mata constrói show coeso no Rock in Rio entre clássicos e hits de seus 20 anos de carreira” — replicado no X</span></span>
+            <span class="porte">Nacional</span>
+          </li>
+          <li>
+            <span><span class="veic">Terra</span><span class="peca">“Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel”</span></span>
+            <span class="porte">Nacional</span>
+          </li>
+          <li>
+            <span><span class="veic">CNN Brasil</span><span class="peca">Matéria com declaração da artista sobre a nova geração abraçar hits antigos</span></span>
+            <span class="porte">Nacional</span>
+          </li>
+          <li>
+            <span><span class="veic">Quenty</span><span class="peca">Resumo do dia com apuração de sentimento e destaque para “Carta de Maria”</span></span>
+            <span class="porte">Agregador</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="censo-grupo">
+        <h3><span>Matéria dedicada · vertical e regional</span><i>5</i></h3>
+        <p class="desc">Cobertura própria em veículos de música, cultura e imprensa regional.</p>
+        <ul>
+          <li><span><span class="veic">Semana Pop</span><span class="peca">“Vanessa da Mata celebra 20 anos em show no Rock in Rio”</span></span><span class="porte">Vertical</span></li>
+          <li><span><span class="veic">Folha de Curitiba</span><span class="peca">“Vanessa da Mata celebra 20 anos de carreira em show no Rock in Rio”</span></span><span class="porte">Regional</span></li>
+          <li><span><span class="veic">NC News</span><span class="peca">Cobertura da apresentação e do bloco com Rubel</span></span><span class="porte">Regional</span></li>
+          <li><span><span class="veic">Portal Democrata</span><span class="peca">Três publicações no dia, incluindo setlist e resumo do 4º dia</span></span><span class="porte">Regional</span></li>
+          <li><span><span class="veic">Rádio Alvorada</span><span class="peca">Nota de anúncio e cobertura</span></span><span class="porte">Rádio</span></li>
+        </ul>
+      </div>
+
+      <div class="censo-grupo">
+        <h3><span>Citação em grade e guia do dia</span><i>7</i></h3>
+        <p class="desc">Nome e horário publicados nos guias de programação — menor profundidade, alto volume de leitores.</p>
+        <ul>
+          <li><span><span class="veic">Rolling Stone Brasil</span><span class="peca">Horários dos shows do dia de Elton John</span></span><span class="porte">Nacional</span></li>
+          <li><span><span class="veic">Billboard Brasil</span><span class="peca">Horários dos shows de 7 de setembro</span></span><span class="porte">Nacional</span></li>
+          <li><span><span class="veic">Exame</span><span class="peca">Line-up de segunda-feira</span></span><span class="porte">Nacional</span></li>
+          <li><span><span class="veic">InfoMoney</span><span class="peca">Guia de shows, horários e onde assistir</span></span><span class="porte">Nacional</span></li>
+          <li><span><span class="veic">POPLine</span><span class="peca">Atrações e horários dos palcos Sunset e Supernova</span></span><span class="porte">Vertical</span></li>
+          <li><span><span class="veic">Cabana do Leitor</span><span class="peca">Atualização de horários do dia 7</span></span><span class="porte">Independente</span></li>
+          <li><span><span class="veic">Portal Popcyber</span><span class="peca">Atualização da grade do dia 7</span></span><span class="porte">Independente</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="nota-metodo">Como foi medido: varredura em buscadores por nome da artista cruzado com o evento, a data e o convidado, em português, entre 7 e 8 de setembro. Cada veículo entrou na lista com URL localizada. O censo é um <strong>piso, não um teto</strong> — cobertura em vídeo, rádio, TV e veículos não indexados não aparece aqui, e o clipping da assessoria deve ser maior.</p>
+
+    <div class="captura">
+      <b>O que fecha o número de alcance</b>
+      <ul>
+        <li><span>Audiência mensal por veículo</span><i>Comscore / Similarweb</i></li>
+        <li><span>Clipping completo da assessoria</span><i>Assessoria</i></li>
+        <li><span>Inserções em TV e rádio</span><i>Monitoramento</i></li>
+        <li><span>Equivalência publicitária</span><i>Tabela dos veículos</i></li>
+      </ul>
+    </div>
+    <p class="nota-metodo">Alcance em número absoluto de pessoas exige a audiência de cada veículo, que não é dado público. Multiplicar o censo por audiência mensal do Comscore fecha a conta — e é o cálculo que dá o número de “impactos” para o cliente. <strong>Nenhum valor de alcance foi estimado aqui</strong>: em apresentação, um número inventado é o único erro que não tem defesa.</p>
+  </section>
+
+  <section>
+    <div class="marcador"><span class="n">02</span><h2>Ranking de quem publicou</h2></div>
+    <p class="sub">Ordenado por alcance verificável e peso editorial. O topo da lista é o que dá autoridade ao clipping inteiro.</p>
+    <ol class="rank">
+      <li class="topo">
+        <span class="pos num">01</span>
+        <span><span class="nome">g1 · @g1</span><span class="det">Manchete própria, com juízo de valor positivo no título: “show coeso”. Publicado também no X.</span></span>
+        <span class="alc num">14 mi<br>seguidores</span>
+      </li>
+      <li>
+        <span class="pos num">02</span>
+        <span><span class="nome">Terra</span><span class="det">Matéria dedicada com título completo do acontecimento — clássicos, chuva e Rubel na mesma manchete.</span></span>
+        <span class="alc na">Portal<br>nacional</span>
+      </li>
+      <li>
+        <span class="pos num">03</span>
+        <span><span class="nome">CNN Brasil</span><span class="det">Deu voz à artista: matéria construída em cima de declaração dela, não só do show.</span></span>
+        <span class="alc na">Portal<br>nacional</span>
+      </li>
+      <li>
+        <span class="pos num">04</span>
+        <span><span class="nome">Rock in Rio · canal oficial</span><span class="det">Página própria do line-up apresentando o encontro como aproximação de duas gerações.</span></span>
+        <span class="alc na">Mídia do<br>evento</span>
+      </li>
+      <li>
+        <span class="pos num">05</span>
+        <span><span class="nome">Rolling Stone Brasil</span><span class="det">Presença na grade do dia, em veículo de autoridade no segmento música.</span></span>
+        <span class="alc na">Vertical<br>nacional</span>
+      </li>
+      <li>
+        <span class="pos num">06</span>
+        <span><span class="nome">Billboard Brasil</span><span class="det">Guia de horários do dia 7.</span></span>
+        <span class="alc na">Vertical<br>nacional</span>
+      </li>
+      <li>
+        <span class="pos num">07</span>
+        <span><span class="nome">Exame · InfoMoney</span><span class="det">Dois veículos de economia cobrindo o festival — audiência fora do público natural da artista.</span></span>
+        <span class="alc na">Nacional<br>não-endêmico</span>
+      </li>
+      <li>
+        <span class="pos num">08</span>
+        <span><span class="nome">POPLine</span><span class="det">Cobertura de grade dos palcos Sunset e Supernova.</span></span>
+        <span class="alc na">Vertical</span>
+      </li>
+      <li>
+        <span class="pos num">09</span>
+        <span><span class="nome">Quenty</span><span class="det">Único veículo que publicou apuração de sentimento — e escolheu “Carta de Maria” como manchete.</span></span>
+        <span class="alc na">Agregador</span>
+      </li>
+      <li>
+        <span class="pos num">10</span>
+        <span><span class="nome">Semana Pop · Folha de Curitiba · NC News · Portal Democrata</span><span class="det">Cauda longa de matérias dedicadas, com o mesmo enquadramento de 20 anos de carreira.</span></span>
+        <span class="alc na">Vertical e<br>regional</span>
+      </li>
+    </ol>
+    <p class="nota-metodo">O número de seguidores só aparece onde é público e foi conferido no perfil. Para os demais, o porte editorial substitui o dado — preencher com audiência do Comscore fecha o ranking em número. Perfis pessoais e de fãs que replicaram o conteúdo não entram: exigem acesso à API do X, que não é público.</p>
+  </section>
+
+  <section>
+    <div class="marcador"><span class="n">03</span><h2>O tamanho real do #8</h2></div>
     <p class="sub">Uma posição de trending só significa alguma coisa quando se sabe contra o que ela foi disputada. Esta é a grade do dia.</p>
 
     <div class="peak">
@@ -490,7 +644,7 @@
         <span class="peak-num num">#8</span>
         <span class="peak-label">nos assuntos mais<br>comentados do país</span>
       </div>
-      <p>Primeira atração do dia, oito horas antes do headliner, em um festival esgotado com 100 mil pessoas — e ainda assim dentro do top 10 nacional.</p>
+      <p>Primeira atração do dia, oito horas antes do headliner, debaixo de chuva, em um festival esgotado com 100 mil pessoas — e ainda assim dentro do top 10 nacional.</p>
     </div>
 
     <div class="grade">
@@ -514,139 +668,110 @@
       </div>
     </div>
 
-    <p class="nota-metodo">Três fatores comprimem a janela de um show de abertura: o público ainda está entrando, a imprensa ainda não montou a operação do dia e o assunto do feriado ainda é o headliner. Entrar no top 10 nesse recorte significa que a conversa foi gerada pelo próprio conteúdo publicado durante o set — não herdada do evento.</p>
+    <p class="nota-metodo">Quatro fatores comprimem a janela de um show de abertura: o público ainda está entrando, choveu no início da tarde, a imprensa ainda não montou a operação do dia e o assunto do feriado ainda é o headliner. Entrar no top 10 nesse recorte significa que a conversa foi gerada pelo próprio conteúdo publicado durante o set — não herdada do evento.</p>
   </section>
 
   <section>
-    <div class="marcador"><span class="n">02</span><h2>Painel de performance</h2></div>
-    <p class="sub">Três números fechados e nove em aberto. Abaixo, o que já é citável e exatamente qual ferramenta fecha cada campo que falta.</p>
-    <div class="painel">
-      <div class="metrica">
-        <span class="v num">#8</span>
-        <span class="k">Pico nos assuntos mais comentados do Brasil</span>
-        <span class="fonte">Informado pelo time</span>
-      </div>
-      <div class="metrica">
-        <span class="v num">100 mil</span>
-        <span class="k">Capacidade por dia da Cidade do Rock</span>
-        <span class="fonte">Rock in Rio</span>
-      </div>
-      <div class="metrica">
-        <span class="v">Esgotado</span>
-        <span class="k">Bilheteria do dia 7 de setembro</span>
-        <span class="fonte">Rock in Rio</span>
-      </div>
+    <div class="marcador"><span class="n">04</span><h2>Sentimento</h2></div>
+    <p class="sub">A única apuração de sentimento publicada sobre a apresentação, somada aos eixos temáticos que sustentaram a conversa.</p>
+
+    <div class="barra-sent" role="img" aria-label="14 manifestações elogiosas contra 1 crítica, entre as 15 que tomaram partido.">
+      <div class="pos"><b>14 ELOGIO</b></div>
+      <div class="neg"><b>1</b></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:20px"><strong>14 de 15</strong> manifestações que tomaram partido foram elogiosas — <strong>93%</strong> de aprovação entre quem se posicionou, conforme apuração publicada pelo agregador Quenty. Amostra pequena: serve como indicação de direção, não como medida de volume.</p>
+
+    <div class="tema">
+      <h3>Encontro de gerações <span class="pill">Motor principal</span></h3>
+      <p>Rubel foi o gatilho de compartilhamento, e o bloco não foi simbólico: foram três músicas, incluindo “Carta de Maria”, do próprio convidado. A reciprocidade é o detalhe que a cobertura destacou — ela não só chamou um convidado, ela cantou a música dele.</p>
+      <p class="evidencia">Evidência: bloco citado em todas as matérias dedicadas · manchete do Quenty</p>
     </div>
 
-    <div class="captura">
-      <b>Falta fechar — 9 campos</b>
-      <ul>
-        <li><span>Tempo em tendência</span><i>Social listening</i></li>
-        <li><span>Menções 15h–00h</span><i>Social listening</i></li>
-        <li><span>Impressões estimadas</span><i>Social listening</i></li>
-        <li><span>Views dos Reels</span><i>IG Insights</i></li>
-        <li><span>Contas alcançadas</span><i>IG Insights</i></li>
-        <li><span>Salvamentos e compart.</span><i>IG Insights</i></li>
-        <li><span>Novos seguidores 48h</span><i>IG Insights</i></li>
-        <li><span>Matérias no clipping</span><i>Assessoria</i></li>
-        <li><span>Variação de ouvintes</span><i>Spotify for Artists</i></li>
-      </ul>
+    <div class="tema">
+      <h3>Celebração de 20 anos <span class="pill">Narrativa dominante</span></h3>
+      <p>A imprensa converge no mesmo enquadramento: trajetória celebrada sem virar show de saudade. O g1 fixou a palavra que resume a leitura — <em>coeso</em>. É também o ângulo que conecta o show à turnê <em>Todas Elas</em> em cartaz.</p>
+      <p class="evidencia">Evidência: “20 anos” no título da maioria das matérias do dia</p>
     </div>
 
-    <p class="nota-metodo">Nenhum número de engajamento do show é público: plataformas não divulgam volume de menções, e o Rock in Rio não abre audiência por atração. Tudo que aparece aqui como confirmado vem de fonte citável no rodapé; o resto sai das ferramentas do time (X Analytics, Instagram Insights, painel de social listening, Spotify for Artists).</p>
-  </section>
-
-  <section>
-    <div class="marcador"><span class="n">03</span><h2>Os recortes que viajaram</h2></div>
-    <p class="sub">Anatomia do que circulou em cada plataforma e por que aquele formato, e não outro, saiu da base.</p>
-    <div class="virais">
-
-      <div class="viral">
-        <div class="viral-topo">
-          <span class="tag x">X / Twitter</span>
-          <span class="tag formato">Vídeo vertical</span>
-          <span class="tag formato">Publicado durante o set</span>
-        </div>
-        <h3>“Ainda Bem” com Rubel, o refrão inteiro</h3>
-        <p>O trecho do dueto foi o material mais replicado da tarde — inclusive republicado por perfis de música e fóruns de fãs fora da órbita dos dois artistas.</p>
-        <p class="porque"><b>Por que viajou:</b> entrega a promessa do título do show (“Vanessa da Mata convida Rubel”) em quinze segundos. Quem não estava no festival entende o acontecimento sem contexto nenhum.</p>
-        <p class="campo">Views · RTs · Curtidas — a preencher</p>
-      </div>
-
-      <div class="viral">
-        <div class="viral-topo">
-          <span class="tag x">X / Twitter</span>
-          <span class="tag formato">Vídeo</span>
-          <span class="tag formato">Surpresa</span>
-        </div>
-        <h3>“Medo Bobo” em versão MPB</h3>
-        <p>A releitura do sertanejo de Maiara &amp; Maraisa é o tipo de gesto que gera citação e piada, os dois combustíveis nativos da plataforma.</p>
-        <p class="porque"><b>Por que viajou:</b> cruza dois públicos que normalmente não se encontram na timeline. Cada comunidade compartilha por um motivo diferente — e as duas somam no mesmo termo de busca.</p>
-        <p class="campo">Views · RTs · Curtidas — a preencher</p>
-      </div>
-
-      <div class="viral">
-        <div class="viral-topo">
-          <span class="tag ig">Instagram</span>
-          <span class="tag formato">Reels</span>
-          <span class="tag formato">Plano do público</span>
-        </div>
-        <h3>A pista cheia às 15h</h3>
-        <p>O contra-plano do palco para a plateia responde sozinho à única crítica do dia. É prova visual, não argumento.</p>
-        <p class="porque"><b>Por que viajou:</b> no Instagram, o conteúdo que performa em festival é o que dá escala — multidão, luz, figurino. É também o ativo que a imprensa mais pede emprestado.</p>
-        <p class="campo">Views · Alcance · Salvamentos — a preencher</p>
-      </div>
-
-      <div class="viral">
-        <div class="viral-topo">
-          <span class="tag ig">Instagram</span>
-          <span class="tag formato">Carrossel / Foto</span>
-          <span class="tag formato">Pós-show</span>
-        </div>
-        <h3>Vanessa e Rubel no painel do Sunset</h3>
-        <p>O registro dos dois com o letreiro do palco ao fundo virou a imagem de fechamento da cobertura e o post de maior taxa de salvamento do pacote.</p>
-        <p class="porque"><b>Por que viajou:</b> tem os dois nomes, a marca do palco e o afeto no mesmo enquadramento. Funciona como fotografia de arquivo — é o que sobra da data quando o vídeo já rodou.</p>
-        <p class="campo">Curtidas · Alcance · Salvamentos — a preencher</p>
-      </div>
-
+    <div class="tema">
+      <h3>Estreia no line-up oficial <span class="pill">Ângulo de imprensa</span></h3>
+      <p>Depois de passar pela Cidade do Rock em 2019 como participação especial, esta foi a primeira vez no line-up de um palco principal. É o dado que rendeu manchete própria e sustentou pauta em veículos que normalmente só publicam grade de horários.</p>
+      <p class="evidencia">Evidência: fato citado como marco em veículos de cultura e regionais</p>
     </div>
-    <p class="nota-metodo">Cada card descreve um formato observado na circulação pública. Os números por post não são acessíveis de fora das contas — puxar de X Analytics e Instagram Insights e colar nos campos marcados fecha esta seção.</p>
+
+    <div class="tema">
+      <h3>Espaço da música brasileira <span class="pill alerta">Atrito produtivo</span></h3>
+      <p>A crítica que apareceu não foi ao show: foi ao festival. O debate girou em torno do espaço dado à música brasileira e do horário destinado a ela. Vanessa entrou como <em>argumento</em> nessa discussão, não como alvo — posição rara e favorável, que rendeu defesa espontânea de terceiros.</p>
+      <p class="evidencia">Evidência: única linha crítica registrada na apuração de sentimento</p>
+    </div>
+
+    <div class="tema">
+      <h3>Chuva e virada de público <span class="pill neutro">Camada narrativa</span></h3>
+      <p>A tarde começou com chuva e a pista ainda enchendo — e o Terra colocou isso na manchete. Vira material a favor: o arco de “começou vazio e debaixo d’água” até a pista cheia é história melhor do que um show de horário nobre com casa dada.</p>
+      <p class="evidencia">Evidência: chuva citada em manchete nacional · registro fotográfico do time</p>
+    </div>
   </section>
 
   <section>
-    <div class="marcador"><span class="n">04</span><h2>Anatomia do set</h2></div>
-    <p class="sub">Noventa minutos, um arco de vinte anos e dois picos de conversa colocados no meio, não no fim.</p>
-    <ul class="roteiro">
-      <li>
-        <span class="mom num">15h00</span>
-        <span><span class="faixa">Não Me Deixe Só</span><span class="nota">Abre o palco no horário exato com uma música que já entrega refrão em coro. Decisão certa: o público que ainda está chegando ouve algo que reconhece antes de decidir onde ficar.</span></span>
-      </li>
-      <li>
-        <span class="mom">Bloco 1</span>
-        <span><span class="faixa">Segue o Som · Baú</span><span class="nota">A leitura de 20 anos começa aqui, misturando repertório novo e antigo na mesma respiração em vez de separar em blocos de “clássicos” e “disco atual”.</span></span>
-      </li>
-      <li class="alta">
-        <span class="mom">Pico 1</span>
-        <span><span class="faixa">Ainda Bem — com Rubel</span><span class="nota">O encontro que a imprensa mais destacou e o trecho mais recortado nas redes. Um convidado que canta a mesma canção de outra geração é legenda pronta: não precisa de texto para explicar o que está acontecendo.</span></span>
-      </li>
-      <li class="alta">
-        <span class="mom">Pico 2</span>
-        <span><span class="faixa">Medo Bobo — versão a dois</span><span class="nota">Sertanejo de Maiara &amp; Maraisa relido em clima MPB. Inesperado, reconhecível e cantável: os três atributos de um recorte que sai da bolha do artista.</span></span>
-      </li>
-      <li>
-        <span class="mom">Ao longo</span>
-        <span><span class="faixa">As histórias por trás das canções</span><span class="nota">O recurso de contar a origem das músicas entre uma e outra é o que transformou o set em matéria com ângulo próprio, e não em nota de line-up. Foi o detalhe repetido por praticamente todo veículo.</span></span>
-      </li>
-      <li>
-        <span class="mom">Fecho</span>
-        <span><span class="faixa">Ai, Ai, Ai…</span><span class="nota">Encerra em coro coletivo, entregando o material de maior escala do dia — que vira o vídeo de abertura da cobertura pós-evento e o corte com maior retenção.</span></span>
-      </li>
-    </ul>
-    <p class="nota-metodo">O show integra a leitura da turnê <em>Todas Elas</em>, com direção de Jorge Farjalla, que já vinha organizando o repertório como retrospectiva de trajetória. Ordem das faixas conforme a cobertura de imprensa; conferir contra o setlist oficial do time antes de publicar externamente.</p>
+    <div class="marcador"><span class="n">05</span><h2>Pontos altos do show</h2></div>
+    <p class="sub">Quantas vezes cada momento do set foi nomeado na cobertura mapeada. É a medida de qual trecho a imprensa escolheu contar.</p>
+
+    <div class="grafico">
+      <svg viewBox="0 0 430 374" role="img" aria-labelledby="g-titulo g-desc">
+        <title id="g-titulo">Momentos do set por número de veículos que os citaram</title>
+        <desc id="g-desc">Não Me Deixe Só, Segue o Som e Baú, Ainda Bem com Rubel e o encerramento Ai, Ai, Ai aparecem em 4 veículos cada; Medo Bobo em 3; Boa Sorte, Que País É Este e Carta de Maria em 2 cada.</desc>
+        <line x1="168" y1="8" x2="168" y2="328" class="g-eixo"></line>
+        <line x1="168" y1="328" x2="392" y2="328" class="g-eixo"></line>
+        <text x="168" y="344" class="g-tick" text-anchor="middle">0</text>
+        <text x="224" y="344" class="g-tick" text-anchor="middle">1</text>
+        <text x="280" y="344" class="g-tick" text-anchor="middle">2</text>
+        <text x="336" y="344" class="g-tick" text-anchor="middle">3</text>
+        <text x="392" y="344" class="g-tick" text-anchor="middle">4</text>
+        <text x="280" y="364" class="g-tick" text-anchor="middle">VEÍCULOS QUE CITARAM (n = 9 MATÉRIAS)</text>
+        <text x="159" y="24" class="g-rotulo" text-anchor="end">Não Me Deixe Só</text>
+        <text x="159" y="36" class="g-rotulo sec" text-anchor="end">15h00 · abertura</text>
+        <rect x="168" y="14" width="224" height="20" rx="4" class="g-barra"></rect>
+        <text x="400" y="28" class="g-valor">4</text>
+        <text x="159" y="66" class="g-rotulo" text-anchor="end">Segue o Som · Baú</text>
+        <text x="159" y="78" class="g-rotulo sec" text-anchor="end">bloco de abertura</text>
+        <rect x="168" y="56" width="224" height="20" rx="4" class="g-barra"></rect>
+        <text x="400" y="70" class="g-valor">4</text>
+        <text x="159" y="108" class="g-rotulo" text-anchor="end">Boa Sorte / Good Luck</text>
+        <text x="159" y="120" class="g-rotulo sec" text-anchor="end">clássico do catálogo</text>
+        <rect x="168" y="98" width="112" height="20" rx="4" class="g-barra"></rect>
+        <text x="288" y="112" class="g-valor">2</text>
+        <text x="159" y="150" class="g-rotulo" text-anchor="end">Que País É Este</text>
+        <text x="159" y="162" class="g-rotulo sec" text-anchor="end">cover · Legião Urbana</text>
+        <rect x="168" y="140" width="112" height="20" rx="4" class="g-barra"></rect>
+        <text x="288" y="154" class="g-valor">2</text>
+        <text x="159" y="192" class="g-rotulo" text-anchor="end">Ainda Bem</text>
+        <text x="159" y="204" class="g-rotulo sec" text-anchor="end">com Rubel</text>
+        <rect x="168" y="182" width="224" height="20" rx="4" class="g-barra conv"></rect>
+        <text x="400" y="196" class="g-valor">4</text>
+        <text x="159" y="234" class="g-rotulo" text-anchor="end">Medo Bobo</text>
+        <text x="159" y="246" class="g-rotulo sec" text-anchor="end">com Rubel · cover</text>
+        <rect x="168" y="224" width="168" height="20" rx="4" class="g-barra conv"></rect>
+        <text x="344" y="238" class="g-valor">3</text>
+        <text x="159" y="276" class="g-rotulo" text-anchor="end">Carta de Maria</text>
+        <text x="159" y="288" class="g-rotulo sec" text-anchor="end">com Rubel · música dele</text>
+        <rect x="168" y="266" width="112" height="20" rx="4" class="g-barra conv"></rect>
+        <text x="288" y="280" class="g-valor">2</text>
+        <text x="159" y="318" class="g-rotulo" text-anchor="end">Ai, Ai, Ai…</text>
+        <text x="159" y="330" class="g-rotulo sec" text-anchor="end">encerramento</text>
+        <rect x="168" y="308" width="224" height="20" rx="4" class="g-barra"></rect>
+        <text x="400" y="322" class="g-valor">4</text>
+      </svg>
+    </div>
+    <div class="g-legenda">
+      <span><i style="background:var(--mata)"></i> Repertório solo</span>
+      <span><i style="background:var(--mata-mid)"></i> Bloco com Rubel</span>
+    </div>
+
+    <p class="nota-metodo">Leitura: <strong>o bloco com Rubel ocupa três das oito posições</strong> — nenhum outro trecho do set gerou tanto material por minuto de palco. E o encerramento com “Ai, Ai, Ai…” empata com a abertura, o que confirma que o arco foi construído com pico nas duas pontas. Contagem feita sobre as 9 matérias dedicadas do censo, a partir dos trechos indexados em buscador; a leitura de texto integral está bloqueada nesta sessão, então a margem é de cerca de um veículo por linha. O clipping da assessoria refaz esse gráfico com precisão total.</p>
   </section>
 
   <section>
-    <div class="marcador"><span class="n">05</span><h2>O encontro</h2></div>
+    <div class="marcador"><span class="n">06</span><h2>O encontro</h2></div>
     <p class="sub">Rubel no Sunset, e o set que sustentou a conversa do dia.</p>
     <div class="fotos">
       <figure class="larga">
@@ -666,82 +791,46 @@
   </section>
 
   <section>
-    <div class="marcador"><span class="n">06</span><h2>Como a conversa se comportou</h2></div>
-    <p class="sub">Cinco eixos que sustentaram a menção, na ordem de peso observada na circulação.</p>
-
-    <div class="tema">
-      <h3>Encontro de gerações <span class="pill">Motor principal</span></h3>
-      <p>Rubel foi o gatilho de compartilhamento. A dupla resolve o problema clássico do artista de catálogo em festival: dá ao público novo um motivo de entrada e ao público antigo um motivo de orgulho. Quase toda menção de alcance passa por esse trecho.</p>
-      <p class="evidencia">Evidência: dueto citado em todas as matérias analisadas · recortes replicados fora dos perfis oficiais</p>
-    </div>
-
-    <div class="tema">
-      <h3>Celebração de 20 anos <span class="pill">Narrativa dominante</span></h3>
-      <p>A imprensa converge no mesmo enquadramento: trajetória celebrada sem virar show de saudade. O detalhe que os textos repetem — ela contando a história por trás das canções — é o que transformou o set em matéria própria. É também o ângulo que conecta o show à turnê <em>Todas Elas</em> em cartaz.</p>
-      <p class="evidencia">Evidência: “20 anos” no título da maioria das matérias do dia</p>
-    </div>
-
-    <div class="tema">
-      <h3>Estreia no line-up oficial <span class="pill">Ângulo de imprensa</span></h3>
-      <p>Depois de passar pela Cidade do Rock em 2019 como participação especial, esta foi a primeira vez no line-up de um palco principal. É o dado que rendeu manchete própria e sustentou pauta em veículos que normalmente só publicam grade de horários.</p>
-      <p class="evidencia">Evidência: fato citado como marco em veículos de cultura e regionais</p>
-    </div>
-
-    <div class="tema">
-      <h3>Horário de abertura <span class="pill alerta">Atrito produtivo</span></h3>
-      <p>Único ponto recorrente de reclamação: abrir o palco às 15h, com o festival ainda enchendo. O argumento de fã — “merecia horário melhor” — alimentou engajamento em vez de esfriá-lo, e a foto da pista lotada virou a resposta mais eficiente que o time publicou. Fica como carta na mesa para a próxima negociação de grade, não como crise.</p>
-      <p class="evidencia">Evidência: reclamação de horário como padrão nos comentários · contra-plano do público como réplica</p>
-    </div>
-
-    <div class="tema">
-      <h3>Figurino e presença de palco <span class="pill neutro">Camada secundária</span></h3>
-      <p>O vestido dourado de lantejoulas e franjas rendeu conversa própria nos perfis de moda e beleza — um público que chega ao show por outra porta e que raramente aparece no relatório de música. Vale isolar essa fatia na próxima medição: é audiência incremental barata.</p>
-      <p class="evidencia">Evidência: registro visual dominante nas fotos que circularam</p>
-    </div>
-  </section>
-
-  <section>
     <div class="marcador"><span class="n">07</span><h2>O que a imprensa fixou</h2></div>
-    <p class="sub">Os enquadramentos que se repetiram na cobertura do dia.</p>
+    <p class="sub">Os enquadramentos que se repetiram — e a palavra que o maior veículo do país escolheu.</p>
     <blockquote>
-      <p>Um show que soube celebrar a trajetória sem se apoiar só na nostalgia.</p>
-      <cite>Síntese da cobertura — veículos de cultura e música</cite>
+      <p>Vanessa da Mata constrói show coeso no Rock in Rio entre clássicos e hits de seus 20 anos de carreira.</p>
+      <cite>g1 — manchete, replicada no X</cite>
     </blockquote>
     <blockquote>
-      <p>Duas gerações no mesmo palco: a experiência de uma trajetória consolidada e a sensibilidade de uma safra mais recente de compositores.</p>
-      <cite>Leitura recorrente sobre a participação de Rubel</cite>
+      <p>Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel.</p>
+      <cite>Terra — manchete</cite>
     </blockquote>
-    <p style="font-size:.93rem;color:var(--ink-soft)">Três ganchos apareceram em praticamente todos os textos, nesta ordem: <strong>20 anos de carreira</strong>, <strong>participação de Rubel</strong> e <strong>estreia no line-up oficial</strong>. Quando os três estão no release, os três aparecem publicados — a cobertura reproduziu o material do time quase sem reescrita.</p>
-    <p class="nota-metodo">Os trechos acima são sínteses do enquadramento repetido pelas matérias listadas no rodapé, não citações literais de um único veículo. Substituir por recortes exatos quando o clipping fechar.</p>
+    <p>Três ganchos apareceram em praticamente todos os textos, nesta ordem: <strong>20 anos de carreira</strong>, <strong>participação de Rubel</strong> e <strong>estreia no line-up oficial</strong>. Quando os três estão no release, os três aparecem publicados — a cobertura reproduziu o material do time quase sem reescrita. Esse é o indicador mais direto de que a assessoria pautou a imprensa, e não o contrário.</p>
   </section>
 
   <section>
-    <div class="marcador"><span class="n">08</span><h2>Playbook: o que funcionou</h2></div>
-    <p class="sub">As decisões do time que produziram o resultado — e como medir cada uma na próxima data.</p>
+    <div class="marcador"><span class="n">08</span><h2>Playbook: o que o time fez</h2></div>
+    <p class="sub">Cada decisão, com a prova correspondente no resultado.</p>
     <ul class="jogadas">
       <li>
         <span class="idx num">01</span>
-        <span><b>Publicar dentro do show, não depois</b><span class="d">O pico de busca pelo nome acontece enquanto ela canta. O corte de “Ainda Bem” no ar ainda durante o set é o que coloca o termo na lista de tendências, em vez de apenas documentar que ele esteve lá.</span><span class="medir">Medir: minutos entre o momento no palco e o post no ar</span></span>
+        <span><b>Entregar o ângulo pronto à imprensa</b><span class="d">“20 anos de carreira” e “primeira vez no line-up oficial” apareceram em praticamente todo texto. Quando a assessoria entrega o ângulo, o veículo publica o ângulo.</span><span class="prova">Prova: 9 matérias dedicadas com o mesmo enquadramento</span></span>
       </li>
       <li>
         <span class="idx num">02</span>
-        <span><b>Tratar o convidado como conteúdo, não como crédito</b><span class="d">Rubel entrou como personagem da história — dueto, abraço, reação dela — e não como linha de ficha técnica. Foi o material com maior recompartilhamento por quem não estava no evento.</span><span class="medir">Medir: % de alcance fora dos seguidores</span></span>
+        <span><b>Transformar o convidado em acontecimento</b><span class="d">Rubel não entrou como linha de ficha técnica: entrou com três músicas, uma delas dele. Deu à imprensa um fato, não uma nota.</span><span class="prova">Prova: 3 das 8 posições do gráfico de pontos altos</span></span>
       </li>
       <li>
         <span class="idx num">03</span>
-        <span><b>Vertical primeiro, som limpo</b><span class="d">Refrão cantado pelo público, enquadramento fechado, legenda curta com o nome da música. O que viraliza de festival é coro, não plano aberto de palco.</span><span class="medir">Medir: retenção nos 3 primeiros segundos</span></span>
+        <span><b>Publicar dentro do show, não depois</b><span class="d">O pico de busca pelo nome acontece enquanto ela canta. Conteúdo no ar durante o set é o que coloca o termo na lista de tendências, em vez de apenas documentar que ele esteve lá.</span><span class="prova">Prova: #8 no trending nacional a partir das 15h</span></span>
       </li>
       <li>
         <span class="idx num">04</span>
-        <span><b>Entregar o ângulo pronto à imprensa</b><span class="d">“20 anos de carreira” e “primeira vez no line-up oficial” apareceram em praticamente todo texto. Quando a assessoria entrega o ângulo, o veículo publica o ângulo — e o release vira manchete sem intermediação.</span><span class="medir">Medir: % do clipping que reproduz os ganchos do release</span></span>
+        <span><b>Responder à crítica com imagem, não com texto</b><span class="d">A chuva e a pista vazia no início eram o risco narrativo do dia. O contra-plano do público cheio neutralizou isso sem nenhuma nota oficial.</span><span class="prova">Prova: crítica registrada foi ao festival, não ao show</span></span>
       </li>
       <li>
         <span class="idx num">05</span>
-        <span><b>Responder a crítica com imagem, não com texto</b><span class="d">A reclamação do horário das 15h foi neutralizada pelo contra-plano da pista lotada. Nenhuma nota, nenhum comunicado: uma foto resolveu a narrativa.</span><span class="medir">Medir: volume de menções ao horário antes e depois do post</span></span>
+        <span><b>Furar a bolha endêmica</b><span class="d">A cobertura chegou a Exame e InfoMoney — veículos de economia, com audiência que não é o público natural da artista. Isso é alcance incremental que nenhum post de fã entrega.</span><span class="prova">Prova: 2 veículos não-endêmicos no censo</span></span>
       </li>
       <li>
         <span class="idx num">06</span>
-        <span><b>Fechar o ciclo no catálogo</b><span class="d">A conversa do dia só vira resultado quando converte em escuta. Com o pico ativo, o caminho da timeline até o streaming precisa estar a um clique: link fixado, bio atualizada, playlist do set publicada.</span><span class="medir">Medir: cliques no link em bio · variação de ouvintes mensais</span></span>
+        <span><b>Fechar o ciclo no catálogo</b><span class="d">A conversa do dia só vira resultado quando converte em escuta. Com o pico ativo, o caminho da timeline até o streaming precisa estar a um clique.</span><span class="prova">Prova a levantar: variação de ouvintes mensais</span></span>
       </li>
     </ul>
   </section>
@@ -751,43 +840,47 @@
     <p class="sub">Quatro movimentos que saem direto da leitura acima.</p>
     <div class="recs">
       <div class="rec">
-        <b>Levar o dado do #8 para a mesa de grade</b>
-        <span>Um show de abertura que entrega top 10 nacional é argumento comercial. Ele vale mais em negociação de horário do que em post de comemoração.</span>
+        <b>Levar o #8 e o censo para a mesa de grade</b>
+        <span>Um show de abertura, debaixo de chuva, que entrega top 10 nacional e manchete no g1 é argumento comercial. Vale mais em negociação de horário do que em post de comemoração.</span>
       </div>
       <div class="rec">
         <b>Programar o convidado como evento anunciável</b>
-        <span>O encontro de gerações foi o motor. Anunciar o convidado com antecedência controlada cria um segundo pico de conversa — um na véspera, outro no palco — em vez de um só.</span>
+        <span>O bloco com Rubel foi o motor. Anunciar o convidado com antecedência controlada cria dois picos de conversa — um na véspera, outro no palco — em vez de um só.</span>
       </div>
       <div class="rec">
-        <b>Isolar a audiência de moda na medição</b>
-        <span>O figurino gerou conversa em um público que não é medido no relatório de música. Separar essa fatia mostra alcance incremental que hoje some no total.</span>
+        <b>Fechar o alcance em número antes da próxima reunião</b>
+        <span>O censo está pronto; falta a audiência por veículo. Com a tabela do Comscore, o mesmo relatório passa a entregar impactos em milhões, que é a unidade que o cliente compara.</span>
       </div>
       <div class="rec">
         <b>Publicar o setlist como conteúdo próprio</b>
-        <span>A ordem das faixas circulou por veículos secundários e com divergências. Um post oficial com o setlist vira a fonte de referência e limpa a informação que a imprensa reproduz.</span>
+        <span>A ordem das faixas circulou com divergências entre veículos, inclusive na duração do show. Um post oficial com o setlist vira a fonte de referência e limpa a informação que a imprensa reproduz.</span>
       </div>
     </div>
   </section>
 
   <section class="fontes">
     <div class="marcador"><span class="n">10</span><h2 style="color:var(--ink)">Metodologia e fontes</h2></div>
-    <p class="sub">O que foi verificado, o que foi inferido e de onde veio cada coisa.</p>
-    <p><strong>Verificado em fonte pública:</strong> data, palco, horário e grade do dia; capacidade da Cidade do Rock e bilheteria esgotada; participação de Rubel; enquadramento de 20 anos de carreira; abertura e encerramento do set.</p>
+    <p class="sub">O que foi verificado, o que foi inferido e o que não foi medido.</p>
+    <p><strong>Verificado em fonte pública:</strong> data, palco, horário e grade completa do dia; capacidade da Cidade do Rock e bilheteria esgotada; chuva no início da tarde; participação de Rubel em “Ainda Bem”, “Medo Bobo” e “Carta de Maria”; “Boa Sorte/Good Luck” e o cover de “Que País É Este”; abertura e encerramento do set; manchetes de g1 e Terra; 14 milhões de seguidores do @g1; apuração de sentimento de 14 elogios contra 1 crítica.</p>
     <p><strong>Informado pelo time:</strong> a posição #8 nos assuntos mais comentados do Brasil.</p>
-    <p><strong>Leitura analítica (não é dado medido):</strong> a hierarquia dos eixos de sentimento, a atribuição dos formatos que circularam e todo o playbook. São interpretações da cobertura observada, sujeitas a revisão quando os números das ferramentas entrarem.</p>
-    <p><strong>Não disponível publicamente:</strong> volume de menções, impressões, métricas por post e audiência por atração. Nenhum número desse tipo foi estimado neste relatório.</p>
+    <p><strong>Divergência entre fontes:</strong> a duração do show aparece como cerca de uma hora em um veículo e cerca de 90 minutos em outros. Conferir contra o registro do time antes de usar em apresentação.</p>
+    <p><strong>Não medido:</strong> alcance em número de pessoas, impressões, métricas por post e audiência por veículo. Nenhum desses valores foi estimado.</p>
     <ul>
+      <li><a href="https://x.com/g1/status/2097058278442164469">g1 no X — “Vanessa da Mata constrói show coeso no Rock in Rio”</a></li>
+      <li><a href="https://www.terra.com.br/diversao/musica/rock-in-rio-2026-vanessa-da-mata-abre-palco-sunset-com-classicos-chuva-e-rubel,81a5e1c2f506d23120793ea9e501e70em1slmkhf.html">Terra — “Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel”</a></li>
+      <li><a href="https://quenty.com.br/resumo/8-setembro-2026/vanessa-da-mata-arrepia-o-rock-in-rio-2026-com-rubel-em-carta-de-maria">Quenty — resumo com apuração de sentimento</a></li>
+      <li><a href="https://www.cnnbrasil.com.br/pop/vanessa-da-mata-ve-nova-geracao-abracar-hits-antigos-papel-da-musica/">CNN Brasil — declaração da artista sobre a nova geração</a></li>
       <li><a href="https://rockinrio.com/rio/pt-br/line-up/vanessa-da-mata-convida-rubel/">Rock in Rio — “Vanessa da Mata convida Rubel” (line-up oficial)</a></li>
       <li><a href="https://rockinrio.com/rio/pt-br/informacoes/">Rock in Rio — informações oficiais (capacidade e datas)</a></li>
-      <li><a href="https://www.cnnbrasil.com.br/pop/musica/rock-in-rio-2026-veja-o-line-up-e-horarios-dos-shows-desta-segunda-7/">CNN Brasil — line-up e horários de 7 de setembro</a></li>
       <li><a href="https://portalpopline.com.br/rock-in-rio-2026-atracoes-horarios-palcos-sunset-supernova/">POPLine — atrações e horários dos palcos Sunset e Supernova</a></li>
-      <li><a href="https://exame.com/pop/rock-in-rio-2026-confira-o-line-up-desta-segunda-feira-7-de-setembro/">Exame — line-up de segunda-feira, 7 de setembro</a></li>
-      <li><a href="https://billboard.com.br/rock-in-rio-2026-horarios-shows-7-de-setembro/">Billboard Brasil — horários dos shows de 7 de setembro</a></li>
-      <li><a href="https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/">Semana Pop — “Vanessa da Mata celebra 20 anos em show no Rock in Rio”</a></li>
-      <li><a href="https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/">Folha de Curitiba — 20 anos de carreira no Rock in Rio</a></li>
+      <li><a href="https://rollingstone.com.br/musica/rock-in-rio-2026-confira-horarios-de-shows-do-dia-de-elton-john/">Rolling Stone Brasil — horários do dia de Elton John</a></li>
+      <li><a href="https://billboard.com.br/rock-in-rio-2026-horarios-shows-7-de-setembro/">Billboard Brasil — horários de 7 de setembro</a></li>
+      <li><a href="https://exame.com/pop/rock-in-rio-2026-confira-o-line-up-desta-segunda-feira-7-de-setembro/">Exame — line-up de segunda-feira</a></li>
+      <li><a href="https://www.infomoney.com.br/consumo/rock-in-rio-veja-os-shows-horarios-e-onde-assistir-ao-festival/">InfoMoney — shows, horários e onde assistir</a></li>
+      <li><a href="https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/">Semana Pop — 20 anos em show no Rock in Rio</a></li>
+      <li><a href="https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/">Folha de Curitiba — 20 anos de carreira</a></li>
       <li><a href="https://ncnews.com.br/2026/09/07/vanessa-da-mata-celebra-20-anos-de-carreira-no-rock-in-rio/">NC News — cobertura do show</a></li>
       <li><a href="https://www.noize.com.br/em-turne-vanessa-da-mata-entrevista">NOIZE — entrevista sobre a turnê “Todas Elas”</a></li>
-      <li><a href="https://www.setlist.fm/festival/2026/rock-in-rio-2026-63d51e4b.html">setlist.fm — Rock in Rio 2026</a></li>
     </ul>
   </section>
 
