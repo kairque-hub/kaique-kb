@@ -1,0 +1,480 @@
+<title>Sunset, 15h</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ground:#F6F5F0;
+    --surface:#FFFFFF;
+    --ink:#161E1A;
+    --ink-soft:#5C6A63;
+    --line:#DCDFD6;
+    --mata:#1E5B48;
+    --mata-soft:#E6EEE9;
+    --sunset:#B4652A;
+    --peak-ink:#F6F5F0;
+    --shadow:0 1px 2px rgba(22,30,26,.05);
+    --display:"Fraunces","Iowan Old Style",Georgia,serif;
+    --body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1411;
+      --surface:#161D18;
+      --ink:#E9EDE5;
+      --ink-soft:#95A29A;
+      --line:#28322C;
+      --mata:#6FC0A0;
+      --mata-soft:#17251F;
+      --peak-ink:#0F1411;
+      --sunset:#DFA163;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1411;
+    --surface:#161D18;
+    --ink:#E9EDE5;
+    --ink-soft:#95A29A;
+    --line:#28322C;
+    --mata:#6FC0A0;
+    --mata-soft:#17251F;
+    --peak-ink:#0F1411;
+    --sunset:#DFA163;
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 22px 72px}
+  @media (min-width:700px){ body{font-size:17px} .wrap{padding:0 32px 96px} }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  /* ---------- topo ---------- */
+  header{padding:44px 0 30px}
+  .kicker{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-bottom:26px}
+  .kicker .dot{color:var(--mata)}
+  h1{
+    font-family:var(--display);
+    font-weight:300;
+    font-size:clamp(2.5rem,10.5vw,3.9rem);
+    line-height:1.02;
+    letter-spacing:-.018em;
+    margin:0 0 18px;
+    text-wrap:balance;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--mata)}
+  .standfirst{
+    font-size:1.06rem;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:34em;
+  }
+
+  /* ---------- ficha ---------- */
+  .ficha{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px 20px;
+    padding:20px 0;
+    margin:0 0 46px;
+  }
+  @media (min-width:560px){ .ficha{grid-template-columns:repeat(4,1fr)} }
+  .ficha div{display:flex;flex-direction:column;gap:3px}
+  .ficha b{font-family:var(--body);font-weight:500;font-size:.97rem;line-height:1.3}
+
+  /* ---------- seções ---------- */
+  section{margin:0 0 52px}
+  h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:1.42rem;
+    letter-spacing:-.012em;
+    line-height:1.2;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .sub{color:var(--ink-soft);font-size:.93rem;margin:0 0 22px}
+  p{margin:0 0 15px}
+  p:last-child{margin-bottom:0}
+
+  /* ---------- destaque #8 ---------- */
+  .peak{
+    background:var(--mata);
+    color:var(--peak-ink);
+    border-radius:3px;
+    padding:26px 24px 24px;
+    margin:0 0 52px;
+  }
+  .peak .eyebrow{color:inherit;opacity:.72}
+  .peak-row{display:flex;align-items:baseline;gap:14px;margin:10px 0 12px}
+  .peak-num{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:4.2rem;
+    line-height:.82;
+    letter-spacing:-.03em;
+  }
+  .peak-label{font-size:.98rem;line-height:1.35;opacity:.9}
+  .peak p{font-size:.93rem;opacity:.85;margin:0}
+
+  /* ---------- linha do show ---------- */
+  .roteiro{list-style:none;margin:0;padding:0}
+  .roteiro li{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:16px;
+    padding:15px 0;
+    border-top:1px solid var(--line);
+  }
+  .roteiro li:last-child{border-bottom:1px solid var(--line)}
+  .roteiro .mom{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding-top:3px;
+  }
+  .roteiro .faixa{font-weight:700;display:block}
+  .roteiro .nota{color:var(--ink-soft);font-size:.93rem}
+  .roteiro li.alta .faixa{color:var(--mata)}
+  .roteiro li.alta .mom{color:var(--mata)}
+
+  /* ---------- fotos ---------- */
+  .fotos{display:grid;gap:14px}
+  @media (min-width:560px){ .fotos{grid-template-columns:1fr 1fr} }
+  figure{margin:0}
+  .slot{
+    border:1px dashed var(--line);
+    border-radius:3px;
+    background:var(--surface);
+    aspect-ratio:4/5;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-align:center;
+    padding:20px;
+  }
+  .slot span{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .slot strong{font-weight:500;font-size:.95rem;line-height:1.35;max-width:20ch}
+  figcaption{
+    font-size:.86rem;
+    color:var(--ink-soft);
+    margin-top:8px;
+    padding-left:1px;
+  }
+  .slot img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+
+  /* ---------- sentimento ---------- */
+  .tema{border-top:1px solid var(--line);padding:18px 0 4px}
+  .tema:first-of-type{border-top:none;padding-top:0}
+  .tema h3{
+    font-family:var(--body);
+    font-size:1rem;
+    font-weight:700;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .pill{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:3px 7px 2px;
+    border-radius:2px;
+    background:var(--mata-soft);
+    color:var(--mata);
+    font-weight:500;
+  }
+  .pill.neutro{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)}
+  .tema p{font-size:.95rem;color:var(--ink-soft);margin:0 0 14px}
+
+  /* ---------- citações ---------- */
+  blockquote{
+    margin:0 0 22px;
+    padding:0 0 0 18px;
+    border-left:2px solid var(--line);
+  }
+  blockquote p{
+    font-family:var(--display);
+    font-weight:300;
+    font-size:1.14rem;
+    line-height:1.42;
+    margin:0 0 7px;
+  }
+  blockquote cite{
+    font-style:normal;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- o que funcionou ---------- */
+  .jogadas{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .jogadas li{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .jogadas li:last-child{border-bottom:1px solid var(--line)}
+  .jogadas .idx{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--sunset);
+    padding-top:5px;
+    letter-spacing:.04em;
+  }
+  .jogadas b{display:block;font-weight:700;margin-bottom:2px}
+  .jogadas span.d{color:var(--ink-soft);font-size:.94rem}
+
+  /* ---------- painel a preencher ---------- */
+  .painel{
+    border:1px dashed var(--line);
+    border-radius:3px;
+    padding:20px;
+    display:grid;
+    gap:16px;
+  }
+  @media (min-width:560px){ .painel{grid-template-columns:1fr 1fr} }
+  .metrica{display:flex;flex-direction:column;gap:2px}
+  .metrica .v{
+    font-family:var(--display);
+    font-size:1.7rem;
+    font-weight:500;
+    line-height:1.1;
+    color:var(--ink-soft);
+    opacity:.5;
+  }
+  .metrica .v.cheio{color:var(--ink);opacity:1}
+  .metrica .k{font-size:.88rem;color:var(--ink-soft)}
+
+  /* ---------- fontes ---------- */
+  .fontes{font-size:.88rem;color:var(--ink-soft)}
+  .fontes ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:7px}
+  .fontes a{color:var(--mata);text-decoration:none;border-bottom:1px solid var(--line)}
+  .fontes a:hover{border-bottom-color:var(--mata)}
+  a:focus-visible,.slot:focus-visible{outline:2px solid var(--mata);outline-offset:3px}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="kicker">
+      <p class="eyebrow">Rock in Rio 2026</p>
+      <p class="eyebrow"><span class="dot">/</span> Palco Sunset</p>
+      <p class="eyebrow"><span class="dot">/</span> Seg, 7 set · 15h</p>
+    </div>
+    <h1>Vanessa da Mata abre o Sunset e o Brasil <em>escuta junto</em></h1>
+    <p class="standfirst">Relatório de sentimento, imprensa e digital do show de 20 anos de carreira — com a participação de Rubel e o pico de <strong>#8 nos assuntos mais comentados do Brasil</strong>.</p>
+  </header>
+
+  <div class="ficha">
+    <div><p class="eyebrow">Palco</p><b>Sunset — abertura</b></div>
+    <div><p class="eyebrow">Duração</p><b>≈ 90 minutos</b></div>
+    <div><p class="eyebrow">Convidado</p><b>Rubel</b></div>
+    <div><p class="eyebrow">Marco</p><b>1ª vez no line-up oficial</b></div>
+  </div>
+
+  <div class="peak">
+    <p class="eyebrow">Pico de conversa — X / Twitter Brasil</p>
+    <div class="peak-row">
+      <span class="peak-num">#8</span>
+      <span class="peak-label">nos assuntos mais<br>comentados do país</span>
+    </div>
+    <p>Um show de 15h no palco de aberturas entrou no top 10 nacional disputando espaço com o headliner da noite. É o número que resume o dia.</p>
+  </div>
+
+  <section>
+    <h2>O que aconteceu no palco</h2>
+    <p class="sub">Os momentos que a imprensa e as redes elegeram.</p>
+    <ul class="roteiro">
+      <li>
+        <span class="mom">Abertura</span>
+        <span><span class="faixa">Não Me Deixe Só</span><span class="nota">Primeira música do palco no feriado. Escolha de catálogo que já entrega refrão em coro antes do público terminar de chegar.</span></span>
+      </li>
+      <li>
+        <span class="mom">Sequência</span>
+        <span><span class="faixa">Segue o Som · Baú</span><span class="nota">A leitura de 20 anos começa aqui: repertório novo e antigo na mesma respiração, sem separar em blocos.</span></span>
+      </li>
+      <li class="alta">
+        <span class="mom">Ponto alto</span>
+        <span><span class="faixa">Ainda Bem — com Rubel</span><span class="nota">O encontro de gerações que a imprensa mais destacou e o trecho mais recortado nas redes. O convidado como legenda pronta: quem canta a mesma música em duas épocas diferentes.</span></span>
+      </li>
+      <li class="alta">
+        <span class="mom">Virada</span>
+        <span><span class="faixa">Medo Bobo — versão a dois</span><span class="nota">Sertanejo de Maiara &amp; Maraisa relido em clima MPB. É o tipo de gesto que a linha do tempo adora: inesperado, reconhecível e cantável.</span></span>
+      </li>
+      <li>
+        <span class="mom">Encerramento</span>
+        <span><span class="faixa">Ai, Ai, Ai…</span><span class="nota">Fecha em coro coletivo. A saída do show vira o vídeo de abertura da cobertura pós-evento.</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Imagens</h2>
+    <p class="sub">Registro do time no palco e no encontro com Rubel.</p>
+    <div class="fotos">
+      <figure>
+        <div class="slot">
+          <span>Foto 01</span>
+          <strong>Vanessa da Mata no Palco Sunset</strong>
+        </div>
+        <figcaption>Abertura do Sunset, 15h — Rock in Rio, 7 de setembro.</figcaption>
+      </figure>
+      <figure>
+        <div class="slot">
+          <span>Foto 02</span>
+          <strong>Vanessa e Rubel em “Ainda Bem”</strong>
+        </div>
+        <figcaption>A participação mais compartilhada da tarde.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como a conversa se comportou</h2>
+    <p class="sub">Leitura qualitativa dos temas que sustentaram a menção — imprensa, comentários e recortes de vídeo.</p>
+
+    <div class="tema">
+      <h3>Encontro de gerações <span class="pill">Motor principal</span></h3>
+      <p>Rubel foi o gatilho de compartilhamento. A dupla resolveu o problema clássico do artista de catálogo em festival: dá ao público novo um motivo de entrada e ao público antigo um motivo de orgulho. Quase toda menção de alcance passa por esse trecho.</p>
+    </div>
+
+    <div class="tema">
+      <h3>Celebração de 20 anos <span class="pill">Narrativa dominante</span></h3>
+      <p>A imprensa converge no mesmo enquadramento: trajetória celebrada sem virar show de saudade. O detalhe que os textos repetem — ela contando a história por trás das canções — é o que transformou o set em matéria, não em nota de line-up.</p>
+    </div>
+
+    <div class="tema">
+      <h3>Estreia no line-up oficial <span class="pill">Ângulo de imprensa</span></h3>
+      <p>Depois de passar pela Cidade do Rock em 2019 como participação, esta foi a primeira vez no line-up de um palco principal. É o dado que deu manchete própria e sustentou pauta em veículos que normalmente só publicam grade de horários.</p>
+    </div>
+
+    <div class="tema">
+      <h3>Horário de abertura <span class="pill neutro">Atrito</span></h3>
+      <p>Único ponto recorrente de reclamação: 15h, com o público ainda entrando. Vira argumento de fã — “merecia horário melhor” — e, na prática, alimentou engajamento em vez de esfriá-lo. Vale registrar como pauta de negociação, não como crise.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que a imprensa registrou</h2>
+    <blockquote>
+      <p>Um show que soube celebrar a trajetória sem se apoiar só na nostalgia.</p>
+      <cite>Síntese da cobertura — veículos de cultura e música</cite>
+    </blockquote>
+    <blockquote>
+      <p>Duas gerações no mesmo palco: a experiência de uma trajetória consolidada e a sensibilidade de uma safra mais recente de compositores.</p>
+      <cite>Leitura recorrente sobre a participação de Rubel</cite>
+    </blockquote>
+    <p style="font-size:.9rem;color:var(--ink-soft)">Os trechos acima são sínteses do enquadramento repetido pelas matérias listadas ao final, não citações literais de um único veículo. Substituir por recortes exatos quando o clipping fechar.</p>
+  </section>
+
+  <section>
+    <h2>O que funcionou no digital</h2>
+    <p class="sub">Leitura das jogadas da cobertura — o que repetir na próxima data.</p>
+    <ul class="jogadas">
+      <li>
+        <span class="idx">01</span>
+        <span><b>Publicar dentro do show, não depois</b><span class="d">O pico de busca por “Vanessa da Mata” acontece enquanto ela canta. Corte de “Ainda Bem” no ar ainda durante o set é o que coloca o nome na lista de tendências em vez de só documentar que ele esteve lá.</span></span>
+      </li>
+      <li>
+        <span class="idx">02</span>
+        <span><b>Tratar o convidado como conteúdo, não como crédito</b><span class="d">Rubel entrou como personagem da história — dueto, abraço, reação dela — e não como uma linha de ficha técnica. Foi o material com maior taxa de recompartilhamento por quem não estava no evento.</span></span>
+      </li>
+      <li>
+        <span class="idx">03</span>
+        <span><b>Vertical primeiro, som limpo</b><span class="d">Refrão cantado pelo público, enquadramento fechado, legenda curta com o nome da música. O que viraliza de festival é coro, não plano aberto de palco.</span></span>
+      </li>
+      <li>
+        <span class="idx">04</span>
+        <span><b>Dar um dado à imprensa</b><span class="d">“20 anos de carreira” e “primeira vez no line-up oficial” são as duas frases que apareceram em praticamente todo texto. Quando a assessoria entrega o ângulo pronto, o veículo publica o ângulo.</span></span>
+      </li>
+      <li>
+        <span class="idx">05</span>
+        <span><b>Fechar o ciclo no catálogo</b><span class="d">A conversa do dia se converte em escuta: com o pico ativo, o caminho da linha do tempo para o streaming precisa estar em um clique — link fixado, bio atualizada, playlist do set.</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Painel de resultados</h2>
+    <p class="sub">Campos em cinza aguardam os números fechados do time.</p>
+    <div class="painel">
+      <div class="metrica"><span class="v cheio">#8</span><span class="k">Posição no trending Brasil (X)</span></div>
+      <div class="metrica"><span class="v">—</span><span class="k">Tempo em tendência</span></div>
+      <div class="metrica"><span class="v">—</span><span class="k">Menções no período do show</span></div>
+      <div class="metrica"><span class="v">—</span><span class="k">Views dos cortes verticais</span></div>
+      <div class="metrica"><span class="v">—</span><span class="k">Matérias publicadas (clipping)</span></div>
+      <div class="metrica"><span class="v">—</span><span class="k">Variação de ouvintes no streaming</span></div>
+    </div>
+  </section>
+
+  <section class="fontes">
+    <h2 style="color:var(--ink)">Fontes</h2>
+    <p>Cobertura consultada em 8 de setembro de 2026. Setlist e detalhes da participação de Rubel vieram de veículos secundários e devem ser conferidos contra o registro do time antes de circular externamente.</p>
+    <ul>
+      <li><a href="https://rockinrio.com/rio/pt-br/line-up/vanessa-da-mata-convida-rubel/">Rock in Rio — “Vanessa da Mata convida Rubel” (line-up oficial)</a></li>
+      <li><a href="https://www.cnnbrasil.com.br/pop/musica/rock-in-rio-2026-veja-o-line-up-e-horarios-dos-shows-desta-segunda-7/">CNN Brasil — line-up e horários de 7 de setembro</a></li>
+      <li><a href="https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/">Semana Pop — “Vanessa da Mata celebra 20 anos em show no Rock in Rio”</a></li>
+      <li><a href="https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/">Folha de Curitiba — 20 anos de carreira no Rock in Rio</a></li>
+      <li><a href="https://ncnews.com.br/2026/09/07/vanessa-da-mata-celebra-20-anos-de-carreira-no-rock-in-rio/">NC News — cobertura do show</a></li>
+      <li><a href="https://billboard.com.br/rock-in-rio-2026-horarios-shows-7-de-setembro/">Billboard Brasil — horários dos shows de 7 de setembro</a></li>
+      <li><a href="https://www.setlist.fm/festival/2026/rock-in-rio-2026-63d51e4b.html">setlist.fm — Rock in Rio 2026</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Relatório de cobertura</span>
+    <span>Vanessa da Mata · Rock in Rio 2026</span>
+    <span>Atualizado 08.09.2026</span>
+  </footer>
+
+</div>
