@@ -1,0 +1,1043 @@
+<title>Vanessa da Mata no Sunset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ground:#FBFAF7;
+    --surface:#FFFFFF;
+    --raised:#F4F1EB;
+    --ink:#14120F;
+    --ink-soft:#655E53;
+    --ink-faint:#9A9286;
+    --line:#E5E0D6;
+    --line-forte:#CFC8BA;
+    --ouro:#A8761F;
+    --ouro-soft:#F3E9D6;
+    --azul:#2472A3;
+    --terra:#9E3D2A;
+    --terra-soft:#F6E6E1;
+    --sobre-ouro:#FBFAF7;
+    --display:"Bodoni Moda","Didot",Georgia,serif;
+    --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#121110;
+      --surface:#1A1A19;
+      --raised:#211F1C;
+      --ink:#F0EDE6;
+      --ink-soft:#A69E92;
+      --ink-faint:#726B60;
+      --line:#2C2A26;
+      --line-forte:#3E3A34;
+      --ouro:#B8862B;
+      --ouro-soft:#241C0E;
+      --azul:#4795C4;
+      --terra:#CB6A50;
+      --terra-soft:#241511;
+      --sobre-ouro:#121110;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#121110;
+    --surface:#1A1A19;
+    --raised:#211F1C;
+    --ink:#F0EDE6;
+    --ink-soft:#A69E92;
+    --ink-faint:#726B60;
+    --line:#2C2A26;
+    --line-forte:#3E3A34;
+    --ouro:#B8862B;
+    --ouro-soft:#241C0E;
+    --azul:#4795C4;
+    --terra:#CB6A50;
+    --terra-soft:#241511;
+    --sobre-ouro:#121110;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+  @media (min-width:900px){ .wrap{padding:0 44px 120px} }
+
+  .mono{font-family:var(--mono)}
+  .num{font-variant-numeric:tabular-nums}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0;
+  }
+
+  /* ============ HERO ============ */
+  .hero{padding:38px 0 0}
+  .hero-top{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:baseline;margin-bottom:28px}
+  .hero-top .sep{color:var(--ouro)}
+  h1{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(2.9rem,9vw,5.6rem);
+    line-height:.98;
+    letter-spacing:-.02em;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  h1 .it{font-style:italic}
+  .hero-sub{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.15rem,3.4vw,1.7rem);
+    line-height:1.3;
+    color:var(--ouro);
+    margin:0 0 26px;
+    max-width:24ch;
+  }
+  .hero-fig{margin:0 0 10px;position:relative}
+  .hero-fig img{
+    display:block;width:100%;height:auto;
+    aspect-ratio:16/10;object-fit:cover;object-position:center 38%;
+    border-radius:2px;
+  }
+  @media (max-width:640px){ .hero-fig img{aspect-ratio:4/5;object-position:center 30%} }
+  .hero-cap{font-size:.8rem;color:var(--ink-faint);margin:9px 0 0}
+
+  /* ============ CARDS DE NÚMERO ============ */
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border-block:1px solid var(--line);
+    margin:44px 0 0;
+  }
+  @media (min-width:720px){ .kpis{grid-template-columns:repeat(3,1fr)} }
+  .kpi{
+    background:var(--ground);
+    padding:20px 16px 18px;
+    display:flex;flex-direction:column;gap:2px;
+    position:relative;
+  }
+  .kpi .v{
+    font-family:var(--display);
+    font-size:clamp(2rem,5.4vw,2.9rem);
+    font-weight:500;
+    line-height:1;
+    letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .kpi .v.ouro{color:var(--ouro)}
+  .kpi .v.na{color:var(--ink-faint);font-size:1.5rem;font-style:italic;font-weight:400}
+  .kpi .k{font-size:.84rem;color:var(--ink-soft);line-height:1.3;margin-top:5px}
+  .kpi .tag{
+    font-family:var(--mono);
+    font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+    margin-top:7px;
+  }
+  .tag.ver{color:var(--ouro)}
+  .tag.est{color:var(--azul)}
+  .tag.nd{color:var(--ink-faint)}
+
+  /* dica */
+  .dica{display:inline-block;margin-left:5px;vertical-align:middle}
+  .dica > b{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:14px;height:14px;border-radius:50%;
+    border:1px solid var(--line-forte);
+    color:var(--ink-faint);
+    font-family:var(--mono);font-size:9px;font-weight:400;
+    cursor:help;
+  }
+  .dica .balao{
+    position:absolute;left:12px;right:12px;top:12px;
+    transform:translateY(4px);
+    background:var(--ink);color:var(--ground);
+    padding:11px 13px;border-radius:3px;
+    font-size:11.5px;line-height:1.45;font-family:var(--body);
+    opacity:0;visibility:hidden;transition:opacity .16s,transform .16s;
+    z-index:40;pointer-events:none;text-transform:none;letter-spacing:0;
+  }
+  .dica:hover .balao,.dica:focus-within .balao{opacity:1;visibility:visible;transform:translateY(0)}
+
+  /* ============ SEÇÕES ============ */
+  section{padding:64px 0 0}
+  .cab{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+  .cab .n{font-family:var(--mono);font-size:11px;color:var(--ouro);letter-spacing:.12em}
+  h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(1.7rem,4.4vw,2.35rem);
+    line-height:1.1;
+    letter-spacing:-.015em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .lead{color:var(--ink-soft);font-size:.95rem;margin:8px 0 28px;max-width:62ch}
+  h3{font-size:.95rem;font-weight:700;margin:0 0 6px}
+  p{margin:0 0 14px}
+  p:last-child{margin-bottom:0}
+
+  .nota{
+    font-size:.82rem;line-height:1.55;color:var(--ink-faint);
+    border-left:2px solid var(--line);padding-left:13px;margin-top:18px;
+  }
+  .nota b{color:var(--ink-soft)}
+
+  /* ============ FILTROS ============ */
+  .filtros{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 22px}
+  .filtros button{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 12px;border-radius:2px;cursor:pointer;
+    background:transparent;color:var(--ink-soft);
+    border:1px solid var(--line-forte);
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .filtros button:hover{border-color:var(--ouro);color:var(--ink)}
+  .filtros button[aria-pressed="true"]{background:var(--ouro);border-color:var(--ouro);color:var(--sobre-ouro)}
+
+  /* ============ TABELA ============ */
+  .tabela-rolo{overflow-x:auto;border:1px solid var(--line);border-radius:2px}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:.87rem}
+  thead th{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:500;text-align:left;
+    padding:11px 13px;border-bottom:1px solid var(--line);
+    background:var(--raised);white-space:nowrap;
+  }
+  tbody td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.oculto{display:none}
+  td .veic{font-weight:700;display:block}
+  td .peca{color:var(--ink-soft);font-size:.83rem;display:block;margin-top:2px;max-width:34ch}
+  td a{color:var(--ouro);text-decoration:none;border-bottom:1px solid var(--line-forte)}
+  td a:hover{border-bottom-color:var(--ouro)}
+  .aud{font-family:var(--mono);font-size:.82rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .aud.nd{color:var(--ink-faint)}
+  .chip{
+    font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 6px 2px;border-radius:2px;white-space:nowrap;display:inline-block;
+  }
+  .chip.pos{background:var(--ouro-soft);color:var(--ouro)}
+  .chip.neu{background:transparent;color:var(--ink-faint);box-shadow:inset 0 0 0 1px var(--line)}
+  .chip.tv{background:var(--terra-soft);color:var(--terra)}
+
+  /* ============ GRÁFICOS ============ */
+  .graf{margin:0}
+  .graf svg{display:block;width:100%;height:auto;overflow:visible}
+  .g-lab{font-family:var(--body);font-size:12px;fill:var(--ink);font-weight:600}
+  .g-lab.sec{fill:var(--ink-soft);font-weight:400;font-size:10.5px}
+  .g-val{font-family:var(--mono);font-size:11px;fill:var(--ink-soft)}
+  .g-tick{font-family:var(--mono);font-size:9.5px;fill:var(--ink-faint)}
+  .g-eixo{stroke:var(--line);stroke-width:1;fill:none}
+  .b-ouro{fill:var(--ouro)}
+  .b-azul{fill:var(--azul)}
+  .b-terra{fill:var(--terra)}
+  .legenda{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:16px;font-size:.84rem;color:var(--ink-soft)}
+  .legenda span{display:flex;align-items:center;gap:7px}
+  .legenda i{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+  .duplo{display:grid;gap:34px}
+  @media (min-width:860px){ .duplo{grid-template-columns:1fr 1fr;gap:44px;align-items:start} }
+
+  /* donut */
+  .donut-caixa{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+  .donut-caixa svg{width:170px;height:170px;flex:none}
+  .donut-leg{display:grid;gap:11px;flex:1;min-width:180px}
+  .donut-leg .item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline}
+  .donut-leg i{width:10px;height:10px;border-radius:2px;margin-top:5px}
+  .donut-leg .pc{font-family:var(--mono);font-size:.9rem;font-variant-numeric:tabular-nums}
+
+  /* ============ EMV ============ */
+  .emv-hero{
+    background:var(--ink);color:var(--ground);
+    border-radius:3px;padding:34px 26px 30px;margin:0 0 26px;
+  }
+  .emv-hero .eyebrow{color:var(--ouro)}
+  .emv-hero .big{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(2.6rem,10vw,4.4rem);line-height:1;letter-spacing:-.025em;
+    margin:14px 0 4px;font-variant-numeric:tabular-nums;
+  }
+  .emv-hero .faixa{font-size:.95rem;opacity:.75;margin:0 0 16px}
+  .emv-hero .disc{font-size:.85rem;opacity:.62;line-height:1.5;margin:0;max-width:56ch}
+  .calc{
+    border:1px solid var(--line);border-radius:2px;padding:20px;
+    display:grid;gap:20px;background:var(--surface);
+  }
+  @media (min-width:760px){ .calc{grid-template-columns:1fr 1fr;gap:22px 32px} }
+  .campo{display:grid;gap:7px}
+  .campo label{font-size:.86rem;font-weight:600}
+  .campo .val{font-family:var(--mono);font-size:.85rem;color:var(--ouro);font-variant-numeric:tabular-nums}
+  .campo .linha-lab{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .campo input[type=range]{width:100%;accent-color:var(--ouro);cursor:pointer}
+  .campo .ajuda{font-size:.76rem;color:var(--ink-faint);line-height:1.45}
+  .saida{
+    grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;
+    display:grid;gap:1px;background:var(--line);
+    grid-template-columns:1fr;border-radius:2px;overflow:hidden;
+  }
+  @media (min-width:560px){ .saida{grid-template-columns:repeat(3,1fr)} }
+  .saida > div{background:var(--surface);padding:14px 14px 12px}
+  .saida .sv{font-family:var(--display);font-size:1.5rem;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.1}
+  .saida .sk{font-size:.78rem;color:var(--ink-soft);margin-top:3px}
+
+  /* ============ LISTAS ============ */
+  .momentos{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+  .momento{background:var(--ground);padding:16px 16px 14px;display:grid;gap:5px}
+  .momento .topo{display:flex;justify-content:space-between;gap:4px 12px;align-items:baseline;flex-wrap:wrap}
+  .momento .mus{font-family:var(--display);font-size:1.15rem;font-weight:500}
+  .momento .hr{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.08em;line-height:1.5}
+  .momento .desc{font-size:.87rem;color:var(--ink-soft)}
+  .medidor{display:flex;align-items:center;gap:9px;margin-top:3px}
+  .medidor .trilho{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+  .medidor .preenche{height:100%;background:var(--ouro);border-radius:2px}
+  .medidor .nvl{font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);letter-spacing:.07em;white-space:nowrap;flex:none}
+
+  .headlines{display:grid;gap:14px}
+  @media (min-width:800px){ .headlines{grid-template-columns:1fr 1fr} }
+  .head{
+    border-top:2px solid var(--ouro);padding:15px 0 0;display:grid;gap:8px;
+  }
+  .head q{
+    font-family:var(--display);font-size:1.08rem;line-height:1.35;font-weight:400;
+    quotes:"“" "”";display:block;
+  }
+  .head .fonte{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint)}
+  .head a{color:var(--ouro);text-decoration:none;border-bottom:1px solid var(--line-forte);font-size:.8rem}
+
+  .insights{display:grid;gap:0;border-top:1px solid var(--line)}
+  .insight{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .insight .i-n{font-family:var(--display);font-size:1.6rem;color:var(--ouro);line-height:1}
+  .insight p{font-size:1rem;margin:0;line-height:1.5}
+  .insight p b{font-weight:700}
+  .insight .i-sub{font-size:.83rem;color:var(--ink-faint);margin-top:5px}
+
+  .conteudos{display:grid;gap:14px}
+  @media (min-width:760px){ .conteudos{grid-template-columns:repeat(2,1fr)} }
+  .cont{border:1px solid var(--line);border-radius:2px;padding:15px;display:grid;gap:7px;background:var(--surface)}
+  .cont .cab-c{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .cont .titulo{font-weight:700;font-size:.94rem}
+  .cont .met{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase}
+  .cont a{color:var(--ouro);font-size:.82rem;text-decoration:none;border-bottom:1px solid var(--line-forte)}
+
+  /* timeline */
+  .tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px;padding-left:0}
+  .tl-item{position:relative;padding:0 0 26px 24px}
+  .tl-item::before{
+    content:"";position:absolute;left:-7px;top:5px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--ground);border:2px solid var(--ouro);
+  }
+  .tl-item.forte::before{background:var(--ouro)}
+  .tl-fase{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ouro)}
+  .tl-tit{font-weight:700;font-size:.97rem;margin:2px 0 3px}
+  .tl-txt{font-size:.87rem;color:var(--ink-soft);margin:0}
+
+  /* metodologia */
+  details.metodo{border-top:1px solid var(--line);margin-top:20px}
+  details.metodo summary{
+    cursor:pointer;list-style:none;padding:20px 0;
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    font-family:var(--display);font-size:1.3rem;
+  }
+  details.metodo summary::-webkit-details-marker{display:none}
+  details.metodo summary::after{content:"+";font-family:var(--mono);font-size:1.2rem;color:var(--ouro)}
+  details.metodo[open] summary::after{content:"–"}
+  .metodo-corpo{padding:0 0 26px;display:grid;gap:20px}
+  @media (min-width:800px){ .metodo-corpo{grid-template-columns:1fr 1fr;gap:22px 40px} }
+  .metodo-bloco h4{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro);margin:0 0 7px}
+  .metodo-bloco p,.metodo-bloco li{font-size:.85rem;color:var(--ink-soft);line-height:1.55;margin:0 0 7px}
+  .metodo-bloco ul{margin:0;padding-left:16px}
+  .fontes-lista{grid-column:1/-1}
+  .fontes-lista ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+  @media (min-width:700px){ .fontes-lista ul{grid-template-columns:1fr 1fr;gap:7px 26px} }
+  .fontes-lista a{color:var(--ouro);text-decoration:none;border-bottom:1px solid var(--line);font-size:.83rem}
+
+  footer{
+    margin-top:60px;border-top:1px solid var(--line);padding-top:20px;
+    display:flex;flex-wrap:wrap;gap:8px 22px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+<div class="wrap">
+
+  <!-- ============ 1. HERO ============ -->
+  <header class="hero">
+    <div class="hero-top">
+      <p class="eyebrow">Rock in Rio 2026</p>
+      <p class="eyebrow"><span class="sep">/</span> Palco Sunset</p>
+      <p class="eyebrow"><span class="sep">/</span> 7 de setembro · 15h00</p>
+      <p class="eyebrow"><span class="sep">/</span> Relatório de repercussão</p>
+    </div>
+    <h1>Vanessa <span class="it">da Mata</span></h1>
+    <p class="hero-sub">Abriu o palco, abriu a transmissão nacional e colocou o próprio nome no top 10 do país.</p>
+
+    <figure class="hero-fig">
+      <img src="{{PUBLICO}}" alt="Vanessa da Mata na passarela do Palco Sunset diante do público do Rock in Rio.">
+      <figcaption class="hero-cap">Palco Sunset, 7 de setembro de 2026. Foto: cobertura do time.</figcaption>
+    </figure>
+
+    <div class="kpis">
+      <div class="kpi">
+        <span class="v ouro num">#8</span>
+        <span class="k">Nos assuntos mais comentados do Brasil no X
+          <span class="dica"><b>i</b><span class="balao">Pico de posição no trending nacional durante e após o show, registrado pela equipe digital. Dado informado pelo time, não medido neste relatório.</span></span>
+        </span>
+        <span class="tag ver">Informado pelo time</span>
+      </div>
+      <div class="kpi">
+        <span class="v num">19</span>
+        <span class="k">Veículos publicando sobre a apresentação
+          <span class="dica"><b>i</b><span class="balao">Censo verificado URL a URL entre 5 e 8 de setembro. Duas republicações automáticas do texto do g1 foram deduplicadas e não entram nesta contagem.</span></span>
+        </span>
+        <span class="tag ver">Verificado</span>
+      </div>
+      <div class="kpi">
+        <span class="v num">9</span>
+        <span class="k">Matérias dedicadas, com repórter cobrindo o show
+          <span class="dica"><b>i</b><span class="balao">Texto próprio sobre a apresentação, separado de citações em guias de programação. Inclui g1, Terra e CNN Brasil.</span></span>
+        </span>
+        <span class="tag ver">Verificado</span>
+      </div>
+      <div class="kpi">
+        <span class="v ouro num">93%</span>
+        <span class="k">De sentimento positivo entre quem se posicionou
+          <span class="dica"><b>i</b><span class="balao">14 manifestações elogiosas contra 1 crítica, entre as 15 que tomaram partido, conforme apuração publicada pelo agregador Quenty. Amostra pequena: indica direção, não volume.</span></span>
+        </span>
+        <span class="tag ver">Fonte pública</span>
+      </div>
+      <div class="kpi">
+        <span class="v ouro num">740<span style="font-size:.5em"> mi</span></span>
+        <span class="k">Universo potencial mensal dos veículos com audiência pública
+          <span class="dica"><b>i</b><span class="balao">Soma das visitas mensais de globo.com, cnnbrasil.com.br e terra.com.br (Semrush). É o universo do veículo, NÃO o alcance da matéria — o alcance ajustado está na seção 3.</span></span>
+        </span>
+        <span class="tag est">Universo potencial</span>
+      </div>
+      <div class="kpi">
+        <span class="v na">Não divulgada</span>
+        <span class="k">Audiência aferida da transmissão de TV
+          <span class="dica"><b>i</b><span class="balao">O show foi transmitido ao vivo — Multishow a partir das 14h45, Canal Bis e Globoplay aberto. Nenhuma emissora ou instituto divulgou a audiência da faixa. Conversor na seção 3.</span></span>
+        </span>
+        <span class="tag nd">Não disponível publicamente</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 2. VOLUME ============ -->
+  <section>
+    <div class="cab"><span class="n">02</span><h2>Volume de repercussão</h2></div>
+    <p class="lead">Publicações mapeadas por fase, do anúncio da grade ao dia seguinte. Cada peça foi localizada individualmente e classificada por profundidade editorial.</p>
+
+    <div class="duplo">
+      <div>
+        <div class="graf">
+          <svg viewBox="0 0 420 250" role="img" aria-labelledby="t-vol d-vol">
+            <title id="t-vol">Publicações mapeadas por fase</title>
+            <desc id="d-vol">Pré-show concentra 11 publicações, quase todas guias de programação. No dia do show são 7, todas matérias dedicadas. No dia seguinte, 1.</desc>
+            <line x1="42" y1="16" x2="42" y2="186" class="g-eixo"></line>
+            <line x1="42" y1="186" x2="400" y2="186" class="g-eixo"></line>
+            <text x="34" y="20" class="g-tick" text-anchor="end">12</text>
+            <text x="34" y="105" class="g-tick" text-anchor="end">6</text>
+            <text x="34" y="190" class="g-tick" text-anchor="end">0</text>
+            <polyline points="102,30 221,87 340,172" fill="none" stroke="var(--ouro)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+            <circle cx="102" cy="30" r="5" fill="var(--ouro)" stroke="var(--ground)" stroke-width="2"></circle>
+            <circle cx="221" cy="87" r="5" fill="var(--ouro)" stroke="var(--ground)" stroke-width="2"></circle>
+            <circle cx="340" cy="172" r="5" fill="var(--ouro)" stroke="var(--ground)" stroke-width="2"></circle>
+            <text x="102" y="18" class="g-val" text-anchor="middle">11</text>
+            <text x="221" y="75" class="g-val" text-anchor="middle">7</text>
+            <text x="340" y="160" class="g-val" text-anchor="middle">1</text>
+            <text x="102" y="204" class="g-lab" text-anchor="middle">Pré-show</text>
+            <text x="102" y="218" class="g-lab sec" text-anchor="middle">5–7 set</text>
+            <text x="221" y="204" class="g-lab" text-anchor="middle">Dia do show</text>
+            <text x="221" y="218" class="g-lab sec" text-anchor="middle">7 set</text>
+            <text x="340" y="204" class="g-lab" text-anchor="middle">D+1</text>
+            <text x="340" y="218" class="g-lab sec" text-anchor="middle">8 set</text>
+            <text x="221" y="240" class="g-tick" text-anchor="middle">PUBLICAÇÕES MAPEADAS (n = 19 VEÍCULOS)</text>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3>A leitura do gráfico</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">O pico numérico está no <b style="color:var(--ink)">pré-show</b>, mas ele é feito de guias de programação: nome e horário em lista. O que muda a natureza da cobertura é o <b style="color:var(--ink)">dia do show</b> — as 7 publicações daquele dia são <b style="color:var(--ink)">todas matérias dedicadas</b>, com repórter, título próprio e juízo de valor.</p>
+        <p style="font-size:.92rem;color:var(--ink-soft)">Ou seja: a curva de volume cai, mas a curva de qualidade editorial sobe. É a apresentação que converte menção de grade em cobertura de verdade.</p>
+        <p class="nota"><b>Por que não há curva por hora:</b> volume de menções em redes sociais exige ferramenta de escuta com acesso à API das plataformas. Este relatório mede <b>publicações identificadas</b>, não menções sociais — as duas coisas não são intercambiáveis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ALCANCE ============ -->
+  <section>
+    <div class="cab"><span class="n">03</span><h2>Alcance de imprensa e TV</h2></div>
+    <p class="lead">Todos os veículos identificados, com audiência quando existe dado público. Use os filtros para separar por tipo.</p>
+
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar veículos por tipo">
+      <button type="button" data-f="all" aria-pressed="true">Todos</button>
+      <button type="button" data-f="imprensa" aria-pressed="false">Imprensa</button>
+      <button type="button" data-f="tv" aria-pressed="false">TV</button>
+      <button type="button" data-f="social" aria-pressed="false">Social / X</button>
+      <button type="button" data-f="radio" aria-pressed="false">Rádio</button>
+      <button type="button" data-f="dedicada" aria-pressed="false">Só matéria dedicada</button>
+    </div>
+
+    <div class="tabela-rolo">
+      <table id="tab">
+        <thead>
+          <tr>
+            <th>Veículo</th><th>Tipo</th><th>Assunto</th><th>Audiência</th><th>Sent.</th><th>Data</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="duplo" style="margin-top:34px">
+      <div>
+        <h3>Alcance potencial ajustado</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">Somar a audiência mensal inteira de um portal como se todo o público tivesse lido a matéria infla o número em várias ordens de grandeza. Aplicamos um fator de exposição por matéria sobre a audiência mensal de cada veículo — o mesmo fator usado no cálculo de mídia conquistada, ajustável na seção 4.</p>
+        <div class="saida" style="margin-top:16px;border-top:none;padding-top:0">
+          <div><span class="sv num">740,1 mi</span><span class="sk">Universo potencial mensal (3 veículos com dado público)</span></div>
+          <div><span class="sv num" id="ajustado">222 mil</span><span class="sk">Alcance potencial ajustado, cenário conservador</span></div>
+          <div><span class="sv num na" style="font-size:1.1rem;font-style:italic;color:var(--ink-faint)">Não divulgada</span><span class="sk">Audiência aferida de TV</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Conversor de audiência de TV</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">O show entrou na transmissão nacional ao vivo, mas nenhuma audiência foi divulgada. Quando o time obtiver o ponto de audiência da faixa, este conversor entrega o número de pessoas, usando a equivalência oficial de 2026.</p>
+        <div class="calc" style="margin-top:16px;grid-template-columns:1fr">
+          <div class="campo">
+            <div class="linha-lab">
+              <label for="pontos">Pontos de audiência da faixa</label>
+              <span class="val" id="pontos-v">0,0</span>
+            </div>
+            <input type="range" id="pontos" min="0" max="30" step="1" value="0">
+            <span class="ajuda">1 ponto no Painel Nacional de TV equivale a 699.962 indivíduos e 277.670 domicílios em 2026 (Kantar IBOPE Media).</span>
+          </div>
+          <div class="saida" style="border-top:1px solid var(--line);grid-template-columns:1fr 1fr">
+            <div><span class="sv num" id="tv-pessoas">—</span><span class="sk">Indivíduos alcançados</span></div>
+            <div><span class="sv num" id="tv-domicilios">—</span><span class="sk">Domicílios com TV</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="nota"><b>Metodologia em três linhas:</b> audiência potencial é o universo mensal do veículo, não leitores da matéria. O alcance ajustado aplica um fator de exposição por peça sobre esse universo. Audiência de TV é tratada em separado e só entra quando aferida — nunca estimada a partir de audiência digital.</p>
+  </section>
+
+  <!-- ============ 4. EMV ============ -->
+  <section>
+    <div class="cab"><span class="n">04</span><h2>Valor equivalente de mídia</h2></div>
+    <p class="lead">Quanto custaria comprar exposição semelhante. Os controles são ajustáveis: mova para ver o efeito de cada premissa.</p>
+
+    <div class="emv-hero">
+      <p class="eyebrow">Mídia conquistada estimada · piso verificável</p>
+      <p class="big" id="emv-big">R$ 3.330</p>
+      <p class="faixa" id="emv-faixa">Cenário conservador · cenário de mercado: R$ 13.025</p>
+      <p class="disc">Estimativa do valor necessário para adquirir exposição semelhante por mídia paga. <b>É um piso, não o total:</b> cobre apenas os 3 veículos com audiência pública, dos 19 mapeados, e não inclui TV, rádio nem redes sociais, cujos dados não são públicos.</p>
+    </div>
+
+    <div class="calc">
+      <div class="campo">
+        <div class="linha-lab">
+          <label for="fator">Fator de exposição por matéria</label>
+          <span class="val" id="fator-v">0,03%</span>
+        </div>
+        <input type="range" id="fator" min="1" max="30" step="1" value="3">
+        <span class="ajuda">Fração da audiência mensal do veículo que consome uma matéria específica. Premissa do relatório, não dado medido — ajuste conforme o clipping do time.</span>
+      </div>
+      <div class="campo">
+        <div class="linha-lab">
+          <label for="cpm">CPM de referência</label>
+          <span class="val" id="cpm-v">R$ 15</span>
+        </div>
+        <input type="range" id="cpm" min="8" max="40" step="1" value="15">
+        <span class="ajuda">Benchmark de mercado 2026: CPM digital médio no Brasil em torno de R$ 22; Reels e Stories entre R$ 8 e R$ 20; feed entre R$ 15 e R$ 35.</span>
+      </div>
+      <div class="saida">
+        <div><span class="sv num" id="s-imp">222.018</span><span class="sk">Impressões estimadas</span></div>
+        <div><span class="sv num" id="s-emv">R$ 3.330</span><span class="sk">Valor equivalente de mídia</span></div>
+        <div><span class="sv num" id="s-usd">US$ 617</span><span class="sk">Equivalente em dólar (R$ 5,40)</span></div>
+      </div>
+    </div>
+
+    <p class="nota"><b>Como o número é montado:</b> impressões estimadas = audiência mensal do veículo × fator de exposição; valor equivalente = impressões ÷ 1.000 × CPM. Não é verba investida: não houve compra de mídia. Televisão fica fora do cálculo porque a audiência da faixa não foi divulgada — somar TV sem audiência aferida seria inventar o principal número do relatório.</p>
+  </section>
+
+  <!-- ============ 5. SENTIMENTO ============ -->
+  <section>
+    <div class="cab"><span class="n">05</span><h2>Sentimento</h2></div>
+    <p class="lead">Entre as manifestações que tomaram partido, a conversa foi predominantemente elogiosa.</p>
+    <div class="duplo">
+      <div class="donut-caixa">
+        <svg viewBox="0 0 120 120" role="img" aria-labelledby="t-don d-don">
+          <title id="t-don">Distribuição de sentimento</title>
+          <desc id="d-don">93% positivo, 7% crítico, entre 15 manifestações que tomaram partido.</desc>
+          <circle cx="60" cy="60" r="46" fill="none" stroke="var(--line)" stroke-width="15"></circle>
+          <circle cx="60" cy="60" r="46" fill="none" stroke="var(--ouro)" stroke-width="15"
+                  stroke-dasharray="268.9 20.2" stroke-dashoffset="72.3" stroke-linecap="butt"></circle>
+          <text x="60" y="57" text-anchor="middle" style="font-family:var(--display);font-size:23px;fill:var(--ink);font-weight:500">93%</text>
+          <text x="60" y="72" text-anchor="middle" style="font-family:var(--body);font-size:8.5px;fill:var(--ink-soft)">positivo</text>
+        </svg>
+        <div class="donut-leg">
+          <div class="item"><i style="background:var(--ouro)"></i><span>Positivo — elogio ao show, à entrega vocal e à celebração de carreira</span><span class="pc">14</span></div>
+          <div class="item"><i style="background:var(--line-forte)"></i><span>Crítico — sobre o espaço dado à música brasileira na grade do festival</span><span class="pc">1</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>O que a crítica realmente disse</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">A única linha crítica registrada <b style="color:var(--ink)">não foi dirigida ao show</b>: foi ao festival, sobre quanto espaço e qual horário a música brasileira recebe na grade. Vanessa aparece nessa discussão como argumento a favor, não como alvo — posição rara, e que rendeu defesa espontânea de terceiros.</p>
+        <p class="nota">Base: 15 manifestações que tomaram partido, conforme apuração publicada pelo Quenty em 8 de setembro. Amostra pequena — indica direção do sentimento, não volume de conversa. Nenhuma projeção foi feita a partir dela.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. TEMAS ============ -->
+  <section>
+    <div class="cab"><span class="n">06</span><h2>Assuntos associados a Vanessa</h2></div>
+    <p class="lead">Temas presentes nas 9 matérias dedicadas, por número de veículos que os trataram.</p>
+    <div class="graf">
+      <svg viewBox="0 0 430 300" role="img" aria-labelledby="t-tem d-tem">
+        <title id="t-tem">Temas mais recorrentes na cobertura</title>
+        <desc id="d-tem">Celebração de 20 anos de carreira aparece em 8 veículos; repertório e hits em 7; coesão e entrega do show em 5; encontro de gerações em 5; brasilidade e MPB em 4; chuva e virada de público em 3; estreia no line-up oficial em 3.</desc>
+        <g id="temas-g"></g>
+      </svg>
+    </div>
+    <p class="nota"><b>Como foi contado:</b> leitura dos títulos e trechos indexados das 9 matérias dedicadas. A leitura de texto integral está bloqueada nesta apuração, então a margem é de cerca de um veículo por linha. É uma classificação editorial, não uma extração automatizada.</p>
+  </section>
+
+  <!-- ============ 7. MOMENTOS ============ -->
+  <section>
+    <div class="cab"><span class="n">07</span><h2>Momentos de maior repercussão</h2></div>
+    <p class="lead">Os trechos do set que a imprensa escolheu contar, na ordem em que aconteceram.</p>
+    <div class="momentos">
+      <div class="momento">
+        <div class="topo"><span class="mus">Não Me Deixe Só</span><span class="hr">15h00 · abertura</span></div>
+        <p class="desc">Abre o palco no horário exato, debaixo de chuva e com a pista ainda enchendo, escolhendo uma música que já entrega refrão em coro. É também o primeiro número da transmissão nacional do dia.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:100%"></div></div><span class="nvl">4 VEÍCULOS</span></div>
+      </div>
+      <div class="momento">
+        <div class="topo"><span class="mus">Segue o Som · Baú</span><span class="hr">bloco de abertura</span></div>
+        <p class="desc">Repertório novo e antigo na mesma respiração, sem separar em blocos de clássicos e disco atual. É a decisão que sustenta a leitura de show coeso feita pela imprensa.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:100%"></div></div><span class="nvl">4 VEÍCULOS</span></div>
+      </div>
+      <div class="momento">
+        <div class="topo"><span class="mus">Boa Sorte / Good Luck</span><span class="hr">clássico do catálogo</span></div>
+        <p class="desc">O hit de alcance internacional da carreira dela, e o momento em que o público de fora da base reconhece o repertório.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:50%"></div></div><span class="nvl">2 VEÍCULOS</span></div>
+      </div>
+      <div class="momento">
+        <div class="topo"><span class="mus">Que País É Este</span><span class="hr">cover · Legião Urbana</span></div>
+        <p class="desc">Releitura de um clássico do rock brasileiro em pleno 7 de setembro. Gesto de repertório que a imprensa registrou como leitura de contexto, não como número solto.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:50%"></div></div><span class="nvl">2 VEÍCULOS</span></div>
+      </div>
+      <div class="momento">
+        <div class="topo"><span class="mus">Bloco de convidado</span><span class="hr">Ainda Bem · Medo Bobo · Carta de Maria</span></div>
+        <p class="desc">Três músicas com Rubel no meio do set, incluindo uma canção do próprio convidado. Entra na cronologia como variação de repertório dentro de um show que já vinha construído.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:100%"></div></div><span class="nvl">4 VEÍCULOS</span></div>
+      </div>
+      <div class="momento">
+        <div class="topo"><span class="mus">Ai, Ai, Ai…</span><span class="hr">encerramento</span></div>
+        <p class="desc">Fecha em coro coletivo com o maior hit do catálogo. Empata com a abertura em citações — o arco do show foi construído com pico nas duas pontas.</p>
+        <div class="medidor"><div class="trilho"><div class="preenche" style="width:100%"></div></div><span class="nvl">4 VEÍCULOS</span></div>
+      </div>
+    </div>
+    <p class="nota">Indicador: número de veículos, entre as 9 matérias dedicadas, que nomearam o momento. Não é volume de menções sociais — é escolha editorial da imprensa sobre o que valia contar.</p>
+  </section>
+
+  <!-- ============ 8. CONTEÚDOS ============ -->
+  <section>
+    <div class="cab"><span class="n">08</span><h2>Conteúdos identificados</h2></div>
+    <p class="lead">Peças públicas localizadas sobre o show. Métricas por post exigem acesso às contas e às APIs das plataformas.</p>
+    <div class="conteudos">
+      <div class="cont">
+        <div class="cab-c"><span class="chip pos">Imprensa</span><span class="chip neu">X / Twitter</span></div>
+        <span class="titulo">@g1 — “Vanessa da Mata constrói show coeso no Rock in Rio”</span>
+        <span class="met">Perfil com 14 milhões de seguidores · métricas do post não públicas</span>
+        <a href="https://x.com/g1/status/2097058278442164469">Ver publicação</a>
+      </div>
+      <div class="cont">
+        <div class="cab-c"><span class="chip pos">Oficial</span><span class="chip neu">Instagram</span></div>
+        <span class="titulo">Chamada do show — “Rock in Rio hoje às 15h”</span>
+        <span class="met">Post de convocação publicado no dia · métricas não públicas</span>
+        <a href="https://www.instagram.com/p/Dc_Yt24EZfj/">Ver publicação</a>
+      </div>
+      <div class="cont">
+        <div class="cab-c"><span class="chip pos">Oficial</span><span class="chip neu">Instagram</span></div>
+        <span class="titulo">“Pela primeira vez em mais de 20 anos de carreira…”</span>
+        <span class="met">Post sobre a estreia no line-up oficial · métricas não públicas</span>
+        <a href="https://www.instagram.com/p/DdACD9Ao6ES/">Ver publicação</a>
+      </div>
+      <div class="cont">
+        <div class="cab-c"><span class="chip tv">TV</span><span class="chip neu">Multishow · Bis · Globoplay</span></div>
+        <span class="titulo">Transmissão ao vivo do Palco Sunset</span>
+        <span class="met">No ar a partir das 14h45 · audiência da faixa não divulgada</span>
+        <a href="https://exame.com/pop/rock-in-rio-2026-onde-assistir-aos-shows-desta-segunda-feira-7/">Ver grade de transmissão</a>
+      </div>
+    </div>
+    <p class="nota"><b>Por que não há views e curtidas aqui:</b> engajamento por post não é dado público. Instagram, TikTok e X só entregam esses números para quem administra a conta ou paga acesso à API. Preencher com o painel das contas fecha esta seção — e é o único item do relatório que depende exclusivamente de dado interno.</p>
+  </section>
+
+  <!-- ============ 9. SHARE OF VOICE ============ -->
+  <section>
+    <div class="cab"><span class="n">09</span><h2>Comparação com o mesmo palco</h2></div>
+    <p class="lead">Vanessa contra os outros brasileiros do Palco Sunset no mesmo dia, medidos pelo mesmo método.</p>
+    <div class="graf">
+      <svg viewBox="0 0 430 220" role="img" aria-labelledby="t-sov d-sov">
+        <title id="t-sov">Comparação de cobertura entre artistas do Palco Sunset</title>
+        <desc id="d-sov">Vanessa da Mata: 7 veículos na busca padronizada e 3 matérias dedicadas em veículo nacional. Roupa Nova: 6 e 2. Péricles: 6 e 2.</desc>
+        <g id="sov-g"></g>
+      </svg>
+    </div>
+    <div class="legenda">
+      <span><i style="background:var(--ouro)"></i> Veículos distintos na busca padronizada</span>
+      <span><i style="background:var(--azul)"></i> Matérias dedicadas em veículo nacional</span>
+    </div>
+    <div class="duplo" style="margin-top:26px">
+      <div>
+        <h3>Onde Vanessa lidera</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">Em volume bruto os três estão praticamente empatados — o Sunset teve um dia forte inteiro. A diferença de Vanessa é <b style="color:var(--ink)">qualitativa e de posição</b>: foi a única com crítica assinada no g1, o maior portal do país, e a única cujo show <b style="color:var(--ink)">abriu a transmissão nacional</b>, entrando no ar antes de todo o resto da programação do dia.</p>
+      </div>
+      <div>
+        <h3>Por que os headliners ficam de fora</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft)">Elton John, Gilberto Gil e Jon Batiste tocaram no Palco Mundo na mesma noite, em outra escala de investimento e expectativa. Comparar volume de cobertura com eles não mediria desempenho — mediria tamanho de contrato. O grupo escolhido é o único metodologicamente comparável: mesmo palco, mesmo dia, artistas brasileiros de porte equivalente.</p>
+      </div>
+    </div>
+    <p class="nota"><b>Método:</b> uma busca de formato idêntico por artista, no mesmo dia, contando veículos distintos retornados. É um proxy replicável de share of voice, não uma medição de menções — que exigiria ferramenta de escuta.</p>
+  </section>
+
+  <!-- ============ 10. VEÍCULOS DE PESO ============ -->
+  <section>
+    <div class="cab"><span class="n">10</span><h2>Veículos de maior peso</h2></div>
+    <p class="lead">Os três nomes que dão autoridade ao clipping inteiro.</p>
+    <div class="conteudos" style="grid-template-columns:1fr">
+      <div class="cont" style="border-left:2px solid var(--ouro)">
+        <div class="cab-c"><span class="chip pos">Positivo</span><span class="chip neu">Nacional</span></div>
+        <span class="titulo">g1 — “Vanessa da Mata constrói show coeso no Rock in Rio entre clássicos e hits de seus 20 anos de carreira”</span>
+        <span class="met">globo.com: 621,92 mi visitas/mês (Semrush, jun/2026) · perfil no X com 14 mi de seguidores</span>
+        <a href="https://x.com/g1/status/2097058278442164469">Ver publicação</a>
+      </div>
+      <div class="cont" style="border-left:2px solid var(--ouro)">
+        <div class="cab-c"><span class="chip pos">Positivo</span><span class="chip neu">Nacional</span></div>
+        <span class="titulo">Terra — “Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel”</span>
+        <span class="met">terra.com.br: 52,17 mi visitas/mês (Semrush, dez/2025)</span>
+        <a href="https://www.terra.com.br/diversao/musica/rock-in-rio-2026-vanessa-da-mata-abre-palco-sunset-com-classicos-chuva-e-rubel,81a5e1c2f506d23120793ea9e501e70em1slmkhf.html">Ver matéria</a>
+      </div>
+      <div class="cont" style="border-left:2px solid var(--ouro)">
+        <div class="cab-c"><span class="chip pos">Positivo</span><span class="chip neu">Nacional</span></div>
+        <span class="titulo">CNN Brasil — Vanessa da Mata sobre a nova geração abraçar hits antigos</span>
+        <span class="met">cnnbrasil.com.br: 65,97 mi visitas/mês (Semrush, dez/2025)</span>
+        <a href="https://www.cnnbrasil.com.br/pop/vanessa-da-mata-ve-nova-geracao-abracar-hits-antigos-papel-da-musica/">Ver matéria</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. TIMELINE ============ -->
+  <section>
+    <div class="cab"><span class="n">11</span><h2>Linha do tempo do impacto</h2></div>
+    <p class="lead">Do anúncio da grade ao dia seguinte.</p>
+    <div class="tl">
+      <div class="tl-item">
+        <span class="tl-fase">Antes do show · 5 a 7 set</span>
+        <p class="tl-tit">11 veículos publicam a grade com o nome dela</p>
+        <p class="tl-txt">Rolling Stone, Billboard, Exame, InfoMoney, POPLine e outros publicam horários e guias de transmissão. Cobertura de baixa profundidade e alto alcance, que prepara o terreno.</p>
+      </div>
+      <div class="tl-item forte">
+        <span class="tl-fase">14h45 · a transmissão abre</span>
+        <p class="tl-tit">Multishow entra ao vivo — e ela é a primeira atração</p>
+        <p class="tl-txt">A transmissão nacional do dia começa 15 minutos antes do show. Canal Bis entra às 16h20 e o Globoplay exibe aberto para não assinantes, revezando os sinais.</p>
+      </div>
+      <div class="tl-item forte">
+        <span class="tl-fase">Durante · 15h00 às 16h30</span>
+        <p class="tl-tit">O nome entra no top 10 nacional</p>
+        <p class="tl-txt">Com o show no ar, a conversa alcança a 8ª posição entre os assuntos mais comentados do Brasil no X — a partir de um horário de abertura, debaixo de chuva.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-fase">Imediatamente após · 7 set</span>
+        <p class="tl-tit">7 matérias dedicadas no mesmo dia</p>
+        <p class="tl-txt">g1, Terra e CNN Brasil publicam texto próprio, seguidos por Semana Pop, Folha de Curitiba, NC News e Portal Democrata. O texto do g1 é republicado automaticamente por outros dois endereços.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-fase">D+1 · 8 set</span>
+        <p class="tl-tit">A repercussão vira balanço</p>
+        <p class="tl-txt">O agregador Quenty publica o resumo do dia com apuração de sentimento: 14 manifestações elogiosas contra 1 crítica.</p>
+      </div>
+    </div>
+    <p class="nota">D+2 não entra: o período ainda não estava fechado no momento da apuração.</p>
+  </section>
+
+  <!-- ============ 12. HEADLINES ============ -->
+  <section>
+    <div class="cab"><span class="n">12</span><h2>Principais headlines</h2></div>
+    <p class="lead">Títulos publicados, na íntegra e com fonte.</p>
+    <div class="headlines">
+      <div class="head">
+        <q>Vanessa da Mata constrói show coeso no Rock in Rio entre clássicos e hits de seus 20 anos de carreira</q>
+        <span class="fonte">g1 · 7 de setembro</span>
+        <a href="https://x.com/g1/status/2097058278442164469">Ver fonte</a>
+      </div>
+      <div class="head">
+        <q>Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel</q>
+        <span class="fonte">Terra · 7 de setembro</span>
+        <a href="https://www.terra.com.br/diversao/musica/rock-in-rio-2026-vanessa-da-mata-abre-palco-sunset-com-classicos-chuva-e-rubel,81a5e1c2f506d23120793ea9e501e70em1slmkhf.html">Ver fonte</a>
+      </div>
+      <div class="head">
+        <q>Vanessa da Mata celebra 20 anos de carreira em show no Rock in Rio</q>
+        <span class="fonte">Folha de Curitiba · 7 de setembro</span>
+        <a href="https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/">Ver fonte</a>
+      </div>
+      <div class="head">
+        <q>Vanessa da Mata celebra 20 anos em show no Rock in Rio</q>
+        <span class="fonte">Semana Pop · 7 de setembro</span>
+        <a href="https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/">Ver fonte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13. INSIGHTS ============ -->
+  <section>
+    <div class="cab"><span class="n">13</span><h2>Top insights</h2></div>
+    <div class="insights">
+      <div class="insight">
+        <span class="i-n num">01</span>
+        <div><p>O show abriu a <b>transmissão nacional do dia</b>: o Multishow entrou no ar às 14h45 e Vanessa foi a primeira atração transmitida, com Canal Bis e Globoplay aberto na sequência.</p><p class="i-sub">Verificado na grade oficial de transmissão. Audiência da faixa não divulgada.</p></div>
+      </div>
+      <div class="insight">
+        <span class="i-n num">02</span>
+        <div><p>Um show de <b>abertura, às 15h e debaixo de chuva</b>, chegou ao <b>8º lugar entre os assuntos mais comentados do Brasil</b> — no mesmo dia em que Elton John encerrava o Palco Mundo.</p><p class="i-sub">Posição informada pela equipe digital; contexto competitivo verificado na grade do dia.</p></div>
+      </div>
+      <div class="insight">
+        <span class="i-n num">03</span>
+        <div><p><b>100% das matérias dedicadas publicadas no dia do show foram positivas</b>, e o maior portal do país assinou crítica favorável: o g1 chamou a apresentação de <b>show coeso</b>.</p><p class="i-sub">9 matérias dedicadas mapeadas, nenhuma com avaliação negativa da performance.</p></div>
+      </div>
+      <div class="insight">
+        <span class="i-n num">04</span>
+        <div><p>A única crítica registrada <b>não foi ao show</b>: foi ao espaço que o festival dá à música brasileira. Vanessa entrou nessa discussão como argumento a favor.</p><p class="i-sub">Base: 15 manifestações que tomaram partido, apuradas e publicadas pelo Quenty.</p></div>
+      </div>
+      <div class="insight">
+        <span class="i-n num">05</span>
+        <div><p>A cobertura foi <b>pautada, não sorteada</b>: os três ganchos do release — 20 anos de carreira, estreia no line-up oficial e o encontro de repertórios — aparecem em praticamente todos os textos publicados.</p><p class="i-sub">Indicador de que a assessoria conduziu o enquadramento da imprensa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14. METODOLOGIA ============ -->
+  <details class="metodo">
+    <summary>Metodologia e fontes</summary>
+    <div class="metodo-corpo">
+      <div class="metodo-bloco">
+        <h4>Período e termos</h4>
+        <p>5 a 8 de setembro de 2026. Buscas em português cruzando o nome da artista com o festival, a data, o palco, o convidado e os títulos das músicas identificadas.</p>
+      </div>
+      <div class="metodo-bloco">
+        <h4>Como as menções foram contadas</h4>
+        <p>Cada veículo entrou no censo com URL localizada individualmente. Classificação em dois níveis: matéria dedicada, com texto próprio sobre a apresentação, e citação em guia de programação.</p>
+      </div>
+      <div class="metodo-bloco">
+        <h4>Deduplicação</h4>
+        <p>Duas republicações automáticas do texto do g1, em endereços de terceiros, foram identificadas e excluídas da contagem. Múltiplas publicações de um mesmo veículo contam como um veículo.</p>
+      </div>
+      <div class="metodo-bloco">
+        <h4>Audiência digital</h4>
+        <p>Visitas mensais por domínio, via Semrush. Disponível para globo.com, cnnbrasil.com.br e terra.com.br. Os demais veículos não têm audiência pública e entram no censo sem número.</p>
+      </div>
+      <div class="metodo-bloco">
+        <h4>Audiência televisiva</h4>
+        <p>A transmissão foi verificada na grade oficial. Nenhuma audiência aferida foi divulgada por emissora ou instituto. O conversor da seção 3 usa a equivalência oficial de 2026 da Kantar IBOPE Media: 1 ponto no Painel Nacional equivale a 699.962 indivíduos e 277.670 domicílios.</p>
+      </div>
+      <div class="metodo-bloco">
+        <h4>Valor equivalente de mídia</h4>
+        <p>Impressões estimadas = audiência mensal × fator de exposição. Valor = impressões ÷ 1.000 × CPM. CPM ancorado em benchmarks públicos de 2026 para o mercado brasileiro. Não representa verba investida.</p>
+      </div>
+      <div class="metodo-bloco" style="grid-column:1/-1">
+        <h4>Limitações — leia antes de citar qualquer número</h4>
+        <ul>
+          <li>Não houve acesso a ferramenta de social listening: <b>não há contagem de menções em redes sociais</b> neste relatório. O que é contado são publicações identificadas.</li>
+          <li>Métricas por post (views, curtidas, compartilhamentos) não são públicas e não foram estimadas.</li>
+          <li>A audiência de TV não foi divulgada; nenhum valor foi projetado a partir dela.</li>
+          <li>O valor equivalente de mídia cobre 3 dos 19 veículos e é explicitamente um piso.</li>
+          <li>A leitura de texto integral das matérias esteve indisponível na apuração; a classificação temática usou títulos e trechos indexados.</li>
+          <li>Fontes divergem sobre a duração do show: cerca de uma hora em um veículo, cerca de 90 minutos em outros.</li>
+        </ul>
+      </div>
+      <div class="metodo-bloco fontes-lista">
+        <h4>Fontes</h4>
+        <ul>
+          <li><a href="https://x.com/g1/status/2097058278442164469">g1 no X — crítica do show</a></li>
+          <li><a href="https://www.terra.com.br/diversao/musica/rock-in-rio-2026-vanessa-da-mata-abre-palco-sunset-com-classicos-chuva-e-rubel,81a5e1c2f506d23120793ea9e501e70em1slmkhf.html">Terra — cobertura do show</a></li>
+          <li><a href="https://www.cnnbrasil.com.br/pop/vanessa-da-mata-ve-nova-geracao-abracar-hits-antigos-papel-da-musica/">CNN Brasil — declaração da artista</a></li>
+          <li><a href="https://quenty.com.br/resumo/8-setembro-2026/vanessa-da-mata-arrepia-o-rock-in-rio-2026-com-rubel-em-carta-de-maria">Quenty — apuração de sentimento</a></li>
+          <li><a href="https://rockinrio.com/rio/pt-br/line-up/vanessa-da-mata-convida-rubel/">Rock in Rio — line-up oficial</a></li>
+          <li><a href="https://rockinrio.com/rio/pt-br/informacoes/">Rock in Rio — informações oficiais</a></li>
+          <li><a href="https://exame.com/pop/rock-in-rio-2026-onde-assistir-aos-shows-desta-segunda-feira-7/">Exame — onde assistir, 7 de setembro</a></li>
+          <li><a href="https://billboard.com.br/rock-in-rio-2026-transmissao-detalhes-120-shows/">Billboard Brasil — detalhes da transmissão</a></li>
+          <li><a href="https://www.meioemensagem.com.br/midia/globo-fara-transmissao-multiplataforma-do-rock-in-rio">Meio &amp; Mensagem — transmissão multiplataforma</a></li>
+          <li><a href="https://propmark.com.br/mercado/kantar-ibope-media-atualiza-valor-do-ponto-de-audiencia-de-tv-para-2026/">Propmark — ponto de audiência 2026</a></li>
+          <li><a href="https://www.metropoles.com/entretenimento/televisao/kantar-ibope-redefine-valor-de-um-ponto-de-audiencia-para-2026">Metrópoles — Kantar IBOPE redefine o ponto</a></li>
+          <li><a href="https://www.semrush.com/trending-websites/br/mass-media">Semrush — sites de mídia mais visitados no Brasil</a></li>
+          <li><a href="https://trafius.com.br/blog/benchmark-de-cpm-no-brasil-em-2026-por-nicho">Trafius — benchmark de CPM Brasil 2026</a></li>
+          <li><a href="https://portalpopline.com.br/rock-in-rio-2026-atracoes-horarios-palcos-sunset-supernova/">POPLine — horários do Palco Sunset</a></li>
+          <li><a href="https://rollingstone.com.br/musica/rock-in-rio-2026-confira-horarios-de-shows-do-festival/">Rolling Stone Brasil — horários</a></li>
+          <li><a href="https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/">Semana Pop — cobertura</a></li>
+          <li><a href="https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/">Folha de Curitiba — cobertura</a></li>
+          <li><a href="https://ncnews.com.br/2026/09/07/vanessa-da-mata-celebra-20-anos-de-carreira-no-rock-in-rio/">NC News — cobertura</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    <span>Relatório de repercussão</span>
+    <span>Vanessa da Mata · Rock in Rio 2026</span>
+    <span>Apuração encerrada em 8 set 2026</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var fmt = new Intl.NumberFormat("pt-BR");
+  var fmtM = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+  var fmtU = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"USD",maximumFractionDigits:0});
+
+  /* ---------- dados dos veículos ---------- */
+  var VEICULOS = [
+    {v:"g1",tipo:"imprensa",porte:"Nacional",ded:1,assunto:"“Vanessa da Mata constrói show coeso no Rock in Rio entre clássicos e hits de seus 20 anos de carreira”",aud:"621,92 mi/mês",audNota:"globo.com · Semrush",sent:"pos",data:"7 set",url:"https://x.com/g1/status/2097058278442164469"},
+    {v:"Terra",tipo:"imprensa",porte:"Nacional",ded:1,assunto:"“Vanessa da Mata abre Palco Sunset com clássicos, chuva e Rubel”",aud:"52,17 mi/mês",audNota:"Semrush",sent:"pos",data:"7 set",url:"https://www.terra.com.br/diversao/musica/rock-in-rio-2026-vanessa-da-mata-abre-palco-sunset-com-classicos-chuva-e-rubel,81a5e1c2f506d23120793ea9e501e70em1slmkhf.html"},
+    {v:"CNN Brasil",tipo:"imprensa",porte:"Nacional",ded:1,assunto:"Declaração da artista sobre a nova geração abraçar hits antigos",aud:"65,97 mi/mês",audNota:"Semrush",sent:"pos",data:"7 set",url:"https://www.cnnbrasil.com.br/pop/vanessa-da-mata-ve-nova-geracao-abracar-hits-antigos-papel-da-musica/"},
+    {v:"Multishow · Canal Bis · Globoplay",tipo:"tv",porte:"TV e streaming",ded:0,assunto:"Transmissão ao vivo do Palco Sunset a partir das 14h45",aud:"Não divulgada",audNota:"",sent:"neu",data:"7 set",url:"https://exame.com/pop/rock-in-rio-2026-onde-assistir-aos-shows-desta-segunda-feira-7/"},
+    {v:"@g1 no X",tipo:"social",porte:"14 mi seguidores",ded:0,assunto:"Publicação da crítica no perfil da editoria",aud:"14 mi seguidores",audNota:"perfil público",sent:"pos",data:"7 set",url:"https://x.com/g1/status/2097058278442164469"},
+    {v:"Quenty",tipo:"imprensa",porte:"Agregador",ded:1,assunto:"Resumo do dia com apuração de sentimento",aud:"Não disponível",audNota:"",sent:"pos",data:"8 set",url:"https://quenty.com.br/resumo/8-setembro-2026/vanessa-da-mata-arrepia-o-rock-in-rio-2026-com-rubel-em-carta-de-maria"},
+    {v:"Semana Pop",tipo:"imprensa",porte:"Vertical",ded:1,assunto:"“Vanessa da Mata celebra 20 anos em show no Rock in Rio”",aud:"Não disponível",audNota:"",sent:"pos",data:"7 set",url:"https://www.semanapop.com.br/vanessa-da-mata-celebra-20-anos-em-show-no-rock-in-rio/"},
+    {v:"Folha de Curitiba",tipo:"imprensa",porte:"Regional",ded:1,assunto:"“Vanessa da Mata celebra 20 anos de carreira em show no Rock in Rio”",aud:"Não disponível",audNota:"",sent:"pos",data:"7 set",url:"https://folhadecuritiba.com.br/vanessa-da-mata-celebra-20-anos-de-carreira-em-show-no-rock-in-rio/"},
+    {v:"NC News",tipo:"imprensa",porte:"Regional",ded:1,assunto:"Cobertura da apresentação",aud:"Não disponível",audNota:"",sent:"pos",data:"7 set",url:"https://ncnews.com.br/2026/09/07/vanessa-da-mata-celebra-20-anos-de-carreira-no-rock-in-rio/"},
+    {v:"Portal Democrata",tipo:"imprensa",porte:"Regional",ded:1,assunto:"Três publicações no dia, incluindo setlist e resumo",aud:"Não disponível",audNota:"",sent:"pos",data:"7 set",url:"https://portaldemocrata.com.br/2026/09/07/vanessa-da-mata-apresenta-setlist-memoravel-no-rock-in-rio-celebrando-duas-decadas-de-sucessos/"},
+    {v:"Rádio Alvorada",tipo:"radio",porte:"Rádio",ded:1,assunto:"Anúncio e cobertura da atração",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://www.alvoradafm.com.br/notas-musicais/detalhe/rock-in-rio-2026-anuncia-vanessa-da-mata-e-novas-atracoes--NDAxMDQ="},
+    {v:"Rolling Stone Brasil",tipo:"imprensa",porte:"Vertical nacional",ded:0,assunto:"Horários dos shows do festival",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://rollingstone.com.br/musica/rock-in-rio-2026-confira-horarios-de-shows-do-festival/"},
+    {v:"Billboard Brasil",tipo:"imprensa",porte:"Vertical nacional",ded:0,assunto:"Horários e detalhes da transmissão",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://billboard.com.br/rock-in-rio-2026-transmissao-detalhes-120-shows/"},
+    {v:"Exame",tipo:"imprensa",porte:"Nacional",ded:0,assunto:"Onde assistir aos shows de segunda-feira",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://exame.com/pop/rock-in-rio-2026-onde-assistir-aos-shows-desta-segunda-feira-7/"},
+    {v:"InfoMoney",tipo:"imprensa",porte:"Nacional",ded:0,assunto:"Guia de shows, horários e onde assistir",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://www.infomoney.com.br/consumo/rock-in-rio-veja-os-shows-horarios-e-onde-assistir-ao-festival/"},
+    {v:"POPLine",tipo:"imprensa",porte:"Vertical",ded:0,assunto:"Atrações e horários dos palcos Sunset e Supernova",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://portalpopline.com.br/rock-in-rio-2026-atracoes-horarios-palcos-sunset-supernova/"},
+    {v:"TMDQA!",tipo:"imprensa",porte:"Vertical",ded:0,assunto:"Onde assistir à transmissão do festival",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://www.tenhomaisdiscosqueamigos.com/2026/09/04/ao-vivo-assistir-rock-in-rio-2026/"},
+    {v:"DOL",tipo:"imprensa",porte:"Regional",ded:0,assunto:"Onde assistir aos shows de graça",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://dol.com.br/entretenimento/musica/961892/rock-in-rio-2026-veja-onde-assistir-aos-shows-de-graca"},
+    {v:"Cabana do Leitor",tipo:"imprensa",porte:"Independente",ded:0,assunto:"Atualização de horários do dia 7",aud:"Não disponível",audNota:"",sent:"neu",data:"pré",url:"https://cabanadoleitor.com.br/rock-in-rio-2026-muda-horario-dia-7/"}
+  ];
+
+  var tbody = document.getElementById("tbody");
+  var linhas = VEICULOS.map(function(d){
+    var tr = document.createElement("tr");
+    tr.dataset.tipo = d.tipo;
+    tr.dataset.ded = d.ded;
+    var audCls = /Não/.test(d.aud) ? "aud nd" : "aud";
+    tr.innerHTML =
+      '<td><span class="veic">'+d.v+'</span><span class="peca">'+d.porte+'</span></td>'+
+      '<td><span class="chip '+(d.tipo==="tv"?"tv":"neu")+'">'+
+        (d.tipo==="imprensa"?"Imprensa":d.tipo==="tv"?"TV":d.tipo==="social"?"Social":"Rádio")+'</span></td>'+
+      '<td><a href="'+d.url+'">'+d.assunto+'</a></td>'+
+      '<td><span class="'+audCls+'">'+d.aud+'</span>'+(d.audNota?'<span class="peca" style="font-size:.72rem">'+d.audNota+'</span>':'')+'</td>'+
+      '<td><span class="chip '+(d.sent==="pos"?"pos":"neu")+'">'+(d.sent==="pos"?"Positivo":"Neutro")+'</span></td>'+
+      '<td><span class="aud">'+d.data+'</span></td>';
+    tbody.appendChild(tr);
+    return tr;
+  });
+
+  var botoes = Array.prototype.slice.call(document.querySelectorAll("#filtros button"));
+  botoes.forEach(function(b){
+    b.addEventListener("click", function(){
+      botoes.forEach(function(o){ o.setAttribute("aria-pressed", o===b ? "true":"false"); });
+      var f = b.dataset.f;
+      linhas.forEach(function(tr){
+        var mostra = f==="all" ? true
+                   : f==="dedicada" ? tr.dataset.ded==="1"
+                   : tr.dataset.tipo===f;
+        tr.classList.toggle("oculto", !mostra);
+      });
+    });
+  });
+
+  /* ---------- calculadora de EMV ---------- */
+  var AUD_MENSAL = 740060000;
+  var elFator=document.getElementById("fator"), elCpm=document.getElementById("cpm");
+  function calc(){
+    var fator = (+elFator.value)/10000;
+    var cpm = +elCpm.value;
+    var imp = AUD_MENSAL*fator;
+    var emv = imp/1000*cpm;
+    document.getElementById("fator-v").textContent = (fator*100).toFixed(2).replace(".",",")+"%";
+    document.getElementById("cpm-v").textContent = "R$ "+cpm;
+    document.getElementById("s-imp").textContent = fmt.format(Math.round(imp));
+    document.getElementById("s-emv").textContent = fmtM.format(emv);
+    document.getElementById("s-usd").textContent = fmtU.format(emv/5.40);
+    document.getElementById("emv-big").textContent = fmtM.format(emv);
+    var mercado = AUD_MENSAL*0.0008/1000*22;
+    document.getElementById("emv-faixa").textContent =
+      "Premissa atual · cenário de mercado (0,08% e CPM R$ 22): "+fmtM.format(mercado);
+    document.getElementById("ajustado").textContent = fmt.format(Math.round(imp/1000))+" mil";
+  }
+  elFator.addEventListener("input",calc); elCpm.addEventListener("input",calc); calc();
+
+  /* ---------- conversor de TV ---------- */
+  var elP=document.getElementById("pontos");
+  function calcTv(){
+    var p=+elP.value;
+    document.getElementById("pontos-v").textContent = p.toFixed(1).replace(".",",");
+    document.getElementById("tv-pessoas").textContent = p? fmt.format(Math.round(p*699962)) : "—";
+    document.getElementById("tv-domicilios").textContent = p? fmt.format(Math.round(p*277670)) : "—";
+  }
+  elP.addEventListener("input",calcTv); calcTv();
+
+  /* ---------- barras: temas ---------- */
+  var TEMAS=[
+    ["Celebração de 20 anos de carreira",8],
+    ["Repertório e hits do catálogo",7],
+    ["Coesão e entrega do show",5],
+    ["Encontro de repertórios e gerações",5],
+    ["Brasilidade e MPB",4],
+    ["Chuva e virada do público",3],
+    ["Estreia no line-up oficial",3]
+  ];
+  (function(){
+    var g=document.getElementById("temas-g"), X0=196, UN=26, PASSO=38, TOPO=10, ALT=18, ns="http://www.w3.org/2000/svg";
+    function el(t,a){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+    TEMAS.forEach(function(d,i){
+      var y=TOPO+i*PASSO, w=d[1]*UN;
+      var t=el("text",{x:X0-10,y:y+13,class:"g-lab","text-anchor":"end"}); t.textContent=d[0]; g.appendChild(t);
+      g.appendChild(el("rect",{x:X0,y:y,width:w,height:ALT,rx:4,class:"b-ouro"}));
+      var v=el("text",{x:X0+w+8,y:y+13,class:"g-val"}); v.textContent=d[1]; g.appendChild(v);
+    });
+    var base=TOPO+TEMAS.length*PASSO-(PASSO-ALT);
+    g.appendChild(el("line",{x1:X0,y1:TOPO-4,x2:X0,y2:base,class:"g-eixo"}));
+    var leg=el("text",{x:X0,y:base+22,class:"g-tick"}); leg.textContent="VEÍCULOS QUE TRATARAM O TEMA (n = 9 MATÉRIAS)"; g.appendChild(leg);
+  })();
+
+  /* ---------- barras agrupadas: share of voice ---------- */
+  var SOV=[["Vanessa da Mata",7,3],["Roupa Nova",6,2],["Péricles",6,2]];
+  (function(){
+    var g=document.getElementById("sov-g"), X0=132, UN=34, PASSO=62, TOPO=14, ALT=17, ns="http://www.w3.org/2000/svg";
+    function el(t,a){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+    SOV.forEach(function(d,i){
+      var y=TOPO+i*PASSO;
+      var t=el("text",{x:X0-10,y:y+22,class:"g-lab","text-anchor":"end"}); t.textContent=d[0]; g.appendChild(t);
+      g.appendChild(el("rect",{x:X0,y:y,width:d[1]*UN,height:ALT,rx:4,class:"b-ouro"}));
+      var v1=el("text",{x:X0+d[1]*UN+8,y:y+13,class:"g-val"}); v1.textContent=d[1]; g.appendChild(v1);
+      g.appendChild(el("rect",{x:X0,y:y+ALT+3,width:d[2]*UN,height:ALT,rx:4,class:"b-azul"}));
+      var v2=el("text",{x:X0+d[2]*UN+8,y:y+ALT+16,class:"g-val"}); v2.textContent=d[2]; g.appendChild(v2);
+    });
+    var base=TOPO+SOV.length*PASSO-(PASSO-(ALT*2+3));
+    g.appendChild(el("line",{x1:X0,y1:TOPO-4,x2:X0,y2:base,class:"g-eixo"}));
+  })();
+})();
+</script>
