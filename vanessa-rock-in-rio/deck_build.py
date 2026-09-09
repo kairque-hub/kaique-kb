@@ -4,7 +4,7 @@ import base64, glob, pathlib, subprocess, sys
 B = pathlib.Path(__file__).parent
 def uri(p):
     return "data:image/jpeg;base64," + base64.b64encode((B/p).read_bytes()).decode()
-FOTO = {k: uri(f"img/{k}.jpg") for k in ("publico","duo","pb","perfil")}
+FOTO = {k: uri(f"img/{k}.jpg") for k in ("publico","duo","pb","perfil","capa")}
 FONTES = (B/"fontes/deck.css").read_text()
 
 OURO="#A8761F"; AZUL="#2472A3"; CLAY="#9E3D2A"
@@ -123,15 +123,14 @@ N=lambda i: f"{i:02d}"
 
 # 01 CAPA
 slide(f'''
-<img class="bleed" src="{FOTO['publico']}" alt="">
-<div class="veu"></div>
-<div class="capa">
+<img class="capa-img" src="{FOTO['capa']}" alt="Vanessa da Mata no Palco Sunset">
+<div class="capa-txt">
   <p class="eb ouro">Relatório de performance digital</p>
   <h1 class="tit-capa">Vanessa da&nbsp;Mata<br><em>no Rock in Rio</em></h1>
   <p class="capa-sub">Palco Sunset · 7 de setembro de 2026 · 15h00</p>
   <p class="capa-fio">Primeira atração do dia. Primeira no ar na transmissão nacional.</p>
+  <div class="capa-rod"><span>Apuração de 5 a 9 de setembro de 2026</span><span>Equipe digital</span></div>
 </div>
-<div class="capa-rod"><span>Apuração de 5 a 9 de setembro de 2026</span><span>Equipe digital</span></div>
 ''', dark=True, cls="capa-s")
 
 # 02 SUMÁRIO
@@ -428,17 +427,16 @@ h1{font-family:Newsreader,serif;font-weight:400;font-size:37px;line-height:1.08;
 .dk .nota{color:#6B665E}
 
 /* capa */
-.capa-s{padding:0}
-.bleed{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 26%}
-.veu{position:absolute;inset:0;background:linear-gradient(96deg,#0B0A09 0%,#0B0A09FA 38%,#0B0A09D9 54%,#0B0A0980 72%,#0B0A0933 100%)}
-.capa{position:absolute;left:78px;top:150px;width:560px}
-.tit-capa{font-family:Newsreader,serif;font-weight:400;font-size:76px;line-height:1.0;
-  letter-spacing:-.025em;color:#fff;margin:26px 0 0;max-width:none}
+.capa-s{padding:0;flex-direction:row;background:#0B0A09}
+.capa-img{width:545px;height:720px;object-fit:cover;object-position:center center;flex:none}
+.capa-txt{flex:1;padding:0 72px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.tit-capa{font-family:Newsreader,serif;font-weight:400;font-size:70px;line-height:1.02;
+  letter-spacing:-.025em;color:#fff;margin:24px 0 0;max-width:none}
 .tit-capa em{font-style:italic;font-weight:300;color:#D2A24C}
-.capa-sub{margin-top:40px;font-size:15px;color:#fff;font-weight:400;letter-spacing:.01em}
-.capa-fio{margin-top:10px;font-size:13.5px;color:#B9B2A6;font-weight:300;max-width:44ch;line-height:1.55}
-.capa-rod{position:absolute;left:78px;bottom:52px;display:flex;gap:44px;
-  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8C867C}
+.capa-sub{margin-top:38px;font-size:15px;color:#fff;font-weight:400;letter-spacing:.01em}
+.capa-fio{margin-top:10px;font-size:13.5px;color:#B9B2A6;font-weight:300;max-width:40ch;line-height:1.55}
+.capa-rod{position:absolute;left:72px;right:72px;bottom:46px;display:flex;justify-content:space-between;gap:30px;
+  font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#7E786E}
 
 /* sumário */
 .sumario{margin-top:30px;border-top:1px solid #E7E4DE}
