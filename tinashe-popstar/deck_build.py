@@ -59,7 +59,7 @@ def retrato(chave, nome, papel, tam=112):
 VERIF = ('<svg viewBox="0 0 22 22" class="vf"><path fill="#1D9BF0" d="M20.4 11c0-1.4-.8-2.6-2-3.2.4-1.3.1-2.8-.9-3.8s-2.4-1.3-3.8-.9C13.1 1.9 11.9 1 10.5 1S7.9 1.9 7.3 3.1c-1.3-.4-2.8-.1-3.8.9s-1.3 2.5-.9 3.8C1.4 8.4.6 9.6.6 11s.8 2.6 2 3.2c-.4 1.3-.1 2.8.9 3.8s2.5 1.3 3.8.9c.6 1.2 1.8 2 3.2 2s2.6-.8 3.2-2c1.3.4 2.8.1 3.8-.9s1.3-2.5.9-3.8c1.2-.6 2-1.8 2-3.2z"/>'
          '<path fill="#fff" d="M9.2 15.2 5.6 11.6l1.4-1.4 2.2 2.2 5.3-5.3 1.4 1.4z"/></svg>')
 
-def tweet(pt, en, meta="Popstar release week · proposed", largo=560):
+def tweet(pt, en, meta="Sep 24 · 12:00 PM BRT · 8:00 AM PT · proposed", largo=560):
     return (f'<div class="tw" style="width:{largo}px">'
             f'<div class="tw-h"><img src="{IMG["avatar"]}" class="av"><div>'
             f'<div class="tw-n">Tinashe {VERIF}</div><div class="tw-u">@Tinashe</div></div>'
@@ -157,6 +157,9 @@ slide(f"""
 </div>
 <p class="ov-txt">Speak to Brazil in its own internet language during Popstar week. Turn the most online fandom
 in the world into organic reach, press coverage and new listeners, without spending a cent.</p>
+<div class="ov-post"><div class="ch-t">Posting time</div>
+  <div class="ov-pt"><div><b>Sep 24</b><span>Thursday</span></div><div><b>12 PM</b><span>Brazil (BRT)</span></div><div><b>8 AM</b><span>Los Angeles (PT)</span></div></div>
+  <p>Midday in Brazil gives the tweet a full day to echo across the media.</p></div>
 {fonte("Sources: DataReportal Digital 2026 Brazil; IFPI Global Music Report 2026; setlist.fm; The FADER (Jul 2026).")}
 """, bg="background:#fff")
 
@@ -208,8 +211,8 @@ TWEETS = [
   {"id":"648539373122768896","data":"Sep 28, 2015 · 1:46 PM BRT","tag":"Prismatic tour · Brazil leg","texto":""},
 ]
 def recibo(t, dest=False):
-    corpo = (f'<p class="rc-t">{t["texto"]}</p>' if t["texto"] else
-             f'<p class="rc-q"><span>context</span>{t["tag"]}</p><p class="rc-o">Open the original post on X ↗</p>')
+    corpo = (f'<p class="rc-q"><span>context</span>{t["tag"]}</p>'
+             + (f'<p class="rc-t">{t["texto"]}</p>' if t["texto"] else '<p class="rc-o">Open the original post on X ↗</p>'))
     return (f'<div class="rc {"rc-dest" if dest else ""}"><div class="tw-h"><img src="{IMG["avatar"]}" class="av av-s"><div>'
             f'<div class="tw-n">Tinashe {VERIF}</div><div class="tw-u">@Tinashe · {t["data"]}</div></div></div>'
             f'{corpo}<div class="rc-l">x.com/Tinashe/status/{t["id"]}</div></div>')
@@ -482,7 +485,13 @@ body{{font-family:Inter,sans-serif;color:{INK};-webkit-print-color-adjust:exact;
 .ov-r span{{font-size:11.5px;font-weight:500;line-height:1.3}}
 .ov-bot{{left:560px;top:190px;display:flex;gap:16px;align-items:baseline}}
 .ov-bot b{{font-size:34px;letter-spacing:-.04em;font-weight:500;margin-right:34px}}
-.ov-txt{{left:60px;top:548px;width:760px;font-size:17px;line-height:1.4}}
+.ov-txt{{left:60px;top:548px;width:560px;font-size:17px;line-height:1.4}}
+.ov-post{{left:680px;right:60px;top:535px;border:1.4px solid {INK};border-radius:22px;padding:14px 22px;background:linear-gradient(90deg,#fff 30%,{Y})}}
+.ov-post .ch-t{{margin-bottom:4px}}
+.ov-pt{{display:flex;gap:34px}}
+.ov-pt b{{display:block;font-size:34px;font-weight:500;letter-spacing:-.045em;line-height:1.05}}
+.ov-pt span{{font-size:11px;font-weight:500}}
+.ov-post p{{font-size:12px;margin-top:6px;font-weight:500}}
 
 /* statement */
 .st-img{{left:0;top:0;width:520px;height:720px}}
@@ -513,13 +522,13 @@ body{{font-family:Inter,sans-serif;color:{INK};-webkit-print-color-adjust:exact;
 
 /* recibos */
 .rc-grid{{left:60px;right:60px;top:250px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}
-.rc{{background:#fff;border:1.4px solid {INK};border-radius:18px;padding:16px 18px;height:150px;position:relative}}
+.rc{{background:#fff;border:1.4px solid {INK};border-radius:18px;padding:16px 18px;min-height:150px;position:relative}}
 .rc-dest{{background:linear-gradient(135deg,#fff 30%,{Y})}}
-.rc-t{{font-size:15px;margin-top:10px;line-height:1.35}}
-.rc-q{{font-size:19px;letter-spacing:-.03em;margin-top:12px;color:{GD};font-weight:500}}
+.rc-t{{font-size:14px;margin-top:4px;line-height:1.35}}
+.rc-q{{font-size:13px;letter-spacing:-.01em;margin-top:10px;color:{GD};font-weight:500}}
 .rc-q span{{display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:{MUT};font-weight:600;margin-bottom:2px}}
 .rc-o{{font-size:11px;color:{MUT};margin-top:4px}}
-.rc-l{{position:absolute;left:18px;bottom:12px;font-size:10px;color:{MUT}}}
+.rc-l{{margin-top:10px;font-size:10px;color:{MUT}}}
 .rc-fan{{background:{G};color:{INK}}}
 .big-s{{font-size:52px;letter-spacing:-.05em;line-height:1}}
 .rc-fan .cap{{margin-top:10px;display:block;line-height:1.35}}
