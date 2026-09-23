@@ -315,7 +315,7 @@ slide(f"""
 <div class="cc-top">{pill("CULTURAL CODES")}<span class="mini">05</span></div>
 <h1 class="cc-h">The only way to break into the Brazilian market is through <span class="hl">local cultural codes.</span></h1>
 <p class="cc-sub">Most international artists ignore this. The ones who don’t get adopted.</p>
-<div class="cc-tw"><div class="tw-h"><div class="av av-s av-l">LA</div><div><div class="tw-n">Lily Allen {VERIF}</div><div class="tw-u">@lilyallen · May 11, 2026</div></div></div>
+<div class="cc-tw"><div class="tw-h"><img src="{uri('img/lily.jpg')}" class="av av-s"><div><div class="tw-n">Lily Allen {VERIF}</div><div class="tw-u">@lilyallen · May 11, 2026</div></div></div>
 <p class="tw-t">Quero dançar com os gays na <u>Zig</u>, visitar a <u>casa da Vita</u> e conhecer a <u>Patixa</u></p>
 <div class="tw-en"><span>EN</span>I want to dance with the gays at Zig, visit Vita’s house and meet Patixa</div></div>
 <div class="cc-grid">{''.join(f'<div class="cc"><div class="cc-n">{i+1:02d}</div><b>{c}</b><p>{d}</p></div>' for i,(c,d) in enumerate(codes))}</div>
