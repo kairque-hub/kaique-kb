@@ -39,7 +39,7 @@ def pill(t, cls=""):
 
 def rodape(n, secao, dark=False):
     return (f'<div class="rod"><span>{secao}</span><span class="rod-r">'
-            f'Tinashe × Brasil — Popstar week<b>{n:02d}</b></span></div>')
+            f'Tinashe × Brasil · Popstar week<b>{n:02d}</b></span></div>')
 
 def fonte(t):
     return f'<p class="fonte">{t}</p>'
@@ -133,7 +133,7 @@ slide(f"""
 <div class="idx-top">{pill("INDEX")}<span class="mini">Tinashe × Brasil</span></div>
 <div class="idx-l">
   <p class="mini">One tweet. One week. The most engaged fandom on the internet.</p>
-  <p class="idx-note">Popstar — 8th studio album<br>Out <b>September 25, 2026</b><br>Nice Life · Atlantic · Tinashe Music · 16 tracks</p>
+  <p class="idx-note">Popstar, 8th studio album<br>Out <b>September 25, 2026</b><br>Nice Life · Atlantic · Tinashe Music · 16 tracks</p>
 </div>
 <ol class="idx-r">{''.join(f'<li><span>{n}</span>{t}</li>' for n,t in idx)}</ol>
 <div class="rule" style="left:700px;right:60px;top:612px"></div>
@@ -156,7 +156,7 @@ slide(f"""
   <div class="ov-bot"><span class="cap">Popstar out</span><b>Sep 25</b><span class="cap">Brazil votes</span><b>Oct 4</b></div>
 </div>
 <p class="ov-txt">Speak to Brazil in its own internet language during Popstar week. Turn the most online fandom
-in the world into organic reach, press coverage and new listeners — without spending a cent.</p>
+in the world into organic reach, press coverage and new listeners, without spending a cent.</p>
 {fonte("Sources: DataReportal Digital 2026 Brazil; IFPI Global Music Report 2026; setlist.fm; The FADER (Jul 2026).")}
 """, bg="background:#fff")
 
@@ -167,7 +167,7 @@ slide(f"""
 {blob(1000,640,260,G,.9)}
 <div class="st-top">{pill("INDEX")}<span class="mini">01 · History</span></div>
 <h1 class="st-h">Her story with Brazil<br>isn't new.</h1>
-<p class="st-p">Tinashe has been talking to Brazilian fans since 2010 — years before her first album —
+<p class="st-p">Tinashe has been talking to Brazilian fans since 2010, years before her first album,
 and has already played for them twice. Popstar week is not an introduction. It's a reunion.</p>
 <div class="st-num"><b>2010</b><span>first tweets<br>to Brazil</span></div>
 {rodape(4,"Her story with Brazil")}
@@ -175,12 +175,12 @@ and has already played for them twice. Popstar week is not an introduction. It's
 
 # 05 TIMELINE
 marcos = [
-  ("Nov 29, 2010","Early tweets","Still pre-debut, already replying to Brazil — and noting she has a lot of Brazilian followers.",False),
-  ("Sep 27–28, 2015","Arriving","Tweets from Brazil while on the road with Katy Perry’s Prismatic World Tour.",False),
+  ("Nov 29, 2010","Early tweets","Still pre-debut, already replying to Brazil and noting she has a lot of Brazilian followers.",False),
+  ("Sep 27-28, 2015","Arriving","Tweets from Brazil while on the road with Katy Perry’s Prismatic World Tour.",False),
   ("Sep 29, 2015","Curitiba","Opens for Katy Perry at Pedreira Paulo Leminski. 15,000 people, 40-min set, covers “Lean On”.",True),
   ("Mar 5, 2023","São Paulo","Headliner at Festival GRLS!, an all-women lineup, on the 333 tour.",True),
-  ("Mar 6, 2023","São Paulo","Club show at Zig Studio — the same Zig Lily Allen would tweet about in 2026.",True),
-  ("Mar 6, 2023","TikTok","“Brazil, te amoooo 💚🧡” — a thank-you to Brazil, in Portuguese, the day after GRLS!.",False),
+  ("Mar 6, 2023","São Paulo","Club show at Zig Studio, the same Zig Lily Allen would tweet about in 2026.",True),
+  ("Mar 6, 2023","TikTok","“Brazil, te amoooo 💚🧡”: a thank-you to Brazil, in Portuguese, the day after GRLS!.",False),
   ("Sep 25, 2026","Popstar","Release week. The next chapter.",False),
 ]
 n = len(marcos); x0, x1 = 70, 1210
@@ -216,10 +216,10 @@ def recibo(t, dest=False):
 slide(f"""
 {blob(1150,650,260,Y)}{blob(980,720,200,G,.8)}
 <div class="hd"><h2>The receipts</h2>{pill("ON X")}</div>
-<p class="lead">Before “Nasty”, before “2 On”, before the first album: Tinashe was already talking to Brazil —
+<p class="lead">Before “Nasty”, before “2 On”, before the first album: Tinashe was already talking to Brazil,
 including telling fans she has a lot of followers from Brazil.</p>
 <div class="rc-grid">{recibo(TWEETS[0],True)}{recibo(TWEETS[1])}{recibo(TWEETS[2])}{recibo(TWEETS[3])}{recibo(TWEETS[4])}
-<div class="rc rc-fan"><div class="big-s">12+ yrs</div><div class="cap">@tinashebr — the Brazilian fan hub on X, running since 2014, calls her “a POPSTAR” in its bio.</div></div></div>
+<div class="rc rc-fan"><div class="big-s">12+ yrs</div><div class="cap">@tinashebr, the Brazilian fan hub on X, running since 2014, calls her “a POPSTAR” in its bio.</div></div></div>
 {rodape(6,"Receipts")}
 """, bg=f"background:{LAV}")
 
@@ -239,7 +239,7 @@ slide(f"""
 <div class="bg-y" style="background:linear-gradient(120deg,{Y} 0%,{Y} 55%,#A6DC3C 80%,{G} 100%)"></div>
 <div class="hd"><h2>Brazilian superfans,<br>in numbers</h2>{pill("DATA")}</div>
 <div class="sf-grid">
-  <div class="sf-k"><b>150M</b><span>social media users — 70.4% of the population</span></div>
+  <div class="sf-k"><b>150M</b><span>social media users, 70.4% of the population</span></div>
   <div class="sf-k"><b>+14.1%</b><span>recorded-music growth in 2025, 16th straight year up</span></div>
   <div class="sf-k"><b>#8</b><span>music market in the world, up from #9 (IFPI 2026)</span></div>
   <div class="sf-k"><b>~83%</b><span>of Brazil’s music revenue comes from streaming</span></div>
@@ -250,10 +250,10 @@ slide(f"""
   <div class="ch-t">Why superfans matter</div>
   <div class="sf-row"><b>20%</b><span>of listeners are superfans (Luminate / Goldman Sachs)</span></div>
   <div class="sf-row"><b>+80%</b><span>more spent per month than the average listener</span></div>
-  <div class="sf-row"><b>2×</b><span>spend on physical products — vinyl, CDs</span></div>
+  <div class="sf-row"><b>2×</b><span>spend on physical products: vinyl, CDs</span></div>
   <div class="sf-row"><b>+17.1%</b><span>Latin America: fastest-growing region in the world</span></div>
 </div>
-{fonte("Sources: DataReportal Digital 2026 Brazil; IFPI Global Music Report 2026; Pro-Música Brasil (Mar 2026); Luminate 2024–25; Goldman Sachs “Music in the Air”.")}
+{fonte("Sources: DataReportal Digital 2026 Brazil; IFPI Global Music Report 2026; Pro-Música Brasil (Mar 2026); Luminate 2024-25; Goldman Sachs “Music in the Air”.")}
 {rodape(7,"Superfans")}
 """)
 
@@ -265,9 +265,9 @@ slide(f"""
 <div class="cs-map">{mapa([(-38.5,-12.97,"Salvador","Beyoncé · Dec 2023","e",0),(-43.18,-22.97,"Rio","Madonna ’24 · Gaga ’25","d",0),(-46.63,-23.55,"São Paulo","Tinashe · 2023","e",-16),(-49.27,-25.43,"Curitiba","Tinashe · 2015","e",16)], w=400, h=400)}</div>
 <div class="cs-cards">
   <div class="cs"><div class="cs-h"><b>Beyoncé</b>{pill("SALVADOR · DEC 21, 2023","pl-s")}</div>
-    <p>A surprise 5-minute appearance for ~4,000 fans at the Brazilian launch of the Renaissance film — the only one of its kind.
+    <p>A surprise 5-minute appearance for ~4,000 fans at the Brazilian launch of the Renaissance film. The only one of its kind.
     Wrapped in the Bahia flag: <i>“Você é única, Bahia.”</i></p>
-    <div class="cs-n"><b>1M+</b><span>posts — the most-discussed topic on Brazilian social media</span></div></div>
+    <div class="cs-n"><b>1M+</b><span>posts, the most-discussed topic on Brazilian social media</span></div></div>
   <div class="cs"><div class="cs-h"><b>Lady Gaga</b>{pill("COPACABANA · MAY 3, 2025","pl-s")}</div>
     <p>Free show, “Todo Mundo no Rio”. Largest audience ever for a female artist. Brazil is now her #2 country on Spotify.</p>
     <div class="cs-nn"><div><b>2.1M</b><span>people</span></div><div><b>+60%</b><span>Spotify streams in 7 days</span></div><div><b>4.2M</b><span>posts in 7 days</span></div><div><b>34.5M</b><span>TV viewers</span></div></div></div>
@@ -293,23 +293,23 @@ bm = colunas([("Before The Town ’23",29,"#fff","~29M"),("Mar 2024",33,Y,"33M+"
 slide(f"""
 <div class="bg-y" style="background:linear-gradient(200deg,{Y} 0%,{Y} 50%,#A6DC3C 78%,{G} 100%)"></div>
 <div class="hd"><h2>Case: Bruno Mars</h2>{pill("ROLLOUT MADE FOR BRAZIL")}</div>
-<p class="lead lead-w">He didn’t just tour Brazil — he built a Brazil-specific rollout, in Portuguese, with local references. Brazil answered.</p>
+<p class="lead lead-w">He didn’t just tour Brazil. He built a Brazil-specific rollout, in Portuguese, with local references. Brazil answered.</p>
 <div class="bm-chart"><div class="ch-t">Instagram followers</div>{bm}<div class="bm-plus">+4M</div></div>
 <div class="bm-k">
-  <div><b>50M+</b><span>views on a Brazilian video — his most-watched content at the time</span></div>
+  <div><b>50M+</b><span>views on a Brazilian video, his most-watched content at the time</span></div>
   <div><b>358M</b><span>potential reach from the 2024 tour, in just over a month</span></div>
   <div><b>+243%</b><span>Deezer streams during his Brazil run</span></div>
 </div>
 <div class="bm-single"><div class="bm-st">{pill("SINGLE MADE FOR BRAZIL")}<b>“Bonde do Brunão”</b></div>
   <div class="bm-n"><div><b>13M+</b><span>likes</span></div><div><b>2.3M</b><span>shares</span></div><div><b>687K</b><span>comments</span></div></div></div>
-{fonte("Sources: Instagram @brunomars; Deezer; tour social listening (2023–2024).")}
+{fonte("Sources: Instagram @brunomars; Deezer; tour social listening (2023-2024).")}
 {rodape(9,"Bruno Mars")}
 """)
 
 # 10 CÓDIGOS CULTURAIS — Lily Allen
 codes = [("Zig","A legendary gay club in São Paulo that became the city’s point of reference. <strong>Tinashe played there in 2023.</strong>"),
          ("Casa da Vita","A nod to <i>Vita’s House</i>, the album by Vita, a trans artist whose tracks took over clubs and the underground."),
-         ("Patixa","A national meme: an “influencer” who never made content herself — every video of her online was made by other people.")]
+         ("Patixa","A national meme: an “influencer” who never made content herself. Every video of her online was made by other people.")]
 slide(f"""
 {blob(80,80,220,G,.9)}{blob(1220,700,260,Y)}
 <div class="cc-top">{pill("CULTURAL CODES")}<span class="mini">05</span></div>
@@ -319,7 +319,7 @@ slide(f"""
 <p class="tw-t">Quero dançar com os gays na <u>Zig</u>, visitar a <u>casa da Vita</u> e conhecer a <u>Patixa</u></p>
 <div class="tw-en"><span>EN</span>I want to dance with the gays at Zig, visit Vita’s house and meet Patixa</div></div>
 <div class="cc-grid">{''.join(f'<div class="cc"><div class="cc-n">{i+1:02d}</div><b>{c}</b><p>{d}</p></div>' for i,(c,d) in enumerate(codes))}</div>
-<p class="cc-f">Three references only a Brazilian on the internet would get. Result: it went viral across Brazilian stan Twitter — months ahead of her Primavera Sound São Paulo date (Dec 2026).</p>
+<p class="cc-f">Three references only a Brazilian on the internet would get. Result: it went viral across Brazilian stan Twitter, months ahead of her Primavera Sound São Paulo date (Dec 2026).</p>
 {rodape(10,"Cultural codes")}
 """, bg="background:#fff")
 
@@ -328,9 +328,9 @@ slide(f"""
 {blob(1150,120,260,Y)}{blob(1250,560,220,G,.85)}
 <div class="hd"><h2>Brazil, right now</h2>{pill("CONTEXT")}</div>
 <div class="cx-l">
-  <p class="cx-big">It’s election season — and in Brazil, politicians are <span class="hl">pop culture.</span></p>
+  <p class="cx-big">It’s election season, and in Brazil, politicians are <span class="hl">pop culture.</span></p>
   <p class="cx-p">First round on <b>October 4</b>, nine days after Popstar drops. The race is <b>Lula</b>, the president and the
-  “father” figure of Brazil’s minorities, against <b>Flávio Bolsonaro</b>, son of Jair Bolsonaro — Brazil’s Trump.
+  “father” figure of Brazil’s minorities, against <b>Flávio Bolsonaro</b>, son of Jair Bolsonaro, Brazil’s Trump.
   Polls are tight and the whole country is online talking about it.</p>
   <p class="cx-p">Next to Lula stands <b>Erika Hilton</b>, a trans federal deputy and a genuine internet diva, on issues
   that match Tinashe’s values and her fans’.</p>
@@ -354,7 +354,7 @@ slide(f"""
 <div class="bg-y" style="background:linear-gradient(135deg,{LAV} 0%,{LAV} 38%,#E4EA8C 60%,{Y} 78%,{G} 100%)"></div>
 <div class="id-top">{pill("IDEA #1")}<span class="mini">The popstars of Brazil</span></div>
 <h1 class="id-h">Idea<br>#1</h1>
-<p class="id-p">Ask Brazil who its popstars are — and name the two biggest ones on the internet right now. Subtle on the surface, massive and organic underneath.</p>
+<p class="id-p">Ask Brazil who its popstars are, then name the two biggest ones on the internet right now. Subtle on the surface, massive and organic underneath.</p>
 <div class="id-tw">{t1}</div>
 <div class="id-ret">{retrato("lula","Lula","President of Brazil",124)}{retrato("erika","Erika Hilton","Federal deputy",124)}</div>
 <div class="id-why"><div><b>Both</b><span>are extremely online and likely to reply</span></div><div><b>Beyond music</b><span>reaches people who don’t follow the release</span></div></div>
@@ -368,7 +368,7 @@ slide(f"""
 <div class="bg-y" style="background:linear-gradient(135deg,{LAV} 0%,{LAV} 38%,#D8EE9A 60%,{G} 82%,{Y} 100%)"></div>
 <div class="id-top">{pill("IDEA #2")}<span class="mini">Carnival queens</span></div>
 <h1 class="id-h">Idea<br>#2</h1>
-<p class="id-p">Link Popstar to Brazil’s biggest cultural moment. Carnival is only next year, but samba schools are crowning their queens now — and they pick popstars.</p>
+<p class="id-p">Link Popstar to Brazil’s biggest cultural moment. Carnival is only next year, but samba schools are crowning their queens now, and they pick popstars.</p>
 <div class="id-tw">{t2}</div>
 <div class="id-ret id-ret3">{retrato("anitta","Anitta","Grande Rio",88)}{retrato("paolla","Paolla Oliveira","Imperatriz",88)}{retrato("sabrina","Sabrina Sato","Vila Isabel",88)}</div>
 <div class="id-why"><div><b>Lower risk</b><span>pure culture, zero politics</span></div><div><b>Lower impact</b><span>stays inside the pop bubble</span></div></div>
@@ -379,13 +379,13 @@ slide(f"""
 passos = [("T0","The tweet","Tinashe posts Idea #1, in Portuguese."),
           ("T+15min","Pop pages","We fire it to Brazil’s biggest pop & entertainment pages."),
           ("T+2h","Press","News, politics and culture outlets pick it up."),
-          ("T+24h","The reply","Lula and/or Erika answer — the story restarts.")]
+          ("T+24h","The reply","Lula and/or Erika answer. The story restarts.")]
 comp = [("Originality","●●●","●●○"),("Reach beyond music","●●●","●○○"),("Press potential","●●●","●●○"),("Reply potential","●●●","●●○"),("Risk","●●○","●○○")]
 slide(f"""
 {blob(1180,120,280,G,.85)}{blob(980,40,200,Y)}
 <div class="hd"><h2>My bet: <span class="hl">Idea #1</span></h2>{pill("MINHA APOSTA")}</div>
-<p class="lead">It’s more original. It reaches people who don’t necessarily know about the release or follow music —
-and after the tweet, they will. Right after posting, we push it to the big pop and entertainment pages.</p>
+<p class="lead">It’s more original. It reaches people who don’t necessarily know about the release or follow music.
+And after the tweet, they will. Right after posting, we push it to the big pop and entertainment pages.</p>
 <div class="fl">{''.join(f'<div class="fl-i"><div class="fl-t">{t}</div><b>{a}</b><p>{d}</p></div>' + ('<div class="fl-a">→</div>' if i<3 else '') for i,(t,a,d) in enumerate(passos))}</div>
 <table class="cmp"><tr><th></th><th>Idea #1 · Lula &amp; Erika</th><th>Idea #2 · Carnival</th></tr>
 {''.join(f'<tr><td>{r}</td><td class="d1">{a}</td><td>{b}</td></tr>' for r,a,b in comp)}</table>
@@ -396,7 +396,7 @@ and after the tweet, they will. Right after posting, we push it to the big pop a
 slide(f"""
 <div class="bg-y" style="background:radial-gradient(circle at 25% 110%,{G} 0%,#7FCF3F 25%,{Y} 55%,{Y} 100%)"></div>
 <div class="inv-top">{pill("INDEX")}<span class="mini">Investment</span></div>
-<p class="inv-s">INVESTIMENTO:</p>
+<p class="inv-s">INVESTMENT:</p>
 <h1 class="inv-h">$0</h1>
 <p class="inv-p">One tweet from Tinashe’s own account.<br>No paid media. No boosting. 100% organic.</p>
 """)
@@ -407,6 +407,7 @@ slide(f"""
 <img src="{LOGO}" class="ob-logo">
 <h1 class="ob-h">Obrigado.</h1>
 <p class="ob-p">Popstar · September 25, 2026</p>
+<div class="ob-sig"><b>Kaique Brasileiro</b><span>Digital Strategy &amp; Fan Engagement</span></div>
 <div class="ob-img"><img src="{IMG['vinil']}"></div>
 """, bg=f"background:{LAV}")
 
@@ -658,12 +659,15 @@ body{{font-family:Inter,sans-serif;color:{INK};-webkit-print-color-adjust:exact;
 /* obrigado */
 .ob-logo{{left:60px;top:56px;height:40px}}
 .ob-h{{left:48px;top:230px;font-size:176px;font-weight:400;letter-spacing:-.065em;line-height:1}}
-.ob-p{{left:62px;top:470px;font-size:16px;font-weight:500}}
+.ob-p{{left:62px;top:440px;font-size:16px;font-weight:500}}
+.ob-sig{{left:62px;bottom:56px;border-top:1.4px solid {INK};padding-top:12px;width:380px}}
+.ob-sig b{{display:block;font-size:18px;font-weight:600;letter-spacing:-.02em}}
+.ob-sig span{{font-size:12.5px;font-weight:500}}
 .ob-img{{right:60px;top:60px;width:340px;height:600px;border-radius:170px;overflow:hidden;border:1.4px solid {INK}}}
 .ob-img img{{width:100%;height:100%;object-fit:cover}}
 """
 
-html = ("<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Tinashe × Brasil — Popstar</title>"
+html = ("<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Tinashe × Brasil · Popstar</title>"
         f"<style>{FONTES}\n{CSS}</style></head><body>" + "".join(S) + "</body></html>")
 (B/"deck.build.html").write_text(html)
 
