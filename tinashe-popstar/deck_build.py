@@ -28,6 +28,7 @@ MUT = "#5C5F68"
 
 S = []
 def slide(html, cls="", bg=""):
+    html = html.replace("__PG__", f"{len(S)+1:02d}")
     S.append(f'<section class="sl {cls}" style="{bg}">{html}</section>')
 
 def blob(x, y, r, cor, a=1.0):
@@ -39,7 +40,7 @@ def pill(t, cls=""):
 
 def rodape(n, secao, dark=False):
     return (f'<div class="rod"><span>{secao}</span><span class="rod-r">'
-            f'Tinashe × Brasil · Popstar week<b>{n:02d}</b></span></div>')
+            f'Tinashe × Brasil · Popstar week<b>__PG__</b></span></div>')
 
 def fonte(t):
     return f'<p class="fonte">{t}</p>'
@@ -110,6 +111,44 @@ def mapa(pinos, w=470, h=470, passo=0.72, cor="#9EA2AE"):
                    f'<text x="{tx:.1f}" y="{y+12+dy:.1f}" text-anchor="{anc}" class="m-s">{sub}</text>')
     out.append('</svg>')
     return "".join(out)
+
+
+# ---------- mapa de propagação ----------
+def viagem(etapas, tempos):
+    n = len(etapas); W = 1160; col = W/n; H = 150; cy = 78
+    o = [f'<svg viewBox="0 0 {W} {H}" class="vg-svg"><defs>'
+         f'<linearGradient id="vgw" x1="0" x2="1"><stop offset="0" stop-color="{G}" stop-opacity=".55"/>'
+         f'<stop offset=".55" stop-color="{Y}" stop-opacity=".75"/><stop offset="1" stop-color="{Y}" stop-opacity=".25"/></linearGradient></defs>']
+    x0, x1 = col/2, W-col/2
+    o.append(f'<path d="M{x0-30},{cy-8} C{W*0.45},{cy-20} {W*0.7},{cy-64} {W},{cy-74} L{W},{cy+74} C{W*0.7},{cy+64} {W*0.45},{cy+20} {x0-30},{cy+8} Z" fill="url(#vgw)"/>')
+    o.append(f'<line x1="{x0}" y1="{cy}" x2="{x1}" y2="{cy}" stroke="{INK}" stroke-width="1.2" stroke-dasharray="3 5"/>')
+    def mix(a, b, t):
+        a = [int(a[i:i+2],16) for i in (1,3,5)]; b = [int(b[i:i+2],16) for i in (1,3,5)]
+        return "#" + "".join(f"{round(a[k]+(b[k]-a[k])*t):02x}" for k in range(3))
+    for i in range(n):
+        cx = col/2 + i*col; r = 20 + i*8.5; c = mix(G, Y, i/(n-1))
+        o.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r+9:.1f}" fill="none" stroke="{INK}" stroke-width=".8" opacity=".35"/>'
+                 f'<circle cx="{cx:.1f}" cy="{cy}" r="{r:.1f}" fill="{c}" stroke="{INK}" stroke-width="1.3"/>'
+                 f'<text x="{cx:.1f}" y="{cy+6}" text-anchor="middle" class="vg-n" style="font-size:{14+i*2.2:.0f}px">{i+1:02d}</text>')
+        if i < n-1:
+            ax = cx + col/2
+            o.append(f'<path d="M{ax-5},{cy-5} L{ax+1},{cy} L{ax-5},{cy+5}" fill="none" stroke="{INK}" stroke-width="1.3"/>')
+    o.append('</svg>')
+    labs = "".join(f'<div class="vg-l"><span class="vg-t">{tempos[i]}</span><b>{t}</b><p>{d}</p>'
+                   + (f'<em>{e}</em>' if e else '') + '</div>' for i,(t,d,e) in enumerate(etapas))
+    return f'<div class="vg">{"".join(o)}<div class="vg-g">{labs}</div></div>'
+
+def contexto_ideia(num, titulo, sub, pontos, etapas, tempos, grad):
+    cols = "".join(f'<div class="cz"><div class="cz-n">{i+1:02d}</div><b>{t}</b><p>{d}</p></div>' for i,(t,d) in enumerate(pontos))
+    slide(f"""
+<div class="bg-y" style="background:{grad}"></div>
+<div class="hd"><h2>{titulo}</h2>{pill(f"IDEA #{num} · CONTEXT")}</div>
+<p class="cz-sub">{sub}</p>
+<div class="cz-g">{cols}</div>
+<div class="vg-h"><span class="ch-t">How it travels on the internet</span><span class="vg-ax">reach grows →</span></div>
+{viagem(etapas, tempos)}
+{rodape(0, f"Idea #{num} · Context")}
+""")
 
 # ============================================================
 # 01 CAPA
@@ -364,6 +403,21 @@ slide(f"""
 {rodape(12,"Idea #1")}
 """)
 
+# 12b CONTEXTO IDEIA 1
+contexto_ideia(1, "Why Idea #1 works", "Subtle on the surface: a popstar asking Brazil about its popstars. Underneath, it touches the biggest conversation in the country.",
+  [("They are popstars here","In Brazil, Lula and Erika Hilton live inside internet culture: memes, edits, stan accounts. Calling them popstars speaks the local language."),
+   ("Same values, same audience","Lula’s base is LGBTQIA+, Black Brazilians, women, workers and young people. That is Tinashe’s Brazilian fandom. Erika is a trans diva fighting for the same causes."),
+   ("Built to be answered","Both are extremely online and answer culture. A reply from a president or a deputy restarts the news cycle, with Popstar in every headline."),
+   ("Beyond the music bubble","It reaches people who don’t follow music or the release. After the tweet, they know Tinashe and they know Popstar is out.")],
+  [("Tinashe fandom","Brazilian stans quote, translate and push it to trending.","@tinashebr and fan pages"),
+   ("Pop blogs","Pop pages turn the tweet into a headline within minutes.","POPline, Hugo Gloss, Tracklist"),
+   ("Entertainment media","The big entertainment outlets cover it.","g1 Pop &amp; Arte, UOL Splash, Quem"),
+   ("Mainstream &amp; TV","TV and mainstream news start to echo the story.","Globo, Band, CNN Brasil"),
+   ("Other fandoms","Stans of Anitta, Pabllo and Ludmilla join the conversation.",""),
+   ("Culture &amp; politics","Culture and political press debate a global popstar naming Lula and Erika.","Folha, Estadão, CartaCapital")],
+  ["Minute 0","First hour","Hours 1-3","Day 1","Day 1-2","Day 2+"],
+  f"linear-gradient(160deg,{LAV} 0%,{LAV} 45%,#E4EA8C 75%,{Y} 100%)")
+
 # 13 IDEIA 2
 t2 = tweet("brasil, vcs não saem da minha cabeça e já que estamos na semana do lançamento de popstar, quem é uma popstar pra vocês por aí? o que elas estão fazendo? ouvi dizer que anitta agora é rainha da grande rio, paolla oliveira na imperatriz? sabrina na vila isabel. eu queria estar no próximo carnaval também. estou com fomo",
            "brazil, you guys have been on my mind nonstop. and since we’re in popstar release week, who’s a popstar to you over there right now? what are the girls up to? i heard anitta is queen of grande rio now, and paolla oliveira is with imperatriz? sabrina at vila isabel. i wanna be at the next carnival too. major fomo.", largo=590)
@@ -377,6 +431,21 @@ slide(f"""
 <div class="id-why"><div><b>Lower risk</b><span>pure culture, zero politics</span></div><div><b>Lower impact</b><span>stays inside the pop bubble</span></div></div>
 {rodape(13,"Idea #2")}
 """)
+
+# 13b CONTEXTO IDEIA 2
+contexto_ideia(2, "Why Idea #2 works", "Popstar meets Carnival, the one cultural moment every Brazilian cares about, while the 2027 build-up is already making news.",
+  [("Carnival never really ends","The 2027 Carnival is months away, but the build-up is already on: samba schools are crowning their queens right now."),
+   ("Three fandoms in one tweet","Anitta, Paolla Oliveira and Sabrina Sato each bring a massive audience. Naming all three multiplies the reach from minute one."),
+   ("A seed for next year","“Estou com fomo” invites a reply. Fans and samba schools start inviting Tinashe to Carnival, a story that can run for months."),
+   ("Safe by design","Pure culture, zero politics. The trade-off: it mostly stays inside the pop and entertainment bubble.")],
+  [("Tinashe fandom","Brazilian stans quote, translate and push it to trending.","@tinashebr and fan pages"),
+   ("The queens’ fandoms","Fans of Anitta, Paolla and Sabrina react and tag their idols.",""),
+   ("Pop blogs","Pop pages turn it into a headline.","POPline, Hugo Gloss, Tracklist"),
+   ("Entertainment media","The big entertainment outlets cover it.","g1 Pop &amp; Arte, UOL Splash, Quem"),
+   ("Mainstream TV &amp; news","TV and news run it as a Carnival story.","Globo, Band, Record"),
+   ("Carnival community","Samba schools and Carnival press talk about Tinashe in the parade.","SRzd, Carnavalesco")],
+  ["Minute 0","First hour","Hours 1-3","Day 1","Day 1-2","Day 2+"],
+  f"linear-gradient(160deg,{LAV} 0%,{LAV} 45%,#D8EE9A 75%,{G} 100%)")
 
 # 14 MINHA APOSTA
 passos = [("T0","The tweet","Tinashe posts Idea #1, in Portuguese."),
@@ -674,6 +743,26 @@ body{{font-family:Inter,sans-serif;color:{INK};-webkit-print-color-adjust:exact;
 .ob-sig span{{font-size:12.5px;font-weight:500}}
 .ob-img{{right:60px;top:60px;width:340px;height:600px;border-radius:170px;overflow:hidden;border:1.4px solid {INK}}}
 .ob-img img{{width:100%;height:100%;object-fit:cover}}
+
+/* contexto das ideias + mapa */
+.cz-sub{{left:60px;top:118px;width:760px;font-size:16px;line-height:1.4}}
+.cz-g{{left:60px;right:60px;top:182px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}}
+.cz{{border-top:1.4px solid {INK};padding-top:8px}}
+.cz-n{{font-size:10.5px;font-weight:700;color:{GD}}}
+.cz b{{display:block;font-size:19px;font-weight:500;letter-spacing:-.035em;margin:2px 0 5px;line-height:1.1}}
+.cz p{{font-size:11.5px;line-height:1.42}}
+.vg-h{{left:60px;right:60px;top:355px;display:flex;justify-content:space-between;align-items:center}}
+.vg-h .ch-t{{margin:0}}
+.vg-ax{{font-size:11px;font-weight:600}}
+.vg{{left:60px;top:372px;width:1160px}}
+.vg-svg{{width:1160px;height:150px;display:block}}
+.vg-n{{font-family:Inter;font-weight:600;fill:{INK};letter-spacing:-.03em}}
+.vg-g{{display:grid;grid-template-columns:repeat(6,1fr);gap:0 14px;margin-top:4px}}
+.vg-l{{text-align:center;padding:0 4px}}
+.vg-t{{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1.2px solid {INK};border-radius:999px;padding:1px 8px;background:#ffffffaa}}
+.vg-l b{{display:block;font-size:16px;font-weight:600;letter-spacing:-.03em;margin:6px 0 3px}}
+.vg-l p{{font-size:11px;line-height:1.35}}
+.vg-l em{{display:block;font-style:normal;font-size:10px;color:{GD};font-weight:600;margin-top:4px}}
 """
 
 html = ("<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Tinashe × Brasil · Popstar</title>"
