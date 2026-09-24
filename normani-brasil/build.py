@@ -381,7 +381,7 @@ slide(
     f'<span>{TAG}<b class="pn">15</b></span></div></div>')
 
 # =============================================================== 16 influenciadores
-infl = ["Camila de Lucas", "Dan Mendes", "Ana Flávia", "Foquinha", ("Carol Prado", "Estadão"), "Bianca Andrade",
+infl = ["Camilla de Lucas", "Dan Mendes", "Ana Flávia", "Foquinha", ("Carol Prado", "Estadão"), "Bianca Andrade",
         "Jude Paulla", "Josy Ramos", "Magá Moura", "Lucas Guedes", "Álvaro", "Priscila Evelyn", "MC Soffia",
         "Julia Rodrigues", "Juliano Floss", "Jess", "Patixa"]
 slide(
