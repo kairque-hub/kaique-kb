@@ -370,7 +370,7 @@ slide(
     '<h1 class="t2" style="left:50px;top:95px;font-size:62px">Meli Music.</h1>'
     '<p class="big" style="position:absolute;left:50px;top:180px;width:760px;font-size:17px">Mercado Livre Arena Pacaembu · gates at 12 PM · set time TBC</p>'
     '<div class="g2" style="top:235px">'
-    '<div><small>01 · Buzz</small><h4>Influencers at the show</h4><p>17 Brazilian creators invited to watch the show and join a meet &amp; greet, posting all day.</p></div>'
+    '<div><small>01 · Buzz</small><h4>Influencers at the show</h4><p>16 Brazilian creators invited to watch the show and join a meet &amp; greet, posting all day.</p></div>'
     '<div><small>02 · Vogue</small><h4>Get Ready With Me</h4><p>Backstage GRWM coverage with Vogue.</p></div>'
     '<div><small>03 · Glamour or ELLE</small><h4>Exclusive look</h4><p>An exclusive look feature with Glamour or ELLE.</p></div>'
     '<div><small>04 · At the festival</small><h4>Local press</h4><p>Interviews with local outlets at the festival.</p></div>'
@@ -382,7 +382,7 @@ slide(
 
 # =============================================================== 16 influenciadores
 infl = ["Camilla de Lucas", "Dan Mendes", "Ana Flávia", "Foquinha", ("Carol Prado", "Estadão"), "Bianca Andrade",
-        "Jude Paulla", "Josy Ramos", "Magá Moura", "Lucas Guedes", "Álvaro", "Priscila Evelyn", "MC Soffia",
+        "Josy Ramos", "Magá Moura", "Lucas Guedes", "Álvaro", "Priscila Evelyn", "MC Soffia",
         "Julia Rodrigues", "Juliano Floss", "Jess", "Patixa"]
 slide(
     blob(1200, 60, 260) + blob(1300, 260, 200, "g", .7) +

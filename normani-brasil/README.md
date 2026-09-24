@@ -32,7 +32,6 @@ Coloque o arquivo no caminho abaixo e rode o build de novo. O placeholder é tro
 - Foquinha: `img/pessoas/foquinha.jpg`
 - Carol Prado: `img/pessoas/carol-prado.jpg`
 - Bianca Andrade: `img/pessoas/bianca-andrade.jpg`
-- Jude Paulla: `img/pessoas/jude-paulla.jpg`
 - Josy Ramos: `img/pessoas/josy-ramos.jpg`
 - Magá Moura: `img/pessoas/maga-moura.jpg`
 - Lucas Guedes: `img/pessoas/lucas-guedes.jpg`
