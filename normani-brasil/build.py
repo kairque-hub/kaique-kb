@@ -3,7 +3,7 @@
 
 Fotos opcionais: se existirem, entram no lugar dos placeholders.
   img/merch.jpg              mockup do merch exclusivo
-  img/notie1.jpg, notie2.jpg fotos do Terraço Notiê
+  img/notie1.jpg             foto do Terraço Notiê
   img/pessoas/<slug>.jpg     foto de perfil (slug = nome em minúsculas, sem acento, com hífen)
 """
 import base64, glob, pathlib, sys, unicodedata
@@ -26,9 +26,8 @@ def slug(nome):
     return "-".join("".join(c if c.isalnum() else " " for c in s).split())
 
 
-IMG = {k: uri(f"img/{k}.jpg") for k in ("crawl", "hips", "stand", "fans_karolg", "lilyallen", "avatar")}
-LOGO = uri("img/logo_black.png")
-LOGO_W = uri("img/logo_white.png")
+IMG = {k: uri(f"img/{k}.jpg") for k in ("crawl", "hips", "stand", "fans_karolg", "lilyallen", "avatar", "normani_close")}
+WORD = '<span class="word">NORMANI</span>'
 FONTES = (B / "fontes/inter.css").read_text()
 
 TAG = "Normani × Brasil · Meli Music 2026"
@@ -76,12 +75,12 @@ def ph(rot, sub, h=None):
 # =============================================================== 01 capa
 slide(
     blob(1060, 40, 260) + blob(90, 700, 330, "g") + blob(560, 690, 300) +
-    '<p style="position:absolute;left:60px;top:52px;font-size:13.5px;font-weight:600;z-index:3">Normani × Brasil 2026</p>'
+    '<p style="position:absolute;left:60px;top:52px;font-size:13.5px;font-weight:600;z-index:3">Meli Music<br>São Paulo</p>'
     '<p class="tr">A Brazil-first plan<br>for her Meli Music week</p>'
-    '<div class="rule" style="top:100px"></div>'
-    f'<img src="{LOGO}" style="position:absolute;left:52px;top:140px;width:720px;z-index:3">'
-    '<h1 class="giga2" style="top:400px">Brasil 2026</h1>'
-    f'<span class="pill" style="position:absolute;left:660px;top:470px;text-transform:none">Oct 15–19</span>'
+    '<div class="rule" style="top:118px"></div>'
+    '<h1 class="giga" style="top:150px;font-size:196px">Normani</h1>'
+    '<h1 class="giga2" style="top:395px">Brasil 2026</h1>'
+    f'<span class="pill" style="position:absolute;left:668px;top:463px;text-transform:none">Oct 15–19</span>'
     f'<div class="oval" style="left:915px;top:160px;width:305px;height:400px;background-image:url({IMG["stand"]});background-position:50% 8%;background-size:130%"></div>'
     '<p class="bl">Proposal for Normani · Meli Music · São Paulo · Brazilian fandom</p>',
     cls="capa")
@@ -305,7 +304,8 @@ slide(
 
 # =============================================================== 12 merch
 merch = opt("img/merch.jpg") or opt("img/merch.png")
-mimg = (f'<div class="foto rd" style="left:700px;top:60px;width:520px;height:560px;background-image:url({merch});background-size:contain;background-repeat:no-repeat;background-color:#fff"></div>'
+mimg = (f'<div class="foto rd" style="left:690px;top:110px;width:540px;height:374px;background-image:url({merch});background-size:cover;background-color:#0B0B0C"></div>'
+        '<p style="position:absolute;left:690px;top:498px;width:540px;font-size:12.5px;z-index:3">Mockup: 4 tees and 4 hoodies, black and white, “Normani Brasil 2026”.</p>'
         if merch else '<div style="position:absolute;left:700px;top:60px;width:520px;height:560px">'
         + ph("Merch mockup", "Brazil-exclusive piece") + '</div>')
 slide(
@@ -323,7 +323,7 @@ slide(
     + ft("Merch", 12))
 
 # =============================================================== 13 dia 2
-n1, n2 = opt("img/notie1.jpg"), opt("img/notie2.jpg")
+n1 = opt("img/notie1.jpg")
 fv = lambda f, sub: (f'<div class="foto rd" style="position:relative;width:100%;height:100%;background-image:url({f})"></div>' if f
                      else ph("Terraço Notiê", sub))
 slide(
@@ -337,10 +337,10 @@ slide(
     'The venue covers everything: drinks and content (photo &amp; video).</p></div>'
     '<div class="box" style="left:60px;top:570px;width:560px;background:#fff">'
     '<p style="font-size:14.5px"><b>Nothing is shared without the artist’s approval.</b> Every photo and video goes through her team first.</p></div>'
-    '<div style="position:absolute;left:680px;top:110px;width:540px;height:300px">' + fv(n1, "Rooftop") + '</div>'
-    '<div style="position:absolute;left:680px;top:425px;width:262px;height:190px">' + fv(n2, "Interior") + '</div>'
-    '<div class="box" style="left:958px;top:425px;width:262px;height:190px;background:#F2EC1A">'
-    '<small class="lbl">The venue</small><p style="font-size:13px;line-height:1.45;margin-top:6px">Rooftop of the Shopping Light building, downtown SP. '
+    '<div style="position:absolute;left:680px;top:110px;width:340px;height:505px">' + fv(n1, "Venue") + '</div>'
+    '<div class="box" style="left:1036px;top:110px;width:184px;height:505px;background:#F2EC1A;padding:18px 16px">'
+    '<small class="lbl">The venue</small><h4 style="font-size:24px;font-weight:400;letter-spacing:-.02em;margin:8px 0 10px;line-height:1.1">Terraço Notiê</h4>'
+    '<p style="font-size:13px;line-height:1.5">Rooftop of the Shopping Light building, downtown SP. '
     'Chef Onildo Rocha. “Best Brazilian Restaurant”, Veja Comer &amp; Beber 2021-23.</p></div>'
     + ft("Day 2 · Reception", 13))
 
@@ -355,7 +355,8 @@ slide(
     '<p class="big" style="position:absolute;left:60px;top:150px;width:900px;font-size:18px;line-height:1.45">'
     'Brazilian R&amp;B, pop, funk and rap artists, invited to meet Normani before the show. '
     'Two of them, Anitta and Gloria Groove, share the Meli Music line-up with her.</p>'
-    '<div class="ppl" style="top:250px">' + "".join(avatar(n, p, 92) for n, p in artistas) + '</div>'
+    '<p style="position:absolute;left:60px;top:212px;font-size:14px;z-index:3"><mark>These names are just examples.</mark> We can invite other great artists too.</p>'
+    '<div class="ppl" style="top:262px">' + "".join(avatar(n, p, 88) for n, p in artistas) + '</div>'
     '<div class="box wh" style="left:60px;top:590px;width:1160px;padding:12px 20px;display:flex;gap:40px;font-size:14px">'
     '<span><b>Where</b> Terraço Notiê</span><span><b>When</b> Fri, Oct 16 · 7 PM</span>'
     '<span><b>Hosted by</b> the venue: drinks + photo &amp; video</span><span><b>Cost to the artist</b> none</span></div>'
@@ -399,24 +400,23 @@ slide(
 
 # =============================================================== 17 perucas
 slide(
-    '<div class="half" style="width:600px">' + blob(540, 100, 260) +
+    blob(420, 60, 240) + blob(80, 740, 220, "g", .7) +
+    f'<div class="foto" style="left:540px;top:0;width:740px;height:720px;background-image:url({IMG["fans_karolg"]});background-position:50% 40%;background-size:cover"></div>'
     f'<div class="hd">{pill("Idea")}<span>The Normani front row</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px;font-size:58px">A front row<br>of Normanis.</h1>'
-    '<p class="big" style="position:absolute;left:60px;top:265px;width:490px;font-size:17.5px;line-height:1.5">'
+    '<h1 class="t2" style="left:60px;top:105px;font-size:56px">A front row<br>of Normanis.</h1>'
+    '<p class="big" style="position:absolute;left:60px;top:250px;width:420px;font-size:16.5px;line-height:1.5">'
     'We buy a batch of cheap lace wigs with bangs, her signature look, and hand them out to fans in the front rows before the show. '
     'That guarantees one image: a crowd of fans dressed as Normani.</p>'
-    '<div class="steps"><p><small>01</small>Buy cheap bang lace wigs in bulk</p><p><small>02</small>Hand them out at the front, before the show</p>'
-    '<p><small>03</small>Shots from the stage, the press pit and the influencers</p><p><small>04</small>Content that feeds the crowd, the press and her own posts</p></div>'
-    + '</div>'
-    f'<div class="foto" style="left:600px;top:0;width:680px;height:440px;background-image:url({IMG["fans_karolg"]});background-position:50% 40%;background-size:cover"></div>'
-    '<div class="blk" style="left:600px;top:440px;width:680px;height:280px;border-radius:0;padding:30px 40px">'
-    f'{pill("Reference", "wl")}<h3 style="font-size:34px;font-weight:400;margin:14px 0 10px;letter-spacing:-.02em">Karol G, Coachella 2022</h3>'
-    '<p style="font-size:15.5px;line-height:1.5;color:#ddd;width:580px">Fans showed up in blue wigs, her signature color. '
-    'The crowd itself became one of the images of her set, and the fans became part of the story.</p>'
-    '<p style="font-size:10.5px;color:#888;margin-top:14px">Photo: Gina Ferazzi / Los Angeles Times via Getty Images</p></div>'
-    + '<div class="ft" style="right:auto;width:480px"><span>The Normani front row</span>'
-    f'<span><b class="pn">17</b></span></div>',
-    bg="background:#D5D7E3")
+    '<div class="steps" style="top:430px;width:420px"><p><small>01</small>Buy cheap bang lace wigs in bulk</p><p><small>02</small>Our team hands them out at the front</p>'
+    '<p><small>03</small>Shots from the stage, the press pit and the influencers</p><p><small>04</small>Content for the press and her own posts</p></div>'
+    f'<div class="oval" style="left:585px;top:480px;width:180px;height:180px;border:4px solid #F2EC1A;background-image:url({IMG["normani_close"]});background-position:50% 30%;z-index:6"></div>'
+    '<div class="blk" style="left:780px;top:470px;width:460px;padding:22px 26px;z-index:6">'
+    f'{pill("Reference", "wl")}<h3 style="font-size:28px;font-weight:400;margin:10px 0 8px;letter-spacing:-.02em">Karol G, Coachella 2022</h3>'
+    '<p style="font-size:14px;line-height:1.5;color:#ddd">Karol G and her team handed out blue wigs, her signature color, to the crowd. '
+    'The fans became the image of her set.</p>'
+    '<p style="font-size:10px;color:#888;margin-top:10px">Photo: Gina Ferazzi / Los Angeles Times via Getty Images</p></div>'
+    + '<div class="ft" style="right:auto;width:420px"><span>The Normani front row</span>'
+    f'<span><b class="pn">17</b></span></div>')
 
 # =============================================================== 18 dia 4
 slide(
@@ -467,7 +467,7 @@ slide(
 # =============================================================== 21 obrigado
 slide(
     blob(1150, 30, 260) + blob(90, 700, 330, "g") + blob(640, 720, 300) +
-    f'<img src="{LOGO}" style="position:absolute;left:60px;top:40px;width:230px">'
+    f'<div style="position:absolute;left:60px;top:44px;z-index:3">{WORD}</div>'
     '<h1 class="giga" style="top:220px;font-size:190px">Obrigado.</h1>'
     '<p style="position:absolute;left:62px;top:460px;font-size:17px">Meli Music · October 17, 2026 · São Paulo</p>'
     '<div class="rule" style="top:600px;width:440px;right:auto"></div>'
@@ -515,6 +515,7 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .giga{position:absolute;left:55px;font-size:230px;font-weight:400;letter-spacing:-.05em;line-height:1;z-index:3}
 .giga2{position:absolute;left:62px;font-size:120px;font-weight:400;letter-spacing:-.04em;line-height:1;z-index:3}
 .oval{position:absolute;border-radius:50%/50%;border:1.4px solid #0B0B0C;background-size:cover;z-index:3}
+.word{font-size:34px;font-weight:600;letter-spacing:.34em;line-height:1}
 .bl{position:absolute;left:60px;bottom:40px;font-size:13px;font-weight:500;z-index:3}
 /* índice */
 .half{position:absolute;left:0;top:0;bottom:0;width:640px;overflow:hidden;background:#D5D7E3}

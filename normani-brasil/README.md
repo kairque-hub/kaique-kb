@@ -10,7 +10,7 @@ Deck de proposta para a passagem da Normani pelo Brasil (Meli Music, 17/10/2026)
 Coloque o arquivo no caminho abaixo e rode o build de novo. O placeholder é trocado pela foto.
 
 - Merch: `img/merch.jpg`
-- Terraço Notiê: `img/notie1.jpg` (terraço) e `img/notie2.jpg` (interno)
+- Terraço Notiê: `img/notie1.jpg`
 - Fotos de perfil (quadradas):
 
 - Anitta: `img/pessoas/anitta.jpg`
