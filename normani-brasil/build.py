@@ -27,7 +27,8 @@ IMG = {k: uri(f"img/{k}.jpg") for k in ("crawl", "hips", "stand", "avatar")}
 WORD = '<span class="word">NORMANI</span>'
 FONTES = (B / "fontes/inter.css").read_text()
 
-TAG = "Normani × Brasil · Meli Music 2026"
+VLOGO = uri("img/vogue_logo.png")
+TAG = f'<span>Normani × <img class="vl" src="{VLOGO}"> Brasil · Meli Music 2026</span>'
 S = []
 
 
@@ -72,27 +73,29 @@ def ph(rot, sub, h=None):
 # =============================================================== 01 capa
 slide(
     blob(1060, 40, 260) + blob(90, 700, 330, "g") + blob(560, 690, 300) +
-    '<p style="position:absolute;left:60px;top:52px;font-size:13.5px;font-weight:600;z-index:3">Meli Music<br>São Paulo</p>'
-    '<p class="tr">Um plano feito para o Brasil<br>na semana do Meli Music</p>'
+    f'<img src="{VLOGO}" style="position:absolute;left:60px;top:46px;height:40px;z-index:3">'
+    '<p class="tr">Proposta de conteúdo exclusivo<br>para a Vogue Brasil</p>'
     '<div class="rule" style="top:118px"></div>'
     '<h1 class="giga" style="top:150px;font-size:196px">Normani</h1>'
-    '<h1 class="giga2" style="top:395px">Brasil 2026</h1>'
-    f'<span class="pill" style="position:absolute;left:668px;top:463px;text-transform:none">15–19 out</span>'
+    f'<div style="position:absolute;left:62px;top:405px;display:flex;align-items:center;gap:22px;z-index:3">'
+    f'<span style="font-size:96px;font-weight:300;line-height:1">×</span><img src="{VLOGO}" style="height:74px">'
+    '<span style="font-size:96px;letter-spacing:-.04em;line-height:1">Brasil</span></div>'
+    f'<span class="pill" style="position:absolute;left:62px;top:530px;text-transform:none">Meli Music · 17 de outubro de 2026</span>'
     f'<div class="oval" style="left:915px;top:160px;width:305px;height:400px;background-image:url({IMG["stand"]});background-position:50% 8%;background-size:130%"></div>'
-    '<p class="bl">Proposta para Normani · Meli Music · São Paulo · fandom brasileiro</p>',
+    '<p class="bl">Proposta para a Vogue Brasil · Normani no Meli Music · São Paulo</p>',
     cls="capa")
 
 # =============================================================== 02 índice
 idx = [("01", "A história dela com o Brasil"), ("02", "Linha do tempo"), ("03", "Os recibos"),
-       ("04", "Vogue Brasil"), ("05", "Dia do show"), ("06", "Time local")]
+       ("04", "A proposta para a Vogue"), ("05", "Dia do show"), ("06", "Time local")]
 slide(
     '<div class="half">' + blob(640, 360, 300) +
-    f'<div class="hd">{pill("Índice")}<span>Normani × Brasil</span></div>'
-    '<p class="big" style="position:absolute;left:60px;top:250px;width:470px">O primeiro show solo dela no Brasil. Uma volta para casa, não uma estreia.</p>'
+    f'<div class="hd">{pill("Índice")}<span>Normani × Vogue Brasil</span></div>'
+    '<p class="big" style="position:absolute;left:60px;top:250px;width:470px">Normani em São Paulo para o primeiro show solo no Brasil. Uma proposta de conteúdo exclusivo para a Vogue Brasil.</p>'
     '<p class="meta" style="position:absolute;left:60px;top:345px">Meli Music 2026, 4ª edição<br>'
     '<b>Sábado, 17 de outubro de 2026</b><br>Mercado Livre Arena Pacaembu · São Paulo</p></div>'
     '<div class="idx" style="padding-top:120px">' + "".join(f'<p><small>{n}</small>{t}</p>' for n, t in idx) +
-    '<div class="idxft"><span>Recibos</span><span>Vogue Brasil</span><span>Dendezeiro</span><span>Front row</span><span>Time local</span></div></div>',
+    '<div class="idxft"><span>Get Ready With Me</span><span>Look exclusivo</span><span>Dendezeiro</span><span>Meli Music</span><span>Time local</span></div></div>',
     cls="p0")
 
 # =============================================================== 03 overview
@@ -112,7 +115,7 @@ slide(
     '</div></div>'
     '<p class="big" style="position:absolute;left:60px;top:545px;width:520px;font-size:17px;line-height:1.4">'
     'Normani volta ao Brasil pela primeira vez desde 2017, e pela primeira vez sozinha. '
-    'A ideia: transformar um show de festival num momento brasileiro, com os fãs, a Vogue Brasil e a imprensa local.</p>'
+    'A proposta: a Vogue Brasil acompanha a preparação dela para o show e publica o look com exclusividade.</p>'
     '<div class="box dd" style="left:620px;top:535px;width:600px">'
     '<small class="lbl">Dia do show</small>'
     '<div class="tri"><div><h4>Sáb, 17/10</h4><p>Meli Music</p></div>'
@@ -194,7 +197,7 @@ V_ART = "https://www.vogue.com/article/normani-dopamine-interview"
 V_REEL = "https://www.instagram.com/reels/C8kf1WghZ25/"
 slide(
     blob(90, 720, 280, "g", .8) + blob(560, 760, 240) +
-    f'<div class="hd">{pill("Vogue Brasil")}<span>Proposta</span></div>'
+    f'<div class="hd"><img src="{VLOGO}" style="height:26px"><span>Brasil · A proposta</span></div>'
     '<h1 class="t2" style="left:60px;top:100px;font-size:54px;line-height:1.04">Get Ready With Me<br>+ <mark>look exclusivo</mark></h1>'
     '<p class="big" style="position:absolute;left:60px;top:232px;width:580px;font-size:16.5px;line-height:1.5">'
     'Oferecer à Vogue Brasil um Get Ready With Me da Normani: o processo de preparação e o look exclusivo '
@@ -241,7 +244,7 @@ slide(
     '<h1 class="t" style="top:50px">Time local</h1>'
     f'<span class="pill" style="position:absolute;right:60px;top:50px">Em São Paulo</span>'
     '<p class="big" style="position:absolute;left:60px;top:150px;width:800px;font-size:19px;line-height:1.45">'
-    'Um time que conhece a cidade, a cena e os fãs, junto com ela durante toda a passagem pelo Brasil.</p>'
+    'O time que produz o conteúdo com a Vogue Brasil em São Paulo: foto, vídeo e coordenação.</p>'
     '<div class="team" style="top:265px">' + "".join(
         f'<div>{avatar(n, "", 120)}<small class="lbl">{r}</small><p>{h}</p></div>' for n, r, h in equipe) + '</div>'
     + ft("Time local", 9))
@@ -249,9 +252,9 @@ slide(
 # =============================================================== 10 obrigado
 slide(
     blob(1150, 30, 260) + blob(90, 700, 330, "g") + blob(640, 720, 300) +
-    f'<div style="position:absolute;left:60px;top:44px;z-index:3">{WORD}</div>'
+    f'<img src="{VLOGO}" style="position:absolute;left:60px;top:46px;height:40px;z-index:3">'
     '<h1 class="giga" style="top:220px;font-size:190px">Obrigado.</h1>'
-    '<p style="position:absolute;left:62px;top:460px;font-size:17px">Meli Music · 17 de outubro de 2026 · São Paulo</p>'
+    '<p style="position:absolute;left:62px;top:460px;font-size:17px">Normani × Vogue Brasil · Meli Music · 17 de outubro de 2026</p>'
     '<div class="rule" style="top:600px;width:440px;right:auto"></div>'
     '<p style="position:absolute;left:62px;top:615px;font-size:17px;font-weight:600">Kaique Brasileiro</p>'
     '<p style="position:absolute;left:62px;top:642px;font-size:13px">Creative and Communication Manager</p>'
@@ -299,6 +302,7 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .giga2{position:absolute;left:62px;font-size:120px;font-weight:400;letter-spacing:-.04em;line-height:1;z-index:3}
 .oval{position:absolute;border-radius:50%/50%;border:1.4px solid #0B0B0C;background-size:cover;z-index:3}
 .word{font-size:34px;font-weight:600;letter-spacing:.34em;line-height:1}
+.vl{height:10px;vertical-align:-1px}
 .bl{position:absolute;left:60px;bottom:40px;font-size:13px;font-weight:500;z-index:3}
 /* índice */
 .half{position:absolute;left:0;top:0;bottom:0;width:640px;overflow:hidden;background:#D5D7E3}

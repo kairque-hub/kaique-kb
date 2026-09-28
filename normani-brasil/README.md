@@ -1,6 +1,6 @@
 # Normani × Brasil 2026
 
-Deck de proposta para a passagem da Normani pelo Brasil (Meli Music, 17/10/2026), em português. Segue a identidade do deck "Tinashe · Popstar × Brasil".
+Proposta de conteúdo exclusivo para a Vogue Brasil com a Normani (Meli Music, 17/10/2026), em português. Segue a identidade do deck "Tinashe · Popstar × Brasil".
 
 - `Normani-Brasil-2026.pdf`: o deck (10 páginas, 16:9). Os tweets e as referências da Vogue US são clicáveis.
 - `build.py`: gera o HTML e o PDF. Rode `python3 build.py --png` para ter também as prévias em `preview/`.
