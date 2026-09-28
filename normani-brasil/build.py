@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """Normani × Brasil 2026: gera o deck em HTML e fecha em PDF (1280x720, 16:9).
 
-Fotos opcionais: se existirem, entram no lugar dos placeholders.
-  img/merch.jpg              mockup do merch exclusivo
-  img/notie1.jpg             foto do Terraço Notiê
-  img/pessoas/<slug>.jpg     foto de perfil (slug = nome em minúsculas, sem acento, com hífen)
+Fotos de perfil do time: img/pessoas/<slug>.jpg (slug = nome em minúsculas, sem acento, com hífen).
 """
 import base64, glob, pathlib, sys, unicodedata
 
@@ -26,7 +23,7 @@ def slug(nome):
     return "-".join("".join(c if c.isalnum() else " " for c in s).split())
 
 
-IMG = {k: uri(f"img/{k}.jpg") for k in ("crawl", "hips", "stand", "fans_karolg", "lilyallen", "avatar", "normani_close")}
+IMG = {k: uri(f"img/{k}.jpg") for k in ("crawl", "hips", "stand", "avatar")}
 WORD = '<span class="word">NORMANI</span>'
 FONTES = (B / "fontes/inter.css").read_text()
 
@@ -76,79 +73,78 @@ def ph(rot, sub, h=None):
 slide(
     blob(1060, 40, 260) + blob(90, 700, 330, "g") + blob(560, 690, 300) +
     '<p style="position:absolute;left:60px;top:52px;font-size:13.5px;font-weight:600;z-index:3">Meli Music<br>São Paulo</p>'
-    '<p class="tr">A Brazil-first plan<br>for her Meli Music week</p>'
+    '<p class="tr">Um plano feito para o Brasil<br>na semana do Meli Music</p>'
     '<div class="rule" style="top:118px"></div>'
     '<h1 class="giga" style="top:150px;font-size:196px">Normani</h1>'
     '<h1 class="giga2" style="top:395px">Brasil 2026</h1>'
-    f'<span class="pill" style="position:absolute;left:668px;top:463px;text-transform:none">Oct 15–19</span>'
+    f'<span class="pill" style="position:absolute;left:668px;top:463px;text-transform:none">15–19 out</span>'
     f'<div class="oval" style="left:915px;top:160px;width:305px;height:400px;background-image:url({IMG["stand"]});background-position:50% 8%;background-size:130%"></div>'
-    '<p class="bl">Proposal for Normani · Meli Music · São Paulo · Brazilian fandom</p>',
+    '<p class="bl">Proposta para Normani · Meli Music · São Paulo · fandom brasileiro</p>',
     cls="capa")
 
 # =============================================================== 02 índice
-idx = [("01", "Her story with Brazil isn't new"), ("02", "Brazilian superfans, in numbers"),
-       ("03", "Case: Bruno Mars"), ("04", "Cultural codes"), ("05", "Five days in São Paulo"),
-       ("06", "Brazil-exclusive merch"), ("07", "The Normani front row"), ("08", "Local team")]
+idx = [("01", "A história dela com o Brasil"), ("02", "Linha do tempo"), ("03", "Os recibos"),
+       ("04", "Vogue Brasil"), ("05", "Dia do show"), ("06", "Time local")]
 slide(
     '<div class="half">' + blob(640, 360, 300) +
-    f'<div class="hd">{pill("Index")}<span>Normani × Brasil</span></div>'
-    '<p class="big" style="position:absolute;left:60px;top:250px;width:440px">Her first solo show in Brazil. Five days to make it feel like a homecoming.</p>'
-    '<p class="meta" style="position:absolute;left:60px;top:345px">Meli Music 2026, 4th edition<br>'
-    '<b>Saturday, October 17, 2026</b><br>Mercado Livre Arena Pacaembu · São Paulo</p></div>'
-    '<div class="idx">' + "".join(f'<p><small>{n}</small>{t}</p>' for n, t in idx) +
-    '<div class="idxft"><span>Arrival</span><span>Merch</span><span>Reception</span><span>Show day</span><span>After party</span></div></div>',
+    f'<div class="hd">{pill("Índice")}<span>Normani × Brasil</span></div>'
+    '<p class="big" style="position:absolute;left:60px;top:250px;width:470px">O primeiro show solo dela no Brasil. Uma volta para casa, não uma estreia.</p>'
+    '<p class="meta" style="position:absolute;left:60px;top:345px">Meli Music 2026, 4ª edição<br>'
+    '<b>Sábado, 17 de outubro de 2026</b><br>Mercado Livre Arena Pacaembu · São Paulo</p></div>'
+    '<div class="idx" style="padding-top:120px">' + "".join(f'<p><small>{n}</small>{t}</p>' for n, t in idx) +
+    '<div class="idxft"><span>Recibos</span><span>Vogue Brasil</span><span>Dendezeiro</span><span>Front row</span><span>Time local</span></div></div>',
     cls="p0")
 
 # =============================================================== 03 overview
 slide(
-    '<p style="position:absolute;left:60px;top:100px;font-size:30px">Executive</p>'
-    f'<span class="pill yl" style="position:absolute;left:60px;top:147px">Index</span>'
-    '<h1 style="position:absolute;left:215px;top:18px;font-size:150px;letter-spacing:-.045em;font-weight:400">Overview</h1>'
+    '<p style="position:absolute;left:60px;top:100px;font-size:30px">Visão</p>'
+    f'<span class="pill yl" style="position:absolute;left:60px;top:147px">Índice</span>'
+    '<h1 style="position:absolute;left:190px;top:18px;font-size:150px;letter-spacing:-.045em;font-weight:400">geral</h1>'
     '<div class="cap">'
-    '<div class="c1"><h2>Oct 17</h2><p>her first solo show in Brazil</p>'
-    '<div class="row"><small>Meli Music</small><span>4th edition</span></div></div>'
+    '<div class="c1"><h2>17 out</h2><p>o primeiro show solo dela no Brasil</p>'
+    '<div class="row"><small>Meli Music</small><span>4ª edição</span></div></div>'
     '<div class="c2">'
-    '<div><h3>4th</h3><p>time in Brazil<br>(2014, 2016, 2017)</p></div>'
-    '<div><h3>14 yrs</h3><p>talking to Brazil<br>(2012 → 2026)</p></div>'
-    '<div><h3>1st</h3><p>international act in<br>Meli Music history</p></div>'
-    '<div><h3>5 days</h3><p>in São Paulo<br>(Oct 15 → 19)</p></div>'
+    '<div><h3>4ª</h3><p>vez no Brasil<br>(2014, 2016, 2017)</p></div>'
+    '<div><h3>14 anos</h3><p>falando com o Brasil<br>(2012 → 2026)</p></div>'
+    '<div><h3>1ª</h3><p>atração internacional<br>da história do festival</p></div>'
+    '<div><h3>5 dias</h3><p>em São Paulo<br>(15 → 19/10)</p></div>'
     '<div class="w"><small>Line-up</small><span>Anitta · Luísa Sonza · Gloria Groove · Pedro Sampaio</span></div>'
     '</div></div>'
-    '<p class="big" style="position:absolute;left:60px;top:545px;width:560px;font-size:18px;line-height:1.4">'
-    'Normani is back in Brazil for the first time since 2017, and for the first time on her own. '
-    'The plan: turn one festival slot into a five-day Brazilian moment, built with the fans, the local scene and the press.</p>'
-    '<div class="box" style="left:680px;top:535px;width:540px">'
-    '<small class="lbl">Show day</small>'
-    '<div class="tri"><div><h4>Sat, Oct 17</h4><p>Meli Music</p></div>'
-    '<div><h4>12 PM</h4><p>Gates open (BRT)</p></div>'
-    '<div><h4>TBC</h4><p>Set time</p></div></div>'
-    '<p style="margin-top:6px;font-size:13px">Mercado Livre Arena Pacaembu · São Paulo · tickets from R$45 (Sympla)</p></div>'
-    '<p class="src" style="bottom:20px">Sources: Meli Music / Sympla; Exame; Gazeta de São Paulo; The Rio Times (2026).</p>',
+    '<p class="big" style="position:absolute;left:60px;top:545px;width:520px;font-size:17px;line-height:1.4">'
+    'Normani volta ao Brasil pela primeira vez desde 2017, e pela primeira vez sozinha. '
+    'A ideia: transformar um show de festival num momento brasileiro, com os fãs, a Vogue Brasil e a imprensa local.</p>'
+    '<div class="box dd" style="left:620px;top:535px;width:600px">'
+    '<small class="lbl">Dia do show</small>'
+    '<div class="tri"><div><h4>Sáb, 17/10</h4><p>Meli Music</p></div>'
+    '<div><h4>12h</h4><p>Abertura dos portões</p></div>'
+    '<div><h4>A definir</h4><p>Horário do show</p></div></div>'
+    '<p style="margin-top:6px;font-size:12px">Mercado Livre Arena Pacaembu · São Paulo · ingressos a partir de R$45 (Sympla)</p></div>'
+    '<p class="src" style="bottom:20px">Fontes: Meli Music / Sympla; Exame; Gazeta de São Paulo; The Rio Times (2026).</p>',
     bg="background:#fff")
 
 # =============================================================== 04 história
 slide(
     f'<div class="foto" style="left:0;top:0;width:520px;height:720px;background-image:url({IMG["crawl"]});background-position:22% 50%;background-size:auto 100%"></div>'
     '<div class="grad" style="left:520px">' + blob(470, 640, 260, "g") +
-    f'<div class="hd" style="left:40px">{pill("Index")}<span>01 · History</span></div>'
-    '<h1 class="t2" style="left:40px;top:140px">Her story with Brazil<br>isn\'t new.</h1>'
-    '<p class="big" style="position:absolute;left:40px;top:340px;width:560px;font-size:19px;line-height:1.5">'
-    'Normani has been talking to Brazilian fans since 2012, before Fifth Harmony had an album out, '
-    'and has played for them on three tours. October 2026 is her first time here on her own. '
-    'It isn\'t an introduction. It\'s a homecoming.</p>'
+    f'<div class="hd" style="left:40px">{pill("Índice")}<span>01 · História</span></div>'
+    '<h1 class="t2" style="left:40px;top:140px;font-size:68px">A história dela com<br>o Brasil não é nova.</h1>'
+    '<p class="big" style="position:absolute;left:40px;top:340px;width:580px;font-size:19px;line-height:1.5">'
+    'Normani fala com os fãs brasileiros desde 2012, antes do primeiro álbum do Fifth Harmony, '
+    'e já se apresentou para eles em três turnês. Outubro de 2026 é a primeira vez dela aqui sozinha. '
+    'Não é uma apresentação. É uma volta para casa.</p>'
     '<div class="yrs"><div><h3>2014</h3><p>Z Festival</p></div><div><h3>2016</h3><p>7/27 Tour</p></div>'
-    '<div><h3>2017</h3><p>PSA Tour</p></div><div class="now"><h3>2026</h3><p>First solo show</p></div></div>'
-    '<div class="ft" style="left:40px;right:60px"><span>Her story with Brazil</span>'
+    '<div><h3>2017</h3><p>PSA Tour</p></div><div class="now"><h3>2026</h3><p>Primeiro show solo</p></div></div>'
+    '<div class="ft" style="left:40px;right:60px"><span>A história dela com o Brasil</span>'
     f'<span>{TAG}<b class="pn">04</b></span></div></div>')
 
-# =============================================================== 05 timeline
+# =============================================================== 05 linha do tempo
 tl = [
-    ("top", "Dec 27, 2012", "Early tweets", False, "Months after The X Factor, already talking to Brazilian fans on X."),
-    ("bot", "Oct 10–12, 2014", "Rio · Brasília · SP", True, "First time in Brazil. Z Festival with Austin Mahone: Vivo Rio, Net Live, Espaço das Américas."),
-    ("top", "Jun 28 – Jul 5, 2016", "7/27 Tour", True, "Five cities: Porto Alegre, Curitiba, Rio, Brasília and São Paulo."),
-    ("bot", "Dec 15, 2016", "On X", False, "Back home after the tour, still talking to Brazil."),
-    ("top", "Oct 4–7, 2017", "PSA Tour", True, "Belo Horizonte, Rio, and headlining Villa Mix São Paulo."),
-    ("bot", "Oct 17, 2026", "Meli Music", True, "Her first solo show in Brazil. The next chapter."),
+    ("top", "27 dez 2012", "Primeiros tweets", False, "Meses depois do X Factor, já falando com os fãs brasileiros no X."),
+    ("bot", "10–12 out 2014", "Rio · Brasília · SP", True, "Primeira vez no Brasil. Z Festival com Austin Mahone: Vivo Rio, Net Live, Espaço das Américas."),
+    ("top", "28 jun – 5 jul 2016", "7/27 Tour", True, "Cinco cidades: Porto Alegre, Curitiba, Rio, Brasília e São Paulo."),
+    ("bot", "15 dez 2016", "No X", False, "De volta para casa depois da turnê, ainda falando com o Brasil."),
+    ("top", "4–7 out 2017", "PSA Tour", True, "Belo Horizonte, Rio e atração principal do Villa Mix São Paulo."),
+    ("bot", "17 out 2026", "Meli Music", True, "O primeiro show solo dela no Brasil. O próximo capítulo."),
 ]
 xs = [70, 290, 510, 730, 950, 1200]
 tlh = ['<div class="tline"></div>']
@@ -156,323 +152,109 @@ for (pos, d, t, live, txt), x in zip(tl, xs):
     tlh.append(f'<i class="dot {"live" if live else ""}" style="left:{x - 10}px"></i>')
     al = "right" if x > 1100 else "left"
     lx = x - 10 if al == "left" else x - 250 + 10
-    lv = pill("Live", "sm") if live else ""
-    top = 300 if pos == "top" else 440
-    anc = "bottom:auto" if pos == "bot" else ""
-    tlh.append(f'<div class="ev {pos}" style="left:{lx}px;{"top:" + str(top) + "px" if pos == "bot" else "bottom:" + str(720 - 395) + "px"};text-align:{al}">'
+    lv = pill("Ao vivo", "sm") if live else ""
+    tlh.append(f'<div class="ev {pos}" style="left:{lx}px;{"top:440px" if pos == "bot" else "bottom:325px"};text-align:{al}">'
                f'<small>{d.upper()}</small><h4>{t} {lv}</h4><p>{txt}</p></div>')
 slide(
     blob(1180, 60, 250) + blob(620, 760, 260, "g", .55) +
-    '<h1 class="t" style="top:50px">Fourteen years<br>of Brazil</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">Timeline</span>'
-    '<div class="leg"><span><i class="dot live s"></i>Live in Brazil</span><span><i class="dot s"></i>Online moment</span></div>'
+    '<h1 class="t" style="top:50px">Catorze anos<br>de Brasil</h1>'
+    f'<span class="pill" style="position:absolute;right:60px;top:50px">Linha do tempo</span>'
+    '<div class="leg"><span><i class="dot live s"></i>Ao vivo no Brasil</span><span><i class="dot s"></i>Momento online</span></div>'
     + "".join(tlh) +
-    '<p class="src">Sources: Vagalume, Midiorama (2014); TMDQA!, Tracklist (2016); UAI, Concerts in Brazil (2017); @Normani on X; Meli Music (2026).</p>'
-    + ft("Timeline", 5))
+    '<p class="src">Fontes: Vagalume, Midiorama (2014); TMDQA!, Tracklist (2016); UAI, Concerts in Brazil (2017); @Normani no X; Meli Music (2026).</p>'
+    + ft("Linha do tempo", 5))
 
-# =============================================================== 06 receipts
-tw = [("284362815190482944", "Dec 27, 2012 · 4:19 PM BRT", "Pre-debut · X Factor era"),
-      ("295616015503593472", "Jan 27, 2013 · 5:35 PM BRT", "Pre-debut · talking to Brazil"),
-      ("340318633165213696", "May 31, 2013 · 1:07 AM BRT", "Before her first trip to Brazil"),
-      ("809461122948595712", "Dec 15, 2016 · 4:12 PM BRT", "After the 7/27 Tour Brazil leg")]
+# =============================================================== 06 recibos
+tw = [("284362815190482944", "27 dez 2012 · 16h19 (BRT)", "Antes da estreia · era X Factor"),
+      ("295616015503593472", "27 jan 2013 · 17h35 (BRT)", "Antes da estreia · falando com o Brasil"),
+      ("340318633165213696", "31 mai 2013 · 1h07 (BRT)", "Antes da primeira vinda ao Brasil"),
+      ("809461122948595712", "15 dez 2016 · 16h12 (BRT)", "Depois da 7/27 Tour no Brasil")]
 
 
 def tcard(i, d, ctx, hl=False):
-    return (f'<div class="tw {"hl" if hl else ""}"><div class="who"><img src="{IMG["avatar"]}">'
+    return (f'<a class="tw {"hl" if hl else ""}" href="https://x.com/Normani/status/{i}"><div class="who"><img src="{IMG["avatar"]}">'
             f'<div><b>Normani {verif()}</b><span>@Normani · {d}</span></div></div>'
-            f'<small class="lbl">Context</small><p class="ctx">{ctx}</p>'
-            f'<p class="op">Open the original post on X ↗</p><p class="url">x.com/Normani/status/{i}</p></div>')
+            f'<small class="lbl">Contexto</small><p class="ctx">{ctx}</p>'
+            f'<p class="op">Abrir o post original no X ↗</p><p class="url">x.com/Normani/status/{i}</p></a>')
 
 
 slide(
     blob(1180, 700, 280, "g", .6) + blob(1320, 640, 220) +
-    '<h1 class="t" style="top:50px">The receipts</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">On X</span>'
-    '<p class="big" style="position:absolute;left:60px;top:170px;width:720px;font-size:19px;line-height:1.45">'
-    'Before “Worth It”, before “Motivation”, before the first Fifth Harmony album: Normani was already talking to Brazil.</p>'
-    '<div class="tgrid">' + tcard(*tw[0], hl=True) + tcard(*tw[1]) + tcard(*tw[2]) + tcard(*tw[3]) +
-    '<div class="tw gr" style="grid-column:span 2"><h2>11 shows</h2><p>in Brazil with Fifth Harmony, across 6 cities, from 2014 to 2017. '
-    'Oct 17 is the first one that is hers alone.</p></div></div>'
-    + ft("Receipts", 6))
-
-# =============================================================== 07 superfans
-slide(
-    '<h1 class="t" style="top:50px">Brazilian superfans,<br>in numbers</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">Data</span>'
-    '<div class="rule" style="top:200px"></div>'
-    '<div class="kpi4"><div><h2>150M</h2><p>social media users, 70.4% of the population</p></div>'
-    '<div><h2>+14.1%</h2><p>recorded-music growth in 2025, 16th straight year up</p></div>'
-    '<div><h2>#8</h2><p>music market in the world, up from #9 (IFPI 2026)</p></div>'
-    '<div><h2>~83%</h2><p>of Brazil’s music revenue comes from streaming</p></div></div>'
-    '<div class="box wh" style="left:60px;top:390px;width:600px;height:170px">'
-    '<small class="lbl">Daily time on social media</small>'
-    '<div class="bar"><span>Brazil</span><i style="width:340px;background:#13B04B"></i><b>3h37m</b></div>'
-    '<div class="bar"><span>World average</span><i style="width:220px;background:#fff"></i><b>2h21m</b></div>'
-    '<p style="font-size:14px;margin-top:14px">Brazilians spend <b>+54%</b> more time on social than the global average.</p></div>'
-    '<div class="why"><small class="lbl">Why superfans matter</small>'
-    '<p><b>20%</b><span>of listeners are superfans (Luminate / Goldman Sachs)</span></p>'
-    '<p><b>+80%</b><span>more spent per month than the average listener</span></p>'
-    '<p><b>2×</b><span>spend on physical products: vinyl, CDs</span></p>'
-    '<p><b>+17.1%</b><span>Latin America: fastest-growing region in the world</span></p></div>'
-    '<p class="src">Sources: DataReportal Digital 2026 Brazil; IFPI Global Music Report 2026; Pro-Música Brasil (Mar 2026); Luminate 2024-25; Goldman Sachs “Music in the Air”.</p>'
-    + ft("Superfans", 7),
-    bg="background:linear-gradient(135deg,#F2EC1A 0%,#F2EC1A 58%,#13B04B 100%)")
-
-# =============================================================== 08 bruno mars
-slide(
-    '<h1 class="t" style="top:50px">Case: Bruno Mars</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">Rollout made for Brazil</span>'
-    '<p class="big" style="position:absolute;left:60px;top:150px;width:520px;font-size:18px;line-height:1.45">'
-    'He didn’t just tour Brazil. He built a Brazil-specific rollout, in Portuguese, with local references. Brazil answered.</p>'
-    '<div class="box wh" style="left:60px;top:260px;width:520px;height:350px">'
-    '<small class="lbl">Instagram followers</small>'
-    '<div class="cols"><div><i style="height:190px;background:#fff"><b>~29M</b></i><span>Before The Town ’23</span></div>'
-    '<div><i style="height:220px;background:#F2EC1A"><b>33M+</b></i><span>Mar 2024</span></div>'
-    '<div><i style="height:28px;background:#13B04B"><b class="up">+4M</b></i><span>Growth</span></div></div></div>'
-    '<div class="why" style="left:640px;top:150px;width:580px">'
-    '<p><b style="font-size:50px;width:220px">50M+</b><span>views on a Brazilian video, his most-watched content at the time</span></p>'
-    '<p><b style="font-size:50px;width:220px">358M</b><span>potential reach from the 2024 tour, in just over a month</span></p>'
-    '<p><b style="font-size:50px;width:220px">+243%</b><span>Deezer streams during his Brazil run</span></p></div>'
-    '<div class="blk" style="left:640px;top:430px;width:580px">'
-    f'{pill("Single made for Brazil", "wl")}<span class="q">“Bonde do Brunão”</span>'
-    '<div class="tri"><div><h4>13M+</h4><p>likes</p></div><div><h4>2.3M</h4><p>shares</p></div><div><h4>687K</h4><p>comments</p></div></div></div>'
-    '<p class="src">Sources: Instagram @brunomars; Deezer; tour social listening (2023-2024).</p>'
-    + ft("Bruno Mars", 8),
-    bg="background:linear-gradient(160deg,#F2EC1A 0%,#F2EC1A 60%,#13B04B 115%)")
-
-# =============================================================== 09 códigos culturais
-slide(
-    blob(90, 90, 250, "g") + blob(1250, 700, 300) +
-    f'<span class="pill" style="position:absolute;left:60px;top:45px">Cultural codes</span>'
-    '<span style="position:absolute;right:60px;top:45px;font-size:13px">04</span>'
-    '<h1 class="t" style="top:90px;font-size:54px;line-height:1.05;width:1150px">The only way to break into the Brazilian market is through <mark>local cultural codes.</mark></h1>'
-    '<p class="big" style="position:absolute;left:60px;top:222px;font-size:18px">Most international artists ignore this. The ones who don’t get adopted.</p>'
-    '<div class="tw" style="left:60px;top:275px;width:470px;height:auto;position:absolute;padding:20px 22px">'
-    f'<div class="who"><img src="{IMG["lilyallen"]}"><div><b>Lily Allen {verif()}</b><span>@lilyallen · May 11, 2026</span></div></div>'
-    '<p style="font-size:21px;line-height:1.45;margin:10px 0 8px">Quero dançar com os gays na <mark>Zig</mark>, visitar a <mark>casa da Vita</mark> e conhecer a <mark>Patixa</mark></p>'
-    '<p style="font-size:12.5px;color:#555">' + pill("EN", "sm") + ' I want to dance with the gays at Zig, visit Vita’s house and meet Patixa</p></div>'
-    '<div class="c3" style="top:275px">'
-    '<div><small>01</small><h4>Zig</h4><p>A legendary gay club in São Paulo that became the city’s point of reference.</p></div>'
-    '<div><small>02</small><h4>Casa da Vita</h4><p>A nod to <i>Vita’s House</i>, the album by Vita, a trans artist whose tracks took over clubs and the underground.</p></div>'
-    '<div><small>03</small><h4>Patixa</h4><p>A national meme: an “influencer” who never made content herself. Every video of her online was made by other people.</p></div></div>'
-    '<div class="rule" style="top:500px;right:230px"></div>'
-    '<p class="big" style="position:absolute;left:60px;top:515px;width:1000px;font-size:19px;line-height:1.45">'
-    'Three references only a Brazilian on the internet would get. It went viral across Brazilian stan Twitter. '
-    'This plan speaks the same language: <mark>the fan club, Dendezeiro, funk, and the local R&amp;B and rap scene.</mark></p>'
-    + ft("Cultural codes", 9),
-    bg="background:#fff")
-
-# =============================================================== 10 cinco dias
-dias = [("Day 1 · Thu, Oct 15", "Arrival", "Fan welcome at the airport, Brazil-only merch, fitting with Dendezeiro.", True),
-        ("Day 2 · Fri, Oct 16", "Reception", "Rehearsal. At night, a private reception for the local scene at Terraço Notiê.", False),
-        ("Day 3 · Sat, Oct 17", "Show day", "Meli Music. Influencers, GRWM, press, a Dendezeiro look, the Normani front row.", False),
-        ("Day 4 · Sun, Oct 18", "After party", "A funk-themed party by Agência Dutra for the line-up and the scene.", False),
-        ("Day 5 · Mon, Oct 19", "São Paulo", "Local stores and a day with ELLE or Vogue (TBC). Flight home at night.", False)]
-slide(
-    blob(1100, 60, 300) + blob(1280, 200, 220, "g", .7) +
-    '<h1 class="t" style="top:50px">Five days in <mark>São Paulo</mark></h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">The plan</span>'
+    '<h1 class="t" style="top:50px">Os recibos</h1>'
+    f'<span class="pill" style="position:absolute;right:60px;top:50px">No X</span>'
     '<p class="big" style="position:absolute;left:60px;top:170px;width:760px;font-size:19px;line-height:1.45">'
-    'From the moment she lands until the moment she leaves, every day has a Brazilian story to tell, '
-    'and every story is built with the people who already love her here.</p>'
-    '<div class="flow">' + "→".join(
-        f'<div class="fc {"yl" if h else ""}"><small>{d}</small><h4>{t}</h4><p>{x}</p></div>' for d, t, x, h in dias) + '</div>'
-    '<div class="tbl"><div class="th"><span></span><span>Fans</span><span>Local scene</span><span>Press &amp; media</span><span>Hosted by</span></div>'
-    '<div><span>Airport welcome</span><span>●●●</span><span>●○○</span><span>●●○</span><span>Fan club Normani Brasil</span></div>'
-    '<div><span>Notiê reception</span><span>○○○</span><span>●●●</span><span>●●○</span><span>Terraço Notiê</span></div>'
-    '<div><span>Show day</span><span>●●●</span><span>●●●</span><span>●●●</span><span>Meli Music</span></div>'
-    '<div><span>After party</span><span>●○○</span><span>●●●</span><span>●●○</span><span>Agência Dutra</span></div></div>'
-    + ft("The plan", 10))
+    'Antes de “Worth It”, antes de “Motivation”, antes do primeiro álbum do Fifth Harmony: a Normani já falava com o Brasil.</p>'
+    '<div class="tgrid">' + tcard(*tw[0], hl=True) + tcard(*tw[1]) + tcard(*tw[2]) + tcard(*tw[3]) +
+    '<div class="tw gr" style="grid-column:span 2"><h2>11 shows</h2><p>no Brasil com o Fifth Harmony, em 6 cidades, de 2014 a 2017. '
+    'O de 17 de outubro é o primeiro só dela.</p></div></div>'
+    + ft("Os recibos", 6))
 
-# =============================================================== 11 dia 1
+# =============================================================== 07 vogue brasil
+V_ART = "https://www.vogue.com/article/normani-dopamine-interview"
+V_REEL = "https://www.instagram.com/reels/C8kf1WghZ25/"
 slide(
-    f'<div class="foto" style="right:0;top:0;width:430px;height:720px;background-image:url({IMG["hips"]});background-position:50% 20%;background-size:cover"></div>'
-    + blob(700, 740, 260, "g", .6) + blob(130, -20, 200) +
-    f'<div class="hd">{pill("Day 1")}<span>Thursday, October 15</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px">Arrival.</h1>'
-    '<p class="big" style="position:absolute;left:60px;top:230px;width:720px;font-size:19px;line-height:1.45">'
-    'Her arrival is big from the moment she steps into the country.</p>'
-    '<div class="it" style="top:295px"><small>01 · São Paulo airport</small><h4>Fan welcome</h4>'
-    '<p>A welcome arranged ahead of time with fans, led by the local fan club <b>Normani Brasil</b>: signs, banners, '
-    'a photo with fans and a drop of the Brazil-exclusive merch.</p></div>'
-    '<div class="it" style="top:425px"><small>02 · Same day</small><h4>Pushed to local pop press</h4>'
-    '<p>Photos and videos go straight to the big pop outlets, like <b>POPline</b> and <b>Hugo Gloss</b>, so the arrival becomes news within hours.</p></div>'
-    '<div class="it" style="top:545px"><small>03 · At the hotel · time TBD</small><h4>Fitting with Dendezeiro</h4>'
-    '<p>A Black-owned Brazilian fashion label. The fitting prepares her show-day look.</p></div>'
-    + '<div class="ft" style="right:470px"><span>Day 1 · Arrival</span>'
-    f'<span>{TAG}<b class="pn">11</b></span></div>')
+    blob(90, 720, 280, "g", .8) + blob(560, 760, 240) +
+    f'<div class="hd">{pill("Vogue Brasil")}<span>Proposta</span></div>'
+    '<h1 class="t2" style="left:60px;top:100px;font-size:54px;line-height:1.04">Get Ready With Me<br>+ <mark>look exclusivo</mark></h1>'
+    '<p class="big" style="position:absolute;left:60px;top:232px;width:580px;font-size:16.5px;line-height:1.5">'
+    'Oferecer à Vogue Brasil um Get Ready With Me da Normani: o processo de preparação e o look exclusivo '
+    'para o show do Meli Music, em São Paulo. O look será <b>custom Dendezeiro</b>.</p>'
+    '<div class="vg" style="top:335px">'
+    '<div><small>Redes sociais</small><h4>GRWM em collab</h4><ul>'
+    '<li>Vídeo de Get Ready With Me em collab com a Vogue Brasil</li>'
+    '<li>Gravado pelo time da artista ou pelo time da revista</li>'
+    '<li>Gravação nos dias 15 ou 16 de outubro</li>'
+    '<li>Publicação no dia 17, dia do show</li></ul></div>'
+    '<div class="yl"><small>Site da Vogue Brasil</small><h4>Look exclusivo</h4><ul>'
+    '<li>Fotos exclusivas do look da Normani</li>'
+    '<li>Material oferecido com exclusividade para publicação no site</li></ul></div></div>'
+    '<small class="lbl" style="position:absolute;left:690px;top:62px;z-index:3">Ela já fez com a Vogue US</small>'
+    f'<a href="{V_ART}" class="shot" style="left:690px;top:88px;width:530px;height:279px;background-image:url({uri("img/vogue_artigo.jpg")})"></a>'
+    f'<a href="{V_ART}" class="cap2" style="top:374px">Vogue.com · jun 2024 · entrevista sobre o álbum <i>Dopamine</i> ↗<br><span>vogue.com/article/normani-dopamine-interview</span></a>'
+    f'<a href="{V_REEL}" class="shot" style="left:690px;top:430px;width:200px;height:200px;background-image:url({uri("img/vogue_reel.jpg")})"></a>'
+    f'<a href="{V_REEL}" class="cap2" style="left:910px;top:440px;width:310px">@voguemagazine · Reel<br><b style="font-size:17px;font-weight:500;display:block;margin:6px 0">#VogueWorld Paris: Normani chega de Coach custom</b>25,3 mil curtidas ↗<br><span>instagram.com/reels/C8kf1WghZ25</span></a>'
+    + ft("Vogue Brasil", 7))
 
-# =============================================================== 12 merch
-merch = opt("img/merch.jpg") or opt("img/merch.png")
-mimg = (f'<div class="foto rd" style="left:690px;top:110px;width:540px;height:374px;background-image:url({merch});background-size:cover;background-color:#0B0B0C"></div>'
-        '<p style="position:absolute;left:690px;top:498px;width:540px;font-size:12.5px;z-index:3">Mockup: 4 tees and 4 hoodies, black and white, “Normani Brasil 2026”.</p>'
-        if merch else '<div style="position:absolute;left:700px;top:60px;width:520px;height:560px">'
-        + ph("Merch mockup", "Brazil-exclusive piece") + '</div>')
-slide(
-    blob(90, 700, 300, "g") + blob(480, 720, 260) + mimg +
-    f'<div class="hd">{pill("Merch")}<span>Day 1 → Day 3</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px;font-size:62px">A piece of Brazil<br>to take home.</h1>'
-    '<p class="big" style="position:absolute;left:60px;top:275px;width:580px;font-size:18px;line-height:1.5">'
-    'A limited merch drop made only for this trip. It gives fans something no other country has, '
-    'and it leaves a physical mark of her time here: a keepsake of the week.</p>'
-    '<div class="c3 two" style="left:60px;top:400px;width:580px">'
-    '<div><small>01</small><h4>Connection</h4><p>Made for Brazil, with Brazil. Fans wear it at the airport, the show and online.</p></div>'
-    '<div><small>02</small><h4>A keepsake</h4><p>A piece that outlives the weekend and keeps her Brazil trip in people’s feeds.</p></div></div>'
-    '<div class="box" style="left:60px;top:560px;width:580px;background:#fff"><small class="lbl">Cost</small>'
-    '<p style="font-size:15px;margin-top:4px"><b>Price TBC.</b> We can start with a smaller run to keep it exclusive and the cost low.</p></div>'
-    + ft("Merch", 12))
-
-# =============================================================== 13 dia 2
-n1 = opt("img/notie1.jpg")
-fv = lambda f, sub: (f'<div class="foto rd" style="position:relative;width:100%;height:100%;background-image:url({f})"></div>' if f
-                     else ph("Terraço Notiê", sub))
-slide(
-    blob(1250, 30, 220) +
-    f'<div class="hd">{pill("Day 2")}<span>Friday, October 16</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px;font-size:62px">Rehearsal by day.<br>The scene by night.</h1>'
-    '<div class="it" style="top:285px;width:560px"><small>01 · Daytime</small><h4>Rehearsal</h4>'
-    '<p>The day is hers and the band’s. No press, no appearances.</p></div>'
-    '<div class="it" style="top:395px;width:560px"><small>02 · 7 PM · Terraço Notiê</small><h4>A private reception for the local scene</h4>'
-    '<p>Brazil’s R&amp;B, pop, funk and rap artists, together on a rooftop in downtown São Paulo. '
-    'The venue covers everything: drinks and content (photo &amp; video).</p></div>'
-    '<div class="box" style="left:60px;top:570px;width:560px;background:#fff">'
-    '<p style="font-size:14.5px"><b>Nothing is shared without the artist’s approval.</b> Every photo and video goes through her team first.</p></div>'
-    '<div style="position:absolute;left:680px;top:110px;width:340px;height:505px">' + fv(n1, "Venue") + '</div>'
-    '<div class="box" style="left:1036px;top:110px;width:184px;height:505px;background:#F2EC1A;padding:18px 16px">'
-    '<small class="lbl">The venue</small><h4 style="font-size:24px;font-weight:400;letter-spacing:-.02em;margin:8px 0 10px;line-height:1.1">Terraço Notiê</h4>'
-    '<p style="font-size:13px;line-height:1.5">Rooftop of the Shopping Light building, downtown SP. '
-    'Chef Onildo Rocha. “Best Brazilian Restaurant”, Veja Comer &amp; Beber 2021-23.</p></div>'
-    + ft("Day 2 · Reception", 13))
-
-# =============================================================== 14 convidados notiê
-artistas = [("Anitta", "Pop · funk"), ("IZA", "Pop · R&B"), ("Pabllo Vittar", "Pop"), ("Gloria Groove", "Pop · rap"),
-            ("Liniker", "Soul · R&B"), ("Marina Sena", "Pop"), ("Any Gabrielly", "Pop"), ("Carol Biazin", "Pop"),
-            ("Duquesa", "Rap"), ("Budah", "Rap · R&B"), ("Ebony", "Rap"), ("Veigh", "Trap"), ("Teto", "Trap")]
-slide(
-    blob(100, 720, 300, "g", .8) + blob(560, 760, 260) +
-    '<h1 class="t" style="top:50px">Who’s on the list</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">Day 2 · Guests</span>'
-    '<p class="big" style="position:absolute;left:60px;top:150px;width:900px;font-size:18px;line-height:1.45">'
-    'Brazilian R&amp;B, pop, funk and rap artists, invited to meet Normani before the show. '
-    'Two of them, Anitta and Gloria Groove, share the Meli Music line-up with her.</p>'
-    '<p style="position:absolute;left:60px;top:212px;font-size:14px;z-index:3"><mark>These names are just examples.</mark> We can invite other great artists too.</p>'
-    '<div class="ppl" style="top:262px">' + "".join(avatar(n, p, 88) for n, p in artistas) + '</div>'
-    '<div class="box wh" style="left:60px;top:590px;width:1160px;padding:12px 20px;display:flex;gap:40px;font-size:14px">'
-    '<span><b>Where</b> Terraço Notiê</span><span><b>When</b> Fri, Oct 16 · 7 PM</span>'
-    '<span><b>Hosted by</b> the venue: drinks + photo &amp; video</span><span><b>Cost to the artist</b> none</span></div>'
-    + ft("Day 2 · Guests", 14))
-
-# =============================================================== 15 dia 3
+# =============================================================== 08 dia do show
 slide(
     f'<div class="foto" style="left:0;top:0;width:430px;height:720px;background-image:url({IMG["stand"]});background-position:50% 18%;background-size:cover"></div>'
     '<div class="grad" style="left:430px">' + blob(700, 700, 280, "g", .9) +
-    f'<div class="hd" style="left:50px">{pill("Day 3")}<span>Saturday, October 17 · Show day</span></div>'
+    f'<div class="hd" style="left:50px">{pill("Dia do show")}<span>Sábado, 17 de outubro</span></div>'
     '<h1 class="t2" style="left:50px;top:95px;font-size:62px">Meli Music.</h1>'
-    '<p class="big" style="position:absolute;left:50px;top:180px;width:760px;font-size:17px">Mercado Livre Arena Pacaembu · gates at 12 PM · set time TBC</p>'
+    '<p class="big" style="position:absolute;left:50px;top:180px;width:760px;font-size:17px">Mercado Livre Arena Pacaembu · portões às 12h · horário do show a definir</p>'
     '<div class="g2" style="top:235px">'
-    '<div><small>01 · Buzz</small><h4>Influencers at the show</h4><p>16 Brazilian creators invited to watch the show and join a meet &amp; greet, posting all day.</p></div>'
-    '<div><small>02 · Vogue</small><h4>Get Ready With Me</h4><p>Backstage GRWM coverage with Vogue.</p></div>'
-    '<div><small>03 · Glamour or ELLE</small><h4>Exclusive look</h4><p>An exclusive look feature with Glamour or ELLE.</p></div>'
-    '<div><small>04 · At the festival</small><h4>Local press</h4><p>Interviews with local outlets at the festival.</p></div>'
-    '<div class="yl"><small>05 · Confirmed</small><h4>Wearing Dendezeiro</h4><p>Her stage look by the Brazilian label, fitted on Day 1.</p></div>'
-    '<div><small>06 · Front row</small><h4>The Normani front row</h4><p>Bang wigs for the crowd. See page 17.</p></div>'
+    '<div><small>01 · Buzz</small><h4>Influenciadores no show</h4><p>Criadores brasileiros no show e num meet &amp; greet, postando ao longo do dia.</p></div>'
+    '<div><small>02 · Vogue Brasil</small><h4>Get Ready With Me</h4><p>Vídeo em collab com a Vogue Brasil, publicado no dia do show.</p></div>'
+    '<div><small>03 · Vogue Brasil</small><h4>Exclusividade do look</h4><p>Fotos exclusivas do look para o site da Vogue Brasil.</p></div>'
+    '<div><small>04 · After festival</small><h4>Ativação com imprensa local</h4><p>Entrevistas e conteúdo com veículos locais depois do show.</p></div>'
+    '<div class="yl"><small>05 · Confirmado</small><h4>Vestindo Dendezeiro</h4><p>Look custom da marca brasileira para o show.</p></div>'
+    '<div><small>06 · Na grade</small><h4>Normani Front Row</h4><p>Perucas com franja para os fãs da grade, como a Karol G fez no Coachella 2022.</p></div>'
     '</div>'
-    '<div class="ft" style="left:50px;right:60px"><span>Day 3 · Show day</span>'
-    f'<span>{TAG}<b class="pn">15</b></span></div></div>')
+    '<div class="ft" style="left:50px;right:60px"><span>Dia do show</span>'
+    f'<span>{TAG}<b class="pn">08</b></span></div></div>')
 
-# =============================================================== 16 influenciadores
-infl = ["Camilla de Lucas", "Dan Mendes", "Ana Flávia", "Foquinha", ("Carol Prado", "Estadão"), "Bianca Andrade",
-        "Josy Ramos", "Magá Moura", "Lucas Guedes", "Álvaro", "Priscila Evelyn", "MC Soffia",
-        "Julia Rodrigues", "Juliano Floss", "Jess", "Patixa"]
-slide(
-    blob(1200, 60, 260) + blob(1300, 260, 200, "g", .7) +
-    '<h1 class="t" style="top:50px">Buzz from the crowd</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">Day 3 · Influencers</span>'
-    '<p class="big" style="position:absolute;left:60px;top:150px;width:900px;font-size:18px;line-height:1.45">'
-    'Brazilian creators in pop, beauty, humor, fashion and culture, invited to watch the show and join a meet &amp; greet. '
-    'They make the buzz during the show and across her whole time in Brazil.</p>'
-    '<div class="ppl sm" style="top:250px">' + "".join(
-        avatar(n, "", 82) if isinstance(n, str) else avatar(n[0], n[1], 82) for n in infl) + '</div>'
-    '<div class="box wh" style="left:60px;top:590px;width:1160px;padding:12px 20px;display:flex;gap:40px;font-size:14px">'
-    '<span><b>When</b> Sat, Oct 17 · show + meet &amp; greet</span><span><b>Where</b> Mercado Livre Arena Pacaembu</span>'
-    '<span><b>The ask</b> attend, meet her, post during the show</span></div>'
-    + ft("Day 3 · Influencers", 16))
-
-# =============================================================== 17 perucas
-slide(
-    blob(420, 60, 240) + blob(80, 740, 220, "g", .7) +
-    f'<div class="foto" style="left:540px;top:0;width:740px;height:720px;background-image:url({IMG["fans_karolg"]});background-position:50% 40%;background-size:cover"></div>'
-    f'<div class="hd">{pill("Idea")}<span>The Normani front row</span></div>'
-    '<h1 class="t2" style="left:60px;top:105px;font-size:56px">A front row<br>of Normanis.</h1>'
-    '<p class="big" style="position:absolute;left:60px;top:250px;width:420px;font-size:16.5px;line-height:1.5">'
-    'We buy a batch of cheap lace wigs with bangs, her signature look, and hand them out to fans in the front rows before the show. '
-    'That guarantees one image: a crowd of fans dressed as Normani.</p>'
-    '<div class="steps" style="top:430px;width:420px"><p><small>01</small>Buy cheap bang lace wigs in bulk</p><p><small>02</small>Our team hands them out at the front</p>'
-    '<p><small>03</small>Shots from the stage, the press pit and the influencers</p><p><small>04</small>Content for the press and her own posts</p></div>'
-    f'<div class="oval" style="left:585px;top:480px;width:180px;height:180px;border:4px solid #F2EC1A;background-image:url({IMG["normani_close"]});background-position:50% 30%;z-index:6"></div>'
-    '<div class="blk" style="left:780px;top:470px;width:460px;padding:22px 26px;z-index:6">'
-    f'{pill("Reference", "wl")}<h3 style="font-size:28px;font-weight:400;margin:10px 0 8px;letter-spacing:-.02em">Karol G, Coachella 2022</h3>'
-    '<p style="font-size:14px;line-height:1.5;color:#ddd">Karol G and her team handed out blue wigs, her signature color, to the crowd. '
-    'The fans became the image of her set.</p>'
-    '<p style="font-size:10px;color:#888;margin-top:10px">Photo: Gina Ferazzi / Los Angeles Times via Getty Images</p></div>'
-    + '<div class="ft" style="right:auto;width:420px"><span>The Normani front row</span>'
-    f'<span><b class="pn">17</b></span></div>')
-
-# =============================================================== 18 dia 4
-slide(
-    blob(1100, 80, 320) + blob(1250, 600, 280, "g") + blob(80, 740, 240, "g", .6) +
-    f'<div class="hd">{pill("Day 4")}<span>Sunday, October 18</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px">After party.</h1>'
-    '<p class="big" style="position:absolute;left:60px;top:230px;width:640px;font-size:19px;line-height:1.5">'
-    'A funk music night hosted by <b>Agência Dutra</b>, for the Meli Music line-up, local artists and the invited influencers.</p>'
-    '<div class="c3" style="left:60px;top:350px;width:1160px">'
-    '<div><small>01 · Who</small><h4>Agência Dutra</h4><p>Specialists in events for Brazil’s Black community: Carnival, Rock in Rio and more. @agenciadutra</p></div>'
-    '<div><small>02 · Theme</small><h4>Funk music</h4><p>Brazilian funk, the sound of the country’s streets and charts, and a natural match for her dance-first shows.</p></div>'
-    '<div><small>03 · Guests</small><h4>Invite-only</h4><p>Line-up artists, local artists and influencers. No ticket sales.</p></div></div>'
-    '<div class="cap" style="top:540px;height:110px;width:1160px;left:60px;padding:0 50px;display:flex;align-items:center;gap:70px">'
-    '<div><h3 style="font-size:52px">$0</h3></div><p style="font-size:17px;line-height:1.4;width:760px">'
-    '<b>No cost to the artist.</b> The party is fully produced and paid for by Agência Dutra, with no tickets sold.</p></div>'
-    + ft("Day 4 · After party", 18))
-
-# =============================================================== 19 dia 5
-slide(
-    f'<div class="foto" style="right:0;top:0;width:460px;height:720px;background-image:url({IMG["crawl"]});background-position:78% 50%;background-size:auto 100%"></div>'
-    + blob(200, 720, 260) + blob(780, 700, 200, "g", .6) +
-    f'<div class="hd">{pill("Day 5")}<span>Monday, October 19</span></div>'
-    '<h1 class="t2" style="left:60px;top:110px;font-size:62px">São Paulo,<br>then home.</h1>'
-    '<div class="it" style="top:300px;width:660px"><small>Daytime</small><h4>Local stores</h4>'
-    '<p>Visits to São Paulo’s local stores and labels: a real day in the city, with content along the way.</p></div>'
-    '<div class="it" style="top:410px;width:660px"><small>Daytime · TBC</small><h4>A day with ELLE or Vogue</h4>'
-    '<p>A day-in-the-life feature with ELLE or Vogue.</p></div>'
-    '<div class="it" style="top:520px;width:660px"><small>Night</small><h4>Flight back to the US</h4>'
-    '<p>Five days, one show, and a Brazil story told from arrival to departure.</p></div>'
-    + '<div class="ft" style="right:500px"><span>Day 5 · Departure</span>'
-    f'<span>{TAG}<b class="pn">19</b></span></div>')
-
-# =============================================================== 20 equipe
-equipe = [("Steff Lima", "Photo", "@stefflima"), ("Jhuan Martins", "Video", "@jhuanmartins"),
-          ("Kaique Brasileiro", "Content coordination + team assistance", "@kaique")]
+# =============================================================== 09 time local
+equipe = [("Steff Lima", "Foto", "@stefflima"), ("Jhuan Martins", "Vídeo", "@jhuanmartins"),
+          ("Kaique Brasileiro", "Creative and Communication Manager", "@kaique")]
 slide(
     blob(1150, 80, 280) + blob(80, 720, 280, "g", .8) +
-    '<h1 class="t" style="top:50px">Local team</h1>'
-    f'<span class="pill" style="position:absolute;right:60px;top:50px">On the ground</span>'
+    '<h1 class="t" style="top:50px">Time local</h1>'
+    f'<span class="pill" style="position:absolute;right:60px;top:50px">Em São Paulo</span>'
     '<p class="big" style="position:absolute;left:60px;top:150px;width:800px;font-size:19px;line-height:1.45">'
-    'A local crew that knows the city, the scene and the fans, with her all five days.</p>'
-    '<div class="team">' + "".join(
+    'Um time que conhece a cidade, a cena e os fãs, junto com ela durante toda a passagem pelo Brasil.</p>'
+    '<div class="team" style="top:265px">' + "".join(
         f'<div>{avatar(n, "", 120)}<small class="lbl">{r}</small><p>{h}</p></div>' for n, r, h in equipe) + '</div>'
-    '<div class="box" style="left:60px;top:560px;width:1160px;background:#F2EC1A;display:flex;align-items:center;gap:24px">'
-    f'{pill("Press")}<p style="font-size:16px"><b>Need local press relations?</b> We can bring in a Brazilian PR team as well.</p></div>'
-    + ft("Local team", 20))
+    + ft("Time local", 9))
 
-# =============================================================== 21 obrigado
+# =============================================================== 10 obrigado
 slide(
     blob(1150, 30, 260) + blob(90, 700, 330, "g") + blob(640, 720, 300) +
     f'<div style="position:absolute;left:60px;top:44px;z-index:3">{WORD}</div>'
     '<h1 class="giga" style="top:220px;font-size:190px">Obrigado.</h1>'
-    '<p style="position:absolute;left:62px;top:460px;font-size:17px">Meli Music · October 17, 2026 · São Paulo</p>'
+    '<p style="position:absolute;left:62px;top:460px;font-size:17px">Meli Music · 17 de outubro de 2026 · São Paulo</p>'
     '<div class="rule" style="top:600px;width:440px;right:auto"></div>'
     '<p style="position:absolute;left:62px;top:615px;font-size:17px;font-weight:600">Kaique Brasileiro</p>'
-    '<p style="position:absolute;left:62px;top:642px;font-size:13px">Digital Strategy &amp; Fan Engagement</p>'
+    '<p style="position:absolute;left:62px;top:642px;font-size:13px">Creative and Communication Manager</p>'
     f'<div class="oval" style="left:880px;top:60px;width:340px;height:600px;background-image:url({IMG["hips"]});background-position:50% 30%;background-size:cover"></div>',
     cls="capa")
 
@@ -510,6 +292,7 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .tri{display:flex;gap:44px;margin-top:10px}
 .tri h4{font-size:36px;font-weight:400;letter-spacing:-.03em}
 .tri p{font-size:12.5px;margin-top:2px}
+.dd .tri h4{font-size:30px;white-space:nowrap}
 /* capa */
 .capa .tr{position:absolute;right:60px;top:52px;text-align:right;font-size:13.5px;font-weight:500;line-height:1.4}
 .giga{position:absolute;left:55px;font-size:230px;font-weight:400;letter-spacing:-.05em;line-height:1;z-index:3}
@@ -532,7 +315,7 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .c1 .row{margin-top:40px;display:flex;align-items:baseline;gap:30px}
 .c1 .row small{font-size:13px}.c1 .row span{font-size:30px;letter-spacing:-.03em}
 .c2{position:absolute;left:545px;top:58px;width:620px;display:grid;grid-template-columns:repeat(4,1fr);row-gap:26px;border-left:1.4px solid #0B0B0C;padding-left:55px;height:190px}
-.c2 h3{font-size:40px;font-weight:400;letter-spacing:-.035em;line-height:1}
+.c2 h3{font-size:34px;font-weight:400;letter-spacing:-.035em;line-height:1}
 .c2 p{font-size:12.5px;line-height:1.5;margin-top:8px}
 .c2 .w{grid-column:1/5;display:flex;align-items:baseline;gap:18px}
 .c2 .w small{font-size:13px}.c2 .w span{font-size:20px;letter-spacing:-.02em}
@@ -613,7 +396,7 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .it h4{font-size:27px;font-weight:400;letter-spacing:-.025em;margin:2px 0 5px}
 .it p{font-size:14.5px;line-height:1.5}
 .g2{position:absolute;left:50px;right:60px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;z-index:3}
-.g2>div{background:#fff;border:1.4px solid #0B0B0C;border-radius:18px;padding:13px 18px;height:122px}
+.g2>div{background:#fff;border:1.4px solid #0B0B0C;border-radius:18px;padding:13px 18px;height:128px}
 .g2>div.yl{background:#13B04B}
 .g2>div.yl small{color:#0B0B0C}
 .g2 small{font-size:11px;font-weight:700;color:#0E8A3A}
@@ -640,11 +423,23 @@ mark{background:linear-gradient(90deg,#F2EC1A,#C8E23A);padding:0 .12em;border-ra
 .team .pp b{font-size:21px;font-weight:500;margin-top:14px;letter-spacing:-.01em}
 .team .lbl{margin-top:12px;font-size:10.5px;color:#0E8A3A;line-height:1.4}
 .team p{font-size:14px;margin-top:6px}
+a{color:inherit;text-decoration:none}
+a.tw{display:block}
+.vg{position:absolute;left:60px;width:580px;display:grid;grid-template-columns:1fr 1fr;gap:14px;z-index:3}
+.vg>div{background:#fff;border:1.4px solid #0B0B0C;border-radius:20px;padding:14px 18px;height:295px}
+.vg>div.yl{background:#F2EC1A}
+.vg small{font-size:11px;font-weight:700;color:#0E8A3A;letter-spacing:.04em;text-transform:uppercase}
+.vg h4{font-size:24px;font-weight:400;letter-spacing:-.025em;margin:4px 0 10px}
+.vg ul{list-style:none}
+.vg li{font-size:13px;line-height:1.38;padding:6px 0;border-top:1px solid rgba(0,0,0,.25)}
+.shot{position:absolute;display:block;border:1.4px solid #0B0B0C;border-radius:16px;background-size:cover;background-position:center;z-index:3}
+.cap2{position:absolute;left:690px;width:530px;font-size:12.5px;line-height:1.45;z-index:3}
+.cap2 span{color:#555;font-size:11px}
 """
 
 
 def html():
-    return (f'<!doctype html><html><head><meta charset="utf-8"><title>Normani × Brasil 2026</title>'
+    return (f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Normani × Brasil 2026</title>'
             f'<style>{FONTES}{CSS}</style></head><body>{"".join(S)}</body></html>')
 
 
