@@ -160,7 +160,7 @@ for (pos, d, t, live, txt), x in zip(tl, xs):
                f'<small>{d.upper()}</small><h4>{t} {lv}</h4><p>{txt}</p></div>')
 slide(
     blob(1180, 60, 250) + blob(620, 760, 260, "g", .55) +
-    '<h1 class="t" style="top:50px">Catorze anos<br>de Brasil</h1>'
+    '<h1 class="t" style="top:50px">14 anos<br>de Brasil</h1>'
     f'<span class="pill" style="position:absolute;right:60px;top:50px">Linha do tempo</span>'
     '<div class="leg"><span><i class="dot live s"></i>Ao vivo no Brasil</span><span><i class="dot s"></i>Momento online</span></div>'
     + "".join(tlh) +
