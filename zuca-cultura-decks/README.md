@@ -7,4 +7,4 @@ Dois decks no estilo visual do "Normani at the VMAs" (Inter Tight, fundo areia, 
 
 Editar `tim.html` / `petra.html` (estilo em `deck.css`) e gerar com `python3 build.py [tim|petra]` (requer `pip install playwright`).
 
-Números marcados como estimativa são cenário base e devem ser validados com a operação e com as marcas.
+Números vêm de fontes públicas ou do escopo da parceria (ata comercial de 23/09/2026). O potencial de consumo da Petra é calculado sobre a capacidade dos palcos, com premissas visíveis na página. A geladeira do café é uma simulação gerada por `mockup_geladeira.py`.
