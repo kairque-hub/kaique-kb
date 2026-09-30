@@ -10,6 +10,7 @@ B = pathlib.Path(__file__).parent
 DECKS = {
     "tim": ("tim.html", "TIM-MUSIC-x-Zuca-Cultura-Artistica.pdf"),
     "petra": ("petra.html", "Petra-x-Zuca-Cultura-Artistica.pdf"),
+    "geral": ("geral.html", "Zuca-Cultura-Artistica-Oportunidades-de-marca.pdf"),
 }
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 png_dir = sys.argv[sys.argv.index("--png") + 1] if "--png" in sys.argv else None
@@ -17,7 +18,7 @@ if png_dir in args:
     args.remove(png_dir)
 alvo = args or list(DECKS)
 
-css = (B/"fontes/intertight.css").read_text() + "\n" + (B/"deck.css").read_text()
+css = (B/"fontes/intertight.css").read_text() + "\n" + (B/"fontes/fraunces.css").read_text() + "\n" + (B/"deck.css").read_text()
 exe = sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome'))[-1]
 
 with sync_playwright() as p:
