@@ -1,329 +1,352 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Zuca + Cultura Artística · Oportunidades de marca</title>
 <style>/*{{CSS}}*/
-:root{--bg:#F3F0E8;--ink:#141210;--mut:#6D675F;--line:rgba(20,18,16,.16);--ac:#B8862B;--dk:#141210}
-html,body{background:var(--bg)}
-.page{background:var(--bg);padding:0}
-.page.dark{background:#141210;color:#F3F0E8}
-.sf{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.025em;font-variant-numeric:lining-nums}
-.kick{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ac)}
-.t1{font-size:38px;line-height:1.06}
-.t2{font-size:26px;line-height:1.08}
-.lede{font-size:14.5px;line-height:1.5;color:#2A2723}
-.tx{font-size:12px;line-height:1.5;color:#3A3631}
-.sm{font-size:10px;line-height:1.4;color:var(--mut)}
-.hr{height:1px;background:var(--line)}
-.ft{position:absolute;left:60px;right:60px;bottom:24px;display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);letter-spacing:.02em}
-.dark .ft{color:rgba(243,240,232,.55)}
-.ph{display:block;border-radius:6px;height:auto}
-.fig{font-size:9px;color:var(--mut);margin-top:5px;letter-spacing:.02em}
-.tbl{width:100%;border-collapse:collapse}
-.tbl td{padding:11px 0;border-top:1px solid var(--line);vertical-align:top}
-.tbl td.k{width:170px;font-size:13px;font-weight:500;padding-right:18px}
-.tbl td.v{font-size:11.5px;line-height:1.45;color:#3A3631}
-.tbl td.k .sm{font-weight:400;margin-top:2px}
-.num{font-family:'Fraunces',serif;font-weight:400;font-size:40px;line-height:1;letter-spacing:-.03em;font-variant-numeric:lining-nums}
-.box{border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;background:rgba(255,255,255,.45)}
-.box h5{font-size:14px;font-weight:600;margin-bottom:6px}
-.box p{font-size:11px;line-height:1.45;color:#3A3631}
-.box .kick{margin-bottom:8px}
-.pill{display:inline-block;border:1px solid var(--ink);border-radius:999px;padding:5px 16px;font-size:12px;font-weight:500;margin:0 6px 8px 0}
-.lg{display:block}
-.abs{position:absolute}
+:root{--sage:#D2DAD5;--w:#F3F3F1;--k:#161616;--o:#E5522C;--ink:#161616;--mut:#5E605D}
+html,body{background:var(--sage)}
+.page{background:var(--sage);padding:0;font-family:'Instrument Sans',sans-serif;color:var(--ink)}
+.c{position:absolute;border-radius:26px;padding:26px 28px;overflow:hidden}
+.c.w{background:var(--w)}
+.c.k{background:var(--k);color:#F2F2F0}
+.c.o{background:var(--o);color:#fff}
+.box{background:#fff;border:1px solid rgba(22,22,22,.55);border-radius:18px;padding:18px 20px}
+.h{font-weight:400;letter-spacing:-.025em;line-height:1.02}
+.it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.big{font-weight:400;letter-spacing:-.045em;line-height:.9}
+.brk{font-size:8px;line-height:1.15;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.tx{font-size:12px;line-height:1.45}
+.sm{font-size:10px;line-height:1.4}
+.mut{color:var(--mut)}
+.c.k .mut,.c.o .mut{color:rgba(255,255,255,.72)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border-radius:999px;padding:7px 16px;font-size:10.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.pill .dt{width:20px;height:20px;border-radius:50%;background:var(--o);display:inline-flex;align-items:center;justify-content:center;margin-left:-8px}
+.arw{display:inline-block;width:44px;height:26px}
+.star{display:inline-block}
+.ph{display:block;border-radius:12px;height:auto}
+.cap{font-size:9px;margin-top:5px;opacity:.7}
 .row{display:flex}.col{display:flex;flex-direction:column}
-.g8{gap:8px}.g12{gap:12px}.g16{gap:16px}.g24{gap:24px}.g32{gap:32px}
+.g8{gap:8px}.g10{gap:10px}.g12{gap:12px}.g14{gap:14px}.g18{gap:18px}.g24{gap:24px}
 .f1{flex:1}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--ac);flex:none;margin-top:5px}
+.abs{position:absolute}
+.li{display:flex;gap:12px;padding:10px 0;border-top:1px solid rgba(22,22,22,.14)}
+.li .k{width:150px;flex:none;font-size:12.5px;font-weight:500}
+.li .v{font-size:11.2px;line-height:1.45;color:#3B3D3A}
 </style></head><body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 44 26"><rect x="1" y="1" width="42" height="24" rx="12" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 13h19M25 7.5l6 5.5-6 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="star" viewBox="0 0 40 40"><path d="M20 0l3.2 11.4L33.5 5.2l-5.9 10.3L40 20l-12.4 4.5 5.9 10.3-10.3-6.2L20 40l-3.2-11.4-10.3 6.2 5.9-10.3L0 20l12.4-4.5L6.5 5.2l10.3 6.2z" fill="currentColor"/></symbol>
+    <symbol id="ne" viewBox="0 0 12 12"><path d="M3 9l6-6M4 3h5v5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
 
 <!-- 01 CAPA -->
 <section class="page">
-  <div class="abs row" style="left:60px;top:48px;align-items:flex-end;gap:26px">
-    <img class="lg" src="img/logo_zuca.png" style="height:54px"><img class="lg" src="img/logo_cultura.png" style="height:44px">
+  <div class="c w" style="left:22px;top:22px;width:720px;height:631px">
+    <div class="row" style="align-items:flex-end;gap:22px"><img src="img/logo_zuca.png" style="height:46px;display:block"><img src="img/logo_cultura.png" style="height:37px;display:block"></div>
+    <div class="abs" style="left:28px;top:200px">
+      <div class="it" style="font-size:30px">Proposta comercial</div>
+      <div class="h" style="font-size:92px;margin-top:6px">Oportunidades<br>de marca</div>
+    </div>
+    <div class="abs row g12" style="left:28px;bottom:28px;align-items:center">
+      <span class="pill" style="border:1px solid var(--ink)"><span class="dt"><svg width="10" height="10"><use href="#ne"/></svg></span>Zuca + Cultura Artística</span>
+      <span class="tx mut" style="margin-left:10px">A tradição do Cultura e a curadoria da Zuca,<br>juntas no centro de São Paulo.</span>
+    </div>
+    <svg class="abs arw" style="right:28px;top:30px;color:var(--ink)"><use href="#arrow"/></svg>
   </div>
-  <div class="abs" style="left:60px;top:190px;width:560px">
-    <div class="kick">Proposta comercial · 2026–2028</div>
-    <div class="sf" style="font-size:68px;line-height:1;margin-top:14px">Oportunidades<br>de marca</div>
-    <div class="lede" style="margin-top:22px;width:470px">A tradição do Cultura Artística e a curadoria contemporânea da Zuca, a Casa da Música Brasileira, juntas no centro de São Paulo.</div>
+  <div class="c k" style="left:756px;top:22px;width:422px;height:420px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ A Casa da<br>Música Brasileira ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <img class="ph" src="img/zuca_fachada_dia.jpg" style="width:366px;margin-top:26px">
+    <div class="row g10" style="margin-top:16px"><span class="pill">Rua Bahia · desde 2024</span></div>
   </div>
-  <div class="abs col g12" style="left:700px;top:150px;width:440px">
-    <div class="row g12"><div><img class="ph" src="img/zuca_fachada_dia.jpg" style="width:214px"><div class="fig">Zuca · Rua Bahia, 1126</div></div>
-      <div><img class="ph" src="img/a_fachada.jpg" style="width:214px;height:143px;object-fit:contain;background:#fff"><div class="fig">Cultura Artística</div></div></div>
-    <div class="row g12"><div><img class="ph" src="img/zuca_estudio.jpg" style="width:214px"><div class="fig">Estúdio da Zuca</div></div>
-      <div><img class="ph" src="img/f_teatro.jpg" style="width:214px"><div class="fig">Teatro Principal · 771 lugares</div></div></div>
+  <div class="c o" style="left:756px;top:456px;width:422px;height:197px">
+    <svg class="star" width="30" height="30" style="color:#fff"><use href="#star"/></svg>
+    <div class="h" style="font-size:52px;margin-top:22px">2026–2028</div>
+    <div class="it" style="font-size:18px;margin-top:2px">um contrato, três temporadas</div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>01</span></div>
 </section>
 
 <!-- 02 RESUMO -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:1080px">
-    <div class="kick">A parceria em uma página</div>
-    <div class="sf t1" style="margin-top:10px;width:820px">Um celeiro criativo e um palco histórico, com uma agenda que a marca pode assinar o ano inteiro.</div>
+  <div class="c w" style="left:22px;top:22px;width:420px;height:631px">
+    <div class="brk">[ A parceria<br>em uma página ]</div>
+    <div class="h" style="font-size:40px;margin-top:40px">Um celeiro criativo e um palco histórico.</div>
+    <div class="it" style="font-size:24px;margin-top:10px;line-height:1.1">Uma agenda que a marca assina o ano inteiro.</div>
+    <div class="abs col g12" style="left:28px;right:28px;bottom:28px">
+      <div class="tx"><b>Zuca</b> descobre, forma e lança a nova geração da música brasileira.</div>
+      <div class="tx"><b>Cultura Artística</b> dá o palco: um dos teatros mais emblemáticos do país.</div>
+      <div class="tx"><b>A marca</b> assina produtos contínuos, com exclusividade de categoria.</div>
+    </div>
   </div>
-  <div class="abs row" style="left:60px;right:60px;top:270px;border-top:1px solid var(--ink)">
-    <div class="f1" style="padding:18px 18px 0 0"><div class="num">26</div><div class="tx" style="margin-top:6px">shows por ano: 13 no Auditório e 13 no Teatro Principal</div></div>
-    <div class="f1" style="padding:18px 18px 0;border-left:1px solid var(--line)"><div class="num">921</div><div class="tx" style="margin-top:6px">lugares em dois palcos de padrão internacional</div></div>
-    <div class="f1" style="padding:18px 18px 0;border-left:1px solid var(--line)"><div class="num">13</div><div class="tx" style="margin-top:6px">entrevistas ao vivo do Papo de Música, que viram anuário</div></div>
-    <div class="f1" style="padding:18px 18px 0;border-left:1px solid var(--line)"><div class="num">2</div><div class="tx" style="margin-top:6px">festas de rua gratuitas por ano, da Roosevelt ao Copan</div></div>
-    <div class="f1" style="padding:18px 18px 0;border-left:1px solid var(--line)"><div class="num">1.000+</div><div class="tx" style="margin-top:6px">artistas inscritos no Edital Zuca 2025</div></div>
-    <div class="f1" style="padding:18px 0 0 18px;border-left:1px solid var(--line)"><div class="num">5–6 mil</div><div class="tx" style="margin-top:6px">assinantes e patronos do Cultura Artística</div></div>
+  <div class="abs" style="left:456px;top:22px;width:722px;height:631px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:14px">
+    <div class="c k" style="position:relative"><div class="brk">[ Série Brasilidades ]</div><div class="big abs" style="font-size:96px;left:26px;bottom:62px">26</div><div class="sm mut abs" style="left:26px;bottom:24px;right:26px">shows por ano: 13 no Auditório e 13 no Teatro Principal</div></div>
+    <div class="c w" style="position:relative"><div class="brk">[ Dois palcos ]</div><div class="big abs" style="font-size:96px;left:26px;bottom:62px">921</div><div class="sm mut abs" style="left:26px;bottom:24px;right:26px">lugares de padrão internacional</div></div>
+    <div class="c o" style="position:relative"><svg class="star" width="26" height="26" style="color:#fff"><use href="#star"/></svg><div class="big abs" style="font-size:96px;left:26px;bottom:62px">13</div><div class="sm abs" style="left:26px;bottom:24px;right:26px;opacity:.85">entrevistas ao vivo do Papo de Música, que viram anuário</div></div>
+    <div class="c w" style="position:relative"><div class="brk">[ Cultura para a Rua ]</div><div class="big abs" style="font-size:96px;left:26px;bottom:62px">2</div><div class="sm mut abs" style="left:26px;bottom:24px;right:26px">festas de rua gratuitas por ano, da Roosevelt ao Copan</div></div>
+    <div class="c w" style="position:relative;background:#fff"><div class="brk">[ Edital Zuca 2025 ]</div><div class="big abs" style="font-size:66px;left:26px;bottom:62px">1.000+</div><div class="sm mut abs" style="left:26px;bottom:24px;right:26px">artistas inscritos, de todas as regiões</div></div>
+    <div class="c k" style="position:relative"><div class="brk">[ Clube ]</div><div class="big abs" style="font-size:56px;left:26px;bottom:62px">5–6 mil</div><div class="sm mut abs" style="left:26px;bottom:24px;right:26px">assinantes e patronos do Cultura Artística</div></div>
   </div>
-  <div class="abs row g24" style="left:60px;right:60px;top:480px;border-top:1px solid var(--line);padding-top:18px">
-    <div class="f1"><div class="kick">Zuca</div><div class="tx" style="margin-top:6px">Descobre, forma e lança a nova geração da música brasileira: edital, mentorias, podcast, Prosa e Jam.</div></div>
-    <div class="f1"><div class="kick">Cultura Artística</div><div class="tx" style="margin-top:6px">Dá o palco: um dos teatros mais emblemáticos do país, tombado nas três esferas, com base fiel de patronos.</div></div>
-    <div class="f1"><div class="kick">A marca</div><div class="tx" style="margin-top:6px">Assina produtos contínuos, com exclusividade de categoria, conteúdo próprio e relacionamento com o público.</div></div>
-  </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>02</span></div>
 </section>
 
 <!-- 03 DIVISOR -->
-<section class="page dark">
-  <div class="abs" style="left:60px;top:48px;font-size:11px;letter-spacing:.14em;color:var(--ac);font-weight:600">01</div>
-  <div class="abs" style="left:60px;top:250px">
-    <div class="sf" style="font-size:84px;line-height:1">Quem somos</div>
-    <div style="font-size:14px;margin-top:18px;color:rgba(243,240,232,.7)">A tradição do Cultura Artística e a curadoria contemporânea da Zuca.</div>
+<section class="page">
+  <div class="c o" style="left:22px;top:22px;width:1156px;height:631px">
+    <div class="row" style="justify-content:space-between"><svg class="star" width="40" height="40" style="color:#fff"><use href="#star"/></svg><div class="brk">[ Capítulo<br>01 ]</div></div>
+    <div class="abs" style="left:28px;bottom:40px">
+      <div class="it" style="font-size:34px">A tradição e o contemporâneo</div>
+      <div class="h" style="font-size:150px;margin-top:4px">Quem somos</div>
+    </div>
+    <svg class="abs arw" style="right:28px;bottom:48px;color:#fff;width:66px;height:39px"><use href="#arrow"/></svg>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>03</span></div>
 </section>
 
 <!-- 04 ZUCA -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:500px">
-    <div class="kick">Zuca · A Casa da Música Brasileira</div>
-    <div class="sf t1" style="margin-top:10px">O que construímos</div>
-    <div class="lede" style="margin-top:20px">A Casa da Música Brasileira nasceu como um espaço de encontros, descobertas e celebrações. Desde a inauguração, em outubro de 2024, se firmou como palco de inovação e referência para a música brasileira contemporânea.</div>
-    <div class="tx" style="margin-top:14px">Em 2025, a Casa consolidou sua programação como um espaço vivo de cultura, com experiências que aproximaram artistas, público e marcas: dezenas de eventos, milhares de pessoas impactadas e ampla repercussão na imprensa e nas redes.</div>
-    <div class="tx" style="margin-top:10px">Mais do que um endereço, a Casa virou ponto de conexão e visibilidade para a cena musical, com um calendário consistente que já ocupa lugar de destaque no cenário cultural do país.</div>
-    <div class="row g24" style="margin-top:22px">
-      <div><div class="num" style="font-size:32px">1930</div><div class="sm">casa modernista de Gregori Warchavchik, tombada pelo Iphan</div></div>
-      <div><div class="num" style="font-size:32px">2024</div><div class="sm">inauguração da Zuca, com Jota.pê como embaixador</div></div>
+  <div class="c w" style="left:22px;top:22px;width:520px;height:631px">
+    <div class="row" style="justify-content:space-between;align-items:flex-start"><img src="img/logo_zuca.png" style="height:38px;display:block"><div class="brk" style="text-align:right">[ Zuca ·<br>desde 2024 ]</div></div>
+    <div class="h" style="font-size:44px;margin-top:40px">O que construímos</div>
+    <div class="it" style="font-size:21px;margin-top:6px">Um espaço de encontros, descobertas e celebrações.</div>
+    <div class="tx" style="margin-top:20px">Desde a inauguração, em outubro de 2024, a Casa da Música Brasileira se firmou como palco de inovação e referência para a música brasileira contemporânea.</div>
+    <div class="tx" style="margin-top:10px">Em 2025, consolidou uma programação viva, com experiências que aproximaram artistas, público e marcas: dezenas de eventos, milhares de pessoas impactadas e ampla repercussão na imprensa e nas redes.</div>
+    <div class="abs row g14" style="left:28px;right:28px;bottom:26px">
+      <div class="box f1"><div class="big" style="font-size:40px">1930</div><div class="sm mut" style="margin-top:6px">casa modernista de Warchavchik, tombada pelo Iphan</div></div>
+      <div class="box f1" style="background:var(--o);border-color:var(--o);color:#fff"><div class="big" style="font-size:40px">Jota.pê</div><div class="sm" style="margin-top:6px;opacity:.85">embaixador da casa</div></div>
     </div>
   </div>
-  <div class="abs" style="left:620px;top:70px;width:520px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
-    <div><img class="ph" src="img/zuca_fachada_dia.jpg" style="width:253px"><div class="fig">Fachada</div></div>
-    <div><img class="ph" src="img/zuca_musica.jpg" style="width:253px"><div class="fig">Espaço de trabalho e convivência</div></div>
-    <div><img class="ph" src="img/zuca_estudio.jpg" style="width:253px"><div class="fig">Estúdio</div></div>
-    <div><img class="ph" src="img/zuca_jardim_petra.jpg" style="width:253px"><div class="fig">Jardim</div></div>
+  <div class="c k" style="left:556px;top:22px;width:622px;height:631px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ A casa ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:22px">
+      <div><img class="ph" src="img/zuca_fachada_dia.jpg" style="width:275px"><div class="cap">Fachada</div></div>
+      <div><img class="ph" src="img/zuca_musica.jpg" style="width:275px"><div class="cap">Convivência</div></div>
+      <div><img class="ph" src="img/zuca_estudio.jpg" style="width:275px"><div class="cap">Estúdio</div></div>
+      <div><img class="ph" src="img/zuca_jardim_petra.jpg" style="width:275px"><div class="cap">Jardim</div></div>
+    </div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>04</span></div>
 </section>
 
 <!-- 05 CULTURA -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:470px">
-    <div class="kick">Cultura Artística · desde 1912</div>
-    <div class="sf t1" style="margin-top:10px">Um patrimônio nacional</div>
-    <div class="lede" style="margin-top:20px;font-style:italic">“Os dois maiores maestros e compositores brasileiros, Heitor Villa-Lobos e Camargo Guarnieri, prepararam com carinho especial o concerto de inauguração do Teatro Cultura Artística e de abertura da temporada de 1950.”</div>
-    <div class="sm" style="margin-top:6px">Ivan Ângelo</div>
-    <div class="tx" style="margin-top:16px">Na época, era um dos maiores e mais modernos complexos culturais da América Latina. O projeto de Rino Levi ganhou destaque pela acústica das salas, pelos camarins e pelo monumental painel de Di Cavalcanti na fachada. Seus palcos abrigaram espetáculos memoráveis de teatro, música, canto e dança.</div>
-    <div class="tx" style="margin-top:10px">Marco cultural e arquitetônico, o teatro é tombado nas esferas federal, estadual e municipal. Reaberto em 2024, tem Teatro Principal de 771 lugares e Auditório de 150.</div>
+  <div class="c k" style="left:22px;top:22px;width:470px;height:631px">
+    <div class="row" style="justify-content:space-between;align-items:flex-start"><img src="img/logo_cultura_w.png" style="height:34px;display:block"><div class="brk" style="text-align:right">[ Desde<br>1912 ]</div></div>
+    <div class="h" style="font-size:42px;margin-top:36px">Um patrimônio nacional</div>
+    <div class="it" style="font-size:19px;margin-top:14px;line-height:1.25;color:rgba(255,255,255,.85)">“Os dois maiores maestros e compositores brasileiros, Heitor Villa-Lobos e Camargo Guarnieri, prepararam com carinho especial o concerto de inauguração do Teatro Cultura Artística.”</div>
+    <div class="sm mut" style="margin-top:6px">Ivan Ângelo, sobre a temporada de 1950</div>
+    <div class="tx mut" style="margin-top:16px">Projeto de Rino Levi, com painel de Di Cavalcanti na fachada, o teatro é tombado nas esferas federal, estadual e municipal. Reaberto em 2024, tem Teatro Principal de 771 lugares e Auditório de 150.</div>
+    <div class="abs row g10" style="left:28px;bottom:26px"><span class="pill">771 lugares</span><span class="pill">150 lugares</span><span class="pill" style="background:var(--o);color:#fff">Tombado</span></div>
   </div>
-  <div class="abs" style="left:590px;top:62px;width:550px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 12px">
-    <div><img class="ph" src="img/a_fachada.jpg" style="width:175px"><div class="fig">Fachada e painel de Di Cavalcanti</div></div>
-    <div><img class="ph" src="img/a_teatro.jpg" style="width:175px"><div class="fig">Teatro Principal</div></div>
-    <div><img class="ph" src="img/a_auditorio.jpg" style="width:175px"><div class="fig">Auditório</div></div>
-    <div><img class="ph" src="img/a_foyer.jpg" style="width:175px"><div class="fig">Foyer</div></div>
-    <div><img class="ph" src="img/a_hall.jpg" style="width:175px"><div class="fig">Hall</div></div>
-    <div><img class="ph" src="img/a_corredor.jpg" style="width:175px"><div class="fig">Salas de estudo</div></div>
+  <div class="c w" style="left:506px;top:22px;width:672px;height:631px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Os espaços<br>em aquarela ]</div><svg class="star" width="24" height="24" style="color:var(--o)"><use href="#star"/></svg></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px 14px;margin-top:20px">
+      <div><img class="ph" src="img/a_fachada.jpg" style="width:195px"><div class="cap">Fachada</div></div>
+      <div><img class="ph" src="img/a_teatro.jpg" style="width:195px"><div class="cap">Teatro Principal</div></div>
+      <div><img class="ph" src="img/a_auditorio.jpg" style="width:195px"><div class="cap">Auditório</div></div>
+      <div><img class="ph" src="img/a_foyer.jpg" style="width:195px"><div class="cap">Foyer</div></div>
+      <div><img class="ph" src="img/a_hall.jpg" style="width:195px"><div class="cap">Hall</div></div>
+      <div><img class="ph" src="img/a_corredor.jpg" style="width:195px"><div class="cap">Salas de estudo</div></div>
+    </div>
   </div>
-  <div class="abs sm" style="left:590px;top:560px">Ilustrações em aquarela dos espaços do Cultura Artística.</div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>05</span></div>
 </section>
 
 <!-- 06 DIVISOR -->
-<section class="page dark">
-  <div class="abs" style="left:60px;top:48px;font-size:11px;letter-spacing:.14em;color:var(--ac);font-weight:600">02</div>
-  <div class="abs" style="left:60px;top:230px">
-    <div class="sf" style="font-size:84px;line-height:1">Construção<br>da parceria</div>
-    <div style="font-size:14px;margin-top:18px;color:rgba(243,240,232,.7)">Curadorias e conexões entre polos criativos.</div>
+<section class="page">
+  <div class="c k" style="left:22px;top:22px;width:1156px;height:631px">
+    <div class="row" style="justify-content:space-between"><svg class="star" width="40" height="40" style="color:var(--o)"><use href="#star"/></svg><div class="brk">[ Capítulo<br>02 ]</div></div>
+    <div class="abs" style="left:28px;bottom:40px">
+      <div class="it" style="font-size:34px">Curadorias e conexões entre polos criativos</div>
+      <div class="h" style="font-size:150px;margin-top:4px">A parceria</div>
+    </div>
+    <svg class="abs arw" style="right:28px;bottom:48px;color:#fff;width:66px;height:39px"><use href="#arrow"/></svg>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>06</span></div>
 </section>
 
 <!-- 07 ALIANÇA -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:760px">
-    <div class="kick">Aliança estratégica</div>
-    <div class="sf t1" style="margin-top:10px">Um novo polo cultural no centro de São Paulo</div>
-    <div class="lede" style="margin-top:18px;width:700px">A Zuca lança e gerencia a nova geração da música brasileira. O Cultura Artística é um dos teatros mais emblemáticos do país desde a década de 1950. Juntos, ocupam cultural e socialmente o centro histórico, da Praça Roosevelt ao Copan.</div>
-  </div>
-  <div class="abs row" style="left:60px;right:60px;top:250px;border-top:1px solid var(--ink)">
-    <div class="f1" style="padding:24px 36px 0 0">
-      <img class="lg" src="img/logo_zuca.png" style="height:40px">
-      <div class="sf t2" style="margin-top:22px">O celeiro e polo criativo</div>
-      <div class="tx" style="margin-top:10px;width:440px">Curadoria artística, projetos urbanos, formação de novos nomes, conteúdos digitais e atração da comunidade jovem.</div>
-    </div>
-    <div class="f1" style="padding:24px 0 0 36px;border-left:1px solid var(--line)">
-      <img class="lg" src="img/logo_cultura.png" style="height:36px;margin-top:2px">
-      <div class="sf t2" style="margin-top:24px">O palco</div>
-      <div class="tx" style="margin-top:10px;width:440px">Palcos de padrão internacional, chancela de excelência cultural e conexão com uma base engajada de assinantes e patronos.</div>
+  <div class="c w" style="left:22px;top:22px;width:1156px;height:200px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Aliança<br>estratégica ]</div><svg class="arw" style="color:var(--ink)"><use href="#arrow"/></svg></div>
+    <div class="row" style="margin-top:20px;align-items:flex-end;gap:40px">
+      <div class="h" style="font-size:46px;width:620px">Um novo polo cultural <span class="it">no centro de São Paulo.</span></div>
+      <div class="tx mut" style="width:420px">A Zuca lança e gerencia a nova geração da música brasileira. O Cultura Artística é um dos teatros mais emblemáticos do país. Juntos, ocupam o centro histórico, da Praça Roosevelt ao Copan.</div>
     </div>
   </div>
-  <div class="abs row g12" style="left:60px;top:470px;align-items:flex-end">
-    <div><img class="ph" src="img/zuca_musica.jpg" style="height:110px;width:auto"><div class="fig">Zuca</div></div>
-    <div><img class="ph" src="img/zuca_estudio.jpg" style="height:110px;width:auto"><div class="fig">Estúdio da Zuca</div></div>
-    <div><img class="ph" src="img/f_teatro.jpg" style="height:110px;width:auto"><div class="fig">Teatro Principal</div></div>
-    <div><img class="ph" src="img/f_auditorio.jpg" style="height:110px;width:auto"><div class="fig">Auditório</div></div>
-    <div><img class="ph" src="img/f_foyer_azul.jpg" style="height:110px;width:auto"><div class="fig">Foyer</div></div>
+  <div class="c k" style="left:22px;top:236px;width:571px;height:260px">
+    <div class="row" style="justify-content:space-between;align-items:flex-start"><img src="img/logo_zuca_w.png" style="height:38px;display:block"><span class="pill">Celeiro</span></div>
+    <div class="h" style="font-size:34px;margin-top:40px">O polo <span class="it">criativo</span></div>
+    <div class="tx mut" style="margin-top:10px;width:470px">Curadoria artística, projetos urbanos, formação de novos nomes, conteúdos digitais e atração da comunidade jovem.</div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>07</span></div>
+  <div class="c o" style="left:607px;top:236px;width:571px;height:260px">
+    <div class="row" style="justify-content:space-between;align-items:flex-start"><img src="img/logo_cultura_w.png" style="height:34px;display:block"><span class="pill">Palco</span></div>
+    <div class="h" style="font-size:34px;margin-top:44px">O palco <span class="it">histórico</span></div>
+    <div class="tx" style="margin-top:10px;width:470px;opacity:.9">Palcos de padrão internacional, chancela de excelência cultural e conexão com uma base engajada de assinantes e patronos.</div>
+  </div>
+  <div class="c w" style="left:22px;top:510px;width:1156px;height:143px;padding:16px 20px">
+    <div class="row g14" style="align-items:flex-start">
+      <img class="ph" src="img/zuca_musica.jpg" style="height:111px;width:auto">
+      <img class="ph" src="img/zuca_estudio.jpg" style="height:111px;width:auto">
+      <img class="ph" src="img/f_teatro.jpg" style="height:111px;width:auto">
+      <img class="ph" src="img/f_auditorio.jpg" style="height:111px;width:auto">
+      <img class="ph" src="img/f_foyer_azul.jpg" style="height:111px;width:auto">
+    </div>
+  </div>
 </section>
 
 <!-- 08 DIVISOR -->
-<section class="page dark">
-  <div class="abs" style="left:60px;top:48px;font-size:11px;letter-spacing:.14em;color:var(--ac);font-weight:600">03</div>
-  <div class="abs" style="left:60px;top:230px">
-    <div class="sf" style="font-size:84px;line-height:1">Espaços<br>e ativações</div>
-    <div style="font-size:14px;margin-top:18px;color:rgba(243,240,232,.7)">Produtos, conceitos e oportunidades.</div>
+<section class="page">
+  <div class="c w" style="left:22px;top:22px;width:1156px;height:631px">
+    <div class="row" style="justify-content:space-between"><svg class="star" width="40" height="40" style="color:var(--o)"><use href="#star"/></svg><div class="brk">[ Capítulo<br>03 ]</div></div>
+    <div class="abs" style="left:28px;bottom:40px">
+      <div class="it" style="font-size:34px">Produtos, conceitos e oportunidades</div>
+      <div class="h" style="font-size:150px;margin-top:4px">Espaços e ativações</div>
+    </div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>08</span></div>
 </section>
 
 <!-- 09 ECOSSISTEMA ZUCA -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:620px">
-    <div class="kick">Produtos Zuca</div>
-    <div class="sf t1" style="margin-top:10px">A força do ecossistema criativo</div>
-    <table class="tbl" style="margin-top:26px">
-      <tr><td class="k">Edital de Música<div class="sm">1.000+ inscritos em 2025</div></td><td class="v">Descoberta, mentoria e aceleração de novos talentos da música em diferentes regiões do Brasil, com documentário anual.</td></tr>
-      <tr><td class="k">Zuca Podcast</td><td class="v">Histórias da música brasileira pela memória de artistas, músicos e personalidades da indústria. Um convidado por episódio.</td></tr>
-      <tr><td class="k">Prosa</td><td class="v">Espaço de pensamento, troca e provocação sobre os caminhos da música e do entretenimento contemporâneo.</td></tr>
-      <tr><td class="k">Zuca Jam</td><td class="v">Espaço livre de criação e troca entre artistas, que convida intérpretes e compositores a experimentar novas formas de expressão coletiva.</td></tr>
-    </table>
+  <div class="c k" style="left:22px;top:22px;width:1156px;height:150px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Produtos<br>Zuca ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <div class="h" style="font-size:46px;margin-top:22px">A força do ecossistema <span class="it" style="color:var(--o)">criativo</span></div>
   </div>
-  <div class="abs row g12" style="left:760px;top:120px;align-items:flex-start">
-    <div class="col g12">
-      <div><img class="ph" src="img/prosa.jpg" style="width:180px"><div class="fig">Prosa</div></div>
-    </div>
-    <div class="col g12">
-      <div><img class="ph" src="img/edital.jpg" style="width:180px"><div class="fig">Edital</div></div>
-    </div>
+  <div class="abs" style="left:22px;top:186px;width:1156px;height:467px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+    <div class="c w" style="position:relative;padding:18px"><div class="ph" style="width:200px;height:185px;background:url(img/edital.jpg) center top/100% auto"></div><div class="brk" style="margin-top:12px">[ 1.000+ inscritos ]</div><div class="h" style="font-size:22px;margin-top:6px">Edital de Música</div><div class="sm mut" style="margin-top:6px">Descoberta, mentoria e aceleração de novos talentos em todo o Brasil, com documentário anual.</div></div>
+    <div class="c o" style="position:relative;padding:18px"><div class="ph" style="width:200px;height:200px;background:url(img/zuca_estudio.jpg) center/auto 100%"></div><div class="brk" style="margin-top:12px">[ Um convidado por episódio ]</div><div class="h" style="font-size:22px;margin-top:6px">Zuca Podcast</div><div class="sm" style="margin-top:6px;opacity:.88">Histórias da música brasileira pela memória de artistas, músicos e personalidades da indústria.</div></div>
+    <div class="c w" style="position:relative;padding:18px"><div class="ph" style="width:200px;height:185px;background:url(img/prosa.jpg) center top/100% auto"></div><div class="brk" style="margin-top:12px">[ Pensamento e troca ]</div><div class="h" style="font-size:22px;margin-top:6px">Prosa</div><div class="sm mut" style="margin-top:6px">Reflexão e provocação sobre os caminhos da música e do entretenimento contemporâneo.</div></div>
+    <div class="c k" style="position:relative;padding:18px"><div class="ph" style="width:200px;height:200px;background:url(img/jam.jpg) center top/100% auto"></div><div class="brk" style="margin-top:12px">[ Criação coletiva ]</div><div class="h" style="font-size:22px;margin-top:6px">Zuca Jam</div><div class="sm mut" style="margin-top:6px">Espaço livre de criação entre intérpretes e compositores.</div></div>
   </div>
-  <div class="abs" style="left:760px;top:360px"><img class="ph" src="img/jam.jpg" style="width:150px"><div class="fig">Zuca Jam</div></div>
-  <div class="abs" style="left:922px;top:380px"><img class="ph" src="img/zuca_estudio.jpg" style="width:218px"><div class="fig">Estúdio</div></div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>09</span></div>
 </section>
 
 <!-- 10 O PALCO -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:600px">
-    <div class="kick">Infraestrutura Cultura Artística</div>
-    <div class="sf t1" style="margin-top:10px">O palco: estrutura de classe mundial no centro de São Paulo</div>
-    <table class="tbl" style="margin-top:24px">
-      <tr><td class="k">Teatro Principal<div class="sm">771 lugares</div></td><td class="v">Som e luz de última geração. Casa da Série Petrobras e de grandes apresentações.</td></tr>
-      <tr><td class="k">Auditório<div class="sm">150 lugares</div></td><td class="v">Espaço intimista da Série Zuca, ideal para gravações ao vivo e lançamentos.</td></tr>
-      <tr><td class="k">Espaço aberto para a rua</td><td class="v">Conexão direta com o trânsito de pedestres do centro, para ativações urbanas.</td></tr>
-      <tr><td class="k">Livraria Fauna e galerias</td><td class="v">Exposições, lançamentos de livros, palestras e encontros exclusivos.</td></tr>
-    </table>
-  </div>
-  <div class="abs" style="left:720px;top:62px;width:420px">
-    <img class="ph" src="img/f_teatro.jpg" style="width:420px"><div class="fig">Teatro Principal</div>
-    <div class="row g12" style="margin-top:12px;align-items:flex-start">
-      <div><img class="ph" src="img/f_auditorio.jpg" style="width:204px"><div class="fig">Auditório</div></div>
-      <div><img class="ph" src="img/f_foyer_azul.jpg" style="width:204px"><div class="fig">Foyer aberto para a rua</div></div>
+  <div class="c w" style="left:22px;top:22px;width:560px;height:631px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Infraestrutura<br>Cultura Artística ]</div><svg class="star" width="24" height="24" style="color:var(--o)"><use href="#star"/></svg></div>
+    <div class="h" style="font-size:42px;margin-top:30px">O palco <span class="it">de classe mundial</span></div>
+    <div style="margin-top:26px">
+      <div class="li"><div class="k">Teatro Principal<div class="sm mut">771 lugares</div></div><div class="v">Som e luz de última geração. Casa da Série Petrobras e de grandes apresentações.</div></div>
+      <div class="li"><div class="k">Auditório<div class="sm mut">150 lugares</div></div><div class="v">Espaço intimista da Série Zuca, ideal para gravações ao vivo e lançamentos.</div></div>
+      <div class="li"><div class="k">Espaço aberto para a rua</div><div class="v">Conexão direta com o trânsito de pedestres do centro, para ativações urbanas.</div></div>
+      <div class="li"><div class="k">Livraria Fauna e galerias</div><div class="v">Exposições, lançamentos de livros, palestras e encontros exclusivos.</div></div>
     </div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>10</span></div>
+  <div class="c k" style="left:596px;top:22px;width:582px;height:631px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Os palcos ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <img class="ph" src="img/f_teatro.jpg" style="width:526px;margin-top:18px"><div class="cap">Teatro Principal</div>
+    <div class="row g14" style="margin-top:12px;align-items:flex-start">
+      <div><img class="ph" src="img/f_auditorio.jpg" style="width:256px"><div class="cap">Auditório</div></div>
+      <div><img class="ph" src="img/f_foyer_azul.jpg" style="width:256px"><div class="cap">Foyer aberto para a rua</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- 11 CAFÉ PETRA -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:600px">
-    <div class="kick">Gastronomia</div>
-    <div class="sf t1" style="margin-top:10px">Café Petra no Cultura Artística</div>
-    <div class="lede" style="margin-top:14px">O café ganha o nome da marca e vira o ponto de convivência do teatro, com fluxo diário em horário comercial e atendimento exclusivo em dias de evento.</div>
-    <table class="tbl" style="margin-top:18px">
-      <tr><td class="k">Naming rights</td><td class="v">Café Petra no Cultura Artística, com a marca assinando o espaço. Ativação comercial contínua no horário comercial e na agenda noturna de shows.</td></tr>
-      <tr><td class="k">Exclusividade de portfólio</td><td class="v">Venda exclusiva de todo o portfólio de bebidas do Grupo Petrópolis em todos os eventos realizados no local.</td></tr>
-      <tr><td class="k">Conexão com a rua</td><td class="v">O espaço aberto para a rua leva a marca ao trânsito de pedestres do centro e às ativações do Cultura para a Rua.</td></tr>
-      <tr><td class="k">Ativação gastronômica</td><td class="v">Operação da Esse eu Posso, com cardápio assinado por chef renomado, focado em comida saudável e bem-estar.</td></tr>
-    </table>
+  <div class="c o" style="left:22px;top:22px;width:560px;height:220px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Gastronomia ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <div class="h" style="font-size:44px;margin-top:26px">Café Petra <span class="it">no Cultura Artística</span></div>
+    <div class="tx" style="margin-top:10px;opacity:.9">O café ganha o nome da marca e vira o ponto de convivência do teatro, com fluxo diário e atendimento exclusivo em dias de evento.</div>
   </div>
-  <div class="abs row g12" style="left:720px;top:62px;align-items:flex-start">
-    <div><img class="ph" src="img/cafe2_bar.jpg" style="width:200px"><div class="fig">Balcão</div></div>
-    <div class="col g12">
-      <div><img class="ph" src="img/cafe2_balcao.jpg" style="width:208px"><div class="fig">Café e foyer</div></div>
-      <div><img class="ph" src="img/cafe2_salao.jpg" style="width:208px"><div class="fig">Salão</div></div>
+  <div class="c w" style="left:22px;top:256px;width:560px;height:397px;padding:18px 28px">
+    <div class="li" style="border-top:none"><div class="k">Naming rights</div><div class="v">Café Petra no Cultura Artística, com a marca assinando o espaço no horário comercial e na agenda noturna de shows.</div></div>
+    <div class="li"><div class="k">Exclusividade de portfólio</div><div class="v">Venda exclusiva de todo o portfólio de bebidas do Grupo Petrópolis em todos os eventos do local.</div></div>
+    <div class="li"><div class="k">Conexão com a rua</div><div class="v">O espaço aberto leva a marca ao trânsito de pedestres do centro e às ativações do Cultura para a Rua.</div></div>
+    <div class="li"><div class="k">Ativação gastronômica</div><div class="v">Operação da Esse eu Posso, com cardápio de chef renomado, focado em comida saudável e bem-estar.</div></div>
+  </div>
+  <div class="c k" style="left:596px;top:22px;width:582px;height:631px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ O café hoje ]</div><svg class="star" width="24" height="24" style="color:var(--o)"><use href="#star"/></svg></div>
+    <div class="row g14" style="margin-top:18px;align-items:flex-start">
+      <div><img class="ph" src="img/cafe2_bar.jpg" style="width:240px"><div class="cap">Balcão</div></div>
+      <div class="col g12">
+        <div><img class="ph" src="img/cafe2_balcao.jpg" style="width:272px"><div class="cap">Café e foyer</div></div>
+        <div><img class="ph" src="img/cafe2_salao.jpg" style="width:272px"><div class="cap">Salão</div></div>
+      </div>
     </div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>11</span></div>
 </section>
 
 <!-- 12 OPORTUNIDADES -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:1080px">
-    <div class="kick">Oportunidades</div>
-    <div class="sf t1" style="margin-top:10px">Seis frentes para a marca ativar</div>
+  <div class="abs" style="left:22px;top:22px;width:1156px;height:631px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:14px">
+    <div class="c k" style="position:relative"><div class="row" style="justify-content:space-between"><div class="brk">[ 01 ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Naming rights <span class="it">do café</span></div><div class="sm mut" style="margin-top:12px">Exclusividade de categoria e de todo o portfólio de bebidas nos eventos. Operação com cardápio de chef renomado e verba de trade contínua.</div></div>
+    <div class="c w" style="position:relative"><div class="row" style="justify-content:space-between"><div class="brk">[ 02 ]</div><svg class="arw" style="color:var(--ink)"><use href="#arrow"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Cultura <span class="it">para a Rua</span></div><div class="sm mut" style="margin-top:12px">2 festas por ano, aos domingos, com a rua fechada e acesso gratuito: show de encontro entre artistas, 2 DJs e atividades para crianças e pets. Exclusividade de segmento.</div></div>
+    <div class="c o" style="position:relative"><div class="row" style="justify-content:space-between"><div class="brk">[ 03 ]</div><svg class="star" width="24" height="24" style="color:#fff"><use href="#star"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Série <span class="it">Brasilidades</span></div><div class="sm" style="margin-top:12px;opacity:.88">26 shows por ano com venda de ingressos: 13 no Auditório, com curadoria da Zuca, e 13 no Teatro Principal, com curadoria conjunta.</div></div>
+    <div class="c w" style="position:relative"><div class="row" style="justify-content:space-between"><div class="brk">[ 04 ]</div><svg class="arw" style="color:var(--ink)"><use href="#arrow"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Mentoria <span class="it">e capacitação</span></div><div class="sm mut" style="margin-top:12px">Mentorias na Zuca para jovens da periferia, com estágio no Cultura Artística em produção cultural, som, luz, bilheteria, regência, roadie e mídias sociais.</div></div>
+    <div class="c w" style="position:relative;background:#fff"><div class="row" style="justify-content:space-between"><div class="brk">[ 05 ]</div><svg class="arw" style="color:var(--ink)"><use href="#arrow"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Papo de Música <span class="it">e Anuário</span></div><div class="sm mut" style="margin-top:12px">13 entrevistas ao vivo com a jornalista Fabiane Pereira, transmitidas no YouTube, que viram o Anuário da Cultura Brasileira, impresso e de colecionador.</div></div>
+    <div class="c k" style="position:relative"><div class="row" style="justify-content:space-between"><div class="brk">[ 06 ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div><div class="h" style="font-size:30px;margin-top:40px">Clube <span class="it">de assinantes</span></div><div class="sm mut" style="margin-top:12px">Acesso a 5 a 6 mil assinantes e patronos, com o programa Jovens Patronos e prioridade e desconto nas assinaturas para clientes e colaboradores da marca.</div></div>
   </div>
-  <div class="abs" style="left:60px;right:60px;top:160px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-    <div class="box"><div class="kick">01</div><h5>Naming rights do café</h5><p>Exclusividade de categoria e de todo o portfólio de bebidas nos eventos. Operação com cardápio de chef renomado e verba de trade contínua.</p></div>
-    <div class="box"><div class="kick">02</div><h5>Cultura para a Rua</h5><p>2 festas por ano, aos domingos, com a rua fechada e acesso gratuito: show de encontro entre artistas, 2 DJs e atividades para crianças e pets. A marca assina o evento, com exclusividade de segmento.</p></div>
-    <div class="box"><div class="kick">03</div><h5>Série Brasilidades</h5><p>26 shows por ano com venda de ingressos: 13 no Auditório, com curadoria da Zuca, e 13 no Teatro Principal, com curadoria conjunta com o Cultura Artística.</p></div>
-    <div class="box"><div class="kick">04</div><h5>Mentoria e capacitação</h5><p>Mentorias na Zuca para jovens da periferia, com estágio no Cultura Artística em produção cultural, som, luz, bilheteria, regência, roadie e mídias sociais.</p></div>
-    <div class="box"><div class="kick">05</div><h5>Papo de Música e Anuário</h5><p>13 entrevistas ao vivo com a jornalista Fabiane Pereira, transmitidas no YouTube, que viram o Anuário da Cultura Brasileira, impresso e de colecionador.</p></div>
-    <div class="box"><div class="kick">06</div><h5>Clube de assinantes</h5><p>Acesso a 5 a 6 mil assinantes e patronos, com o novo programa Jovens Patronos e prioridade e desconto nas assinaturas para clientes e colaboradores da marca.</p></div>
-  </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>12</span></div>
 </section>
 
 <!-- 13 PRÊMIO -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:640px">
-    <div class="kick">Visão 2028</div>
-    <div class="sf t1" style="margin-top:10px">Prêmio Cultura Artística Brasileira: o primeiro grande prêmio unificado das artes no Brasil</div>
-    <div class="lede" style="margin-top:16px">Contrato plurianual de 3 anos, com a criação de uma premiação inédita na cena cultural do país.</div>
-    <div style="margin-top:22px"><span class="pill">Música</span><span class="pill">Cinema</span><span class="pill">Literatura</span><span class="pill">Moda</span><span class="pill">Artes Plásticas</span></div>
-    <div class="hr" style="margin-top:18px"></div>
-    <div class="kick" style="margin-top:16px">Grande diferencial</div>
-    <div class="tx" style="margin-top:6px;width:600px">Além de consagrar artistas nos palcos e nas telas, o prêmio reconhece quem move a cultura nos bastidores: empresários, curadores, diretores de fotografia, produtores executivos e diretores artísticos.</div>
+  <div class="c w" style="left:22px;top:22px;width:760px;height:430px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Visão<br>2028 ]</div><svg class="star" width="26" height="26" style="color:var(--o)"><use href="#star"/></svg></div>
+    <div class="it" style="font-size:24px;margin-top:30px">Prêmio Cultura Artística Brasileira</div>
+    <div class="h" style="font-size:44px;margin-top:6px">O primeiro grande prêmio unificado das artes no Brasil.</div>
+    <div class="row" style="flex-wrap:wrap;gap:8px;margin-top:26px">
+      <span class="pill" style="border:1px solid var(--ink)">Música</span><span class="pill" style="border:1px solid var(--ink)">Cinema</span><span class="pill" style="border:1px solid var(--ink)">Literatura</span><span class="pill" style="border:1px solid var(--ink)">Moda</span><span class="pill" style="background:var(--o);color:#fff;border:1px solid var(--o)">Artes Plásticas</span>
+    </div>
   </div>
-  <div class="abs" style="left:800px;top:56px;text-align:center"><img class="ph" src="img/trofeu_foto.jpg" style="width:300px;margin:0 auto"><div class="fig">Imagem meramente ilustrativa</div></div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>13</span></div>
+  <div class="c o" style="left:22px;top:466px;width:370px;height:187px">
+    <div class="brk">[ Contrato ]</div>
+    <div class="big" style="font-size:64px;margin-top:22px">3 anos</div>
+    <div class="sm" style="margin-top:6px;opacity:.88">plurianual, com premiação inédita na cena cultural</div>
+  </div>
+  <div class="c k" style="left:406px;top:466px;width:376px;height:187px">
+    <div class="brk">[ Grande diferencial ]</div>
+    <div class="tx" style="margin-top:14px;color:rgba(255,255,255,.85)">Além de consagrar artistas, o prêmio reconhece quem move a cultura nos bastidores: empresários, curadores, diretores de fotografia, produtores executivos e diretores artísticos.</div>
+  </div>
+  <div class="c k" style="left:796px;top:22px;width:382px;height:631px;display:flex;flex-direction:column;align-items:center">
+    <div class="row" style="width:100%;justify-content:space-between"><div class="brk">[ O troféu ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <img class="ph" src="img/trofeu_foto.jpg" style="width:300px;margin-top:20px">
+    <div class="cap">Imagem meramente ilustrativa</div>
+  </div>
 </section>
 
 <!-- 14 NOITE DO PRÊMIO -->
 <section class="page">
-  <div class="abs" style="left:60px;top:56px;width:1080px">
-    <div class="kick">Prêmio 2028</div>
-    <div class="sf t1" style="margin-top:10px">A noite de premiação e a entrada da marca</div>
+  <div class="c k" style="left:22px;top:22px;width:1156px;height:140px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Prêmio 2028 ]</div><svg class="arw" style="color:#fff"><use href="#arrow"/></svg></div>
+    <div class="h" style="font-size:44px;margin-top:18px">A noite <span class="it" style="color:var(--o)">em 4 tempos</span></div>
   </div>
-  <div class="abs" style="left:60px;right:60px;top:170px">
-    <div class="kick" style="color:var(--ink)">A noite em 4 tempos</div>
-    <div class="row" style="margin-top:14px;border-top:1px solid var(--ink)">
-      <div class="f1" style="padding:14px 20px 0 0"><div class="num" style="font-size:32px">1</div><div style="font-weight:600;font-size:13px;margin-top:4px">Rua</div><div class="tx">Tapete ligando a Roosevelt ao Copan, com público na calçada.</div></div>
-      <div class="f1" style="padding:14px 20px 0;border-left:1px solid var(--line)"><div class="num" style="font-size:32px">2</div><div style="font-weight:600;font-size:13px;margin-top:4px">Abertura</div><div class="tx">Show de encontro entre um artista consagrado e um talento do Edital.</div></div>
-      <div class="f1" style="padding:14px 20px 0;border-left:1px solid var(--line)"><div class="num" style="font-size:32px">3</div><div style="font-weight:600;font-size:13px;margin-top:4px">Cerimônia</div><div class="tx">771 lugares, entregas por pilar, com prêmios de frente e de bastidor.</div></div>
-      <div class="f1" style="padding:14px 0 0 20px;border-left:1px solid var(--line)"><div class="num" style="font-size:32px">4</div><div style="font-weight:600;font-size:13px;margin-top:4px">Depois</div><div class="tx">Pós-cerimônia no Café Petra e na rua, com Zuca Jam.</div></div>
+  <div class="abs" style="left:22px;top:176px;width:1156px;height:200px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+    <div class="c w" style="position:relative"><div class="big" style="font-size:60px">1</div><div class="h" style="font-size:20px;margin-top:10px">Rua</div><div class="sm mut" style="margin-top:6px">Tapete ligando a Roosevelt ao Copan, com público na calçada.</div></div>
+    <div class="c w" style="position:relative"><div class="big" style="font-size:60px">2</div><div class="h" style="font-size:20px;margin-top:10px">Abertura</div><div class="sm mut" style="margin-top:6px">Show de encontro entre um artista consagrado e um talento do Edital.</div></div>
+    <div class="c w" style="position:relative"><div class="big" style="font-size:60px">3</div><div class="h" style="font-size:20px;margin-top:10px">Cerimônia</div><div class="sm mut" style="margin-top:6px">771 lugares, entregas por pilar, com prêmios de frente e de bastidor.</div></div>
+    <div class="c o" style="position:relative"><div class="big" style="font-size:60px">4</div><div class="h" style="font-size:20px;margin-top:10px">Depois</div><div class="sm" style="margin-top:6px;opacity:.88">Pós-cerimônia no Café Petra e na rua, com Zuca Jam.</div></div>
+  </div>
+  <div class="c w" style="left:22px;top:390px;width:1156px;height:263px;background:#fff;padding-top:30px">
+    <div class="row" style="justify-content:space-between"><div class="brk">[ Entradas<br>de marca ]</div><svg class="star" width="24" height="24" style="color:var(--o)"><use href="#star"/></svg></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;margin-top:30px;font-size:14px">
+      <div class="tx" style="font-size:14px"><b>Naming do prêmio:</b> “apresentado por [marca]”.</div>
+      <div class="tx" style="font-size:14px"><b>Patrocínio por pilar,</b> com exclusividade de segmento.</div>
+      <div class="tx" style="font-size:14px"><b>Prêmio de bastidores</b> assinado pela marca.</div>
+      <div class="tx" style="font-size:14px"><b>After no Café Petra:</b> o encerramento da noite no espaço da marca.</div>
+      <div class="tx" style="font-size:14px"><b>Tapete e rua:</b> experiência e amostragem para o público.</div>
+      <div class="tx" style="font-size:14px"><b>Conteúdo e anuário:</b> bastidores, entrevistas e capítulo patrocinado.</div>
+      <div class="tx" style="font-size:14px"><b>ESG:</b> formação dos jovens que operam a cerimônia.</div>
     </div>
   </div>
-  <div class="abs" style="left:60px;right:60px;top:370px">
-    <div class="kick" style="color:var(--ink)">Entradas de marca</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;margin-top:14px">
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>Naming do prêmio:</b> “apresentado por [marca]”.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>Patrocínio por pilar,</b> com exclusividade de segmento.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>Prêmio de bastidores</b> assinado pela marca.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>After no Café Petra:</b> o encerramento da noite no espaço da marca.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>Tapete e rua:</b> experiência e amostragem para o público.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>Conteúdo e anuário:</b> bastidores, entrevistas e capítulo patrocinado.</div></div>
-      <div class="row g12"><span class="dot"></span><div class="tx"><b>ESG:</b> formação dos jovens que operam a cerimônia.</div></div>
-    </div>
-  </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>14</span></div>
 </section>
 
 <!-- 15 CONTATO -->
-<section class="page dark">
-  <div class="abs col g24" style="left:60px;top:190px">
-    <img class="lg" src="img/logo_zuca_w.png" style="height:84px">
-    <img class="lg" src="img/logo_cultura_w.png" style="height:70px">
+<section class="page">
+  <div class="c k" style="left:22px;top:22px;width:760px;height:631px">
+    <svg class="star" width="34" height="34" style="color:var(--o)"><use href="#star"/></svg>
+    <div class="abs" style="left:28px;top:200px">
+      <div class="h" style="font-size:80px">Vamos construir</div>
+      <div style="position:relative;display:inline-block;margin-top:4px">
+        <span class="it" style="font-size:88px;line-height:1">juntos.</span>
+        <svg class="abs" style="left:-26px;top:-2px" width="300" height="112" viewBox="0 0 300 112"><ellipse cx="150" cy="58" rx="142" ry="46" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-3 145 56)"/></svg>
+      </div>
+    </div>
+    <div class="abs row g12" style="left:28px;bottom:28px"><span class="pill"><span class="dt"><svg width="10" height="10"><use href="#ne"/></svg></span>comercial@talitamoraiis.com</span></div>
   </div>
-  <div class="abs" style="left:640px;top:220px">
-    <div class="sf" style="font-size:52px;line-height:1">Vamos construir juntos.</div>
-    <div class="hr" style="background:rgba(243,240,232,.25);margin:24px 0"></div>
-    <div style="font-size:15px">comercial@talitamoraiis.com</div>
-    <div style="font-size:13px;margin-top:10px;color:rgba(243,240,232,.7)">@acasadamusicabrasileira · @culturaartistica</div>
+  <div class="c w" style="left:796px;top:22px;width:382px;height:420px">
+    <div class="brk">[ Realização ]</div>
+    <div class="col g24" style="margin-top:50px">
+      <img src="img/logo_zuca.png" style="height:70px;width:auto;align-self:flex-start">
+      <img src="img/logo_cultura.png" style="height:56px;width:auto;align-self:flex-start">
+    </div>
   </div>
-  <div class="ft"><span>A Casa da Música Brasileira + Cultura Artística</span><span>15</span></div>
+  <div class="c o" style="left:796px;top:456px;width:382px;height:197px">
+    <div class="brk">[ Siga ]</div>
+    <div class="h" style="font-size:22px;margin-top:22px;line-height:1.3">@acasadamusicabrasileira<br>@culturaartistica</div>
+  </div>
 </section>
 </body></html>
