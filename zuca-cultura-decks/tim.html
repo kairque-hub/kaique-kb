@@ -1,19 +1,45 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><title>TIM MUSIC · Zuca + Cultura Artística</title>
 <style>/*{{CSS}}*/
-:root{--bg:#ECEEF3;--y:#C4D8FF;--r:#E4002B;
-  --grad:linear-gradient(90deg,#D4E3FF 0%,#93B8FF 24%,#3B74EE 52%,#0F3FB0 76%,#061D5E 100%);
-  --gradd:linear-gradient(135deg,#4A84F4 0%,#2459D6 42%,#0D3499 74%,#061D5E 100%);
-  --b-core:#2459E0;--b-mid:#78A6FF;--b-soft:#CCDCFF;--b-y:#A9C6FF;--b-o:#4A82F2;--b-o2:#C2D6FF;--b-fade:rgba(236,238,243,0);
-  --dk:#061D5E;--dk-ink:#EEF3FF;--dk-cap:#FF4F66}
-html,body,.page{background:var(--bg)}
-.card.gr.w,.kpi .k.w{color:#fff}
-.dot.y{background:var(--r)!important;border-color:var(--r)!important}
-.card.gr{color:#fff}
-.card.gr .cap{color:#CFE0FF!important}
+:root{--bg:#0A20D8;--ink:#FFFFFF;--mut:rgba(255,255,255,.72);--line:rgba(255,255,255,.6);--card:rgba(255,255,255,.07);
+  --y:#5CC8FF;--r:#E4002B;--tb:#0A1FB8;
+  --grad:linear-gradient(90deg,#5CC8FF,#FFFFFF);
+  --gradd:linear-gradient(140deg,#4677FF 0%,#1E40F2 45%,#0B1DB4 100%);
+  --b-core:#5A95FF;--b-mid:#3263FF;--b-soft:rgba(70,120,255,.55);--b-y:#4A86FF;--b-o:#5B9BFF;--b-o2:rgba(80,140,255,.5);--b-fade:rgba(10,32,216,0);
+  --dk:#040E7A;--dk-ink:#FFFFFF;--dk-cap:#FF3355}
+html,body{background:#0A20D8}
+.page{background:radial-gradient(ellipse 90% 80% at 72% 18%,#2447FF 0%,#1030E6 38%,#0719B8 70%,#040D86 100%)}
+.hl{background:none;color:var(--y);font-weight:600;padding:0}
+.rule{background:rgba(255,255,255,.55)}
+.card{border-color:rgba(255,255,255,.28)}
+.card.cl{background:rgba(255,255,255,.05)}
+.card.gr{background:var(--gradd);color:#fff;border-color:rgba(255,255,255,.35)}
+.card.gr .cap{color:#BFE6FF!important}
+.card.dk{border-color:rgba(255,255,255,.18)}
+.card.yl{background:#fff;border-color:#fff;color:var(--tb);--ink:#0A1FB8;--mut:#4A5BC8}
+.card.yl .cap{color:var(--r)!important}
+.tag{border-color:rgba(255,255,255,.75)}
+.tag.f,.tag.w{background:#fff;color:var(--tb);border-color:#fff}
+.tag.y{background:var(--r);border-color:var(--r);color:#fff}
+.kpi{background:linear-gradient(90deg,#2F55FF 0%,#1A3AF5 55%,#0C22C4 100%);border-color:rgba(255,255,255,.35);color:#fff;box-shadow:0 20px 50px rgba(2,8,90,.35)}
+.kpi .k.w{color:#fff}
+table.t td{border-bottom-color:rgba(255,255,255,.16)}
+table.t tr.tot td{border-top-color:#fff}
+.bar{background:rgba(255,255,255,.14)}
+.bar i{background:linear-gradient(90deg,#5CC8FF,#FFFFFF)}
+.pin .d{background:var(--r);border-color:#fff;color:#fff}
+.pin .l{background:#fff;border-color:#fff;color:var(--tb)}
+.ph{border-color:rgba(255,255,255,.45)}
+.dot{background:#fff}
+.dot.y{background:var(--r)!important;border-color:#fff!important}
+.foot .pg{border-color:#fff}
+.phone{background:#030A5E}
+.phone .scr{--ink:#0A1FB8;color:#0A1FB8;background:#fff}
+.rbar{position:absolute;height:46px;border-radius:14px;background:var(--r);z-index:0}
+.tlogo{display:inline-block;vertical-align:middle}
 .wm{font-weight:600;letter-spacing:-.04em}
 .wm i{font-style:normal;font-weight:300}
-.thumb{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--ink);background-size:cover;background-position:center}
+.thumb{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.4);background-size:cover;background-position:center}
 .thumb .lbl{position:absolute;left:10px;bottom:9px;right:10px;color:#fff;z-index:2}
 .thumb .lbl .k{font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--y)}
 .thumb .lbl .t{font-size:17px;letter-spacing:-.03em;line-height:1.02}
@@ -26,18 +52,19 @@ html,body,.page{background:var(--bg)}
 <section class="page">
   <div class="blob tr"></div><div class="blob bl"></div><div class="blob bc"></div>
   <div class="abs z" style="left:57px;top:34px;display:flex;align-items:flex-end;gap:22px">
-    <img src="img/logo_zuca.png" style="height:46px"><img src="img/logo_cultura.png" style="height:38px">
+    <img src="img/logo_tim_w.svg" style="height:34px;margin-bottom:4px"><span style="font-size:22px;font-weight:300;margin-bottom:6px">×</span><img src="img/logo_zuca_w.png" style="height:46px"><img src="img/logo_cultura_w.png" style="height:38px">
   </div>
   <div class="topr lead" style="font-size:12.5px;text-align:right;line-height:1.35">Proposta de plataforma proprietária<br>de música para a TIM</div>
   <div class="rule abs" style="left:57px;right:57px;top:100px"></div>
-  <div class="abs z" style="left:52px;top:150px">
-    <div class="wm" style="font-size:168px;line-height:.84;letter-spacing:-.06em">TIM</div>
-    <div style="font-size:168px;line-height:.9;letter-spacing:-.065em;font-weight:300">MUSIC</div>
+  <div class="abs z" style="left:57px;top:150px">
+    <img src="img/logo_tim_w.svg" style="height:132px;display:block">
+    <div style="font-size:150px;line-height:.9;letter-spacing:-.06em;font-weight:300;margin-top:14px">Music</div>
   </div>
   <div class="abs z" style="left:57px;top:458px;display:flex;align-items:center;gap:14px">
     <div class="h-s" style="font-size:30px">com Zuca + Cultura Artística</div><span class="tag w">São Paulo · 2027</span>
   </div>
-  <div class="abs ph cap-ph z" style="right:57px;top:128px;width:330px;height:480px;background-image:url(img/teatro.jpg);background-position:42% center"></div>
+  <div class="rbar" style="right:0;top:215px;width:470px;z-index:1"></div><div class="rbar" style="right:0;top:345px;width:470px;z-index:1"></div><div class="rbar" style="right:0;top:475px;width:470px;z-index:1"></div>
+  <div class="abs ph cap-ph z" style="right:120px;top:128px;width:330px;height:480px;background-image:url(img/teatro.jpg);background-position:42% center;z-index:2"></div>
   <div class="abs z small" style="left:57px;bottom:30px;font-size:11.5px;font-weight:500">Plataforma · Conteúdo · Experiências · Pop-up · Benefícios para clientes TIM · Escala</div>
 </section>
 
@@ -63,7 +90,7 @@ html,body,.page{background:var(--bg)}
     <div class="f1"><div class="cap">Clube</div><div style="font-size:22px;letter-spacing:-.03em;line-height:1.05">Cliente<br>TIM</div><div class="small mut" style="margin-top:4px">quem entra primeiro</div></div>
   </div>
   <div class="src">Base TIM: 61,87 mi de linhas móveis no 2T26 (resultado trimestral). Série: 13 shows no Auditório (150 lugares) + 13 no Teatro Principal (771). Seguidores consultados em set/2026.</div>
-  <div class="foot"><span>Resumo</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">02</span></span></div>
+  <div class="foot"><span>Resumo</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">02</span></span></div>
 </section>
 
 <!-- 03 A IDEIA -->
@@ -81,7 +108,7 @@ html,body,.page{background:var(--bg)}
   <div class="abs z row" style="left:57px;right:57px;top:505px;align-items:center;gap:10px">
     <span class="tag f">Ciclo</span><span class="body">Quem descobre um artista no app compra o ingresso com benefício, vive a noite, e a noite volta como conteúdo. <b>Cada show alimenta o próximo clique.</b></span>
   </div>
-  <div class="foot"><span>A ideia</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">03</span></span></div>
+  <div class="foot"><span>A ideia</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">03</span></span></div>
 </section>
 
 <!-- 04 QUEM CONSTRÓI -->
@@ -103,14 +130,14 @@ html,body,.page{background:var(--bg)}
       <div class="body">Teatro de Rino Levi, com painel de Di Cavalcanti, tombado nas três esferas. Reaberto em 2024 com padrão internacional de som e luz: Teatro Principal de 771 lugares e Auditório de 150.</div>
     </div>
     <div class="f1 col g10">
-      <div class="card gr" style="height:200px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;border-radius:18px"><div class="wm" style="font-size:44px;line-height:.9">TIM<br><span style="font-weight:300">MUSIC</span></div></div>
+      <div class="card gr" style="height:200px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;border-radius:18px"><img src="img/logo_tim_w.svg" style="height:52px;display:block"><div style="font-size:44px;line-height:.95;font-weight:300;letter-spacing:-.04em;margin-top:6px">Music</div></div>
       <div class="cap">Alcance · 61,9 mi de linhas</div>
       <div class="h-s">TIM</div>
       <div class="body">Leva a casa e o palco para o app, a base de clientes e a mídia. Transforma um endereço no centro de São Paulo numa plataforma nacional, com dados e relacionamento próprios.</div>
     </div>
   </div>
   <div class="abs z small mut" style="left:57px;bottom:50px">Juntos, Zuca e Cultura ocupam cultural e socialmente o centro histórico, da Roosevelt ao Copan.</div>
-  <div class="foot"><span>Quem constrói</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">04</span></span></div>
+  <div class="foot"><span>Quem constrói</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">04</span></span></div>
 </section>
 
 <!-- 05 A PLATAFORMA (MOCKUP APP) -->
@@ -131,7 +158,7 @@ html,body,.page{background:var(--bg)}
   <div class="phone z" style="left:470px;top:150px;transform:rotate(-4deg)"><div class="scr"><div class="notch"></div>
     <div class="sb"><span>21:04</span><span>5G ▮▮▮</span></div>
     <div style="padding:4px 12px">
-      <div class="wm" style="font-size:17px">TIM <i>MUSIC</i></div>
+      <div style="display:flex;align-items:center;gap:5px"><img src="img/logo_tim_azul.svg" style="height:15px"><span style="font-size:16px;font-weight:300;letter-spacing:-.03em">Music</span></div>
       <div style="font-size:8.5px;color:var(--mut);margin:2px 0 8px">Oi, Ana · cliente TIM Black</div>
       <div class="thumb" style="height:150px;background-image:url(img/teatro.jpg)"><div class="shade"></div>
         <div class="lbl"><div class="k">Série Brasilidades · qui 21h</div><div class="t" style="font-size:15px">Teatro Cultura Artística</div></div></div>
@@ -162,7 +189,7 @@ html,body,.page{background:var(--bg)}
   </div></div>
 
   <!-- tela 3: assistir -->
-  <div class="phone z" style="left:930px;top:160px;transform:rotate(4deg)"><div class="scr" style="background:#0E0C0B;color:#F4EFE7"><div class="notch"></div>
+  <div class="phone z" style="left:930px;top:160px;transform:rotate(4deg)"><div class="scr" style="background:#040E7A;color:#fff"><div class="notch"></div>
     <div class="sb"><span>21:04</span><span>5G ▮▮▮</span></div>
     <div class="thumb" style="height:150px;border-radius:0;border:none;background-image:url(img/prosa.jpg)"><div class="play">▶</div></div>
     <div style="padding:10px 12px">
@@ -175,7 +202,7 @@ html,body,.page{background:var(--bg)}
     </div>
   </div></div>
   <div class="src">Mockup ilustrativo. Nome, layout e integração ao app Meu TIM a definir com a TIM.</div>
-  <div class="foot"><span>A plataforma</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">05</span></span></div>
+  <div class="foot"><span>A plataforma</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">05</span></span></div>
 </section>
 
 <!-- 06 CONTEÚDO -->
@@ -196,7 +223,7 @@ html,body,.page{background:var(--bg)}
     <div class="card gr col" style="justify-content:space-between;color:#fff"><div class="cap">Impresso</div><div><div style="font-size:24px;letter-spacing:-.03em;line-height:1.02">Anuário da Cultura Brasileira</div><p style="margin-top:6px">As entrevistas do Papo de Música viram revista anual de colecionador: música, cinema, literatura, moda e artes plásticas.</p></div></div>
   </div>
   <div class="abs z small" style="left:57px;bottom:48px">Também em formato digital: <b>Prosa</b> e <b>Zuca Podcast</b>. Tudo com assinatura TIM MUSIC, estreia no app e distribuição nos canais da Zuca e do Cultura.</div>
-  <div class="foot"><span>Conteúdo</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">06</span></span></div>
+  <div class="foot"><span>Conteúdo</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">06</span></span></div>
 </section>
 
 <!-- 07 SÉRIE BRASILIDADES -->
@@ -220,7 +247,7 @@ html,body,.page{background:var(--bg)}
     <div class="card dk" style="margin-top:22px;padding:14px 16px"><div class="cap">Como o cliente vive</div><p>Recebe o aviso no app, compra na pré-venda com preço TIM, entra pela fila de cliente, assiste da Plateia TIM e revê o show no dia seguinte, no app.</p></div>
   </div>
   <div class="src" style="left:57px">Foto: Teatro Principal do Cultura Artística. Marcações ilustram pontos de ativação.</div>
-  <div class="foot"><span>Experiência</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">07</span></span></div>
+  <div class="foot"><span>Experiência</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">07</span></span></div>
 </section>
 
 <!-- 08 POP-UP -->
@@ -243,7 +270,7 @@ html,body,.page{background:var(--bg)}
     <div class="pin" style="left:40px;top:460px"><span class="d">4</span><span class="l">Balcão TIM: benefícios, chip, recarga</span></div>
   </div>
   <div class="src">Foto: foyer do Cultura Artística aberto para a rua. Marcações ilustram o layout proposto.</div>
-  <div class="foot"><span>Experiência</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">08</span></span></div>
+  <div class="foot"><span>Experiência</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">08</span></span></div>
 </section>
 
 <!-- 09 UMA NOITE -->
@@ -276,14 +303,14 @@ html,body,.page{background:var(--bg)}
     <div class="abs" style="left:1011px;top:120px;width:1px;height:45px;background:var(--ink)"></div>
     <div class="abs card gr" style="left:933px;top:0px;width:156px;height:120px;padding:12px 14px"><div class="cap" style="color:var(--ink)">D+7</div><p style="font-size:12.5px;margin-top:4px"><b>Show completo</b> estreia no app.</p></div>
   </div>
-  <div class="foot"><span>Uma noite</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">09</span></span></div>
+  <div class="foot"><span>Uma noite</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">09</span></span></div>
 </section>
 
 <!-- 10 BENEFÍCIOS -->
 <section class="page">
   <div class="blob tr"></div>
   <div class="topr"><span class="tag">Clube do cliente TIM</span></div>
-  <div class="abs z h-l" style="left:57px;top:62px;width:640px">Ser TIM <span class="hl">passa a abrir portas</span></div>
+  <div class="abs z h-l" style="font-size:50px;left:57px;top:62px;width:640px">Ser TIM <span class="hl">passa a abrir portas</span></div>
   <div class="abs z lead" style="left:720px;top:108px;width:420px;font-size:14.5px">Benefícios que só uma plataforma própria consegue dar, com acesso real a artistas e espaços, organizados por plano. Dá ao cliente um motivo concreto para ficar.</div>
   <div class="abs z" style="left:57px;right:57px;top:185px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:150px 150px;gap:12px">
     <div class="card gr col" style="justify-content:space-between"><div class="cap" style="color:var(--ink)">Todos os planos</div><div><h4>Pré-venda 48h</h4><p style="margin-top:6px">Clientes compram antes do público geral em toda a agenda.</p></div></div>
@@ -296,7 +323,7 @@ html,body,.page{background:var(--bg)}
     <div class="card col" style="justify-content:space-between"><div class="cap">Black e colaboradores</div><div><h4>Clube de assinantes</h4><p style="margin-top:6px">Prioridade e desconto nas assinaturas do Cultura (cotas de R$ 5 mil a R$ 50 mil).</p></div></div>
   </div>
   <div class="src">Divisão por plano ilustrativa, a calibrar com a TIM conforme segmentação (Controle, Pós, Black) e programa de relacionamento.</div>
-  <div class="foot"><span>Benefícios</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">10</span></span></div>
+  <div class="foot"><span>Benefícios</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">10</span></span></div>
 </section>
 
 <!-- 11 DESCOBERTA -->
@@ -315,7 +342,7 @@ html,body,.page{background:var(--bg)}
     <div class="card yl" style="margin-top:16px;padding:20px 22px"><div class="cap" style="color:var(--ink)">Mentorias e estágios · ESG</div><p style="font-size:12.5px">Mentorias profissionais na Zuca para jovens da periferia, com estágio garantido no Cultura Artística em produção cultural, técnica de som, luz, bilheteria, regência, roadie e mídias sociais. A TIM patrocina as mentorias, e esses jovens operam os shows da própria plataforma.</p></div>
   </div>
   <div class="src" style="left:400px">Edital Petra Zuca 2025: mais de mil propostas recebidas; 2026 com parceria Spotify (programa Amplifika).</div>
-  <div class="foot"><span>Descoberta</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">11</span></span></div>
+  <div class="foot"><span>Descoberta</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">11</span></span></div>
 </section>
 
 <!-- 12 COMUNIDADE -->
@@ -341,7 +368,7 @@ html,body,.page{background:var(--bg)}
     <div class="small mut" style="margin-top:10px">Os 26 artistas da Série e os convidados do Papo de Música somam as próprias comunidades a cada publicação conjunta.</div>
   </div>
   <div class="src">* Soma simples, sem descontar sobreposição. Seguidores aproximados, consultados em set/2026. Público da temporada própria do Cultura a confirmar com a instituição.</div>
-  <div class="foot"><span>Comunidade</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">12</span></span></div>
+  <div class="foot"><span>Comunidade</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">12</span></span></div>
 </section>
 
 <!-- 13 PLANO DE MÍDIA -->
@@ -366,7 +393,7 @@ html,body,.page{background:var(--bg)}
     </table>
   </div>
   <div class="src">A projeção de impactos depende da verba de mídia e do plano de CRM da TIM. Fechamos esse número junto com o time de mídia da marca.</div>
-  <div class="foot"><span>Plano de mídia</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">13</span></span></div>
+  <div class="foot"><span>Plano de mídia</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">13</span></span></div>
 </section>
 
 <!-- 14 ALCANCE -->
@@ -397,7 +424,7 @@ html,body,.page{background:var(--bg)}
     </div>
   </div>
   <div class="src">Base TIM: 61,87 mi de linhas móveis e 33,7 mi pós-pago no 2T26. Percentuais ilustram a escala possível; não são uma projeção de adesão.</div>
-  <div class="foot"><span>Escala da base</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">14</span></span></div>
+  <div class="foot"><span>Escala da base</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">14</span></span></div>
 </section>
 
 <!-- 15 ENTREGAS -->
@@ -425,7 +452,7 @@ html,body,.page{background:var(--bg)}
     <div class="card dk"><div class="cap">Direitos</div><h4 style="font-size:21px">Uso de conteúdo</h4><p style="margin-top:6px">Licença de uso de todo o conteúdo no app e nos canais TIM durante o contrato.</p></div>
     <div class="card"><div class="cap">A TIM entra com</div><p style="margin-top:2px">Investimento de patrocínio, verba de mídia, espaço no app e disparos para a base. Valores sob consulta.</p></div>
   </div>
-  <div class="foot"><span>Entregas</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">15</span></span></div>
+  <div class="foot"><span>Entregas</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">15</span></span></div>
 </section>
 
 <!-- 16 ESCALA -->
@@ -445,20 +472,21 @@ html,body,.page{background:var(--bg)}
     <div class="card f1" style="padding:14px 18px"><div class="num" style="font-size:34px">5 pilares</div><div class="small">no Prêmio: Música, Cinema, Literatura, Moda e Artes Plásticas</div></div>
     <div class="card dk f1" style="padding:14px 18px"><div class="num" style="font-size:34px">61,9 mi</div><div class="small">de linhas para onde tudo isso é distribuído</div></div>
   </div>
-  <div class="foot"><span>Escala</span><span class="r">TIM MUSIC · Zuca + Cultura Artística <span class="pg">16</span></span></div>
+  <div class="foot"><span>Escala</span><span class="r"><img class="tlogo" src="img/logo_tim_w.svg" style="height:12px"> MUSIC · Zuca + Cultura Artística <span class="pg">16</span></span></div>
 </section>
 
 <!-- 17 ENCERRAMENTO -->
 <section class="page">
   <div class="blob bl"></div><div class="blob bc"></div>
-  <div class="abs z wm" style="left:57px;top:44px;font-size:26px;letter-spacing:.35em;font-weight:600">TIM MUSIC</div>
+  <div class="abs z" style="left:57px;top:40px;display:flex;align-items:center;gap:10px"><img src="img/logo_tim_w.svg" style="height:34px"><span style="font-size:32px;font-weight:300;letter-spacing:-.03em">Music</span></div>
   <div class="rule abs" style="left:57px;right:57px;top:96px"></div>
   <div class="abs z" style="left:52px;top:140px;font-size:150px;line-height:.86;letter-spacing:-.06em">Aperte<br>o play.</div>
-  <div class="abs ph oval z" style="right:57px;top:120px;width:420px;height:450px;background-image:url(img/zuca_fachada.jpg);background-position:40% center"></div>
+  <div class="rbar" style="right:0;top:210px;width:520px;z-index:1"></div><div class="rbar" style="right:0;top:330px;width:520px;z-index:1"></div><div class="rbar" style="right:0;top:450px;width:520px;z-index:1"></div>
+  <div class="abs ph oval z" style="right:110px;top:120px;width:400px;height:450px;background-image:url(img/zuca_fachada.jpg);background-position:40% center;z-index:2"></div>
   <div class="abs z row g24" style="left:57px;top:480px;width:620px">
     <div class="f1"><div class="b" style="font-size:12px">Contato</div><div class="body">comercial@talitamoraiis.com</div></div>
     <div class="f1"><div class="b" style="font-size:12px">Redes</div><div class="body">@acasadamusicabrasileira<br>@culturaartistica</div></div>
-    <div class="f1" style="display:flex;align-items:flex-start;gap:14px"><img src="img/logo_zuca.png" style="height:34px"><img src="img/logo_cultura.png" style="height:28px"></div>
+    <div class="f1" style="display:flex;align-items:flex-start;gap:14px"><img src="img/logo_zuca_w.png" style="height:34px"><img src="img/logo_cultura_w.png" style="height:28px"></div>
   </div>
   <div class="abs z small mut" style="left:57px;bottom:28px">Proposta confidencial · Zuca, a Casa da Música Brasileira + Cultura Artística · Base TIM: resultado do 2T26</div>
 </section>
