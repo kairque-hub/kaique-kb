@@ -18,7 +18,7 @@ if png_dir in args:
     args.remove(png_dir)
 alvo = args or list(DECKS)
 
-css = (B/"fontes/intertight.css").read_text() + "\n" + (B/"fontes/fraunces.css").read_text() + "\n" + (B/"fontes/instrument.css").read_text() + "\n" + (B/"deck.css").read_text()
+css = (B/"fontes/intertight.css").read_text() + "\n" + (B/"fontes/fraunces.css").read_text() + "\n" + (B/"fontes/instrument.css").read_text() + "\n" + (B/"fontes/notosans.css").read_text() + "\n" + (B/"deck.css").read_text()
 exe = sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome'))[-1]
 
 with sync_playwright() as p:
