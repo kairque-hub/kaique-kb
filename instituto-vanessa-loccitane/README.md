@@ -3,3 +3,5 @@
 Proposta de patrocínio master no layout dos decks TIM, com identidade visual inspirada na L’Occitane en Provence. Conteúdo e números vêm só do PDF original.
 
 Gerar: `python3 build.py` (requer `pip install playwright`).
+
+Também há a versão genérica para marcas (`generico.html` → `Instituto-Vanessa-da-Mata-Oportunidades-de-marca.pdf`). Gerar: `python3 build.py [loccitane|generico]`.
