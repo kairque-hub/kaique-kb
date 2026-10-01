@@ -11,6 +11,7 @@ DECKS = {
     "tim": ("tim.html", "TIM-MUSIC-x-Zuca-Cultura-Artistica.pdf"),
     "petra": ("petra.html", "Petra-x-Zuca-Cultura-Artistica.pdf"),
     "geral": ("geral.html", "Zuca-Cultura-Artistica-Oportunidades-de-marca.pdf"),
+    "semmarca": ("geral_sem_marca.html", "Casa-da-Musica-Brasileira-Cultura-Artistica.pdf"),
 }
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 png_dir = sys.argv[sys.argv.index("--png") + 1] if "--png" in sys.argv else None
