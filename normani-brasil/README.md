@@ -8,3 +8,8 @@ Proposta de conteúdo exclusivo para a Vogue Brasil com a Normani (Meli Music, 1
 Páginas: capa, índice, visão geral, história, linha do tempo, recibos, Vogue Brasil, dia do show, time local, obrigado.
 
 Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem acento, com hífen).
+
+## Versão geral da viagem
+
+- `Normani-Brasil-2026-Geral.pdf`: o plano completo dos 5 dias em São Paulo (21 páginas, em inglês), sem foco na Vogue.
+- `build_geral.py`: gera essa versão. Rode `python3 build_geral.py --png` para as prévias em `preview-geral/`.
