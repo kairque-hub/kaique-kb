@@ -75,6 +75,7 @@ def halftone(role=None, verde=False, verso=False):
     """verso=True: fundo verde, detalhes em amarelo"""
     ac = YEL if verso else GRN
     glow = "242,236,26" if verso else "19,176,75"
+    ga = .55 if verso else .3
     contorno = ""
     if verde:
         k = 16
@@ -86,7 +87,7 @@ def halftone(role=None, verde=False, verso=False):
     rodape = contorno + (mid(662, f'<span class="k-role" style="{rcor}"><b style="color:{ac}">●</b> {role.upper()}</span>') if role else "")
     return (
     f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
-    f'background:radial-gradient(closest-side,rgba({glow},.3),rgba({glow},0))"></div>'
+    f'background:radial-gradient(closest-side,rgba({glow},{ga}),rgba({glow},0))"></div>'
     f'<img class="k-a" src="{BUST}" style="left:17px;top:96px;width:461px;'
     '-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 92%);mask-image:linear-gradient(180deg,#000 72%,transparent 92%)">'
     '<div class="k-a k-panel" style="left:62px;top:470px;width:371px;height:150px;overflow:hidden">'
