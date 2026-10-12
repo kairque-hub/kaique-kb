@@ -83,19 +83,20 @@ def halftone(role=None, verde=False, verso=False):
                     f'<rect x="{k}" y="{k}" width="{CW - 2 * k}" height="{CH - 2 * k}" rx="{CW / 2 - k}" '
                     f'fill="none" stroke="{GRN}" stroke-width="3"/>'
                     f'<circle cx="{CW / 2}" cy="{HOLE_Y}" r="{HOLE_R + 7}" fill="none" stroke="{GRN}" stroke-width="3"/></svg>')
-    rcor = "color:#fff" if verso else ""
-    rodape = contorno + (mid(662, f'<span class="k-role" style="{rcor}"><b style="color:{ac}">●</b> {role.upper()}</span>') if role else "")
+    rodape = contorno
+    funcao = (f'<span class="k-tag" style="position:absolute;right:24px;bottom:19px;font-size:12px;letter-spacing:.16em;color:{GRN}">'
+              f'{role.upper()}</span>') if role else ""
     return (
-    f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
+    f'<div class="k-a" style="left:-40px;top:92px;width:575px;height:470px;'
     f'background:radial-gradient(closest-side,rgba({glow},{ga}),rgba({glow},0))"></div>'
-    f'<img class="k-a" src="{BUST}" style="left:17px;top:96px;width:461px;'
+    f'<img class="k-a" src="{BUST}" style="left:17px;top:128px;width:461px;'
     '-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 92%);mask-image:linear-gradient(180deg,#000 72%,transparent 92%)">'
-    '<div class="k-a k-panel" style="left:62px;top:470px;width:371px;height:150px;overflow:hidden">'
+    '<div class="k-a k-panel" style="left:62px;top:502px;width:371px;height:150px;overflow:hidden">'
     f'<i style="position:absolute;left:0;top:0;bottom:0;width:7px;background:{ac}"></i>'
     '<p class="k-nm" style="font-size:34px">NORMANI</p><p class="k-ev">Brazil 2026</p>'
     f'<div style="position:absolute;left:24px;bottom:14px">{logo(30, INK, False)}</div>'
     '<b class="k-aaa" style="position:absolute;right:22px;top:18px;font-size:58px">AAA</b>'
-    f'<span class="k-tag" style="position:absolute;right:24px;bottom:20px;font-size:10px;color:{GRN}">ALL ACCESS</span></div>'
+    f'{funcao}</div>'
     + rodape)
 
 
@@ -273,7 +274,7 @@ FINAL = (
     f'<div class="hd">{g.pill("Credentials")}<span>NORMANI · Brazil 2026</span></div>'
     '<h1 class="t" style="top:88px;font-size:50px">Badges</h1>'
     '<p class="big" style="position:absolute;left:330px;top:100px;width:880px;font-size:15px;line-height:1.5">'
-    'Five versions, Normani’s AAA badge plus one for each team, with the role at the bottom. '
+    'Five versions, Normani’s AAA badge plus one for each team, with the role next to the logo. '
     'Yellow on the front, green on the back, with her photo on both sides.</p>'
     + "".join(
         f'<div class="k-ring" style="left:{x + CW * SV / 2 - 9}px"></div>'
