@@ -4,6 +4,7 @@ import glob, sys
 import build_geral as g
 
 QTD = 50
+USD = 4.99  # R$ por US$ (cotação de 12/10/2026)
 # (opção, fotos, preço cheio, preço a partir de 20 un., observação)
 OPCOES = [
     ("A", ["img/peruca_a.jpg"], "R$38", 33, "R$33 each from 20 units"),
@@ -15,14 +16,20 @@ def brl(v):
     return "R$" + f"{v:,}".replace(",", ".")
 
 
+def usd(v):
+    return f"US${v / USD:,.2f}"
+
+
 def card(op, fotos, cheio, preco, obs):
     imgs = "".join(f'<i style="background-image:url({g.uri(f)})"></i>' for f in fotos)
     cheio_html = f'<s>{cheio}</s> ' if cheio else ""
     return (f'<div class="op"><div class="ph2">{imgs}</div>'
             f'<div class="tx"><span class="pill">Option {op}</span>'
             f'<p class="pu">{cheio_html}<b>R${preco}</b><small> / wig</small></p>'
+            f'<p class="us">≈ {usd(preco)} / wig</p>'
             f'<p class="ob">{obs}</p>'
-            f'<div class="tot"><span>{QTD} wigs × R${preco}</span><b>{brl(QTD * preco)}</b></div></div></div>')
+            f'<div class="tot"><span>{QTD} wigs × R${preco}</span><div><b>{brl(QTD * preco)}</b>'
+            f'<small>≈ {usd(QTD * preco)}</small></div></div></div></div>')
 
 
 HTML = (
@@ -37,12 +44,13 @@ HTML = (
     '<p style="position:absolute;left:230px;top:448px;width:220px;font-size:14px;line-height:1.45;z-index:3">'
     f'<b>{QTD} wigs</b><br>synthetic, black, with bangs, to hand out at the front.</p>'
     '<div class="ops">' + "".join(card(*o) for o in OPCOES) + '</div>'
+    + f'<p class="src" style="left:490px;bottom:52px">Exchange rate: US$1 = R${USD:.2f} (Oct 12, 2026). Dollar values are approximate.</p>'
     + g.ft("Front row wigs", 1)
 )
 
 CSS = g.CSS + """
 .ops{position:absolute;left:490px;right:60px;top:48px;display:grid;grid-template-columns:1fr 1fr;gap:18px;z-index:3}
-.op{background:#fff;border:1.4px solid #0B0B0C;border-radius:22px;overflow:hidden;height:600px;display:flex;flex-direction:column}
+.op{background:#fff;border:1.4px solid #0B0B0C;border-radius:22px;overflow:hidden;height:590px;display:flex;flex-direction:column}
 .ph2{height:330px;display:flex;border-bottom:1.4px solid #0B0B0C}
 .ph2 i{flex:1;background-size:cover;background-position:center}
 .ph2 i+i{border-left:1.4px solid #0B0B0C}
@@ -52,6 +60,9 @@ CSS = g.CSS + """
 .pu b{font-weight:400}
 .pu s{color:#888;font-size:22px}
 .pu small{font-size:14px;letter-spacing:0;color:#444}
+.us{font-size:15px;color:#444;margin-top:6px}
+.tot>div{text-align:right;line-height:1}
+.tot small{display:block;font-size:14px;color:#333;margin-top:4px}
 .ob{font-size:13px;color:#0E8A3A;font-weight:600;margin-top:6px}
 .tot{margin-top:auto;background:#F2EC1A;border:1.4px solid #0B0B0C;border-radius:16px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
 .tot span{font-size:12.5px;font-weight:600}
