@@ -71,8 +71,15 @@ def mid(y, html, extra=""):
 D = []
 
 # 01 Halftone (design escolhido; a versão por função troca o rodapé)
-def halftone(role=None):
-    rodape = (mid(662, f'<span class="k-role"><b style="color:{GRN}">●</b> {role.upper()}</span>') if role else "")
+def halftone(role=None, verde=False):
+    contorno = ""
+    if verde:
+        k = 16
+        contorno = (f'<svg class="k-a" style="left:0;top:0;z-index:5" width="{CW}" height="{CH}">'
+                    f'<rect x="{k}" y="{k}" width="{CW - 2 * k}" height="{CH - 2 * k}" rx="{CW / 2 - k}" '
+                    f'fill="none" stroke="{GRN}" stroke-width="3"/>'
+                    f'<circle cx="{CW / 2}" cy="{HOLE_Y}" r="{HOLE_R + 7}" fill="none" stroke="{GRN}" stroke-width="3"/></svg>')
+    rodape = contorno + (mid(662, f'<span class="k-role"><b style="color:{GRN}">●</b> {role.upper()}</span>') if role else "")
     return (
     f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
     f'background:radial-gradient(closest-side,rgba(19,176,75,.22),rgba(19,176,75,0))"></div>'
@@ -238,26 +245,59 @@ def doc(title, body, extra_css="", w=1280, h=720):
             f'</head><body>{body}</body></html>')
 
 
+# ------------------------------------------------------------------ verso verde (opção)
+stars_v = "".join(star(x, y, sz, "rgba(242,236,26,.9)") for x, y, sz in
+                  [(80, 190, 14), (395, 165, 18), (70, 560, 12), (410, 590, 15), (120, 360, 9), (380, 400, 10)])
+VERSO = (stars_v +
+         f'<svg class="k-a" style="left:0;top:0" width="{CW}" height="{CH}"><rect x="16" y="16" width="{CW - 32}" height="{CH - 32}" '
+         f'rx="{CW / 2 - 16}" fill="none" stroke="{YEL}" stroke-width="3"/></svg>' +
+         mid(170, f'<span class="k-tag" style="color:{YEL}">ALL ACCESS</span>') +
+         mid(270, logo(116, YEL, False), "transform:rotate(-7deg)") +
+         mid(430, f'<b class="k-aaa" style="font-size:150px;color:{YEL};letter-spacing:-.04em">AAA</b>') +
+         mid(610, '<p class="k-nm" style="font-size:28px;color:#fff">NORMANI</p><p class="k-ev" style="color:#fff">Brazil 2026</p>'))
+VERSO_BG = f"background:{GRN}"
+
 # ------------------------------------------------------------------ versões finais
 VERSOES = [("AAA", None), ("Creative team", "Creative team"), ("Management", "Management"),
            ("Tour manager", "Tour manager"), ("Staff", "Staff")]
 BG = f"background:{YEL}"
-SV = .40
-vx = [(1280 - 5 * CW * SV - 80) / 2 + i * (CW * SV + 20) for i in range(5)]
+SV = .36
+vx = [(1280 - 6 * CW * SV - 5 * 18) / 2 + i * (CW * SV + 18) for i in range(6)]
 FINAL = (
     g.blob(1180, 30, 230) + g.blob(60, 760, 260, "g", .7) +
     f'<div class="hd">{g.pill("Credentials")}<span>NORMANI · Brazil 2026</span></div>'
     '<h1 class="t" style="top:88px;font-size:50px">Badges</h1>'
     '<p class="big" style="position:absolute;left:330px;top:100px;width:880px;font-size:15px;line-height:1.5">'
-    'One design, five versions: Normani’s AAA badge plus one for each team. '
-    'The role goes at the bottom of the badge.</p>'
+    'Yellow front in five versions, Normani’s AAA badge plus one for each team, '
+    'with the role at the bottom. Same green back side for all.</p>'
     + "".join(
         f'<div class="k-ring" style="left:{x + CW * SV / 2 - 9}px"></div>'
         f'<div class="k-show" style="left:{x}px;top:212px;width:{CW * SV}px;height:{CH * SV}px">'
         f'<div style="transform:scale({SV});transform-origin:0 0">{shown(BG, halftone(r))}</div></div>'
-        f'<div class="k-cap" style="left:{x}px;width:{CW * SV}px;top:540px"><small>{i:02d}</small><b>{n}</b></div>'
+        f'<div class="k-cap" style="left:{x}px;width:{CW * SV}px;top:505px"><small>{i:02d}</small><b>{n}</b></div>'
         for i, ((n, r), x) in enumerate(zip(VERSOES, vx), 1))
+    + f'<div class="k-ring" style="left:{vx[5] + CW * SV / 2 - 9}px"></div>'
+    f'<div class="k-show" style="left:{vx[5]}px;top:212px;width:{CW * SV}px;height:{CH * SV}px">'
+    f'<div style="transform:scale({SV});transform-origin:0 0">{shown(VERSO_BG, VERSO)}</div></div>'
+    f'<div class="k-cap" style="left:{vx[5]}px;width:{CW * SV}px;top:505px"><small>Back</small><b>All badges</b></div>'
     + '<div class="ft" style="right:auto;width:400px"><span>Badges</span></div>'
+)
+
+SC = .52
+cmp_items = [("Current", BG, halftone("Tour manager")),
+             ("Green contour + hole ring", BG, halftone("Tour manager", True)),
+             ("Green back side", VERSO_BG, VERSO)]
+cx = [(1280 - 3 * CW * SC - 2 * 60) / 2 + i * (CW * SC + 60) for i in range(3)]
+COMPARA = (
+    g.blob(1180, 30, 230) + g.blob(60, 760, 260, "g", .7) +
+    f'<div class="hd">{g.pill("Credentials")}<span>Green details</span></div>'
+    + "".join(
+        f'<div class="k-ring" style="left:{x + CW * SC / 2 - 9}px;top:96px"></div>'
+        f'<div class="k-show" style="left:{x}px;top:122px;width:{CW * SC}px;height:{CH * SC}px">'
+        f'<div style="transform:scale({SC});transform-origin:0 0">{shown(bg, inn)}</div></div>'
+        f'<div class="k-cap" style="left:{x}px;width:{CW * SC}px;top:540px"><small>{i:02d}</small><b>{n}</b></div>'
+        for i, ((n, bg, inn), x) in enumerate(zip(cmp_items, cx), 1))
+    + '<div class="ft" style="right:auto;width:400px"><span>Green details</span></div>'
 )
 
 if __name__ == "__main__":
@@ -269,8 +309,12 @@ if __name__ == "__main__":
     render(B / "Normani-Cracha-AAA-Final.html", B / "Normani-Cracha-AAA-Final.pdf",
            doc("Badges", f'<section class="sl shot">{FINAL}</section>', PAGE_CSS),
            1280, 720, B / "preview-cracha-final.png" if prev else None)
+    render(B / "Normani-Crachas-Verde-Opcoes.html", B / "Normani-Crachas-Verde-Opcoes.pdf",
+           doc("Green details", f'<section class="sl shot">{COMPARA}</section>', PAGE_CSS),
+           1280, 720, B / "preview-cracha-verde.png" if prev else None)
     for nome, guides in (("Impressao", False), ("Guias", True)):
-        body = "".join(f'<div class="pg shot">{badge(BG, halftone(r), guides)}</div>' for _, r in VERSOES)
+        body = "".join(f'<div class="pg shot">{badge(BG, halftone(r), guides)}</div>'
+                       f'<div class="pg shot">{badge(VERSO_BG, VERSO, guides)}</div>' for _, r in VERSOES)
         render(B / f"Normani-Crachas-AAA-{nome}.html", B / f"Normani-Crachas-AAA-{nome}.pdf",
                doc(f"AAA badges - {nome}", body, w=BW, h=BH), BW, BH,
                B / f"preview-cracha-{nome.lower()}-{{}}.png" if prev else None)

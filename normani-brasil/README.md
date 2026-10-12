@@ -30,7 +30,8 @@ No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só 
 
 - `Normani-Cracha-AAA-Final.pdf`: apresentação do design escolhido (Halftone) nas 5 versões: AAA, Creative team, Management, Tour manager e Staff.
 - `Normani-Crachas-AAA.pdf`: as 6 opções originais lado a lado.
-- `Normani-Crachas-AAA-Impressao.pdf`: as 5 versões, uma por página, com sangria e sem guias.
+- `Normani-Crachas-AAA-Impressao.pdf`: as 5 versões em frente (amarela) e verso (verde), 10 páginas, com sangria e sem guias.
+- `Normani-Crachas-Verde-Opcoes.pdf`: comparação das opções de detalhe verde.
 - `Normani-Crachas-AAA-Guias.pdf`: igual, com as linhas de sangria (vermelho), corte e furo (preto) para conferir.
 - As versões ficam na lista `VERSOES` no `build_crachas.py`.
 - `build_crachas.py`: gera os três. A logo "Normani" foi refeita com a fonte Mr Dafoe; o serif é a Instrument Serif (as duas com licença OFL, em `fontes/`).
