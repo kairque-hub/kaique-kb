@@ -4,6 +4,7 @@ import glob, sys
 import build_geral as g
 
 QTD = 50
+TAXA = 200  # produtora: retirar e organizar as perucas
 USD = 4.99  # R$ por US$ (cotação de 12/10/2026)
 # (opção, fotos, preço cheio, preço a partir de 20 un., observação)
 OPCOES = [
@@ -44,14 +45,18 @@ HTML = (
     '<p style="position:absolute;left:230px;top:448px;width:220px;font-size:14px;line-height:1.45;z-index:3">'
     f'<b>{QTD} wigs</b><br>synthetic, black, with bangs, to hand out at the front.</p>'
     '<div class="ops">' + "".join(card(*o) for o in OPCOES) + '</div>'
-    + f'<p class="src" style="left:490px;bottom:52px">Exchange rate: US$1 = R${USD:.2f} (Oct 12, 2026). Dollar values are approximate.</p>'
+    + '<div class="fee"><div><small>Producer fee</small><b>Pick-up and organization of the wigs</b></div>'
+    f'<div class="v"><b>{brl(TAXA)}</b><small>≈ {usd(TAXA)}</small></div>'
+    + "".join(f'<div class="v tt"><small>Total option {o[0]}</small><b>{brl(QTD * o[3] + TAXA)}</b><small>≈ {usd(QTD * o[3] + TAXA)}</small></div>' for o in OPCOES)
+    + '</div>'
+    + f'<p class="src" style="left:490px;bottom:52px;top:auto">Exchange rate: US$1 = R${USD:.2f} (Oct 12, 2026). Dollar values are approximate.</p>'
     + g.ft("Front row wigs", 1)
 )
 
 CSS = g.CSS + """
-.ops{position:absolute;left:490px;right:60px;top:48px;display:grid;grid-template-columns:1fr 1fr;gap:18px;z-index:3}
-.op{background:#fff;border:1.4px solid #0B0B0C;border-radius:22px;overflow:hidden;height:590px;display:flex;flex-direction:column}
-.ph2{height:330px;display:flex;border-bottom:1.4px solid #0B0B0C}
+.ops{position:absolute;left:490px;right:60px;top:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px;z-index:3}
+.op{background:#fff;border:1.4px solid #0B0B0C;border-radius:22px;overflow:hidden;height:500px;display:flex;flex-direction:column}
+.ph2{height:250px;display:flex;border-bottom:1.4px solid #0B0B0C}
 .ph2 i{flex:1;background-size:cover;background-position:center}
 .ph2 i+i{border-left:1.4px solid #0B0B0C}
 .tx{padding:16px 20px 18px;display:flex;flex-direction:column;flex:1}
@@ -60,6 +65,14 @@ CSS = g.CSS + """
 .pu b{font-weight:400}
 .pu s{color:#888;font-size:22px}
 .pu small{font-size:14px;letter-spacing:0;color:#444}
+.fee{position:absolute;left:490px;right:60px;top:554px;height:92px;background:#0B0B0C;color:#fff;border-radius:20px;padding:0 20px;display:flex;align-items:center;gap:22px;z-index:3}
+.fee>div:first-child{flex:1}
+.fee small{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#bbb}
+.fee>div:first-child b{display:block;font-size:15px;font-weight:500;margin-top:4px}
+.fee .v{text-align:right;line-height:1.1}
+.fee .v b{display:block;font-size:26px;font-weight:400;letter-spacing:-.02em;color:#F2EC1A}
+.fee .v.tt{border-left:1px solid #555;padding-left:20px}
+.fee .v.tt b{color:#fff}
 .us{font-size:15px;color:#444;margin-top:6px}
 .tot>div{text-align:right;line-height:1}
 .tot small{display:block;font-size:14px;color:#333;margin-top:4px}
