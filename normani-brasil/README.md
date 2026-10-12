@@ -18,3 +18,8 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 - `Normani-Influenciadores-Convidados.pdf`: página única em inglês com os convidados, foto clicável para o Instagram e seguidores.
 - `build_convidados.py`: gera a página. Os @ e os seguidores ficam na lista `CONVIDADOS` no topo do arquivo.
+
+## Perucas do front row
+
+- `Normani-Perucas-Front-Row.pdf`: página única em inglês com as duas opções de peruca e o total para 50 unidades.
+- `build_perucas.py`: gera a página. Quantidade e preços ficam em `QTD` e `OPCOES` no topo do arquivo.
