@@ -13,3 +13,8 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 - `Normani-Brasil-2026-Geral.pdf`: o plano completo dos 5 dias em São Paulo (21 páginas, em inglês), sem foco na Vogue.
 - `build_geral.py`: gera essa versão. Rode `python3 build_geral.py --png` para as prévias em `preview-geral/`.
+
+## Influenciadores convidados
+
+- `Normani-Influenciadores-Convidados.pdf`: página única com os convidados, foto clicável para o Instagram e seguidores.
+- `build_convidados.py`: gera a página. Os @ e os seguidores ficam na lista `CONVIDADOS` no topo do arquivo.
