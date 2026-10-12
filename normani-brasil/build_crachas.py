@@ -71,14 +71,18 @@ def mid(y, html, extra=""):
 D = []
 
 # 01 Halftone
-D.append(("Halftone", "Yellow, halftone portrait", f"background:{YEL}",
-    f'<img class="k-a" src="{HALF}" style="left:28px;top:92px;width:440px">'
-    '<div class="k-a k-panel" style="left:62px;top:470px;width:371px;height:150px">'
+D.append(("Halftone", "Yellow, cut-out photo, green details", f"background:{YEL}",
+    f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
+    f'background:radial-gradient(closest-side,rgba(19,176,75,.22),rgba(19,176,75,0))"></div>'
+    f'<img class="k-a" src="{BUST}" style="left:17px;top:96px;width:461px;'
+    '-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 92%);mask-image:linear-gradient(180deg,#000 72%,transparent 92%)">'
+    '<div class="k-a k-panel" style="left:62px;top:470px;width:371px;height:150px;overflow:hidden">'
+    f'<i style="position:absolute;left:0;top:0;bottom:0;width:7px;background:{GRN}"></i>'
     '<p class="k-nm" style="font-size:34px">NORMANI</p><p class="k-ev">Brazil 2026</p>'
     f'<div style="position:absolute;left:24px;bottom:14px">{logo(30, INK, False)}</div>'
     '<b class="k-aaa" style="position:absolute;right:22px;top:18px;font-size:58px">AAA</b>'
-    '<span class="k-tag" style="position:absolute;right:24px;bottom:20px;font-size:10px">ALL ACCESS</span></div>'
-    + mid(668, '<span class="k-tag">SÃO PAULO · OCT 17, 2026</span>')))
+    f'<span class="k-tag" style="position:absolute;right:24px;bottom:20px;font-size:10px;color:{GRN}">ALL ACCESS</span></div>'
+    + mid(668, f'<span class="k-tag">SÃO PAULO <b style="color:{GRN}">●</b> OCT 17, 2026</span>')))
 
 # 02 Editorial
 swirl = (f'<svg class="k-a" style="left:0;top:0" width="{CW}" height="{CH}" viewBox="0 0 {CW} {CH}">'
@@ -228,14 +232,41 @@ def doc(title, body, extra_css="", w=1280, h=720):
             f'</head><body>{body}</body></html>')
 
 
+# ------------------------------------------------------------------ versão escolhida
+ESCOLHIDO = 0  # Halftone
+_n, _d, _bg, _in = D[ESCOLHIDO]
+SF = .80
+FINAL = (
+    g.blob(1180, 30, 230) + g.blob(60, 760, 260, "g", .7) +
+    f'<div class="hd">{g.pill("Credentials")}<span>Final design</span></div>'
+    '<h1 class="t" style="top:96px;font-size:56px;line-height:1.02">AAA<br>badge</h1>'
+    '<p class="big" style="position:absolute;left:60px;top:235px;width:300px;font-size:16px;line-height:1.5">'
+    'Normani’s all-access credential for Brazil 2026, in the printer’s badge shape.</p>'
+    '<div class="opts" style="position:absolute;left:60px;top:345px;width:300px;z-index:3">'
+    '<p><small>Name</small>NORMANI</p><p><small>Event</small>Brazil 2026</p><p><small>Access</small>AAA · All access</p></div>'
+    f'<div class="k-ring" style="left:{420 + CW * SF / 2 - 9}px;top:12px"></div>'
+    f'<div class="k-show" style="left:420px;top:40px;width:{CW * SF}px;height:{CH * SF}px">'
+    f'<div style="transform:scale({SF});transform-origin:0 0">{shown(_bg, _in)}</div></div>'
+    f'<div class="k-show" style="left:880px;top:118px;filter:none">'
+    f'<div style="transform:scale(.56);transform-origin:0 0">{badge(_bg, _in, True)}</div></div>'
+    '<p style="position:absolute;left:880px;top:636px;font-size:12px;color:#444;z-index:3">'
+    '<b style="color:#E5322D">—</b> bleed &nbsp;&nbsp; <b style="color:#0B0B0C">—</b> cut line &amp; punch hole</p>'
+    '<div class="ft" style="right:auto;width:400px"><span>AAA badge</span></div>'
+)
+FINAL_CSS = """.opts p{display:flex;gap:16px;font-size:15px;border-top:1.4px solid #0B0B0C;padding:9px 0}
+.opts small{font-size:11px;font-weight:700;color:#0E8A3A;width:52px;padding-top:2px}"""
+
 if __name__ == "__main__":
     B = g.B
     prev = "--png" in sys.argv
     render(B / "Normani-Crachas-AAA.html", B / "Normani-Crachas-AAA.pdf",
            doc("AAA badges", f'<section class="sl shot">{PAGE}</section>', PAGE_CSS),
            1280, 720, B / "preview-crachas.png" if prev else None)
+    render(B / "Normani-Cracha-AAA-Final.html", B / "Normani-Cracha-AAA-Final.pdf",
+           doc("AAA badge", f'<section class="sl shot">{FINAL}</section>', PAGE_CSS + FINAL_CSS),
+           1280, 720, B / "preview-cracha-final.png" if prev else None)
     for nome, guides in (("Impressao", False), ("Guias", True)):
-        body = "".join(f'<div class="pg shot">{badge(bg, inner, guides)}</div>' for _, _, bg, inner in D)
+        body = f'<div class="pg shot">{badge(_bg, _in, guides)}</div>'
         render(B / f"Normani-Crachas-AAA-{nome}.html", B / f"Normani-Crachas-AAA-{nome}.pdf",
                doc(f"AAA badges - {nome}", body, w=BW, h=BH), BW, BH,
                B / f"preview-cracha-{nome.lower()}-{{}}.png" if prev else None)

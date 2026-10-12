@@ -28,7 +28,9 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só com fundo).
 
-- `Normani-Crachas-AAA.pdf`: apresentação com as 6 opções lado a lado.
-- `Normani-Crachas-AAA-Impressao.pdf`: uma opção por página, com sangria e sem guias.
+- `Normani-Cracha-AAA-Final.pdf`: apresentação do design escolhido (Halftone, com foto e detalhes verdes).
+- `Normani-Crachas-AAA.pdf`: as 6 opções originais lado a lado.
+- `Normani-Crachas-AAA-Impressao.pdf`: o design escolhido, com sangria e sem guias.
 - `Normani-Crachas-AAA-Guias.pdf`: igual, com as linhas de sangria (vermelho), corte e furo (preto) para conferir.
+- O design escolhido fica em `ESCOLHIDO` no `build_crachas.py`.
 - `build_crachas.py`: gera os três. A logo "Normani" foi refeita com a fonte Mr Dafoe; o serif é a Instrument Serif (as duas com licença OFL, em `fontes/`).
