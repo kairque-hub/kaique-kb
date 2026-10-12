@@ -12,8 +12,8 @@ CONVIDADOS = [
     ("Josy Ramos", "josyramos", "422K"),
     ("Ana Flávia", "anaflaviadeverdade", "358K"),
     ("Jude Paulla", "judepaulla", "380K"),
-    ("Jess", None, "206K"),
-    ("Julia Rodrigues", None, "666K"),
+    ("Patricia Ramos", "patriciaramos", "5.3M"),
+    ("Julia Rodrigues", "juliarodrigues", "666K"),
     ("Juliano Floss", "julianofloss", "6M"),
 ]
 
@@ -25,19 +25,19 @@ def card(nome, ig, seg):
         handle = f'<a class="h" href="https://www.instagram.com/{ig}/">@{ig}</a>'
     else:
         handle = '<span class="h">&nbsp;</span>'
-    n = f'<b class="n">{seg}</b><small>seguidores</small>' if seg else '<b class="n">—</b><small>seguidores</small>'
+    n = f'<b class="n">{seg}</b><small>followers</small>' if seg else '<b class="n">—</b><small>followers</small>'
     return f'<div class="cv">{av}{handle}{n}</div>'
 
 
 HTML = (
     g.blob(1150, 60, 280) + g.blob(80, 740, 300, "g", .8) + g.blob(700, 780, 240) +
-    '<h1 class="t" style="top:50px">Influenciadores convidados</h1>'
+    '<h1 class="t" style="top:50px">Invited influencers</h1>'
     f'<span class="pill" style="position:absolute;right:60px;top:50px">Instagram</span>'
     '<p class="big" style="position:absolute;left:60px;top:150px;width:900px;font-size:18px;line-height:1.45">'
-    'Criadores de conteúdo brasileiros convidados para a passagem da Normani por São Paulo. '
-    'Clique na foto para abrir o perfil.</p>'
+    'Brazilian content creators invited to join Normani during her time in São Paulo. '
+    'Click a photo to open the profile.</p>'
     '<div class="cvs">' + "".join(card(*c) for c in CONVIDADOS) + '</div>'
-    + g.ft("Influenciadores convidados", 1)
+    + g.ft("Invited influencers", 1)
 )
 
 CSS = g.CSS + """
@@ -52,7 +52,7 @@ CSS = g.CSS + """
 
 if __name__ == "__main__":
     from playwright.sync_api import sync_playwright
-    html = (f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Influenciadores convidados</title>'
+    html = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Invited influencers</title>'
             f'<style>{g.FONTES}{CSS}</style></head><body><section class="sl">{HTML}</section></body></html>')
     out = g.B / "Normani-Influenciadores-Convidados.html"
     out.write_text(html)

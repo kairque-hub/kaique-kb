@@ -16,5 +16,5 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 ## Influenciadores convidados
 
-- `Normani-Influenciadores-Convidados.pdf`: página única com os convidados, foto clicável para o Instagram e seguidores.
+- `Normani-Influenciadores-Convidados.pdf`: página única em inglês com os convidados, foto clicável para o Instagram e seguidores.
 - `build_convidados.py`: gera a página. Os @ e os seguidores ficam na lista `CONVIDADOS` no topo do arquivo.
