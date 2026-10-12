@@ -71,7 +71,10 @@ def mid(y, html, extra=""):
 D = []
 
 # 01 Halftone (design escolhido; a versão por função troca o rodapé)
-def halftone(role=None, verde=False):
+def halftone(role=None, verde=False, verso=False):
+    """verso=True: fundo verde, detalhes em amarelo"""
+    ac = YEL if verso else GRN
+    glow = "242,236,26" if verso else "19,176,75"
     contorno = ""
     if verde:
         k = 16
@@ -79,14 +82,15 @@ def halftone(role=None, verde=False):
                     f'<rect x="{k}" y="{k}" width="{CW - 2 * k}" height="{CH - 2 * k}" rx="{CW / 2 - k}" '
                     f'fill="none" stroke="{GRN}" stroke-width="3"/>'
                     f'<circle cx="{CW / 2}" cy="{HOLE_Y}" r="{HOLE_R + 7}" fill="none" stroke="{GRN}" stroke-width="3"/></svg>')
-    rodape = contorno + (mid(662, f'<span class="k-role"><b style="color:{GRN}">●</b> {role.upper()}</span>') if role else "")
+    rcor = "color:#fff" if verso else ""
+    rodape = contorno + (mid(662, f'<span class="k-role" style="{rcor}"><b style="color:{ac}">●</b> {role.upper()}</span>') if role else "")
     return (
     f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
-    f'background:radial-gradient(closest-side,rgba(19,176,75,.22),rgba(19,176,75,0))"></div>'
+    f'background:radial-gradient(closest-side,rgba({glow},.3),rgba({glow},0))"></div>'
     f'<img class="k-a" src="{BUST}" style="left:17px;top:96px;width:461px;'
     '-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 92%);mask-image:linear-gradient(180deg,#000 72%,transparent 92%)">'
     '<div class="k-a k-panel" style="left:62px;top:470px;width:371px;height:150px;overflow:hidden">'
-    f'<i style="position:absolute;left:0;top:0;bottom:0;width:7px;background:{GRN}"></i>'
+    f'<i style="position:absolute;left:0;top:0;bottom:0;width:7px;background:{ac}"></i>'
     '<p class="k-nm" style="font-size:34px">NORMANI</p><p class="k-ev">Brazil 2026</p>'
     f'<div style="position:absolute;left:24px;bottom:14px">{logo(30, INK, False)}</div>'
     '<b class="k-aaa" style="position:absolute;right:22px;top:18px;font-size:58px">AAA</b>'
@@ -268,8 +272,8 @@ FINAL = (
     f'<div class="hd">{g.pill("Credentials")}<span>NORMANI · Brazil 2026</span></div>'
     '<h1 class="t" style="top:88px;font-size:50px">Badges</h1>'
     '<p class="big" style="position:absolute;left:330px;top:100px;width:880px;font-size:15px;line-height:1.5">'
-    'Yellow front in five versions, Normani’s AAA badge plus one for each team, '
-    'with the role at the bottom. Same green back side for all.</p>'
+    'Five versions, Normani’s AAA badge plus one for each team, with the role at the bottom. '
+    'Yellow on the front, green on the back, with her photo on both sides.</p>'
     + "".join(
         f'<div class="k-ring" style="left:{x + CW * SV / 2 - 9}px"></div>'
         f'<div class="k-show" style="left:{x}px;top:212px;width:{CW * SV}px;height:{CH * SV}px">'
@@ -278,8 +282,8 @@ FINAL = (
         for i, ((n, r), x) in enumerate(zip(VERSOES, vx), 1))
     + f'<div class="k-ring" style="left:{vx[5] + CW * SV / 2 - 9}px"></div>'
     f'<div class="k-show" style="left:{vx[5]}px;top:212px;width:{CW * SV}px;height:{CH * SV}px">'
-    f'<div style="transform:scale({SV});transform-origin:0 0">{shown(VERSO_BG, VERSO)}</div></div>'
-    f'<div class="k-cap" style="left:{vx[5]}px;width:{CW * SV}px;top:505px"><small>Back</small><b>All badges</b></div>'
+    f'<div style="transform:scale({SV});transform-origin:0 0">{shown(VERSO_BG, halftone("Tour manager", verso=True))}</div></div>'
+    f'<div class="k-cap" style="left:{vx[5]}px;width:{CW * SV}px;top:505px"><small>Back</small><b>Green, same role</b></div>'
     + '<div class="ft" style="right:auto;width:400px"><span>Badges</span></div>'
 )
 
@@ -314,7 +318,7 @@ if __name__ == "__main__":
            1280, 720, B / "preview-cracha-verde.png" if prev else None)
     for nome, guides in (("Impressao", False), ("Guias", True)):
         body = "".join(f'<div class="pg shot">{badge(BG, halftone(r), guides)}</div>'
-                       f'<div class="pg shot">{badge(VERSO_BG, VERSO, guides)}</div>' for _, r in VERSOES)
+                       f'<div class="pg shot">{badge(VERSO_BG, halftone(r, verso=True), guides)}</div>' for _, r in VERSOES)
         render(B / f"Normani-Crachas-AAA-{nome}.html", B / f"Normani-Crachas-AAA-{nome}.pdf",
                doc(f"AAA badges - {nome}", body, w=BW, h=BH), BW, BH,
                B / f"preview-cracha-{nome.lower()}-{{}}.png" if prev else None)
