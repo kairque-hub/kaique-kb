@@ -23,3 +23,8 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 - `Normani-Perucas-Front-Row.pdf`: página única em inglês com as duas opções de peruca e o total para 50 unidades.
 - `build_perucas.py`: gera a página. Quantidade e preços ficam em `QTD` e `OPCOES` no topo do arquivo.
+
+## Crachás AAA
+
+- `Normani-Crachas-AAA.pdf`: página única com três propostas de crachá (NORMANI · Brazil 2026 · AAA).
+- `build_crachas.py`: gera a página. A logo "Normani" foi refeita com a fonte Mr Dafoe (`fontes/MrDafoe.woff2`, licença OFL) e brilho/estrelas em CSS.
