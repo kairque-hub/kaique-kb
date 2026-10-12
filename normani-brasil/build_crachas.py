@@ -72,7 +72,7 @@ D = []
 
 # 01 Halftone (design escolhido; a versão por função troca o rodapé)
 def halftone(role=None):
-    rodape = (mid(650, f'<span class="k-role"><b style="color:{GRN}">●</b> {role.upper()}</span>') if role else "")
+    rodape = (mid(662, f'<span class="k-role"><b style="color:{GRN}">●</b> {role.upper()}</span>') if role else "")
     return (
     f'<div class="k-a" style="left:-40px;top:60px;width:575px;height:470px;'
     f'background:radial-gradient(closest-side,rgba(19,176,75,.22),rgba(19,176,75,0))"></div>'
@@ -179,7 +179,7 @@ BADGE_CSS = f"""
 .k-out{{color:transparent;-webkit-text-stroke:2.5px #fff}}
 .k-tag{{font-size:12px;font-weight:700;letter-spacing:.22em}}
 .k-pill{{display:inline-block;border:1.6px solid {INK};border-radius:999px;padding:5px 18px;font-size:14px;font-weight:600;letter-spacing:.06em}}
-.k-role{{display:inline-block;background:{INK};color:#fff;border-radius:999px;padding:9px 22px;font-size:15px;font-weight:700;letter-spacing:.16em}}
+.k-role{{display:inline-block;color:{INK};font-size:16px;font-weight:700;letter-spacing:.22em}}
 .k-panel{{background:#fff;border-radius:22px;padding:22px 24px}}
 .k-round{{border-radius:50%;background-size:cover;background-position:center;filter:grayscale(1)}}
 .k-glow{{border-radius:50%;background:radial-gradient(closest-side,{NAVY} 55%,rgba(29,43,107,.45) 75%,rgba(29,43,107,0))}}
