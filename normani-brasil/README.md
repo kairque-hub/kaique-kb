@@ -26,5 +26,9 @@ Fotos do time local ficam em `img/pessoas/<slug>.jpg` (nome em minúsculas, sem 
 
 ## Crachás AAA
 
-- `Normani-Crachas-AAA.pdf`: página única com três propostas de crachá (NORMANI · Brazil 2026 · AAA).
-- `build_crachas.py`: gera a página. A logo "Normani" foi refeita com a fonte Mr Dafoe (`fontes/MrDafoe.woff2`, licença OFL) e brilho/estrelas em CSS.
+No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só com fundo).
+
+- `Normani-Crachas-AAA.pdf`: apresentação com as 6 opções lado a lado.
+- `Normani-Crachas-AAA-Impressao.pdf`: uma opção por página, com sangria e sem guias.
+- `Normani-Crachas-AAA-Guias.pdf`: igual, com as linhas de sangria (vermelho), corte e furo (preto) para conferir.
+- `build_crachas.py`: gera os três. A logo "Normani" foi refeita com a fonte Mr Dafoe; o serif é a Instrument Serif (as duas com licença OFL, em `fontes/`).
