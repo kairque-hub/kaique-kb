@@ -12,8 +12,8 @@ CONVIDADOS = [
     ("Josy Ramos", "josyramos", "422K"),
     ("Ana Flávia", "anaflaviadeverdade", "358K"),
     ("Jude Paulla", "judepaulla", "380K"),
-    ("Jess", None, None),
-    ("Julia Rodrigues", None, None),
+    ("Jess", None, "206K"),
+    ("Julia Rodrigues", None, "666K"),
     ("Juliano Floss", "julianofloss", "6M"),
 ]
 
@@ -24,7 +24,7 @@ def card(nome, ig, seg):
         av = f'<a href="https://www.instagram.com/{ig}/">{av}</a>'
         handle = f'<a class="h" href="https://www.instagram.com/{ig}/">@{ig}</a>'
     else:
-        handle = '<span class="h">@ a confirmar</span>'
+        handle = '<span class="h">&nbsp;</span>'
     n = f'<b class="n">{seg}</b><small>seguidores</small>' if seg else '<b class="n">—</b><small>seguidores</small>'
     return f'<div class="cv">{av}{handle}{n}</div>'
 
