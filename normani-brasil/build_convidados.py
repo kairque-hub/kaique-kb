@@ -31,13 +31,13 @@ def card(nome, ig, seg):
 
 HTML = (
     g.blob(1150, 60, 280) + g.blob(80, 740, 300, "g", .8) + g.blob(700, 780, 240) +
-    '<h1 class="t" style="top:50px">Invited influencers</h1>'
+    '<h1 class="t" style="top:50px">Suggested influencers</h1>'
     f'<span class="pill" style="position:absolute;right:60px;top:50px">Instagram</span>'
     '<p class="big" style="position:absolute;left:60px;top:150px;width:900px;font-size:18px;line-height:1.45">'
-    'Brazilian content creators invited to join Normani during her time in São Paulo. '
+    'Our suggestions of Brazilian content creators to invite during Normani’s time in São Paulo. '
     'Click a photo to open the profile.</p>'
     '<div class="cvs">' + "".join(card(*c) for c in CONVIDADOS) + '</div>'
-    + g.ft("Invited influencers", 1)
+    + g.ft("Suggested influencers", 1)
 )
 
 CSS = g.CSS + """
@@ -52,7 +52,7 @@ CSS = g.CSS + """
 
 if __name__ == "__main__":
     from playwright.sync_api import sync_playwright
-    html = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Invited influencers</title>'
+    html = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Suggested influencers</title>'
             f'<style>{g.FONTES}{CSS}</style></head><body><section class="sl">{HTML}</section></body></html>')
     out = g.B / "Normani-Influenciadores-Convidados.html"
     out.write_text(html)
