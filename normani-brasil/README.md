@@ -42,3 +42,8 @@ No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só 
 - `Normani-Cordao-Impressao.pdf`: em tamanho real com 3 mm de sangria (956 × 30 mm).
 - `Normani-Cordao-Guias.pdf`: igual, com a linha de corte (preto) e o meio do cordão (pontilhado vermelho).
 - `build_cordao.py`: gera os três. O texto vira 180° no meio para ler certo dos dois lados do pescoço.
+
+## After party: NORMANI TAKES SÃO PAULO
+
+- `Normani-After-Party.pdf`: 2 páginas em inglês (o after e quem está lá).
+- `build_after.py`: gera as páginas. Frames do vídeo do espaço (`img/after/espaco-1.jpg`…) e fotos de exemplo do fotógrafo (`img/after/foto-1.jpg`, `foto-2.jpg`) entram sozinhos quando existirem.
