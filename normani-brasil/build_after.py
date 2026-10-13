@@ -64,7 +64,7 @@ def pessoa(nome, papel, handle, tam=76):
 
 
 fotos = pessoa("Rodolfo Sanches", "PHOTO", "rodolfosanchesfoto") + "".join(
-    foto_ou_ph(f"img/after/foto-{i}.jpg", "Photo example", "@rodolfosanchesfoto") for i in (1, 2))
+    foto_ou_ph(f"img/after/foto-{i}.jpg", "Photo example", "@rodolfosanchesfoto") for i in (1, 2, 3))
 P2 = (
     g.blob(1200, 40, 240) + g.blob(80, 760, 280, "g", .8) +
     f'<div class="hd a-hd">{g.pill("The room", "wl")}<span>{TITLE}</span></div>'
@@ -122,7 +122,7 @@ a{{color:inherit;text-decoration:none}}
 .a-pp .pp b{{color:#fff;font-size:14px;margin-top:6px}}
 .a-pp small{{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:{GRN};margin-top:4px}}
 .a-pp p{{font-size:12px;color:#ccc;margin-top:2px}}
-.a-photos{{position:absolute;left:520px;right:60px;top:496px;height:160px;display:grid;grid-template-columns:180px 1fr 1fr;gap:12px;z-index:3}}
+.a-photos{{position:absolute;left:520px;right:60px;top:496px;height:160px;display:grid;grid-template-columns:180px 1fr 1fr 1fr;gap:12px;z-index:3}}
 .a-img{{border-radius:14px;background-size:cover;background-position:center}}
 .a-ph{{border:1.4px dashed #555;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#999}}
 .a-ph b{{font-size:14px;font-weight:500;color:#ccc}}
