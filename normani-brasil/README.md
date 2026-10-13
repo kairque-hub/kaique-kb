@@ -45,5 +45,5 @@ No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só 
 
 ## After party: NORMANI TAKES SÃO PAULO
 
-- `Normani-After-Party.pdf`: 2 páginas em inglês (o after e quem está lá).
+- `Normani-After-Party.pdf`: 3 páginas em inglês (o after, o espaço e quem está lá).
 - `build_after.py`: gera as páginas. Frames do vídeo do espaço (`img/after/espaco-1.jpg`…) e fotos de exemplo do fotógrafo (`img/after/foto-1.jpg`, `foto-2.jpg`) entram sozinhos quando existirem.

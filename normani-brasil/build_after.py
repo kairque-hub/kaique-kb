@@ -10,8 +10,7 @@ import build_geral as g
 
 YEL, GRN, INK, ORG = "#F2EC1A", "#13B04B", "#0B0B0C", "#E2531B"
 ROOM = g.uri("img/notie1.jpg")
-VISTA = g.uri("img/after/espaco-vista.jpg")
-SALAO = g.uri("img/after/espaco-salao.jpg")
+V = {k: g.uri(f"img/after/v-{k}.jpg") for k in ("bar", "lounge", "banco", "sala", "caixas", "janela")}
 TITLE = "NORMANI TAKES SÃO PAULO"
 
 
@@ -36,8 +35,8 @@ espaco = "".join(foto_ou_ph(f"img/after/espaco-{i}.jpg", "Venue frame", "@evento
                  if g.opt(f"img/after/espaco-{i}.jpg"))
 P1 = (
     f'<div class="a-room" style="background-image:url({ROOM})"></div>'
-    f'<div class="a-room2" style="top:0;height:356px;background-image:url({VISTA});background-position:50% 55%"></div>'
-    f'<div class="a-room2" style="top:364px;height:356px;background-image:url({SALAO})"></div>'
+    f'<div class="a-room2" style="top:0;height:356px;background-image:url({V["janela"]});background-position:50% 60%"></div>'
+    f'<div class="a-room2" style="top:364px;height:356px;background-image:url({V["bar"]})"></div>'
     '<div class="a-shade"></div>'
     + g.blob(1180, 40, 260) + g.blob(820, 760, 260, "g", .8) +
     f'<div class="hd a-hd">{g.pill("After party", "wl")}<span>After the show · Meli Music</span></div>'
@@ -55,6 +54,29 @@ P1 = (
     f'<p class="a-cred">Venue: {ig("eventos.notie")}</p>'
     + '<div class="ft a-ft" style="left:600px"><span>After party</span>'
     '<span>Normani × Brasil · Meli Music 2026<b class="pn">01</b></span></div>'
+)
+
+# ------------------------------------------------------------------ página 2: o espaço
+def tile(k, area, nome, txt, pos="center"):
+    return (f'<div class="a-tile" style="grid-area:{area};background-image:url({V[k]});background-position:{pos}">'
+            f'<div><b>{nome}</b><span>{txt}</span></div></div>')
+
+
+PV = (
+    g.blob(1200, 30, 220) +
+    f'<div class="hd a-hd">{g.pill("The venue", "wl")}<span>{TITLE}</span></div>'
+    '<h1 class="a-t2" style="top:84px;font-size:46px">Terraço Notiê</h1>'
+    '<p class="a-addr">Rua Formosa, 157 · Centro Histórico, São Paulo · on top of the Shopping Light building, '
+    'facing the Theatro Municipal</p>'
+    '<div class="a-grid">'
+    + tile("bar", "a", "The bar", "A circular bar at the heart of the floor, for the open bar")
+    + tile("sala", "b", "Sala de Música", "The music room, with the DJ booth for the night")
+    + tile("lounge", "c", "Lounge", "Long tables and velvet booths")
+    + tile("banco", "d", "Booths", "Quiet corners to sit and talk")
+    + tile("caixas", "e", "Sound", "Vintage horn speakers and turntables")
+    + tile("janela", "f", "City view", "Downtown São Paulo from above", "50% 55%")
+    + '</div>'
+    + ft("After party · The venue", 2)
 )
 
 # ------------------------------------------------------------------ página 2: quem está lá
@@ -84,7 +106,7 @@ P2 = (
     '<div class="a-crew" style="left:60px">' + pessoa("94tago", "DJ", "94tago") + pessoa("Aisha Mbikila", "DJ", "aishambikila") + '</div>'
     '<p class="a-lab" style="top:470px;left:520px">Photography · Rodolfo Sanches ' + ig("rodolfosanchesfoto") + '</p>'
     f'<div class="a-photos">{fotos}</div>'
-    + ft("After party · The room", 2)
+    + ft("After party · The room", 3)
 )
 
 CSS = g.CSS + f"""
@@ -129,6 +151,13 @@ a{{color:inherit;text-decoration:none}}
 .a-pp small{{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:{GRN};margin-top:4px}}
 .a-pp p{{font-size:12px;color:#ccc;margin-top:2px}}
 .a-photos{{position:absolute;left:520px;right:60px;top:496px;height:160px;display:grid;grid-template-columns:180px 1fr 1fr 1fr;gap:12px;z-index:3}}
+.a-addr{{position:absolute;left:390px;top:104px;width:820px;font-size:14px;color:#bbb;line-height:1.5;z-index:3}}
+.a-grid{{position:absolute;left:60px;right:60px;top:168px;height:490px;display:grid;gap:10px;z-index:3;
+ grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1.15fr 1fr;grid-template-areas:"a a b b" "c d e f"}}
+.a-tile{{position:relative;border-radius:14px;overflow:hidden;background-size:cover}}
+.a-tile>div{{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;background:linear-gradient(0deg,rgba(11,11,12,.85),rgba(11,11,12,0))}}
+.a-tile b{{display:block;font-size:17px;font-weight:600}}
+.a-tile span{{display:block;font-size:11.5px;color:#ddd;margin-top:2px}}
 .a-img{{border-radius:14px;background-size:cover;background-position:center}}
 .a-ph{{border:1.4px dashed #555;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#999}}
 .a-ph b{{font-size:14px;font-weight:500;color:#ccc}}
@@ -137,7 +166,7 @@ a{{color:inherit;text-decoration:none}}
 
 if __name__ == "__main__":
     from playwright.sync_api import sync_playwright
-    body = f'<section class="sl a-dark">{P1}</section><section class="sl a-dark">{P2}</section>'
+    body = f'<section class="sl a-dark">{P1}</section><section class="sl a-dark">{PV}</section><section class="sl a-dark">{P2}</section>'
     html = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{TITLE}</title>'
             f'<style>{g.FONTES}{CSS}</style></head><body>{body}</body></html>')
     out = g.B / "Normani-After-Party.html"
