@@ -44,10 +44,12 @@ P1 = (
     '<p class="a-lead">An invite-only after party for the night of the show, produced by <b>Sharp</b>. '
     'Open bar, a São Paulo rooftop, two DJs and the people who move the city’s fashion, music and arts.</p>'
     '<div class="a-facts">'
-    '<div><small>When</small><b>1 AM – 5 AM</b><span>right after the Meli Music show</span></div>'
-    '<div><small>Guests</small><b>Up to 150</b><span>open bar all night</span></div>'
-    '<div><small>Where</small><b>Terraço Notiê</b><span>Rua Formosa, 157 · Centro Histórico, São Paulo<br>access via Shopping Light parking</span></div>'
-    '<div><small>Security</small><b>Reinforced</b><span>controlled guest list and entry</span></div>'
+    '<div><small>When</small><b>1 AM – 5 AM</b><span>right after the show</span></div>'
+    '<div class="hl"><small>Open bar</small><b>All night</b><span>for all guests</span></div>'
+    '<div><small>Guests</small><b>Up to 150</b><span>invite-only</span></div>'
+    '<div><small>Where</small><b>Terraço Notiê</b><span>Rua Formosa, 157 · Centro<br>via Shopping Light parking</span></div>'
+    '<div class="hl"><small>Private booth</small><b>Normani &amp; friends</b><span>reserved space for her and her guests</span></div>'
+    '<div><small>Security</small><b>Reinforced</b><span>controlled list and entry</span></div>'
     '</div>'
     '<div class="a-cost"><div><small>Cost to Normani</small><b>USD 0</b></div>'
     '<p>All costs covered by <strong>Sharp</strong>.<br>No brand presence. No ticket sales.</p></div>'
@@ -57,8 +59,8 @@ P1 = (
 )
 
 # ------------------------------------------------------------------ página 2: o espaço
-def tile(k, area, nome, txt, pos="center"):
-    return (f'<div class="a-tile" style="grid-area:{area};background-image:url({V[k]});background-position:{pos}">'
+def tile(k, area, nome, txt, pos="center", hl=False):
+    return (f'<div class="a-tile{" hl" if hl else ""}" style="grid-area:{area};background-image:url({V[k]});background-position:{pos}">'
             f'<div><b>{nome}</b><span>{txt}</span></div></div>')
 
 
@@ -69,10 +71,10 @@ PV = (
     '<p class="a-addr">Rua Formosa, 157 · Centro Histórico, São Paulo · on top of the Shopping Light building, '
     'facing the Theatro Municipal</p>'
     '<div class="a-grid">'
-    + tile("bar", "a", "The bar", "A circular bar at the heart of the floor, for the open bar")
+    + tile("bar", "a", "Open bar", "The circular bar at the heart of the floor, open all night for every guest", hl=True)
     + tile("sala", "b", "Sala de Música", "The music room, with the DJ booth for the night")
     + tile("lounge", "c", "Lounge", "Long tables and velvet booths")
-    + tile("banco", "d", "Booths", "Quiet corners to sit and talk")
+    + tile("banco", "d", "Normani’s booth", "A reserved space for Normani and friends", hl=True)
     + tile("caixas", "e", "Sound", "Vintage horn speakers and turntables")
     + tile("janela", "f", "City view", "Downtown São Paulo from above", "50% 55%")
     + '</div>'
@@ -123,7 +125,8 @@ a{{color:inherit;text-decoration:none}}
 .a-title span{{color:{YEL}}}
 .a-lead{{position:absolute;left:600px;top:292px;width:620px;font-size:16px;line-height:1.5;color:#ddd;z-index:3}}
 .a-lead b{{color:#fff}}
-.a-facts{{position:absolute;left:600px;top:372px;width:620px;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;z-index:3}}
+.a-facts{{position:absolute;left:600px;top:372px;width:620px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px 22px;z-index:3}}
+.a-facts .hl b{{color:{YEL}}}
 .a-facts div{{border-top:1px solid #444;padding-top:8px}}
 .a-facts small,.a-cost small,.a-who small{{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{GRN}}}
 .a-facts b{{display:block;font-size:22px;font-weight:500;letter-spacing:-.01em;margin-top:3px}}
@@ -157,6 +160,8 @@ a{{color:inherit;text-decoration:none}}
 .a-tile{{position:relative;border-radius:14px;overflow:hidden;background-size:cover}}
 .a-tile>div{{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;background:linear-gradient(0deg,rgba(11,11,12,.85),rgba(11,11,12,0))}}
 .a-tile b{{display:block;font-size:17px;font-weight:600}}
+.a-tile.hl{{outline:3px solid {YEL};outline-offset:-3px}}
+.a-tile.hl b{{color:{YEL}}}
 .a-tile span{{display:block;font-size:11.5px;color:#ddd;margin-top:2px}}
 .a-img{{border-radius:14px;background-size:cover;background-position:center}}
 .a-ph{{border:1.4px dashed #555;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#999}}
