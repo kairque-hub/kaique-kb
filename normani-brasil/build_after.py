@@ -10,6 +10,8 @@ import build_geral as g
 
 YEL, GRN, INK, ORG = "#F2EC1A", "#13B04B", "#0B0B0C", "#E2531B"
 ROOM = g.uri("img/notie1.jpg")
+VISTA = g.uri("img/after/espaco-vista.jpg")
+SALAO = g.uri("img/after/espaco-salao.jpg")
 TITLE = "NORMANI TAKES SÃO PAULO"
 
 
@@ -34,6 +36,8 @@ espaco = "".join(foto_ou_ph(f"img/after/espaco-{i}.jpg", "Venue frame", "@evento
                  if g.opt(f"img/after/espaco-{i}.jpg"))
 P1 = (
     f'<div class="a-room" style="background-image:url({ROOM})"></div>'
+    f'<div class="a-room2" style="top:0;height:356px;background-image:url({VISTA});background-position:50% 55%"></div>'
+    f'<div class="a-room2" style="top:364px;height:356px;background-image:url({SALAO})"></div>'
     '<div class="a-shade"></div>'
     + g.blob(1180, 40, 260) + g.blob(820, 760, 260, "g", .8) +
     f'<div class="hd a-hd">{g.pill("After party", "wl")}<span>After the show · Meli Music</span></div>'
@@ -49,7 +53,8 @@ P1 = (
     '<div class="a-cost"><div><small>Cost to Normani</small><b>USD 0</b></div>'
     '<p>All costs covered by <strong>Sharp</strong>.<br>No brand presence. No ticket sales.</p></div>'
     f'<p class="a-cred">Venue: {ig("eventos.notie")}</p>'
-    + ft("After party", 1)
+    + '<div class="ft a-ft" style="left:600px"><span>After party</span>'
+    '<span>Normani × Brasil · Meli Music 2026<b class="pn">01</b></span></div>'
 )
 
 # ------------------------------------------------------------------ página 2: quem está lá
@@ -88,23 +93,24 @@ CSS = g.CSS + f"""
 .a-hd span{{color:#fff}}
 .a-ft{{color:#fff}}.a-ft .pn{{border-color:#fff}}
 a{{color:inherit;text-decoration:none}}
-.a-room{{position:absolute;left:0;top:0;width:560px;height:720px;background-size:cover;background-position:50% 40%}}
-.a-shade{{position:absolute;left:0;top:0;width:560px;height:720px;background:linear-gradient(90deg,rgba(11,11,12,0) 55%,{INK} 100%),linear-gradient(0deg,rgba(11,11,12,.55),rgba(11,11,12,0) 40%)}}
+.a-room{{position:absolute;left:0;top:0;width:328px;height:720px;background-size:cover;background-position:50% 40%}}
+.a-room2{{position:absolute;left:336px;width:224px;background-size:cover;background-position:center}}
+.a-shade{{position:absolute;left:0;top:0;width:560px;z-index:1;height:720px;background:linear-gradient(0deg,rgba(11,11,12,.6),rgba(11,11,12,0) 25%),linear-gradient(180deg,rgba(11,11,12,.55),rgba(11,11,12,0) 18%)}}
 .a-dark .blob{{opacity:.55}}
-.a-title{{position:absolute;left:600px;top:96px;font-size:76px;line-height:.92;font-weight:800;letter-spacing:-.035em;z-index:3}}
+.a-title{{position:absolute;left:600px;top:92px;font-size:66px;line-height:.92;font-weight:800;letter-spacing:-.035em;z-index:3}}
 .a-title span{{color:{YEL}}}
-.a-lead{{position:absolute;left:600px;top:330px;width:620px;font-size:16px;line-height:1.5;color:#ddd;z-index:3}}
+.a-lead{{position:absolute;left:600px;top:292px;width:620px;font-size:16px;line-height:1.5;color:#ddd;z-index:3}}
 .a-lead b{{color:#fff}}
-.a-facts{{position:absolute;left:600px;top:420px;width:620px;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;z-index:3}}
+.a-facts{{position:absolute;left:600px;top:372px;width:620px;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;z-index:3}}
 .a-facts div{{border-top:1px solid #444;padding-top:8px}}
 .a-facts small,.a-cost small,.a-who small{{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{GRN}}}
 .a-facts b{{display:block;font-size:22px;font-weight:500;letter-spacing:-.01em;margin-top:3px}}
 .a-facts span{{display:block;font-size:12px;color:#bbb;line-height:1.45;margin-top:2px}}
-.a-cost{{position:absolute;left:40px;top:520px;width:480px;background:{YEL};color:{INK};border-radius:20px;padding:16px 22px;display:flex;align-items:center;gap:22px;z-index:3}}
+.a-cost{{position:absolute;left:600px;top:566px;width:620px;background:{YEL};color:{INK};border-radius:20px;padding:12px 22px;display:flex;align-items:center;gap:22px;z-index:3}}
 .a-cost small{{color:{INK}}}
 .a-cost b{{display:block;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}}
 .a-cost p{{font-size:13.5px;line-height:1.45}}
-.a-cred{{position:absolute;left:40px;top:488px;font-size:11px;color:#ddd;z-index:3}}
+.a-cred{{position:absolute;left:20px;top:690px;font-size:11px;color:#ddd;z-index:3}}
 .a-t2{{position:absolute;left:60px;top:92px;font-size:56px;font-weight:400;letter-spacing:-.035em;z-index:3}}
 .a-who{{position:absolute;left:60px;right:60px;top:180px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;z-index:3}}
 .a-who div{{border-top:1px solid #444;padding-top:8px}}
