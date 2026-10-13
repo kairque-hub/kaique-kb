@@ -19,9 +19,8 @@ YEL, GRN, INK = k.YEL, k.GRN, k.INK
 def unidade(fg, ac):
     """bloco que se repete ao longo do cordão"""
     st = f'<b style="color:{ac}">✶</b>'
-    return (f'<span class="c-u"><b class="c-nm" style="color:{fg}">NORMANI</b>{st}'
+    return (f'<span class="c-u"><span class="c-sc" style="color:{fg}">Normani</span>{st}'
             f'<span class="c-ev" style="color:{fg}">BRAZIL 2026</span>{st}'
-            f'<span class="c-sc" style="color:{fg}">Normani</span>{st}'
             f'<b class="c-nm" style="color:{fg}">AAA</b>{st}</span>')
 
 
@@ -34,9 +33,7 @@ def faixa(bg, fg, ac, borda=None):
 
 
 OPCOES = [
-    ("Green", "Green strap, yellow text. Matches the green back of the badge.", (GRN, YEL, "#fff", None)),
-    ("Yellow", "Yellow strap, black text, green stars. Matches the yellow front.", (YEL, INK, GRN, None)),
-    ("Black", "Black strap, yellow text, thin green edges.", (INK, YEL, GRN, GRN)),
+    ("Black", "Black strap, yellow logo and text, thin green edges.", (INK, YEL, GRN, GRN)),
 ]
 
 STRIP_CSS = f"""
@@ -69,9 +66,9 @@ ESC = 1160 / ((L + 2 * SG) * 3.7795)   # mm -> px na tela, cabendo em 1160 px
 ZOOM = .9
 rows = ""
 for i, (nome, desc, (bg, fg, ac, bd)) in enumerate(OPCOES):
-    y = 150 + i * 178
+    y = 290 + i * 178
     rows += (f'<div class="c-row" style="top:{y}px">'
-             f'<div class="c-lab"><small>{i + 1:02d}</small><b>{nome}</b><span>{desc}</span></div>'
+             f'<div class="c-lab"><small>Final</small><b>{nome}</b><span>{desc}</span></div>'
              f'<div class="c-zoom"><div style="transform:scale({ZOOM});transform-origin:0 0">{faixa(bg, fg, ac, bd)}</div></div>'
              f'<div class="c-full"><div style="transform:scale({ESC:.4f});transform-origin:0 0">{faixa(bg, fg, ac, bd)}</div></div>'
              '</div>')
@@ -80,8 +77,8 @@ PAGE = (
     g.blob(1180, 30, 220) + g.blob(60, 760, 260, "g", .7) +
     f'<div class="hd">{g.pill("Lanyard")}<span>95 × 2.4 cm</span></div>'
     '<p class="big" style="position:absolute;left:400px;top:46px;width:820px;font-size:14px;line-height:1.5">'
-    'Three options. The pattern repeats along the strap and flips at the middle, so both sides read correctly around the neck. '
-    'Each row shows a close-up and the full 95 cm strap.</p>'
+    'Final design. The pattern repeats along the strap and flips at the middle, so both sides read correctly around the neck. '
+    'Close-up on top, full 95 cm strap below.</p>'
     + rows +
     '<div class="ft" style="right:auto;width:400px"><span>Lanyard</span></div>'
 )

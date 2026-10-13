@@ -38,7 +38,7 @@ No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só 
 
 ## Cordão do crachá (95 × 2,4 cm)
 
-- `Normani-Cordao-Opcoes.pdf`: apresentação das 3 opções (verde, amarelo, preto), com detalhe ampliado e o cordão inteiro.
-- `Normani-Cordao-Impressao.pdf`: uma opção por página, em tamanho real com 3 mm de sangria (956 × 30 mm).
+- `Normani-Cordao-Opcoes.pdf`: apresentação do design final (preto, com a logo), com detalhe ampliado e o cordão inteiro.
+- `Normani-Cordao-Impressao.pdf`: em tamanho real com 3 mm de sangria (956 × 30 mm).
 - `Normani-Cordao-Guias.pdf`: igual, com a linha de corte (preto) e o meio do cordão (pontilhado vermelho).
 - `build_cordao.py`: gera os três. O texto vira 180° no meio para ler certo dos dois lados do pescoço.
