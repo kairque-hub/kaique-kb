@@ -35,3 +35,10 @@ No formato do gabarito da gráfica (corte em pílula, furo no topo, sangria só 
 - `Normani-Crachas-AAA-Guias.pdf`: igual, com as linhas de sangria (vermelho), corte e furo (preto) para conferir.
 - As versões ficam na lista `VERSOES` no `build_crachas.py`.
 - `build_crachas.py`: gera os três. A logo "Normani" foi refeita com a fonte Mr Dafoe; o serif é a Instrument Serif (as duas com licença OFL, em `fontes/`).
+
+## Cordão do crachá (95 × 2,4 cm)
+
+- `Normani-Cordao-Opcoes.pdf`: apresentação das 3 opções (verde, amarelo, preto), com detalhe ampliado e o cordão inteiro.
+- `Normani-Cordao-Impressao.pdf`: uma opção por página, em tamanho real com 3 mm de sangria (956 × 30 mm).
+- `Normani-Cordao-Guias.pdf`: igual, com a linha de corte (preto) e o meio do cordão (pontilhado vermelho).
+- `build_cordao.py`: gera os três. O texto vira 180° no meio para ler certo dos dois lados do pescoço.
