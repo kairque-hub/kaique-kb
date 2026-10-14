@@ -133,16 +133,16 @@ grid_pages(D["shops"], "shop", "Shop", "Stores", "Brazilian brands, design and t
 grid_pages(D["bars"], "bar", "Drink", "Bars", "Where São Paulo actually goes out.")
 
 # ---------------------------------------------------------------- brazilian pop
-ARTS = [("anitta", "Anitta", "Brazil’s global pop superstar, from funk carioca to the world.", "Envolver"),
+ARTS = [("anitta", "Anitta", "Brazil’s global pop superstar, from funk carioca to the world.", "Choka Choka"),
         ("ludmilla", "Ludmilla", "Funk and pagode queen, one of the biggest voices in the country.", "Rainha da Favela"),
         ("pabllo-vittar", "Pabllo Vittar", "Drag pop icon mixing pop with Northeastern rhythms.", "K.O."),
         ("gloria-groove", "Gloria Groove", "Drag artist, rapper and pop star from São Paulo.", "Bonekinha"),
-        ("marina-sena", "Marina Sena", "The new face of Brazilian pop, sensual and sunny.", "Por Supuesto"),
-        ("pedro-sampaio", "Pedro Sampaio", "DJ and producer behind the funk hits that run every party.", "Galopa"),
-        ("luisa-sonza", "Luísa Sonza", "Pop star with chart-topping albums and viral hits.", "Chico"),
-        ("liniker", "Liniker", "Soul and MPB, one of the most acclaimed voices of her generation.", "Psiu"),
-        ("iza", "IZA", "Pop, R&B and funk with a powerhouse voice.", "Dona de Mim"),
-        ("duquesa", "Duquesa", "Rapper from Bahia leading the new wave of Brazilian rap.", "99 Problemas")]
+        ("marina-sena", "Marina Sena", "The new face of Brazilian pop, sensual and sunny.", "Numa Ilha"),
+        ("pedro-sampaio", "Pedro Sampaio", "DJ and producer behind the funk hits that run every party.", "Sequência Cunt"),
+        ("luisa-sonza", "Luísa Sonza", "Pop star with chart-topping albums and viral hits.", "Telefone"),
+        ("liniker", "Liniker", "Soul and MPB, one of the most acclaimed voices of her generation.", "Caju"),
+        ("iza", "IZA", "Pop, R&B and funk with a powerhouse voice.", "Pesadão"),
+        ("duquesa", "Duquesa", "Rapper from Bahia leading the new wave of Brazilian rap.", "Fuso")]
 page(head("Listen", "Brazilian pop, now", "The names you’ll hear everywhere this week, and one song to start with.") +
      '<div class="ar">' + "".join(
          f'<div><img src="{img("art-" + k)}"><div><h3>{n}</h3><p>{d}</p>'
