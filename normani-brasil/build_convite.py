@@ -8,7 +8,7 @@ F = lambda p: base64.b64encode((g.B / p).read_bytes()).decode()
 FONTS = (f"@font-face{{font-family:'IS';font-style:italic;src:url(data:font/woff2;base64,{F('fontes/InstrumentSerif-italic.woff2')})}}"
          f"@font-face{{font-family:'IS';font-style:normal;src:url(data:font/woff2;base64,{F('fontes/InstrumentSerif-normal.woff2')})}}")
 ROOM = g.uri("img/after/convite-bg.jpg")
-LOGOS = [g.uri("img/after/logo-agencia.png").replace("image/jpeg","image/png"), g.uri("img/after/logo-sharp.png").replace("image/jpeg","image/png")]
+LOGOS = [(g.uri("img/after/logo-agencia-t.png"), 74), (g.uri("img/after/logo-sharp-t.png"), 30)]
 
 
 def convite(w, h):
@@ -18,18 +18,17 @@ def convite(w, h):
   <div class="bgp" style="background-image:url({ROOM})"></div>
   <div class="shade"></div>
   <div class="glow"></div>
-  <div class="lg">{"".join(f'<img src="{l}">' for l in LOGOS)}</div>
+  <div class="lg">{"".join(f'<img src="{l}" style="height:{h}px">' for l, h in LOGOS)}</div>
   <div class="in">
     <p class="you">You’re invited</p>
     <h1><span>Normani</span><b>Takes</b><b>São Paulo</b></h1>
     <p class="sub"><i>the official after party</i></p>
-    <div class="rule"></div>
     <div class="row">
       <div><small>When</small><p>Oct 17, after the show<br>1 AM – 5 AM</p></div>
-      <div><small>Where</small><p>Terraço Notiê<br>Rua Formosa, 157 · Centro</p></div>
+      <div><small>Where</small><p>Location revealed<br>on the day</p></div>
     </div>
-    <div class="tags"><span>Open bar</span><span>Invite only</span><span>DJs 94tago &amp; Aisha Mbikila</span></div>
-    <p class="fine">Name on the list required · Bring your ID · Entry via Shopping Light parking</p>
+    <p class="extra">Open bar · Invite only</p>
+    <p class="fine">Name on the list required · Bring your ID</p>
   </div>
 </section>"""
 
@@ -41,8 +40,7 @@ body{{background:#000;font-family:Inter,sans-serif}}
 .bgp{{position:absolute;inset:0;background-size:cover;background-position:50% 50%}}
 .shade{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,0) 0%,rgba(11,11,12,.25) 40%,rgba(11,11,12,.82) 75%,rgba(11,11,12,.92) 100%)}}
 .glow{{position:absolute;left:-20%;right:-20%;bottom:-25%;height:60%;background:none}}
-.lg{{position:absolute;left:84px;top:84px;display:flex;gap:18px}}
-.lg img{{width:110px;height:110px;border-radius:50%}}
+.lg{{position:absolute;left:84px;top:84px;display:flex;gap:44px;align-items:center}}
 .in{{position:absolute;left:84px;right:84px;bottom:110px}}
 .you{{font-size:22px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:{YEL}}}
 h1{{margin-top:22px;line-height:.86}}
@@ -51,7 +49,8 @@ h1 b{{display:block;font-size:118px;font-weight:800;letter-spacing:-.045em;text-
 h1 b:last-child{{color:{YEL}}}
 .sub{{font-family:'IS';font-size:44px;margin-top:22px;opacity:.9}}
 .rule{{height:2px;background:rgba(255,255,255,.35);margin:42px 0 30px}}
-.row{{display:grid;grid-template-columns:1fr 1.3fr;gap:30px}}
+.extra{{font-size:30px;font-weight:600;color:{YEL};margin-top:34px}}
+.row{{margin-top:56px;display:grid;grid-template-columns:1fr 1.3fr;gap:30px}}
 .row small{{display:block;font-size:17px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:{GRN}}}
 .row p{{font-size:34px;font-weight:600;line-height:1.25;margin-top:8px;letter-spacing:-.01em}}
 .tags{{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}}
