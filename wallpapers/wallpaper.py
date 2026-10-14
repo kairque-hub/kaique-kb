@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Wallpaper de iPad, quadrado 2752x2752 (funciona em pé e deitado).
-Degradê em malha verde, amarelo e azul profundo, ondas finas e grão de filme."""
+Degradê em malha verde, amarelo e azul profundo, com grão de filme."""
 import numpy as np
 from PIL import Image
 
@@ -24,12 +24,6 @@ for cx, cy, c in pts:
     w = (1 / (d2 + 0.006) ** 1.35)[..., None]
     acc += w * (np.array(c, np.float32) / 255); wsum += w
 img = acc / wsum
-
-# ondas finas, bem sutis (calçada vista de longe, sem desenhar a calçada)
-wave = np.sin((y + 0.035 * np.sin(x * 9.0 + y * 3.0)) * 2 * np.pi * 26)
-lines = np.clip((wave - 0.965) / 0.035, 0, 1)[..., None]
-mask = np.clip(1 - ((x - 0.75) ** 2 + (y - 0.85) ** 2) / 0.45, 0, 1)[..., None]
-img = img + lines * mask * 0.07
 
 # vinheta leve e grão
 v = 1 - 0.28 * (((x - .5) ** 2 + (y - .5) ** 2) * 2)[..., None]
