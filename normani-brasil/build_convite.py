@@ -7,7 +7,7 @@ YEL, GRN, INK = "#F2EC1A", "#13B04B", "#0B0B0C"
 F = lambda p: base64.b64encode((g.B / p).read_bytes()).decode()
 FONTS = (f"@font-face{{font-family:'IS';font-style:italic;src:url(data:font/woff2;base64,{F('fontes/InstrumentSerif-italic.woff2')})}}"
          f"@font-face{{font-family:'IS';font-style:normal;src:url(data:font/woff2;base64,{F('fontes/InstrumentSerif-normal.woff2')})}}")
-ROOM = g.uri("img/notie1.jpg")
+ROOM = g.uri("img/after/convite-bg.jpg")
 
 
 def convite(w, h):
@@ -36,9 +36,9 @@ CSS = f"""
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{background:#000;font-family:Inter,sans-serif}}
 .iv{{position:relative;overflow:hidden;background:{INK};color:#fff;break-after:page}}
-.bgp{{position:absolute;inset:0;background-size:cover;background-position:50% 30%;filter:saturate(1.1)}}
-.shade{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.15) 0%,rgba(11,11,12,.55) 38%,rgba(11,11,12,.92) 62%,{INK} 100%)}}
-.glow{{position:absolute;left:-20%;right:-20%;bottom:-25%;height:60%;background:radial-gradient(closest-side,rgba(19,176,75,.45),rgba(19,176,75,0))}}
+.bgp{{position:absolute;inset:0;background-size:cover;background-position:50% 50%}}
+.shade{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,0) 0%,rgba(11,11,12,.25) 40%,rgba(11,11,12,.82) 75%,rgba(11,11,12,.92) 100%)}}
+.glow{{position:absolute;left:-20%;right:-20%;bottom:-25%;height:60%;background:none}}
 .in{{position:absolute;left:84px;right:84px;bottom:110px}}
 .you{{font-size:22px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:{YEL}}}
 h1{{margin-top:22px;line-height:.86}}
