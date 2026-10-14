@@ -88,6 +88,28 @@ page(f'<div class="cv-bg" style="background-image:url({BG})"></div>'
      '<div class="cv-idx"><span>Eat</span><span>Shop</span><span>Drink</span><span>Know</span><span>Don’ts</span><span>Help</span></div>'
      '</div>', "dk")
 
+# ---------------------------------------------------------------- about the city
+nums = [("11.9M", "people in the city (IBGE 2026 est.), the largest city in the Southern Hemisphere"),
+        ("1554", "founded on January 25 by Jesuit priests"),
+        ("#1", "Brazil has the largest Japanese community outside Japan. Its heart is Liberdade, in São Paulo"),
+        ("760 m", "above sea level: warm days, cool nights. Bring a light jacket")]
+facts = [("Paulistanos", "Locals are called paulistanos. The city never really sleeps: dinner at 10 PM is normal, parties end at sunrise."),
+         ("Sunday on Paulista", "Avenida Paulista closes to cars on Sundays and turns into a giant open-air street party."),
+         ("A city of immigrants", "Italian, Japanese, Lebanese, Korean and Northeastern Brazilian cooking all live here, often on the same block."),
+        ("Street art", "Graffiti and murals are everywhere; walk Beco do Batman in Vila Madalena for the classic tour.")]
+crea = [("SPFW · Oct 13–18, 2026", "Latin America’s biggest fashion week, since 1995, runs the same week you’re here."),
+        ("Bienal de São Paulo", "Created in 1951, the second-oldest art biennial in the world after Venice."),
+        ("MASP", "Lina Bo Bardi’s red-framed museum on Paulista, floating over a free public plaza."),
+        ("Pride", "São Paulo’s Pride Parade on Paulista is one of the largest in the world, with millions on the street."),
+        ("The new Centro", "Old downtown buildings now host the city’s hottest bars, restaurants and studios. Le Freak, Bar dos Arcos and Brim are all here.")]
+page(f'<div class="cv-bg" style="background-image:url({BG});opacity:.28"></div>'
+     + head("Meet the city", "São Paulo,<br>in numbers") +
+     '<div class="nm4">' + "".join(f'<div><b>{n}</b><p>{t}</p></div>' for n, t in nums) + '</div>'
+     '<div class="ab2"><div><span class="kick y">Good to know</span>' +
+     "".join(f'<h3>{t}</h3><p>{x}</p>' for t, x in facts) + '</div>'
+     '<div><span class="kick y">The creative city</span>' +
+     "".join(f'<h3>{t}</h3><p>{x}</p>' for t, x in crea) + '</div></div>', "dk")
+
 # ---------------------------------------------------------------- basics
 H = D["hotel"]
 page(head("Before you go", "The basics", "Everything you need in your pocket for the week.") +
@@ -178,6 +200,12 @@ a{{color:inherit;text-decoration:none}}
 .ad{{font-size:12.5px;line-height:1.4;opacity:.7;margin-top:auto}}
 .c.tip{{background:{GRN};color:#fff;padding:22px 24px;justify-content:center}}
 .c.tip .tg{{color:{YEL}}}.g .c.tip h3{{font-family:'IS';font-weight:400;font-size:40px;margin:6px 0 10px}}.c.tip p{{font-size:16px;line-height:1.5}}
+.nm4{{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;z-index:3;border-top:1.5px solid rgba(255,255,255,.4);padding-top:18px}}
+.nm4 b{{display:block;font-family:'IS';font-weight:400;font-size:84px;line-height:1;color:{YEL}}}
+.nm4 p{{font-size:16px;line-height:1.45;margin-top:8px;opacity:.85}}
+.ab2{{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;margin-top:56px;position:relative;z-index:3}}
+.ab2 h3{{font-size:24px;font-weight:600;margin-top:24px}}
+.ab2 p{{font-size:17px;line-height:1.5;opacity:.82;margin-top:3px}}
 .hd.sm{{margin-bottom:26px}}.hd.sm h1{{font-size:64px}}
 .cmp .c{{height:240px}}.cmp .c .ph{{height:104px}}.cmp .cb{{padding:11px 18px 13px}}.cmp .c h3{{font-size:23px}}
 .dn{{display:grid;grid-template-columns:1fr 1fr;gap:30px 30px;position:relative;z-index:3}}
