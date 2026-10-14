@@ -20,6 +20,7 @@ def img(slug):
 
 
 BG = img("_bg")
+AG = img("_agency")
 GRN, YEL, INK, CREAM, DEEP = "#13B04B", "#F2EC1A", "#0B0B0C", "#F4F1E6", "#0E3B2A"
 PAGES = []
 
@@ -81,11 +82,12 @@ def grid_pages(items, kind, kicker, title, sub, per=6, more=8):
 
 # ---------------------------------------------------------------- cover
 page(f'<div class="cv-bg" style="background-image:url({BG})"></div>'
+     f'<img class="ag" src="{AG}">'
      '<div class="cv">'
      '<span class="kick y">Team Normani · October 2026</span>'
      '<h1 class="cv-t">São<br>Paulo</h1>'
      '<p class="cv-s"><i>a field guide</i> to eating, shopping<br>and going out in the city</p>'
-     '<div class="cv-idx"><span>Eat</span><span>Shop</span><span>Drink</span><span>Know</span><span>Don’ts</span><span>Help</span></div>'
+     '<div class="cv-idx"><span>Eat</span><span>Shop</span><span>Drink</span><span>Listen</span><span>Know</span><span>Don’ts</span><span>Help</span></div>'
      '</div>', "dk")
 
 # ---------------------------------------------------------------- about the city
@@ -130,6 +132,22 @@ grid_pages(D["restaurants"], "food", "Eat", "Restaurants", "Our picks, from fine
 grid_pages(D["shops"], "shop", "Shop", "Stores", "Brazilian brands, design and the best second-hand in town.")
 grid_pages(D["bars"], "bar", "Drink", "Bars", "Where São Paulo actually goes out.")
 
+# ---------------------------------------------------------------- brazilian pop
+ARTS = [("anitta", "Anitta", "Brazil’s global pop superstar, from funk carioca to the world.", "Envolver"),
+        ("ludmilla", "Ludmilla", "Funk and pagode queen, one of the biggest voices in the country.", "Rainha da Favela"),
+        ("pabllo-vittar", "Pabllo Vittar", "Drag pop icon mixing pop with Northeastern rhythms.", "K.O."),
+        ("gloria-groove", "Gloria Groove", "Drag artist, rapper and pop star from São Paulo.", "Bonekinha"),
+        ("marina-sena", "Marina Sena", "The new face of Brazilian pop, sensual and sunny.", "Por Supuesto"),
+        ("pedro-sampaio", "Pedro Sampaio", "DJ and producer behind the funk hits that run every party.", "Galopa"),
+        ("luisa-sonza", "Luísa Sonza", "Pop star with chart-topping albums and viral hits.", "Chico"),
+        ("liniker", "Liniker", "Soul and MPB, one of the most acclaimed voices of her generation.", "Psiu"),
+        ("iza", "IZA", "Pop, R&B and funk with a powerhouse voice.", "Dona de Mim"),
+        ("duquesa", "Duquesa", "Rapper from Bahia leading the new wave of Brazilian rap.", "99 Problemas")]
+page(head("Listen", "Brazilian pop, now", "The names you’ll hear everywhere this week, and one song to start with.") +
+     '<div class="ar">' + "".join(
+         f'<div><img src="{img("art-" + k)}"><div><h3>{n}</h3><p>{d}</p>'
+         f'<span>▶ {t}</span></div></div>' for k, n, d, t in ARTS) + '</div>', "lt")
+
 # ---------------------------------------------------------------- don'ts
 donts = [
     ("Phones near the hotel", "The area around the hotel is great, which also makes it a target. Don’t walk around with your phone out on the street."),
@@ -155,6 +173,12 @@ page(head("Say it", "Useful Portuguese") +
      '<div class="em"><span class="kick">Emergency</span><div class="emg">' +
      "".join(f'<div><b>{n}</b><span>{l}</span></div>' for n, l in E["numbers"]) +
      f'</div><p>{E["note"]}</p></div>', "lt")
+
+# ---------------------------------------------------------------- back cover
+page(f'<div class="cv-bg" style="background-image:url({BG})"></div>'
+     '<div class="bk"><h1>Obrigado.</h1>'
+     f'<img src="{AG}">'
+     '<p>Prepared by <b>Kaique Brasileiro</b> for <b>Avery Schiff</b> &amp; Team Normani.</p></div>', "dk")
 
 CSS = f"""
 @font-face{{font-family:'IS';font-style:italic;src:url(data:font/woff2;base64,{SERIF})}}
@@ -206,6 +230,17 @@ a{{color:inherit;text-decoration:none}}
 .ab2{{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;margin-top:56px;position:relative;z-index:3}}
 .ab2 h3{{font-size:24px;font-weight:600;margin-top:24px}}
 .ab2 p{{font-size:17px;line-height:1.5;opacity:.82;margin-top:3px}}
+.ag{{position:absolute;right:72px;top:64px;width:120px;z-index:4}}
+.bk{{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}}
+.bk h1{{font-family:'IS';font-weight:400;font-size:220px;line-height:1;letter-spacing:-.03em}}
+.bk img{{width:150px;margin:50px 0 30px}}
+.bk p{{font-size:17px;opacity:.9}}
+.ar{{display:grid;grid-template-columns:1fr 1fr;gap:20px 22px;position:relative;z-index:3}}
+.ar>div{{display:flex;gap:18px;align-items:center;background:#fff;border-radius:20px;padding:14px}}
+.ar img{{width:140px;height:140px;border-radius:14px;object-fit:cover;flex:none}}
+.ar h3{{font-size:23px;font-weight:600;letter-spacing:-.01em}}
+.ar p{{font-size:13.5px;line-height:1.4;margin-top:3px;opacity:.75}}
+.ar span{{display:inline-block;margin-top:8px;background:{YEL};font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:6px}}
 .hd.sm{{margin-bottom:26px}}.hd.sm h1{{font-size:64px}}
 .cmp .c{{height:240px}}.cmp .c .ph{{height:104px}}.cmp .cb{{padding:11px 18px 13px}}.cmp .c h3{{font-size:23px}}
 .dn{{display:grid;grid-template-columns:1fr 1fr;gap:30px 30px;position:relative;z-index:3}}
