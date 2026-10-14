@@ -53,23 +53,36 @@ def card(it, kind):
     ig = f' · <a href="https://www.instagram.com/{it["instagram"].lstrip("@")}/">@{it["instagram"].lstrip("@")}</a>' if it.get("instagram") else ""
     addr = it.get("address") or ""
     hood = it.get("neighborhood") or ""
+    linkable = any(ch.isdigit() for ch in addr) or "Shopping" in addr or "Praça" in addr
+    link = f'<a href="{maps(addr)}">{addr}</a>' if linkable else addr
     return (f'<div class="c">{pic}<div class="cb"><span class="tg">{tag}</span>'
             f'<h3>{it["name"]}</h3>{order}'
-            f'<p class="ad"><a href="{maps(addr)}">{addr}</a>{" · " + hood if hood else ""}{ig}</p></div></div>')
+            f'<p class="ad">{link}{" · " + hood if hood else ""}{ig}</p></div></div>')
 
 
-def grid_pages(items, kind, kicker, title, sub, per=6):
-    for i in range(0, len(items), per):
-        chunk = items[i:i + per]
-        cont = " (cont.)" if i else ""
-        page(head(kicker, title + cont, sub if not i else "") +
-             f'<div class="g">{"".join(card(x, kind) for x in chunk)}</div>', "lt")
+TIPS = {"food": ("Book ahead", "The hottest tables (Le Freak, A Casa do Porco, Tan Tan) fill up fast. Ask the Rosewood concierge to reserve for you."),
+        "shop": ("Two in one street", "Misci and Francesca face each other on Rua Mateus Grou, Pinheiros. And Varal bar is hidden behind the Misci store there."),
+        "bar": ("Centro by night", "Bar do Cofre, Bar dos Arcos and Balsa are a few minutes apart downtown. Go by Uber or 99, not on foot.")}
+
+
+def tip(kind):
+    t, x = TIPS[kind]
+    return f'<div class="c tip"><span class="tg">Tip</span><h3>{t}</h3><p>{x}</p></div>'
+
+
+def grid_pages(items, kind, kicker, title, sub, per=6, more=8):
+    first = items[:per]
+    page(head(kicker, title, sub) + f'<div class="g">{"".join(card(x, kind) for x in first)}{tip(kind) if len(first) % 2 else ""}</div>', "lt")
+    rest = items[per:]
+    for i in range(0, len(rest), more):
+        page(f'<div class="hd sm"><span class="kick">{kicker}</span><h1>{title}, cont.</h1></div>'
+             f'<div class="g cmp">{"".join(card(x, kind) for x in rest[i:i + more])}{tip(kind) if len(rest[i:i + more]) % 2 else ""}</div>', "lt")
 
 
 # ---------------------------------------------------------------- cover
 page(f'<div class="cv-bg" style="background-image:url({BG})"></div>'
      '<div class="cv">'
-     '<span class="kick lt">Team Normani · October 2026</span>'
+     '<span class="kick y">Team Normani · October 2026</span>'
      '<h1 class="cv-t">São<br>Paulo</h1>'
      '<p class="cv-s"><i>a field guide</i> to eating, shopping<br>and going out in the city</p>'
      '<div class="cv-idx"><span>Eat</span><span>Shop</span><span>Drink</span><span>Know</span><span>Don’ts</span><span>Help</span></div>'
@@ -133,7 +146,7 @@ a{{color:inherit;text-decoration:none}}
 .dk{{background:{DEEP};color:#fff}}
 .pf{{position:absolute;left:72px;right:72px;bottom:40px;display:flex;justify-content:space-between;font-size:13px;font-weight:600;letter-spacing:.04em;opacity:.7;z-index:3}}
 .kick{{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:{GRN}}}
-.kick.lt{{color:{YEL}}}
+.kick.y{{color:{YEL}}}
 .hd{{position:relative;z-index:3;margin-bottom:40px}}
 .hd h1{{font-family:'IS';font-weight:400;font-size:104px;line-height:.95;letter-spacing:-.02em;margin-top:10px}}
 .hd .sub{{font-size:19px;line-height:1.45;margin-top:14px;max-width:760px;opacity:.75}}
@@ -152,9 +165,9 @@ a{{color:inherit;text-decoration:none}}
 .bas .mut{{opacity:.65;margin-top:8px;font-size:15px}}
 .bas .b1{{grid-column:span 2;background:{GRN};color:#fff;border:0;border-radius:28px;padding:30px 34px}}
 .bas .b1 small{{color:{YEL}}}
-.g{{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;position:relative;z-index:3}}
-.c{{background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;height:318px}}
-.c .ph{{height:150px;background-size:cover;background-position:center;flex:none}}
+.g{{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;position:relative;z-index:3}}
+.c{{background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;height:300px}}
+.c .ph{{height:142px;background-size:cover;background-position:center;flex:none}}
 .c .ph.none{{background:linear-gradient(120deg,{GRN},{YEL});display:flex;align-items:flex-end;padding:14px 18px}}
 .c .ph.none span{{font-family:'IS';font-size:34px;color:{INK}}}
 .cb{{padding:14px 18px 16px;display:flex;flex-direction:column;flex:1}}
@@ -163,6 +176,10 @@ a{{color:inherit;text-decoration:none}}
 .ord{{font-size:14.5px;line-height:1.35}}
 .ord small{{display:inline-block;background:{YEL};font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-right:7px;vertical-align:1px}}
 .ad{{font-size:12.5px;line-height:1.4;opacity:.7;margin-top:auto}}
+.c.tip{{background:{GRN};color:#fff;padding:22px 24px;justify-content:center}}
+.c.tip .tg{{color:{YEL}}}.g .c.tip h3{{font-family:'IS';font-weight:400;font-size:40px;margin:6px 0 10px}}.c.tip p{{font-size:16px;line-height:1.5}}
+.hd.sm{{margin-bottom:26px}}.hd.sm h1{{font-size:64px}}
+.cmp .c{{height:240px}}.cmp .c .ph{{height:104px}}.cmp .cb{{padding:11px 18px 13px}}.cmp .c h3{{font-size:23px}}
 .dn{{display:grid;grid-template-columns:1fr 1fr;gap:30px 30px;position:relative;z-index:3}}
 .dn>div{{border-top:1.5px solid rgba(255,255,255,.35);padding-top:16px}}
 .dn b{{font-size:15px;color:{YEL};font-weight:700}}

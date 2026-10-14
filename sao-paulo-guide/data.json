@@ -1,0 +1,280 @@
+{
+ "hotel": {
+  "name": "Rosewood São Paulo",
+  "address": "Rua Itapeva, 435 · Bela Vista (Cidade Matarazzo)",
+  "note": "Mata Città, Le Freak, Bar do Cofre and Bar dos Arcos are all a short ride away in the Centro."
+ },
+ "restaurants": [
+  {
+   "slug": "mata-citta",
+   "name": "Mata Città",
+   "type": "Italian · 7 rooms, next door",
+   "address": "Rua Itapeva, 569 (Cidade Matarazzo)",
+   "neighborhood": "Bela Vista",
+   "signature_dish": "Agnolotti dal plin, ossobuco, lemon meringue tart",
+   "instagram": "matacitta"
+  },
+  {
+   "slug": "le-freak",
+   "name": "Le Freak",
+   "type": "French bistro · the coolest table in town",
+   "address": "Av. São Luís, 282",
+   "neighborhood": "Centro",
+   "signature_dish": "Moules frites & olive-oil chocolate mousse",
+   "instagram": "lefreak.menu"
+  },
+  {
+   "slug": "a-casa-do-porco",
+   "name": "A Casa do Porco",
+   "type": "Pork · World’s 50 Best",
+   "address": "Rua Araújo, 124",
+   "neighborhood": "Centro",
+   "signature_dish": "Porco San Zé, slow-roasted for 6 hours",
+   "instagram": "acasadoporcobar"
+  },
+  {
+   "slug": "bosco",
+   "name": "Bosco",
+   "type": "Italian · fresh pasta & pizza",
+   "address": "Rua João Moura, 976",
+   "neighborhood": "Pinheiros",
+   "signature_dish": "Lasagna with 8-hour braised beef",
+   "instagram": "bosco.restaurante"
+  },
+  {
+   "slug": "peppino",
+   "name": "Peppino Cantina",
+   "type": "Italian · simple and delicious",
+   "address": "Rua João Cachoeira, 175",
+   "neighborhood": "Itaim Bibi",
+   "signature_dish": "Bruschetta with burrata & fresh pasta",
+   "instagram": "peppinocantina"
+  },
+  {
+   "slug": "tan-tan",
+   "name": "Tan Tan",
+   "type": "Noodle bar · World’s 50 Best Bars",
+   "address": "Rua Fradique Coutinho, 153",
+   "neighborhood": "Pinheiros",
+   "signature_dish": "Dan dan noodles & aka teba chicken wings",
+   "instagram": "tantannb"
+  },
+  {
+   "slug": "mokutan",
+   "name": "Mokutan",
+   "type": "Japanese · charcoal grill, super fresh",
+   "address": "Rua Ferreira de Araújo, 477",
+   "neighborhood": "Pinheiros",
+   "signature_dish": "Ceviche Mokutan & yakitori",
+   "instagram": "mokutan_pinheiros"
+  },
+  {
+   "slug": "rodeio",
+   "name": "Rodeio",
+   "type": "Brazilian steakhouse · since 1958",
+   "address": "Rua Haddock Lobo, 1448",
+   "neighborhood": "Jardins",
+   "signature_dish": "Sliced picanha with biru-biru rice",
+   "instagram": "rodeiorestaurante"
+  },
+  {
+   "slug": "pepito",
+   "name": "Bodega Pepito",
+   "type": "Brazilian boteco meets Spanish bodega",
+   "address": "Rua dos Pinheiros, 320",
+   "neighborhood": "Pinheiros",
+   "signature_dish": "“Telefono”: risotto croquette with steak tartare",
+   "instagram": "bodega_pepito"
+  },
+  {
+   "slug": "le-ble",
+   "name": "Le Blé",
+   "type": "Bakery · brunch",
+   "address": "Rua Padre João Manuel, 968",
+   "neighborhood": "Jardins",
+   "signature_dish": "Eggs Benedict on brioche & the bread basket",
+   "instagram": "leblecasadepaes"
+  },
+  {
+   "slug": "saiko-sando",
+   "name": "Saikō Sando",
+   "type": "Japanese sandwiches",
+   "address": "Rua Amauri, 30",
+   "neighborhood": "Jardim Europa",
+   "signature_dish": "Gyukatsu sando (breaded filet mignon)",
+   "instagram": "saiko.sando"
+  },
+  {
+   "slug": "sanduteca",
+   "name": "Sanduteca",
+   "type": "Sandwiches you only find here",
+   "address": "Av. São Luís, 187 (Galeria Metrópole)",
+   "neighborhood": "Centro",
+   "signature_dish": "Lebanese lamb sandwich",
+   "instagram": "sanduteca_"
+  },
+  {
+   "slug": "brim",
+   "name": "Brim",
+   "type": "Coffee shop & café",
+   "address": "Av. São Luís, 84",
+   "neighborhood": "Centro",
+   "signature_dish": "Tiramisù served in a teacup",
+   "instagram": "brim_sp"
+  }
+ ],
+ "shops": [
+  {
+   "slug": "misci",
+   "name": "Misci",
+   "what": "Brazilian designer fashion & design",
+   "address": "Alameda Lorena, 1601",
+   "neighborhood": "Jardins",
+   "instagram": "misci__"
+  },
+  {
+   "slug": "piet",
+   "name": "Piet",
+   "what": "Brazilian streetwear",
+   "address": "Rua Padre João Manuel, 722",
+   "neighborhood": "Jardins",
+   "instagram": "piet_org"
+  },
+  {
+   "slug": "pace",
+   "name": "Pace",
+   "what": "Streetwear, sportswear + café",
+   "address": "Alameda Itu, 1466",
+   "neighborhood": "Jardins",
+   "instagram": "pace"
+  },
+  {
+   "slug": "francesca",
+   "name": "Francesca",
+   "what": "Brazilian womenswear, sharp tailoring",
+   "address": "Rua Mateus Grou, 604",
+   "neighborhood": "Pinheiros",
+   "instagram": "shopfrancesca"
+  },
+  {
+   "slug": "mad-enlatados",
+   "name": "MAD Enlatados",
+   "what": "Satirical Brazilian streetwear",
+   "address": "Online + at Guadalupe Store",
+   "neighborhood": "",
+   "instagram": "mad_enlatados"
+  },
+  {
+   "slug": "guadalupe-store",
+   "name": "Guadalupe Store",
+   "what": "Sneakers & streetwear multibrand",
+   "address": "Av. Bernardino de Campos, 173",
+   "neighborhood": "Paraíso",
+   "instagram": "guadalupestore"
+  },
+  {
+   "slug": "vehr",
+   "name": "Vehr",
+   "what": "Brazilian contemporary jewelry",
+   "address": "Shopping JK Iguatemi",
+   "neighborhood": "Vila Olímpia",
+   "instagram": "vehr"
+  },
+  {
+   "slug": "haight",
+   "name": "Haight",
+   "what": "Minimal womenswear & swimwear",
+   "address": "Alameda Lorena, 1835",
+   "neighborhood": "Jardins",
+   "instagram": "haight_clothing"
+  },
+  {
+   "slug": "the-club-jardins",
+   "name": "The Club Jardins",
+   "what": "Curated womenswear & beauty",
+   "address": "Alameda Gabriel Monteiro da Silva, 1984",
+   "neighborhood": "Jardins",
+   "instagram": "theclub_eshop"
+  },
+  {
+   "slug": "pinga",
+   "name": "Pinga",
+   "what": "Independent Brazilian & Latin designers",
+   "address": "Rua da Consolação, 3378",
+   "neighborhood": "Jardins",
+   "instagram": "pinga.store"
+  },
+  {
+   "slug": "brecho-vertical",
+   "name": "Brechó Vertical",
+   "what": "6 floors of second-hand & vintage",
+   "address": "Rua Dom José de Barros, 337",
+   "neighborhood": "Centro",
+   "instagram": "brechovertical.sp"
+  }
+ ],
+ "bars": [
+  {
+   "slug": "bar-do-cofre",
+   "name": "Bar do Cofre",
+   "vibe": "Cocktails inside a 1940s bank vault",
+   "address": "Rua João Brícola, 24 (Farol Santander, basement)",
+   "neighborhood": "Centro",
+   "signature_drink": "“Ordem e Prosecco” (cachaça & bubbles)",
+   "instagram": "subastor"
+  },
+  {
+   "slug": "bar-dos-arcos",
+   "name": "Bar dos Arcos",
+   "vibe": "Under the arches of the Theatro Municipal",
+   "address": "Praça Ramos de Azevedo, s/n (Theatro Municipal, basement)",
+   "neighborhood": "Centro",
+   "signature_drink": "“Restaurante Leite”, a cashew & cachaça cocktail",
+   "instagram": "bardosarcos"
+  },
+  {
+   "slug": "balsa-bar",
+   "name": "Balsa",
+   "vibe": "Rooftop over the Anhangabaú, vinyl DJs",
+   "address": "Rua Capitão Salomão, 26, 4th floor",
+   "neighborhood": "Centro",
+   "signature_drink": "",
+   "instagram": "a_balsa"
+  },
+  {
+   "slug": "oculto",
+   "name": "Oculto",
+   "vibe": "24-seat speakeasy, password at booking",
+   "address": "Rua Fidalga, 120",
+   "neighborhood": "Vila Madalena",
+   "signature_drink": "Painkiller",
+   "instagram": "castelooculto"
+  },
+  {
+   "slug": "varal",
+   "name": "Varal",
+   "vibe": "Hidden courtyard behind the Misci store",
+   "address": "Rua Mateus Grou, 597",
+   "neighborhood": "Pinheiros",
+   "signature_drink": "",
+   "instagram": "varal____"
+  }
+ ],
+ "emergency": {
+  "numbers": [
+   [
+    "190",
+    "Police"
+   ],
+   [
+    "192",
+    "Ambulance (SAMU)"
+   ],
+   [
+    "193",
+    "Fire brigade"
+   ]
+  ],
+  "note": "All free, 24/7, from any phone. Tourist police (DEATUR): Rua Cantareira, 390, Centro · (11) 3257-4475. The hotel concierge can also call for you."
+ }
+}
