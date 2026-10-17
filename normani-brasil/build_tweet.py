@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ideia de tweet "Brazil, I'm MOTIVADED": uma página em formato story (1080x1920), no visual do guia de SP."""
+"""Ideia de tweet "Brazil, I'm MOTIVATED": uma página em formato story (1080x1920), no visual do guia de SP."""
 import base64, glob, pathlib, sys
 
 B = pathlib.Path(__file__).parent
@@ -25,15 +25,15 @@ def tweet(av, name, handle, body, meta, cls=""):
 
 
 GAGA_T = "Brazil, I’m devastated that I’m not well enough 2 come to Rock In Rio. I would do anything 4 u but I have to take care of my body right now."
-NORM_T = ("<mark>Brasil, I’m not devastated. I’m MOTIVADED.</mark> Nem acredito que estou aqui depois de tanto tempo. "
+NORM_T = ("<mark>Brasil, I’m not devastated. I’m MOTIVATED.</mark> Nem acredito que estou aqui depois de tanto tempo. "
           "Cheguei aqui ouvindo músicas de várias artistas pretinhas tipo Duquesa, Budah, Iza. Quem mais preciso ouvir? "
           "Mal posso esperar pro show amanhã. Amo vocês ❤️")
-NORM_EN = ("Brazil, I’m not devastated. I’m MOTIVADED! I can’t believe I’m finally here after so long. I landed listening to "
+NORM_EN = ("Brazil, I’m not devastated. I’m MOTIVATED! I can’t believe I’m finally here after so long. I landed listening to "
            "some amazing Black Brazilian girlies like Duquesa, Budah, and IZA. Who else should I be listening to? "
            "I can’t wait for tomorrow’s show. Love y’all ❤️")
 
 WHY = [("Flips a national meme", "Gaga’s 2017 cancellation tweet became Brazil’s go-to opener for bad news. Normani turns it into good news."),
-       ("Miss Motivation", "Brazilian fans already call her Miss Motivation. “MOTIVADED” is her song and the meme in one word."),
+       ("Miss Motivation", "Brazilian fans already call her Miss Motivation. “MOTIVATED” is her song and the meme in one word."),
        ("Brings other fandoms in", "Duquesa, Budah and IZA are safe picks: no controversies, strong fanbases. Their fans will share it too."),
        ("Asks a question", "“Who else should I be listening to?” invites thousands of replies, and Brazilian Twitter loves to answer.")]
 
@@ -42,7 +42,7 @@ HTML = f"""
   <div class="top" style="background-image:url({BG})">
     <img class="ag" src="{AG}">
     <span class="kick">Content idea · Arrival tweet</span>
-    <h1>Brazil, I’m<br><i>MOTIVADED.</i></h1>
+    <h1>Brazil, I’m<br><i>MOTIVATED.</i></h1>
     <p class="lead">One tweet, posted when she lands. A Brazilian meme flipped into a love letter to the fans.</p>
   </div>
   <div class="body">
@@ -102,15 +102,15 @@ h1 i{{color:{YEL}}}
 
 if __name__ == "__main__":
     from playwright.sync_api import sync_playwright
-    html = f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Brazil, I’m MOTIVADED</title><style>{INTER}{CSS}</style></head><body>{HTML}</body></html>'
-    out = B / "Tweet-Motivaded.html"
+    html = f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Brazil, I’m MOTIVATED</title><style>{INTER}{CSS}</style></head><body>{HTML}</body></html>'
+    out = B / "Tweet-Motivated.html"
     out.write_text(html)
     exe = sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome'))[-1]
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=exe)
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
         pg.goto(out.as_uri()); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(800)
-        pg.screenshot(path=str(B / "Tweet-Motivaded.png"))
-        pg.pdf(path=str(B / "Tweet-Motivaded.pdf"), width="1080px", height="1920px", print_background=True)
+        pg.screenshot(path=str(B / "Tweet-Motivated.png"))
+        pg.pdf(path=str(B / "Tweet-Motivated.pdf"), width="1080px", height="1920px", print_background=True)
         b.close()
     print("ok")
