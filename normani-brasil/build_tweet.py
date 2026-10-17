@@ -26,15 +26,15 @@ def tweet(av, name, handle, body, meta, cls=""):
 
 GAGA_T = "Brazil, I’m devastated that I’m not well enough 2 come to Rock In Rio. I would do anything 4 u but I have to take care of my body right now."
 NORM_T = ("<mark>Brasil, I’m not devastated. I’m MOTIVATED.</mark> Nem acredito que estou aqui depois de tanto tempo. "
-          "Cheguei aqui ouvindo músicas de várias artistas pretinhas tipo Duquesa, Budah, Iza. Quem mais preciso ouvir? "
+          "Cheguei aqui ouvindo músicas de várias artistas maravilhosas tipo Duquesa, Marina Sena, Budah e Pabllo Vittar. Quem mais preciso ouvir? "
           "Mal posso esperar pro show amanhã. Amo vocês ❤️")
 NORM_EN = ("Brazil, I’m not devastated. I’m MOTIVATED! I can’t believe I’m finally here after so long. I landed listening to "
-           "some amazing Black Brazilian girlies like Duquesa, Budah, and IZA. Who else should I be listening to? "
+           "so many amazing artists like Duquesa, Marina Sena, Budah and Pabllo Vittar. Who else should I be listening to? "
            "I can’t wait for tomorrow’s show. Love y’all ❤️")
 
 WHY = [("Flips a national meme", "Gaga’s 2017 cancellation tweet became Brazil’s go-to opener for bad news. Normani turns it into good news."),
        ("Miss Motivation", "Brazilian fans already call her Miss Motivation. “MOTIVATED” is her song and the meme in one word."),
-       ("Brings other fandoms in", "Duquesa, Budah and IZA are safe picks: no controversies, strong fanbases. Their fans will share it too."),
+       ("Brings other fandoms in", "Duquesa, Marina Sena, Budah and Pabllo Vittar are safe picks: no controversies, strong fanbases. Their fans will share it too."),
        ("Asks a question", "“Who else should I be listening to?” invites thousands of replies, and Brazilian Twitter loves to answer.")]
 
 HTML = f"""
@@ -51,7 +51,7 @@ HTML = f"""
       <p class="note">Since then, Brazilians open every piece of bad news online with <b>“Brazil, I’m devastated.”</b></p>
     </div>
     <div class="step"><span class="n">02 · The flip</span>
-      {tweet(NORM, "Normani", "Normani", NORM_T, "Arrival day · São Paulo · simulation", "new")}
+      {tweet(NORM, "Normani", "Normani", NORM_T, "Arrival day · São Paulo", "new")}
       <p class="en"><small>EN</small>{NORM_EN}</p>
     </div>
     <div class="step"><span class="n">03 · Why it works</span>
