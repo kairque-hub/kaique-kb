@@ -1,0 +1,88 @@
+{
+ "source": "TikTok, lido em 2026-10-20 do JSON de cada vídeo; piso, cobertura parcial (sem login)",
+ "totals": {
+  "videos": 9,
+  "views": 22277,
+  "likes": 2339,
+  "comments": 37,
+  "shares": 33
+ },
+ "videos": [
+  [
+   "capricho",
+   "https://www.tiktok.com/@capricho/video/7697822063829978384",
+   "runway",
+   5566,
+   438
+  ],
+  [
+   "ellebrasil",
+   "https://www.tiktok.com/@ellebrasil/video/7698091915593403669",
+   "runway",
+   5157,
+   387
+  ],
+  [
+   "normanibr",
+   "https://www.tiktok.com/@normanibr/video/7697260568666819856",
+   "show (antecipação)",
+   4912,
+   928
+  ],
+  [
+   "gqbrasil",
+   "https://www.tiktok.com/@gqbrasil/video/7697815358408789269",
+   "runway",
+   3236,
+   323
+  ],
+  [
+   "normanibr",
+   "https://www.tiktok.com/@normanibr/video/7697060840914111760",
+   "airport",
+   2039,
+   138
+  ],
+  [
+   "fofokandokgn",
+   "https://www.tiktok.com/@fofokandokgn/video/7696954668332666118",
+   "other",
+   608,
+   27
+  ],
+  [
+   "normanibr",
+   "https://www.tiktok.com/@normanibr/video/7698523430454332692",
+   "show",
+   517,
+   54
+  ],
+  [
+   "normanibr",
+   "https://www.tiktok.com/@normanibr/video/7698162489917246738",
+   "show",
+   218,
+   31
+  ],
+  [
+   "normanibr",
+   "https://www.tiktok.com/@normanibr/video/7698065744390524167",
+   "after",
+   24,
+   13
+  ]
+ ],
+ "related_not_naming_normani": {
+  "vitorialage_dendezeiro": "137.5K views, 35.5K likes (Normani pode aparecer, não confirmado)",
+  "gqbrasil_casting": "51.6K views",
+  "mercadolivre_melimusic": "71.1K/11.9K/11.3K/8.8K/7.4K/6.0K views"
+ },
+ "to_check_logged_in": [
+  "@hugogloss",
+  "@popline",
+  "@choquei",
+  "@leodias",
+  "@5hbrasil",
+  "busca #normani #melimusic #normaninobrasil"
+ ]
+}
