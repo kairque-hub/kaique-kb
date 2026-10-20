@@ -10,26 +10,27 @@ INTER = (B / "fontes/inter.css").read_text()
 SI, SN = F(B / "fontes/InstrumentSerif-italic.woff2"), F(B / "fontes/InstrumentSerif-normal.woff2")
 LOGO = U(B.parent / "logo/brasil-ir-branco.png", "image/png")
 AV = U(B / "img/avatar.jpg")
+BG = U(B / "img/recap/bg.jpg")
 I = {k: U(B / f"img/recap/{k}.jpg") for k in ("aeroporto", "spfw", "show", "after")}
 GRN, YEL, INK, DEEP, PAPER = "#13B04B", "#F2EC1A", "#0B0B0C", "#0D2A1E", "#F4EEDC"
 
 # (x, y, rotação) de cada parada; a trilha passa pelos pinos
 STOPS = [
     dict(n="01", day="Thu, Oct 15", t="Touchdown", img="aeroporto", pos="50% 30%",
-         txt="Fans waiting at the airport in São Paulo. Hugs, selfies and autographs on the way out.",
-         stat=("Hugo Gloss", "first to post the arrival")),
+         txt="Fans waiting at the airport. Hugs, selfies and autographs for everyone on the way out.",
+         stat=("25K+ views", "on fan clips in the first hours · Hugo Gloss, POPline, Terra")),
     dict(n="02", day="Fri, Oct 16", t="The tweet", img=None,
          txt="“Brasil, I’m not devastated. I’m MOTIVATED.” A Brazilian meme, flipped with love.",
-         stat=None),
+         stat=("Trending in Brazil", "the same night")),
     dict(n="03", day="Sat, Oct 17", t="Runway", img="spfw", pos="50% 35%",
-         txt="She opened the Dendezeiro show at São Paulo Fashion Week, to screams and applause.",
-         stat=("Vogue · Bazaar · ELLE · FFW", "covered the look")),
+         txt="She opened the Dendezeiro show at São Paulo Fashion Week N61, to screams and applause.",
+         stat=("Vogue · Bazaar · ELLE · FFW · CNN", "covered the look")),
     dict(n="04", day="Sat, Oct 17", t="Meli Music", img="show", pos="50% 40%",
-         txt="Her first solo show in Brazil. “Little Secrets” live for the first time, plus a Fifth Harmony medley.",
-         stat=("Billboard Brasil", "“a reunion with Brazilian fans”")),
+         txt="Her first solo show in Brazil, for a sold-out Pacaembu. “Little Secrets” live for the first time.",
+         stat=("1st international act", "in the festival’s history")),
     dict(n="05", day="Sat night", t="The after", img="after", pos="50% 30%",
          txt="Hosted by Sharp. She danced “Bonde das Maravilhas”, and the clip went everywhere.",
-         stat=("Steal the Look · Terra", "“Not AI, she really danced it”")),
+         stat=("25K views · 3K likes", "on one fan clip alone · Terra, Steal the Look")),
 ]
 TW = [("1M+", "views"), ("84.6K", "likes"), ("6K", "reposts"), ("1.7K", "replies"), ("1.4K", "quotes")]
 
@@ -45,11 +46,11 @@ def stop(s, side, top):
             f'<div class="card">{pic}<div class="tx"><small>{s["day"]}</small><h3>{s["t"]}</h3><p>{s["txt"]}</p>{st}</div></div></div>')
 
 
-TOPS = [244, 424, 604, 784, 964]
+TOPS = [236, 408, 580, 752, 924]
 SIDES = ["l", "r", "l", "r", "l"]
 # trilha tracejada em S passando pelos pinos (x=540 no centro)
-PATH = ("M540 214 C 540 240, 520 250, 520 270 S 560 420, 560 450 S 520 600, 520 630 "
-        "S 560 780, 560 810 S 520 960, 520 990 S 540 1110, 540 1150")
+PATH = ("M540 206 C 540 232, 520 242, 520 262 S 560 404, 560 434 S 520 576, 520 606 "
+        "S 560 748, 560 778 S 520 920, 520 950 S 540 1060, 540 1100")
 
 HTML = f"""
 <section class="p">
@@ -61,7 +62,9 @@ HTML = f"""
     <p>Four days, one city, and a lot of love along the way.</p>
   </div>
   {"".join(stop(s, sd, t) for s, sd, t in zip(STOPS, SIDES, TOPS))}
-  <div class="end"><span class="x">✕</span><p><b>11 outlets</b> told the story · Hugo Gloss, Steal the Look, Vogue, Bazaar, ELLE, FFW, Billboard, CNN, Terra, Estrelando, Afro Realeza</p></div>
+  <div class="end"><span class="x">✕</span><div class="kp">
+    <div><b>1M+</b><small>views on her tweet</small></div><div><b>Trending</b><small>topic in Brazil</small></div>
+    <div><b>Sold out</b><small>Meli Music, Pacaembu</small></div><div><b>20+</b><small>outlets told the story</small></div></div></div>
   <div class="ft"><p>Obrigado, Brasil.</p><img src="{LOGO}"></div>
 </section>"""
 
@@ -71,17 +74,15 @@ CSS = f"""
 *{{margin:0;padding:0;box-sizing:border-box}}
 @page{{size:1080px 1350px;margin:0}}
 body{{font-family:Inter,sans-serif}}
-.p{{position:relative;width:1080px;height:1350px;overflow:hidden;background:{DEEP};color:#fff}}
-.bg{{position:absolute;inset:0;background:
-  radial-gradient(600px 420px at 100% 0%,rgba(242,236,26,.22),transparent 70%),
-  radial-gradient(700px 500px at 0% 100%,rgba(19,176,75,.35),transparent 70%)}}
+.p{{position:relative;width:1080px;height:1350px;overflow:hidden;background:{DEEP} url({BG}) center/cover;color:#fff}}
+.bg{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,24,18,.35) 0%,rgba(6,24,18,.08) 30%,rgba(6,24,18,.1) 70%,rgba(6,24,18,.6) 100%)}}
 .trail{{position:absolute;inset:0;width:1080px;height:1350px}}
 .trail path{{fill:none;stroke:{YEL};stroke-width:3;stroke-dasharray:2 12;stroke-linecap:round;opacity:.85}}
 .hd{{position:absolute;left:64px;right:64px;top:56px;text-align:center}}
 .kick{{font-size:14px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:{YEL}}}
 .hd h1{{font-family:'IS';font-weight:400;font-size:76px;line-height:1;margin-top:12px;letter-spacing:-.01em}}
 .hd h1 i{{color:{YEL}}}
-.hd p{{font-size:18px;opacity:.8;margin-top:10px}}
+.hd p{{font-size:18px;opacity:.95;margin-top:10px}}
 .stop{{position:absolute;width:1080px;height:170px}}
 .pin{{position:absolute;top:56px;width:52px;height:52px;border-radius:50%;background:{YEL};color:{INK};
   display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;box-shadow:0 0 0 6px rgba(242,236,26,.18)}}
@@ -105,11 +106,14 @@ body{{font-family:Inter,sans-serif}}
 .nums b{{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1}}
 .nums div:first-child b{{font-size:28px;color:{GRN}}}
 .nums small{{font-size:10px;color:#666;display:block;margin-top:1px}}
-.end{{position:absolute;left:120px;right:120px;top:1150px;text-align:center}}
+.end{{position:absolute;left:64px;right:64px;top:1088px;text-align:center}}
+.kp{{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;background:rgba(6,24,18,.55);border-radius:20px;padding:16px 10px;backdrop-filter:blur(6px)}}
+.kp b{{display:block;font-family:'IS';font-weight:400;font-size:44px;line-height:1;color:{YEL}}}
+.kp small{{display:block;font-size:12.5px;margin-top:4px;opacity:.9}}
 .end .x{{display:block;font-size:30px;color:{YEL};font-weight:800;line-height:1}}
 .end p{{font-size:12.5px;opacity:.8;margin-top:6px;line-height:1.45}}
 .end b{{color:{YEL};opacity:1}}
-.ft{{position:absolute;left:0;right:0;bottom:28px;display:flex;flex-direction:column;align-items:center;gap:8px}}
+.ft{{position:absolute;left:0;right:0;bottom:24px;display:flex;flex-direction:column;align-items:center;gap:8px}}
 .ft p{{font-family:'IS';font-style:italic;font-size:22px;opacity:.85}}
 .ft img{{height:46px}}
 """
