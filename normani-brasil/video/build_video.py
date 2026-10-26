@@ -10,6 +10,10 @@ tempo t (render(t) no JS) e fotografada pelo Chromium; as cenas trocam no tempo 
 Uso: python3 build_video.py [--preview 12.5 30 ...]   (--preview só salva PNGs desses segundos)
 """
 import glob, json, math, os, pathlib, subprocess, sys
+import datetime as dt
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import trilha  # noqa: E402
 
 B = pathlib.Path(__file__).resolve().parent
 N = B.parent
@@ -17,7 +21,8 @@ M = B / "media"
 OUT = pathlib.Path(os.environ.get("VIDEO_CACHE", "/tmp/normani-video-cache"))
 FPS, W, H = 30, 1080, 1350
 BEAT = 60 / 122
-MUSIC, MUSIC_START = M / "trilha-voxel-revolution.mp3", 9.86   # o drop da trilha cai no fim da abertura
+START = {}                                   # início de cada cena com nome, em segundos
+APEX = {}                                    # instante do ápice do gráfico (para o "ding")
 GRN, YEL, INK, PAPER, DEEP = "#13B04B", "#F2EC1A", "#0B0B0C", "#F4EEDC", "#06140e"
 
 # números absolutos, todos verificados nas páginas (dados-varredura/); são piso
@@ -111,11 +116,47 @@ def icon(k, cls="ic"):
     return f'<svg class="{cls}" viewBox="0 0 48 48">{ICON[k]}</svg>'
 
 
+BRT = dt.timezone(dt.timedelta(hours=-3))
+T0 = dt.datetime(2026, 10, 14, tzinfo=BRT)
+NB = 13 * 4                                   # 14 a 26 de outubro, blocos de 6 h
+PEAKS = []
+
+
+def conv_series():
+    """curtidas por bloco de 6 h (horário de Brasília) nos posts da varredura no X e no Instagram"""
+    V = N / "dados-varredura"
+    ev, seen = [], set()
+    def add(when, likes, key=None):
+        if key and key in seen: return
+        if key: seen.add(key)
+        ev.append((when, likes or 0))
+    for f in ("x_rows.json", "x_tweets_novos.json"):
+        for r in json.loads((V / f).read_text()):
+            add(dt.datetime.strptime(r["date"], "%a %b %d %H:%M:%S %z %Y"), r.get("likes"), "x" + r["id"])
+    for r in json.loads((V / "varredura_2026-10-26.json").read_text())["new_tweets"]:
+        add(dt.datetime.fromisoformat(r["date_utc"].replace("Z", "+00:00")), r.get("likes"), "x" + str(r["id"]))
+    add(dt.datetime(2026, 10, 25, 22, 6, tzinfo=dt.timezone.utc), 15_135, "x2114478770203791728")
+    for p in json.loads((V / "instagram.json").read_text())["posts"]:
+        add(dt.datetime.fromisoformat(p["date"].replace("Z", "+00:00")), p.get("likes"), "ig" + p["shortcode"])
+    add(dt.datetime(2026, 10, 25, 21, 44, tzinfo=dt.timezone.utc), D["thanks_ig_likes"], "igDe7s9Cpkhtz")
+    vals = [0.0] * NB
+    for when, likes in ev:
+        i = int((when.astimezone(BRT) - T0).total_seconds() // (6 * 3600))
+        if 0 <= i < NB: vals[i] += likes
+    vals = [v ** 0.75 for v in vals]
+    vals = [0.2 * a + 0.6 * c + 0.2 * e for a, c, e in zip([vals[0]] + vals[:-1], vals, vals[1:] + [vals[-1]])]
+    blk = lambda day, hour: (day - 14) * 4 + hour // 6
+    PEAKS[:] = [(blk(15, 12), "Arrival"), (blk(16, 18), "The tweet"), (blk(17, 18), "Show + Dendezeiro"),
+                (blk(18, 12), "After party"), (blk(25, 18), "Her thank-you")]
+    labels = [((d - 14) * 4, f"OCT {d}") for d in range(14, 27, 2)]
+    return vals, labels
+
+
 SCENES = []
 
 
-def scene(beats, html, cls="grad"):
-    SCENES.append((beats, html, cls))
+def scene(beats, html, cls="grad", key=None):
+    SCENES.append((beats, html, cls, key))
 
 
 def build():
@@ -241,6 +282,40 @@ def build():
           a(icon("film", "ic mid"), b(2) - 0.1, "scale", style="left:490px;top:700px") +
           a('6h+<small>of video</small>', b(2), "scale", cls="mega", style="top:780px"), "full")
 
+    # 9b · como a conversa cresceu (curtidas a cada 6 h nos posts da varredura)
+    vals, labels = conv_series()
+    PW, PH, top, bot = 920, 560, 70, 470
+    mx = max(vals)
+    pts = [(i / (len(vals) - 1) * PW, bot - (v / mx) * (bot - top)) for i, v in enumerate(vals)]
+    path = f"M{pts[0][0]:.1f} {pts[0][1]:.1f}" + "".join(
+        f" C{p0[0] + (p1[0] - pm[0]) / 6:.1f} {p0[1] + (p1[1] - pm[1]) / 6:.1f} {p1[0] - (p2[0] - p0[0]) / 6:.1f} {p1[1] - (p2[1] - p0[1]) / 6:.1f} {p1[0]:.1f} {p1[1]:.1f}"
+        for pm, p0, p1, p2 in zip([pts[0]] + pts[:-2], pts[:-1], pts[1:], pts[2:] + [pts[-1]]))
+    area = path + f" L{PW} {bot} L0 {bot} Z"
+    WD, WT = 0.6, b(7)                       # a linha é revelada da esquerda para a direita
+    ia = max(range(len(vals)), key=lambda i: vals[i])
+    APEX["rel"] = WD + WT * pts[ia][0] / PW
+    days = "".join(f'<text class="cx" x="{i / (len(vals) - 1) * PW:.0f}" y="{bot + 44}">{lab}</text>' for i, lab in labels)
+    notes = ""
+    for i, txt in PEAKS:
+        x, y = pts[i]
+        d = WD + WT * x / PW
+        big = i == ia
+        notes += (f'<g class="pk" data-d="{d:.3f}"><line x1="{x:.0f}" y1="{y - 14:.0f}" x2="{x:.0f}" y2="{(y - 70 if not big else 40):.0f}"/>'
+                  f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{16 if big else 10}"/>'
+                  f'<text x="{x:.0f}" y="{(y - 82 if not big else 26):.0f}" class="{"pkb" if big else ""}">{txt}</text></g>')
+    chart = (f'<svg class="conv" viewBox="0 0 {PW} {PH}" style="left:80px;top:360px;width:{PW}px;height:{PH}px">'
+             f'<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{YEL}" stop-opacity=".55"/>'
+             f'<stop offset="1" stop-color="{GRN}" stop-opacity="0"/></linearGradient>'
+             f'<clipPath id="cw"><rect class="wipe" data-d="{WD:.3f}" data-dur="{WT:.3f}" x="-20" y="-200" width="0" height="900"/></clipPath></defs>'
+             f'<line class="base" x1="0" y1="{bot}" x2="{PW}" y2="{bot}"/>{days}'
+             f'<g clip-path="url(#cw)"><path d="{area}" fill="url(#cg)"/><path class="cl" d="{path}"/></g>{notes}</svg>')
+    scene(14, a('The conversation', 0.05, cls="kick", style="left:80px;top:90px") +
+          rv('How Brazil talked', 0.1, "ttl2", "left:80px;top:140px") + rv('<i>about her.</i>', 0.25, "ttl2", "left:80px;top:225px") +
+          chart + a('<i></i>', APEX["rel"], "scale", cls="burst", style=f"left:{80 + pts[ia][0]:.0f}px;top:{360 + pts[ia][1]:.0f}px", dur=0.6) +
+          a('Engagement on posts about Normani, every 6 hours · Oct 14–26', 0.4, cls="cap", style="left:80px;top:1010px") +
+          a(f'<b>Peak:</b> Oct 17, the night of the show and the Dendezeiro runway', APEX["rel"] + 0.1, cls="body sm",
+            style="left:80px;top:1090px;right:80px"), key="conv")
+
     # 10 · números
     scene(8, a('Her visit in numbers', 0.05, cls="kick", style="left:80px;top:90px") +
           a(f'{cnt(D["tweets"], 0.3, "+")}<small>tweets about her time in Brazil</small>', 0.2, cls="num", style="top:200px") +
@@ -254,13 +329,12 @@ def build():
           a('“BRASIL, thank you for making this monumental return to SÃO PAULO so memorable. YOU HAVE MY HEART.”', 0.7,
             cls="quote", style="left:80px;right:80px;top:520px") +
           a(f'{cnt(D["thanks_ig_likes"], 1.6)}<small>likes on Instagram</small>', 1.5, cls="kpi s2", style="left:80px;top:1020px") +
-          a(f'{cnt(D["thanks_x_views"], 1.9)}<small>views on X</small>', 1.8, cls="kpi s2", style="left:580px;top:1020px"))
+          a(f'{cnt(D["thanks_x_views"], 1.9)}<small>views on X</small>', 1.8, cls="kpi s2", style="left:580px;top:1020px"), key="thanks")
 
     # 12 · fim
     scene(8, star("left:800px;top:200px;width:160px", 30) + star("left:130px;top:1000px;width:110px", -40) +
-          rv('Thank you,', 0.2, "hero2", "top:380px") + rv('<i>Brazil.</i>', 0.45, "hero2", "top:560px") +
-          a(f'<img src="{(N.parent / "logo/brasil-ir-branco.png").as_uri()}">', 1.1, cls="logo") +
-          a('Music: “Voxel Revolution”, Kevin MacLeod (incompetech.com) · CC BY 4.0', 1.4, cls="credit"), "grad intro")
+          rv('Thank you,', 0.2, "hero2", "top:380px") + rv('<i>Brasil.</i>', 0.45, "hero2", "top:560px") +
+          a(f'<img src="{(N.parent / "logo/brasil-ir-branco.png").as_uri()}">', 1.1, cls="logo"), "grad intro", key="outro")
 
 
 CSS = f"""
@@ -376,6 +450,16 @@ html,body{{width:{W}px;height:{H}px;overflow:hidden;background:{DEEP};font-famil
 .hero2{{left:0;right:0;text-align:center;font-family:'IS';font-size:200px;line-height:1}} .hero2 i{{color:{YEL}}}
 .logo{{left:0;right:0;top:890px;text-align:center}} .logo img{{height:120px}}
 .credit{{left:0;right:0;bottom:46px;text-align:center;font-size:17px;opacity:.75}}
+.conv{{position:absolute;overflow:visible;z-index:2}}
+.conv .cl{{fill:none;stroke:{YEL};stroke-width:6;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(242,236,26,.6))}}
+.conv .base{{stroke:rgba(255,255,255,.35);stroke-width:2}}
+.conv .cx{{font:700 20px Inter;fill:rgba(255,255,255,.75);text-anchor:middle;letter-spacing:.08em}}
+.conv .pk{{opacity:0}} .conv .pk line{{stroke:rgba(255,255,255,.6);stroke-width:2;stroke-dasharray:4 5}}
+.conv .pk circle{{fill:{YEL};stroke:{DEEP};stroke-width:4}}
+.conv .pk text{{font:800 24px Inter;fill:#fff;text-anchor:middle}} .conv .pk text.pkb{{font-size:30px;fill:{YEL}}}
+.burst i{{position:absolute;left:-90px;top:-90px;width:180px;height:180px;border-radius:50%;border:5px solid {YEL};box-shadow:0 0 50px rgba(242,236,26,.8)}}
+.cap{{font-size:22px;font-weight:600;opacity:.8}}
+.body b{{color:{YEL}}}
 .flash{{position:absolute;inset:0;background:{YEL};pointer-events:none;opacity:0;z-index:9}}
 """
 
@@ -440,6 +524,9 @@ function render(t) {
       m.style.opacity = r > +m.dataset.d ? 1 : 0;
       m.style.transform = `translate(${p0.x}px,${p0.y}px) rotate(${ang + 25}deg)`;
     }
+    for (const w of s.querySelectorAll('.wipe')) w.setAttribute('width', 960 * C((r - +w.dataset.d) / +w.dataset.dur));
+    for (const g of s.querySelectorAll('.pk')) g.style.opacity = E(C((r - +g.dataset.d) / .3));
+    for (const bu of s.querySelectorAll('.burst')) { const q = C((r - +bu.dataset.d) / 0.8); bu.style.opacity = q > 0 && q < 1 ? 1 - q : 0; bu.style.transform = `scale(${0.3 + 1.4 * q})`; }
     const map = s.querySelector('.map');
     if (map) {
       const K = JSON.parse(map.dataset.cam);
@@ -457,8 +544,9 @@ function render(t) {
 def page():
     build()
     html, t = "", 0.0
-    for beats, body, cls in SCENES:
+    for beats, body, cls, key in SCENES:
         d = b(beats)
+        if key: START[key] = t
         bg = '<div class="bgw"></div>' if "grad" in cls else ""
         html += f'<section class="sc {cls}" data-a="{t:.4f}" data-b="{t + d:.4f}">{bg}{body}</section>'
         t += d
@@ -494,9 +582,10 @@ def main():
             enc.stdin.write(pg.screenshot(type="jpeg", quality=92))
             if i % 300 == 0: print(f"{i}/{nfr}", flush=True)
         enc.stdin.close(); enc.wait(); br.close()
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(silent), "-ss", str(MUSIC_START), "-t", f"{dur:.3f}", "-i", str(MUSIC),
-                    "-filter_complex", f"[1:a]afade=t=out:st={dur - 2.5:.2f}:d=2.5[a]",
-                    "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
+    wav = OUT / "trilha.wav"
+    trilha.make(wav, dur, drop=b(8), breakdown=START["thanks"], outro=START["outro"], dings=[START["conv"] + APEX["rel"]])
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(silent), "-i", str(wav),
+                    "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
                     "-movflags", "+faststart", str(B / "Normani-SP-Highlights.mp4")], check=True)
     print(f"ok: {dur:.1f}s")
 
