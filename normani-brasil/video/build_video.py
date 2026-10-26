@@ -136,7 +136,7 @@ def build():
           a('Fans, flowers and autographs at Guarulhos airport.', 1.0, cls="body", style="left:70px;top:1050px"))
 
     # 2 · o tweet
-    tw = ('<div class="tw"><div class="who"><span class="av">N</span><div><b>Normani</b><span>@Normani · Oct 16</span></div></div>'
+    tw = ('<div class="tw"><div class="who"><img class="av" src="' + (N / "img/avatar.jpg").as_uri() + '"><div><b>Normani</b><span>@Normani · Oct 16</span></div></div>'
           '<p class="hl"><mark>Brasil, I’m not devastated. I’m MOTIVATED.</mark></p>'
           '<p>I can’t believe I’m here after so long. I landed listening to Duquesa, Marina Sena, Budah and Pabllo Vittar. '
           'Who else should I be listening to?</p></div>')
@@ -186,14 +186,14 @@ def build():
            f'{roads}<text class="pl" x="{P(-23.5440, -46.6330)[0]}" y="{P(-23.5440, -46.6330)[1]}">DOWNTOWN</text>{route}</svg>')
     pins = "".join(
         f'<div class="pin" data-d="{d:.3f}" style="left:{x}px;top:{y}px"><i></i><span>{t}</span></div>'
-        for (x, y), t, d in [(PIN["pacaembu"], "Pacaembu", b(1.5)), (PIN["ibirapuera"], "SPFW · Ibirapuera", b(7.5)),
+        for (x, y), t, d in [(PIN["pacaembu"], "Pacaembu", b(1.5)), (PIN["ibirapuera"], "Dendezeiro · SPFW", b(7.5)),
                              (PIN["notie"], "Terraço Notiê", b(16.5))])
     cam = [(0, px, py + 80, 1.15), (b(5.5), px, py + 80, 1.25), (b(7), (px + ix) / 2, (py + iy) / 2, 0.62), (b(8.2), ix, iy + 60, 1.2),
            (b(10.6), ix, iy + 60, 1.25), (b(12), (px + ix) / 2, (py + iy) / 2, 0.62), (b(13.2), px, py + 80, 1.2),
            (b(14.6), px, py + 80, 1.25), (b(16), (px + nx) / 2, py, 0.9), (b(17.2), nx, ny + 80, 1.2),
            (b(18.6), nx, ny + 80, 1.25), (b(20), (px + nx) / 2 + 40, (py + iy) / 2 + 60, 0.58)]
     stops = [(b(2), b(6), "6:45pm", "Show at Meli Music", "Pacaembu · her first solo show in Brazil, sold out", "mic"),
-             (b(8), b(11), "9pm", "Dendezeiro runway", "SPFW · Ibirapuera Park · she opened the show", "runway"),
+             (b(8), b(11), "9pm", "Dendezeiro runway at SPFW", "She opened the Dendezeiro show · São Paulo Fashion Week", "runway"),
              (b(13), b(15), "10pm", "Meet & greet with fans", "Back at Meli Music, Pacaembu", "heart"),
              (b(17), b(20), "1:30am", "After party", "Terraço Notiê · Downtown", "glass")]
     cards = "".join(
@@ -300,7 +300,7 @@ html,body{{width:{W}px;height:{H}px;overflow:hidden;background:{DEEP};font-famil
 .dot span{{position:absolute;left:-60px;top:36px;width:120px;text-align:center;font-size:40px;font-weight:800}}
 .tw{{background:#fff;color:{INK};border-radius:30px;padding:34px 38px;box-shadow:0 30px 60px rgba(0,0,0,.35)}}
 .who{{display:flex;align-items:center;gap:16px}}
-.av{{width:72px;height:72px;border-radius:50%;background:{GRN};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'IS';font-size:44px}}
+.av{{width:72px;height:72px;border-radius:50%;object-fit:cover}}
 .who b{{display:block;font-size:28px}} .who span{{font-size:22px;color:#536471}}
 .tw p{{font-size:29px;line-height:1.4;margin-top:16px}} .tw p.hl{{font-size:36px;font-weight:700;margin-top:22px}}
 .tw mark{{background:{YEL};padding:0 6px;border-radius:6px}}
@@ -331,7 +331,7 @@ html,body{{width:{W}px;height:{H}px;overflow:hidden;background:{DEEP};font-famil
 .stop .si small{{font-size:22px;font-weight:800;color:{YEL};letter-spacing:.12em}}
 .stop .st{{position:absolute;left:260px;right:30px;top:32px}}
 .stop b{{display:block;font-family:'IS';font-size:96px;line-height:.9;color:{GRN}}}
-.stop h4{{font-size:40px;font-weight:800;margin-top:14px;line-height:1.1}}
+.stop h4{{font-size:38px;font-weight:800;margin-top:14px;line-height:1.1}}
 .stop p{{font-size:24px;margin-top:8px;color:#333;line-height:1.3}}
 .panel{{background:rgba(6,14,10,.82);border:1px solid rgba(255,255,255,.14);border-radius:30px;padding:40px 46px}}
 .panel .sb{{font-size:34px;font-weight:700;background:#fff;color:{INK};border-radius:40px;padding:16px 28px}}
