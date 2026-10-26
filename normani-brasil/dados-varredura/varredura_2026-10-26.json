@@ -1,0 +1,1014 @@
+{
+ "generated": "2026-10-26",
+ "method": "Live fetches on 2026-10-26: x.com/i/trending HTML (post_count), api.fxtwitter.com status + v2 profile timelines, IG /embed/captioned/ and /<user>/embed/ with UA facebookexternalhit/1.1, Google News RSS (pt-BR + en-US), WebSearch, direct outlet site search/WordPress search feeds. Only items not in prior sweep files are listed as new.",
+ "x_trending_stories": {
+  "stories": [
+   {
+    "id": "2110743703262302548",
+    "url": "https://x.com/i/trending/2110743703262302548",
+    "title": "Normani Arrives in São Paulo for First Solo Brazil Show",
+    "post_count_2026_10_26": 12258,
+    "post_count_prior": 12228,
+    "last_updated": "Oct 17, 2026",
+    "category": "Entertainment"
+   },
+   {
+    "id": "2111593018708951075",
+    "url": "https://x.com/i/trending/2111593018708951075",
+    "title": "Normani Rocks São Paulo Concert and Fashion Week Runway",
+    "post_count_2026_10_26": 12483,
+    "post_count_prior": 12369,
+    "last_updated": "Oct 18, 2026",
+    "category": "Entertainment"
+   },
+   {
+    "id": "2113815030181310584",
+    "url": "https://x.com/i/trending/2113815030181310584",
+    "title": "Brazilian Fans Share Heartfelt Meet-and-Greets with Normani After São Paulo Show",
+    "post_count_2026_10_26": 942,
+    "last_updated": "Oct 24, 2026",
+    "category": "Entertainment",
+    "new": true
+   },
+   {
+    "id": "2114542513440928022",
+    "url": "https://x.com/i/trending/2114542513440928022",
+    "title": "Normani Thanks Fans for Memorable São Paulo Return",
+    "post_count_2026_10_26": 1525,
+    "last_updated": "Oct 26, 2026",
+    "category": "Entertainment",
+    "new": true,
+    "cites_tweet": "2114478770203791728"
+   }
+  ],
+  "sum_post_count": 27208,
+  "note": "Found via related_stories in the two known story pages. post_count is X's own per-story count; stories may share posts, so the 27,208 sum is an upper bound of story-attributed posts, not a deduplicated total."
+ },
+ "total_posts_figure": {
+  "published_figure_found": false,
+  "detail": "No article, X page or other source found publishing a total tweet/post count for the visit (searched pt/en for mil tweets/posts/publicações). Verifiable figures: X story post_counts 12,258 + 12,483 (trip stories) + 942 + 1,525 (post-trip stories) = 27,208, possibly overlapping. The first two alone = 24,741, so \"15K+ tweets\" is conservative but is not a published number."
+ },
+ "normani_own_posts": {
+  "x_2114478770203791728": {
+   "url": "https://x.com/Normani/status/2114478770203791728",
+   "date_utc": "2026-10-25T22:06Z",
+   "text": "BRASIL 🇧🇷💚✨\nthank you for making this monumental return to SAO PAULO so memorable.\nYOU HAVE MY HEART and my prayers are going out to your beautiful country during this time of so much uncertainty. eu te amoooo",
+   "media": "2 photos + 2 videos",
+   "views": 147641,
+   "likes": 15135,
+   "retweets": 1512,
+   "replies": 205,
+   "quotes": 81,
+   "bookmarks": 326,
+   "author_followers": 2958576
+  },
+  "instagram_De7s9Cpkhtz": {
+   "url": "https://www.instagram.com/p/De7s9Cpkhtz/",
+   "date_utc": "2026-10-25T21:44Z",
+   "type": "carousel (GraphSidecar)",
+   "likes": 127546,
+   "comments": 2118,
+   "author_followers": 6608226,
+   "caption": "BRASIL 🇧🇷💚✨\nthank you for making this monumental return to SAO PAULO so memorable.\nYOU HAVE MY HEART and my prayers are going out to your beautiful country during this time of so much uncertainty. eu te amoooo \n\nIG can you please do another update so we can tag more than 20 people 🥺\nlove and appreciate you all BEYONDDDD \n@kaique @jarvisjeb @iamdarionjavon @vinny.thorne @mariahmeshae @julianorocha @jloperations @joao_wallace",
+   "note": "Her first IG feed post since 2026-09-29; no Brazil feed post before this one."
+  },
+  "refreshed_trip_tweets": {
+   "2111278716831859015": {
+    "views": 1041981,
+    "likes": 84598,
+    "retweets": 6063,
+    "replies": 1737,
+    "quotes": 1387,
+    "bookmarks": 1594
+   },
+   "2111561748457418886": {
+    "views": 168669,
+    "likes": 13410,
+    "retweets": 1052,
+    "replies": 381,
+    "quotes": 214,
+    "bookmarks": 208
+   }
+  }
+ },
+ "target_outlets": {
+  "vogue_brasil": {
+   "site_articles": [
+    {
+     "title": "VogueCast | Especial SPFW: Criadores da Dendezeiro e Aluf ...",
+     "url": "https://vogue.globo.com/lifestyle/miss-v/noticia/2026/10/voguecast-or-especial-spfw-criadores-da-dendezeiro-e-aluf-debatem-como-marcas-de-moda-conquistam-comunidades-fieis.ghtml",
+     "date": "2026-10-22",
+     "normani": "1 mention"
+    }
+   ],
+   "checked_no_normani": [
+    "https://vogue.globo.com/desfiles/noticia/2026/10/dendezeiro-or-spfw-2026.ghtml (Dendezeiro | SPFW 2026 gallery, 0 mentions)",
+    "https://vogue.globo.com/moda/noticia/2026/10/5-tendencias-do-sao-paulo-fashion-week-para-levar-ao-guarda-roupa.ghtml (0 mentions)"
+   ],
+   "instagram": [
+    {
+     "url": "https://www.instagram.com/p/DennUPWRrAC/",
+     "author": "voguebrasil",
+     "author_followers": 4718845,
+     "likes": 19565,
+     "comments": 121,
+     "video_views": 109827,
+     "caption": "#VogueNaSPFW: Encerrando a programação de desfiles do penúltimo dia do @spfw, a @dendezeiro, como já é de costume, trouxe nomes surpreendentes para a passarela. Desta vez, @hisandeverdade e @prazerbatalha receberam algun"
+    }
+   ],
+   "x": "@voguebrasil: no tweets in window (latest 20 tweets reach back to Feb 2026)"
+  },
+  "harpers_bazaar_brasil": {
+   "site_articles": [],
+   "site_note": "harpersbazaar.uol.com.br search for normani: newest hit 2022; search for dendezeiro: newest 2026-08-25 (SPFW line-up). No Normani article found.",
+   "instagram": [
+    {
+     "url": "https://www.instagram.com/p/Dend_POhqCW/",
+     "author": "bazaarbr",
+     "author_followers": 613997,
+     "likes": 1224,
+     "comments": 26,
+     "video_views": 10146,
+     "caption": "Normani está entre nós! A cantora norte-americana desembarcou no Brasil para um show em São Paulo e aproveitou para passar pelo SPFW N61. O motivo da visita? Cruzar a passarela da Dendezeiro, marca baiana que apresenta s"
+    }
+   ],
+   "x": [
+    {
+     "id": "2111633770667237509",
+     "url": "https://x.com/BazaarBR/status/2111633770667237509",
+     "views": 8477,
+     "likes": 410,
+     "date_utc": "2026-10-18T01:41Z",
+     "text": "Normani está entre nós! ..."
+    }
+   ]
+  },
+  "hugo_gloss": {
+   "site_articles": [],
+   "site_note": "hugogloss.uol.com.br search/tag feeds: newest Normani article Dec 2024. No site article in window.",
+   "instagram": [
+    {
+     "url": "https://www.instagram.com/p/DehSYJYCmNQ/",
+     "author": "hugogloss",
+     "author_followers": 21901977,
+     "likes": 29850,
+     "comments": 306,
+     "video_views": 372064,
+     "caption": "É a nossa #Motivation girl! Normani desembarcou em São Paulo, nesta quinta-feira (15), atendendo aos fãs que a aguardavam no local e dando autógrafos. A cantora fará seu primeiro show solo no Brasil, neste sábado (17), n"
+    },
+    {
+     "url": "https://www.instagram.com/p/DenQqN0CxRC/",
+     "author": "hugogloss",
+     "author_followers": 21901977,
+     "likes": 56134,
+     "comments": 587,
+     "video_views": 748088,
+     "caption": "A nossa motivação?! Depois de tantos anos, o primeiro show solo de Normani no Brasil! A gata se apresenta agora num festival em São Paulo e, claro, que o hit “Motivation”, da ex-Fifth Harmony, não poderia ficar de fora! "
+    },
+    {
+     "url": "https://www.instagram.com/p/Dene9TzC8Ew/",
+     "author": "hugogloss",
+     "author_followers": 21901977,
+     "likes": 28160,
+     "comments": 244,
+     "video_views": 271844,
+     "caption": "Para sempre uma Fifth Harmony! Normani relembrou os tempos da girlband em seu primeiro show no Brasil. A diva se apresentou hoje (17), em São Paulo, e incluiu hits, como “Worth It” e “Work From Home”, na setlist. Que tal"
+    },
+    {
+     "url": "https://www.instagram.com/p/DepAXMkCrT_/",
+     "author": "hugogloss",
+     "author_followers": 21901977,
+     "likes": 32069,
+     "comments": 291,
+     "video_views": 538484,
+     "caption": "Ela tem o molho! Depois de fazer seu primeiro show solo em São Paulo e desfilar na passarela da SPFW, Normani ainda teve energia para curtir um after e mandou até seu quadradinho ao som de Bonde das Maravilhas! Ela tá em"
+    }
+   ],
+   "instagram_sum": {
+    "likes": 146213,
+    "comments": 1428,
+    "video_views": 1930480
+   },
+   "x": [
+    {
+     "id": "2110756693327900942",
+     "url": "https://x.com/HugoGloss/status/2110756693327900942",
+     "views": 7757,
+     "likes": 179,
+     "date_utc": "2026-10-15T15:36Z"
+    }
+   ],
+   "x_note": "Full @HugoGloss timeline 2026-10-15 to 2026-10-26 scanned (729 tweets): only this 1 tweet mentions Normani."
+  },
+  "steal_the_look": {
+   "site_articles": [],
+   "site_note": "stealthelook.com.br search for normani: only a 2019 post. Its 2026-10-21 Dendezeiro/AI article does not mention Normani.",
+   "instagram": [
+    {
+     "url": "https://www.instagram.com/p/DendbMdKO4g/",
+     "author": "stealthelook",
+     "author_followers": 1397097,
+     "likes": 16908,
+     "comments": 199,
+     "video_views": 105142,
+     "caption": "Normani abrindo o desfile da Dendezeiro 😮‍💨\n#STEALTHELOOK"
+    },
+    {
+     "url": "https://www.instagram.com/p/Den8Ny5qi4l/",
+     "author": "stealthelook",
+     "author_followers": 1397097,
+     "likes": 10942,
+     "comments": 131,
+     "video_views": 111380,
+     "caption": "Não é IA😅 A Normani realmente dançou Bonde das Maravilhas na festa da @sharpit.co, em SP 😮‍💨\n\n#STEALTHELOOK"
+    }
+   ],
+   "x": [
+    {
+     "id": "2111836254698455434",
+     "url": "https://x.com/stealthelook/status/2111836254698455434",
+     "views": 693,
+     "likes": 1,
+     "date_utc": "2026-10-18T15:06Z",
+     "text": "e a Dendezeiro que fez um boné tabi? 😮‍💨",
+     "note": "Dendezeiro show, does not name Normani"
+    }
+   ]
+  },
+  "instagram_gap": "IG profile embeds list only the latest 6 posts (all from Oct 23-26), so they cannot list Oct 15-20 posts. Possible extra posts by these outlets that are not in the prior list could not be enumerated; Google News indexes an IG post \"Cantora e modelo nas horas vagas!\" (Oct 18, runway) whose author/shortcode could not be resolved (Google News rate-limited 429)."
+ },
+ "press_new": [
+  {
+   "outlet": "Bahia Notícias",
+   "title": "Ex-Fifth Harmony, Normani celebra marca baiana Dendezeiros após participação em desfile: \"Especial para mim\"",
+   "url": "https://www.bahianoticias.com.br/holofote/noticia/85925-ex-fifth-harmony-normani-celebra-marca-baiana-dendezeiros-apos-participacao-em-desfile-especial-para-mim",
+   "date": "2026-10-21",
+   "normani_focus": "headline/lead",
+   "verified": "page fetched; datePublished 2026-10-21T08:10-03:00; quotes Normani IG thank-you to Dendezeiro",
+   "new_outlet": true
+  },
+  {
+   "outlet": "BRA 1",
+   "title": "Normani, ex-Fifth Harmony, elogia marca baiana Dendezeiros após desfile no SPFW (Bahia Notícias syndication)",
+   "url": "https://www.bra1.com.br/geral/id-711793/normani__ex_fifth_harmony__elogia_marca_baiana_dendezeiros_apos_desfile_no_spfw",
+   "date": "2026-10-21",
+   "normani_focus": "headline/lead",
+   "verified": "page fetched; byline 21/10/2026 09:04, credited to Bahia Notícias",
+   "new_outlet": false,
+   "syndicated": true
+  },
+  {
+   "outlet": "Vogue Brasil",
+   "title": "VogueCast | Especial SPFW: Criadores da Dendezeiro e Aluf debatem como marcas de moda conquistam comunidades fiéis",
+   "url": "https://vogue.globo.com/lifestyle/miss-v/noticia/2026/10/voguecast-or-especial-spfw-criadores-da-dendezeiro-e-aluf-debatem-como-marcas-de-moda-conquistam-comunidades-fieis.ghtml",
+   "date": "2026-10-22",
+   "normani_focus": "mention in festival/SPFW coverage",
+   "verified": "page fetched; 1 body mention (\"levando à passarela nomes como Karol Conká, Duquesa e Normani\")",
+   "new_outlet": true
+  },
+  {
+   "outlet": "Metrópoles (coluna Ilca Maria Estevão)",
+   "title": "Dendezeiro apresenta jaqueta desenvolvida em parceria com o ChatGPT no SPFW",
+   "url": "https://www.metropoles.com/colunas/ilca-maria-estevao/dendezeiro-apresenta-jaqueta-desenvolvida-em-parceria-com-o-chatgpt-no-spfw",
+   "date": "2026-10-22",
+   "normani_focus": "mention in festival/SPFW coverage",
+   "verified": "page fetched; datePublished 2026-10-22T02:00-03:00; names Normani in casting + photo caption",
+   "new_outlet": true
+  },
+  {
+   "outlet": "Concerts in Brazil",
+   "title": "Meli Music reúne pop brasileiro e internacional em sua quarta edição",
+   "url": "https://concertsinbrazil.com/2026/10/26/meli-music-reune-pop-brasileiro-e-internacional-em-sua-quarta-edicao/",
+   "date": "2026-10-26",
+   "normani_focus": "mention in festival/SPFW coverage (festival review, 6 mentions)",
+   "verified": "page fetched; datePublished 2026-10-26T17:07Z",
+   "new_outlet": true
+  },
+  {
+   "outlet": "93 Notícias",
+   "title": "Anitta encerra Meli Music 2026 com Normani; atrasos marcam edição",
+   "url": "https://93noticias.com.br/anitta-encerra-meli-music-2026-com-normani-atrasos/",
+   "date": "2026-10-19",
+   "normani_focus": "headline",
+   "verified": "Google News listing 2026-10-19 18:58 UTC, URL decoded from Google News; page returns 403 (same as the other 93 Notícias item in the prior sweep)",
+   "new_outlet": false,
+   "missed_by_prior_sweep": true
+  },
+  {
+   "outlet": "Portal Lineup",
+   "title": "Meli Music terá Anitta, Luísa Sonza e Pedro Sampaio; veja horários",
+   "url": "https://portallineup.com.br/shows-no-brasil/meli-music-reune-anitta-gloria-groove-luisa-sonza-e-pedro-sampaio-veja-horarios/",
+   "date": "2026-10-16",
+   "normani_focus": "mention in festival/SPFW coverage",
+   "verified": "page fetched; datePublished 2026-10-16T22:22Z; Normani paragraph (18h50 set)",
+   "new_outlet": true,
+   "missed_by_prior_sweep": true
+  }
+ ],
+ "press_totals": {
+  "prior_articles": 49,
+  "prior_outlets": 35,
+  "new_articles": 7,
+  "new_outlets": 5,
+  "total_articles": 56,
+  "total_outlets": 40,
+  "published_oct20_26_new": [
+   "Bahia Notícias",
+   "BRA 1",
+   "Vogue Brasil",
+   "Metrópoles (coluna Ilca Maria Estevão)",
+   "Concerts in Brazil"
+  ],
+  "note": "Totals include syndicated copies (now 4: 2x CNN Brasil, 1x O Tempo, 1x Bahia Notícias via BRA 1). Excluded: POPline \"Normani marca primeiro show solo...\" (2026-08-19, pre-window); Portal Lineup 2026-08-28 announcement; Portal PopNow \"torce tornozelo em ensaio do DWTS\" (Google News date Oct 23 but unrelated to the trip); Vogue Dendezeiro gallery and 5 tendências (no Normani mention); Steal the Look Dendezeiro/AI (no Normani)."
+ },
+ "new_tweets": [
+  {
+   "id": "2114509949581787231",
+   "user": "NormaniUpdate",
+   "followers": 65848,
+   "views": 64311,
+   "likes": 6314,
+   "rts": 395,
+   "replies": 15,
+   "quotes": 30,
+   "bookmarks": 126,
+   "text": "Normani with @Anitta",
+   "date_utc": "2026-10-26T00:10Z"
+  },
+  {
+   "id": "2113758219793576059",
+   "user": "kordeilogy",
+   "followers": 34551,
+   "views": 46204,
+   "likes": 4716,
+   "rts": 661,
+   "replies": 4,
+   "quotes": 11,
+   "bookmarks": 235,
+   "text": "a STAR",
+   "date_utc": "2026-10-23T22:23Z"
+  },
+  {
+   "id": "2113826641562501597",
+   "user": "petaltrin",
+   "followers": 16298,
+   "views": 32874,
+   "likes": 660,
+   "rts": 14,
+   "replies": 6,
+   "quotes": 0,
+   "bookmarks": 34,
+   "text": "when normani got caught running her own update account twice 😭",
+   "date_utc": "2026-10-24T02:55Z"
+  },
+  {
+   "id": "2113771622985290189",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 22652,
+   "likes": 1507,
+   "rts": 113,
+   "replies": 17,
+   "quotes": 6,
+   "bookmarks": 25,
+   "text": "EQUIPE FIFTH HARMONY BRASIL COM A NORMANI 🥹",
+   "date_utc": "2026-10-23T23:16Z"
+  },
+  {
+   "id": "2114700957300711904",
+   "user": "choquei",
+   "followers": 9468163,
+   "views": 21339,
+   "likes": 356,
+   "rts": null,
+   "replies": 6,
+   "quotes": 0,
+   "bookmarks": 6,
+   "text": "🚨FAMOSOS: Anitta e Normani juntas em nova foto.",
+   "date_utc": "2026-10-26T12:49Z"
+  },
+  {
+   "id": "2114716500548350225",
+   "user": "tracklist",
+   "followers": 1338697,
+   "views": 15479,
+   "likes": 1212,
+   "rts": null,
+   "replies": 0,
+   "quotes": 8,
+   "bookmarks": 8,
+   "text": "Normani e Anitta juntas em nova foto. ✨",
+   "date_utc": "2026-10-26T13:51Z"
+  },
+  {
+   "id": "2113782907621851426",
+   "user": "cxssiano",
+   "followers": 34657,
+   "views": 14827,
+   "likes": 1401,
+   "rts": 42,
+   "replies": 105,
+   "quotes": 3,
+   "bookmarks": 16,
+   "text": "vou acreditar nunca que isso aconteceu 😭 \n\nacompanho ela desde o x factor, feliz demais em conhecer ela depois de 14 anos sem largar a mão. \n\ni love you with all my heart 🤍 @Normani",
+   "date_utc": "2026-10-24T00:01Z"
+  },
+  {
+   "id": "2112686148829286729",
+   "user": "NormaniUpdate",
+   "followers": 65849,
+   "views": 10054,
+   "likes": 729,
+   "rts": null,
+   "replies": 1,
+   "quotes": 6,
+   "bookmarks": 35,
+   "text": "Normani 💋",
+   "date_utc": "2026-10-20T23:23Z"
+  },
+  {
+   "id": "2114509602456994155",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 9111,
+   "likes": 1054,
+   "rts": null,
+   "replies": 4,
+   "quotes": 5,
+   "bookmarks": 23,
+   "text": "Normani e Anitta juntas no Meli Music 2026",
+   "date_utc": "2026-10-26T00:09Z"
+  },
+  {
+   "id": "2113120431460794776",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 9065,
+   "likes": 423,
+   "rts": null,
+   "replies": 3,
+   "quotes": 1,
+   "bookmarks": 13,
+   "text": "O Brasil fez bem à Normani 🇧🇷⭐️",
+   "date_utc": "2026-10-22T04:09Z"
+  },
+  {
+   "id": "2113782480373215422",
+   "user": "NormaniUpdate",
+   "followers": 65849,
+   "views": 8645,
+   "likes": 587,
+   "rts": null,
+   "replies": 1,
+   "quotes": 4,
+   "bookmarks": 16,
+   "text": "Normani with fans at the Meli Music Meet and Greet in São Paulo, Brazil 🇧🇷",
+   "date_utc": "2026-10-23T23:59Z"
+  },
+  {
+   "id": "2113075236233216312",
+   "user": "NormaniUpdate",
+   "followers": 65849,
+   "views": 8267,
+   "likes": 897,
+   "rts": null,
+   "replies": 0,
+   "quotes": 2,
+   "bookmarks": 22,
+   "text": "Normani x Dendezeiro",
+   "date_utc": "2026-10-22T01:09Z"
+  },
+  {
+   "id": "2113645977307672796",
+   "user": "NormaniUpdate",
+   "followers": 65849,
+   "views": 6769,
+   "likes": 793,
+   "rts": null,
+   "replies": 2,
+   "quotes": 2,
+   "bookmarks": 28,
+   "text": "Normani performing at Meli Music Festival in São Paulo 🇧🇷\n\ncc: daymphotos",
+   "date_utc": "2026-10-23T14:57Z"
+  },
+  {
+   "id": "2113768440007696462",
+   "user": "felpsgalvao",
+   "followers": 19028,
+   "views": 6323,
+   "likes": 465,
+   "rts": 20,
+   "replies": 19,
+   "quotes": 2,
+   "bookmarks": 2,
+   "text": "Look what you made me do, Normani… just fell completely in love with your sweet soul! ❤️✨️",
+   "date_utc": "2026-10-23T23:04Z"
+  },
+  {
+   "id": "2114078731383754762",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 4542,
+   "likes": 359,
+   "rts": null,
+   "replies": 2,
+   "quotes": 3,
+   "bookmarks": 6,
+   "text": "Normani fez meet & greet com seus fãs em São Paulo, reparem na beleza da Nation 🤭🇧🇷",
+   "date_utc": "2026-10-24T19:37Z"
+  },
+  {
+   "id": "2113069508088979720",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3980,
+   "likes": 518,
+   "rts": null,
+   "replies": 3,
+   "quotes": 2,
+   "bookmarks": 15,
+   "text": "Normani x @dendezeiro ✨",
+   "date_utc": "2026-10-22T00:46Z"
+  },
+  {
+   "id": "2112364773450899539",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3744,
+   "likes": 329,
+   "rts": null,
+   "replies": 5,
+   "quotes": 2,
+   "bookmarks": 20,
+   "text": "Normani FRITANDO ao som de “Freakum Dress” da Beyoncé no after do Festival Meli Music 🤣🇧🇷",
+   "date_utc": "2026-10-20T02:06Z"
+  },
+  {
+   "id": "2113650473387573478",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3640,
+   "likes": 384,
+   "rts": null,
+   "replies": 1,
+   "quotes": 3,
+   "bookmarks": 6,
+   "text": "QUE SAUDADE! Saíram algumas fotos profissionais da Normani no Festival Meli Music. 🥺 \n\n📸: daymphotos",
+   "date_utc": "2026-10-23T15:15Z"
+  },
+  {
+   "id": "2113837094707564760",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3579,
+   "likes": 599,
+   "rts": 90,
+   "replies": 2,
+   "quotes": 0,
+   "bookmarks": 3,
+   "text": "⭐️🇧🇷",
+   "date_utc": "2026-10-24T03:36Z"
+  },
+  {
+   "id": "2114475425384861990",
+   "user": "NormaniUpdate",
+   "followers": 65848,
+   "views": 3299,
+   "likes": 278,
+   "rts": 51,
+   "replies": 0,
+   "quotes": 1,
+   "bookmarks": 4,
+   "text": "Normani’s Instagram post:\n\n“BRASIL 🇧🇷💚✨ \nthank you for making this monumental return to SAO PAULO so memorable.\nYOU HAVE MY HEART and my prayers are going out to your beautiful country during this tim",
+   "date_utc": "2026-10-25T21:53Z"
+  },
+  {
+   "id": "2114508460230611449",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3274,
+   "likes": 305,
+   "rts": null,
+   "replies": 1,
+   "quotes": 3,
+   "bookmarks": 6,
+   "text": "Normani e Anitta nos bastidores do Meli Music",
+   "date_utc": "2026-10-26T00:04Z"
+  },
+  {
+   "id": "2113770433170293234",
+   "user": "wheelernaju",
+   "followers": 1241,
+   "views": 3204,
+   "likes": 325,
+   "rts": null,
+   "replies": 21,
+   "quotes": 2,
+   "bookmarks": 5,
+   "text": "you're my favorite still! @Normani",
+   "date_utc": "2026-10-23T23:11Z"
+  },
+  {
+   "id": "2111918498897436949",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 3160,
+   "likes": 215,
+   "rts": null,
+   "replies": 1,
+   "quotes": 0,
+   "bookmarks": 16,
+   "text": "normani - work from home (meli music)",
+   "date_utc": "2026-10-18T20:33Z"
+  },
+  {
+   "id": "2114709769646936316",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 3039,
+   "likes": 424,
+   "rts": null,
+   "replies": 4,
+   "quotes": 2,
+   "bookmarks": 10,
+   "text": "🔥 SÉRIO!! Normani e seus mais novos bailarinos.",
+   "date_utc": "2026-10-26T13:24Z"
+  },
+  {
+   "id": "2114484989937013013",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 2993,
+   "likes": 111,
+   "rts": null,
+   "replies": 2,
+   "quotes": 3,
+   "bookmarks": 1,
+   "text": "JÁ ESTAMOS COM SAUDADE!\n\nNormani via post do Instagram 🇧🇷 \n\n“BRASIL 🇧🇷💚✨\n\nobrigada por tornar esse retorno monumental a SÃO PAULO tão inesquecível.\n\nVOCÊS TÊM O MEU CORAÇÃO, e minhas orações estão com",
+   "date_utc": "2026-10-25T22:31Z"
+  },
+  {
+   "id": "2111895079703220542",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 2733,
+   "likes": 128,
+   "rts": null,
+   "replies": 2,
+   "quotes": 0,
+   "bookmarks": 6,
+   "text": "Ontem vivemos um dos momentos mais especiais da nossa história! ❤️\n\nDurante nosso encontro com a Normani, tivemos a oportunidade de entregar um presente preparado com muito carinho para ela. E quando ",
+   "date_utc": "2026-10-18T18:59Z"
+  },
+  {
+   "id": "2113769076229107978",
+   "user": "mattcsdias",
+   "followers": 3954,
+   "views": 2537,
+   "likes": 262,
+   "rts": 27,
+   "replies": 11,
+   "quotes": 0,
+   "bookmarks": 3,
+   "text": "Time passes by @Normani\n always here for you 💛✨\n\n2016 - 2026",
+   "date_utc": "2026-10-23T23:06Z"
+  },
+  {
+   "id": "2114477452089000419",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2399,
+   "likes": 159,
+   "rts": null,
+   "replies": 3,
+   "quotes": 2,
+   "bookmarks": 3,
+   "text": "🚨 Normani via Instagram: \n\n“BRASIL 🇧🇷💚✨\n\nObrigada por tornar este retorno monumental à SÃO PAULO tão memorável.\n\nVOCÊS TEM MEU CORAÇÃO e minhas orações vão para o seu belo país durante este tempo de t",
+   "date_utc": "2026-10-25T22:01Z"
+  },
+  {
+   "id": "2114098775920709734",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 2327,
+   "likes": 147,
+   "rts": null,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 4,
+   "text": "1 semana desse dia inesquecível que foi o show da Normani no Brasil 🥹",
+   "date_utc": "2026-10-24T20:56Z"
+  },
+  {
+   "id": "2111663736859844948",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2303,
+   "likes": 176,
+   "rts": null,
+   "replies": 0,
+   "quotes": 1,
+   "bookmarks": 16,
+   "text": "Normani cantando Motivation no Meli Music",
+   "date_utc": "2026-10-18T03:40Z"
+  },
+  {
+   "id": "2112254934205030566",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2276,
+   "likes": 187,
+   "rts": null,
+   "replies": 3,
+   "quotes": 0,
+   "bookmarks": 4,
+   "text": "Vivemos algo tão incrível no sábado. Normani falou que conhecia o nosso update, agradeceu por todo esforço e trabalho, tirou foto com 4 de nossos Adms e ainda pediu pra gente tirar uma foto descontraí",
+   "date_utc": "2026-10-19T18:49Z"
+  },
+  {
+   "id": "2114125560267804850",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2203,
+   "likes": 223,
+   "rts": null,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 13,
+   "text": "Normani no backstage do Meli Music ✨",
+   "date_utc": "2026-10-24T22:43Z"
+  },
+  {
+   "id": "2111865182976942230",
+   "user": "kcejaguar",
+   "followers": 4015,
+   "views": 2179,
+   "likes": 74,
+   "rts": 9,
+   "replies": 5,
+   "quotes": 1,
+   "bookmarks": 1,
+   "text": "conheci a normani ontem e posso dizer que ela é uma das pessoas mais doces que já conheci. eu estava muito nervosa e não parava de chorar, e ela foi super atenciosa, tentando me acalmar. já sinto saud",
+   "date_utc": "2026-10-18T17:01Z"
+  },
+  {
+   "id": "2113804674939703453",
+   "user": "o_leigoo",
+   "followers": 362,
+   "views": 2169,
+   "likes": 220,
+   "rts": 35,
+   "replies": 9,
+   "quotes": 1,
+   "bookmarks": 6,
+   "text": "got to tell normani that i wanted her to sign a fh vinyl because she always said she didn’t feel seen during that time and felt like she was there to be politically correct, and then i told her i was ",
+   "date_utc": "2026-10-24T01:28Z"
+  },
+  {
+   "id": "2112667126863679634",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2127,
+   "likes": 226,
+   "rts": null,
+   "replies": 2,
+   "quotes": 0,
+   "bookmarks": 3,
+   "text": "Normani e sua equipe nos ensaios 🇧🇷💚",
+   "date_utc": "2026-10-20T22:07Z"
+  },
+  {
+   "id": "2111680742099177897",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 2113,
+   "likes": 221,
+   "rts": null,
+   "replies": 0,
+   "quotes": 1,
+   "bookmarks": 4,
+   "text": "Normani 🇧🇷",
+   "date_utc": "2026-10-18T04:48Z"
+  },
+  {
+   "id": "2113786137449771422",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 2079,
+   "likes": 75,
+   "rts": null,
+   "replies": 1,
+   "quotes": 0,
+   "bookmarks": 0,
+   "text": "em um mês conhecemos a Lauren e a Normani mds se for um sonho não me acordem e se preparem que em 2027 tem MUITO mais 👀🥹",
+   "date_utc": "2026-10-24T00:14Z"
+  },
+  {
+   "id": "2111663742832324831",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 1983,
+   "likes": 139,
+   "rts": null,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 3,
+   "text": "Após o Meli Music, Normani abriu o desfile da @dendezeiro na SPFW. \n\n— Normani voltou ao Meli Music somente para atender alguns fãs 🥹❤️",
+   "date_utc": "2026-10-18T03:40Z"
+  },
+  {
+   "id": "2113772405692772743",
+   "user": "leighxmani",
+   "followers": 10177,
+   "views": 1900,
+   "likes": 208,
+   "rts": 25,
+   "replies": 21,
+   "quotes": 1,
+   "bookmarks": 2,
+   "text": "I’m all yours 💞 @Normani \n\neu te amo pra sempre 🥹",
+   "date_utc": "2026-10-23T23:19Z"
+  },
+  {
+   "id": "2114481648360411152",
+   "user": "normanidopamina",
+   "followers": 182,
+   "views": 1600,
+   "likes": 223,
+   "rts": 29,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 5,
+   "text": "R&B POPSTAR DIVA ❤️‍🔥 @Normani",
+   "date_utc": "2026-10-25T22:18Z"
+  },
+  {
+   "id": "2114703227610419256",
+   "user": "5HBrasil",
+   "followers": 80147,
+   "views": 1575,
+   "likes": 146,
+   "rts": null,
+   "replies": 2,
+   "quotes": 2,
+   "bookmarks": 3,
+   "text": "Mais fotos da Normani nos bastidores do Meli Music 2026 😍😍",
+   "date_utc": "2026-10-26T12:58Z"
+  },
+  {
+   "id": "2113775921270247729",
+   "user": "intodinahj",
+   "followers": 809,
+   "views": 1402,
+   "likes": 122,
+   "rts": 7,
+   "replies": 10,
+   "quotes": 1,
+   "bookmarks": 1,
+   "text": "i miss you already! i can’t stop thinking about when i’ll get to see you again. eu te amo muito! @Normani 🤍",
+   "date_utc": "2026-10-23T23:33Z"
+  },
+  {
+   "id": "2111875943098917169",
+   "user": "normanibrasiI",
+   "followers": 14448,
+   "views": 1378,
+   "likes": 99,
+   "rts": null,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 4,
+   "text": "Normani quebrando tudo ao som do Bonde das Maravilhas 🔥",
+   "date_utc": "2026-10-18T17:43Z"
+  },
+  {
+   "id": "2113794507133026442",
+   "user": "Marco_antonio7p",
+   "followers": 1281,
+   "views": 1347,
+   "likes": 177,
+   "rts": 29,
+   "replies": 9,
+   "quotes": 0,
+   "bookmarks": 4,
+   "text": "First thing i said was that you changed my life, WHAT A TRUE STORY I HAVE WITH YOU @normani, since the very beginning i was here for you, supporting your career w 5H, your solo career, my love is unco",
+   "date_utc": "2026-10-24T00:47Z"
+  },
+  {
+   "id": "2113771679524462900",
+   "user": "kcejaguar",
+   "followers": 4015,
+   "views": 1326,
+   "likes": 133,
+   "rts": null,
+   "replies": 8,
+   "quotes": 1,
+   "bookmarks": 2,
+   "text": "minha cara de choro entrega o quanto eu amo ela @Normani",
+   "date_utc": "2026-10-23T23:16Z"
+  },
+  {
+   "id": "2113800264725475370",
+   "user": "indeszo",
+   "followers": 13202,
+   "views": 1272,
+   "likes": 131,
+   "rts": 19,
+   "replies": 8,
+   "quotes": 1,
+   "bookmarks": 1,
+   "text": ".@normani 🩷💙",
+   "date_utc": "2026-10-24T01:10Z"
+  },
+  {
+   "id": "2113791610009813292",
+   "user": "itnormani",
+   "followers": 10766,
+   "views": 1072,
+   "likes": 86,
+   "rts": 6,
+   "replies": 9,
+   "quotes": 1,
+   "bookmarks": 1,
+   "text": "8 years after you sent me that message, we finally met. i love you, normani. thank you for saving me time and time again. i'm so happy i got to tell you that while looking into your eyes. <3 eu te amo",
+   "date_utc": "2026-10-24T00:36Z"
+  },
+  {
+   "id": "2113814487975305650",
+   "user": "normanisfleur",
+   "followers": 4242,
+   "views": 731,
+   "likes": 84,
+   "rts": 10,
+   "replies": 1,
+   "quotes": 0,
+   "bookmarks": 2,
+   "text": "always here for you, @normani ♡",
+   "date_utc": "2026-10-24T02:07Z"
+  },
+  {
+   "id": "2114475885176967666",
+   "user": "Exxventure",
+   "followers": 1489,
+   "views": 631,
+   "likes": 60,
+   "rts": 5,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 2,
+   "text": "YUP. @Normani",
+   "date_utc": "2026-10-25T21:55Z"
+  },
+  {
+   "id": "2113811483658182702",
+   "user": "soslanaparrish",
+   "followers": 548,
+   "views": 623,
+   "likes": 58,
+   "rts": 7,
+   "replies": 2,
+   "quotes": 0,
+   "bookmarks": 0,
+   "text": "I love you so so much @Normani ... thank you @NormaniUpdate",
+   "date_utc": "2026-10-24T01:55Z"
+  },
+  {
+   "id": "2114514008485085450",
+   "user": "shadyfactsnews",
+   "followers": 5728,
+   "views": 483,
+   "likes": 35,
+   "rts": 5,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 1,
+   "text": "Normani and her dancers in Brazil",
+   "date_utc": "2026-10-26T00:26Z"
+  },
+  {
+   "id": "2114511373850063184",
+   "user": "shadyfactsnews",
+   "followers": 5728,
+   "views": 407,
+   "likes": 18,
+   "rts": 2,
+   "replies": 0,
+   "quotes": 0,
+   "bookmarks": 0,
+   "text": "Normani and a fan in Brazil",
+   "date_utc": "2026-10-26T00:16Z"
+  }
+ ],
+ "new_tweets_note": "Tweets not in x_rows.json / x_tweets_novos.json: from the 4 X story pages (cited tweets) and timeline scans of 5HBrasil, NormaniUpdate, normanibrasiI, tracklist, choquei, popline, PopCrave, PopBase, anitta, Normani back to Oct 18-20. choquei timeline only reached Oct 25 (fxtwitter cursor 404). Stats fetched 2026-10-26.",
+ "new_social_signals": [
+  "Oct 25-26: Normani IG/X thank-you post picked up by fan pages and @shoke.news (IG De7weAlAZuW, framed around Brazil 2nd-round election).",
+  "Oct 26: Anitta + Normani backstage photos circulated (@choquei 21.3K views, @tracklist 15.5K, @NormaniUpdate 64.3K).",
+  "Oct 21: Normani thanked Dendezeiro on Instagram (quoted by Bahia Notícias), probably a story or comment; not found as a feed post."
+ ],
+ "gaps": [
+  "Google News link decoding rate-limited (HTTP 429), so several IG posts indexed by Google News could not be resolved to shortcodes.",
+  "IG profile embeds show only the latest 6 posts; i.instagram.com API not used.",
+  "93 Notícias and POPline return 403/Cloudflare to curl.",
+  "Folha/Estadão/UOL not checkable via search tool (as in prior sweep)."
+ ]
+}

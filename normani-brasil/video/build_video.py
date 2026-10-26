@@ -387,7 +387,7 @@ def main():
         nfr = int(round(dur * FPS))
         silent = B / "Normani-SP-Highlights-sem-trilha.mp4"
         enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "image2pipe", "-framerate", str(FPS), "-c:v", "mjpeg", "-i", "-",
-                                "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
+                                "-c:v", "libx264", "-crf", "21", "-preset", "medium", "-pix_fmt", "yuv420p",
                                 "-movflags", "+faststart", str(silent)], stdin=subprocess.PIPE)
         for i in range(nfr):
             pg.evaluate("t => render(t)", i / FPS)
