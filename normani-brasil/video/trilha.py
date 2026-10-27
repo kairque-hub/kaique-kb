@@ -84,7 +84,7 @@ def riser(n):
 def tick(n, k):
     """tique de contador, discreto e seco: clique abafado com um corpo grave curto"""
     t = np.arange(n) / SR
-    click = lowpass(highpass(rng.standard_normal(n), 1200), 3500) * np.exp(-t / 0.0025)
+    click = lowpass(highpass(rng.standard_normal(n), 1200), 4500) * np.exp(-t / 0.003)
     body = np.sin(2 * np.pi * 170 * t) * np.exp(-t / 0.012)
     return click * 0.6 + body * 0.5
 
@@ -129,7 +129,7 @@ def make(path, dur, src, bpm, start, drop, breakdown, outro, dings=(), hits=(), 
     for h in hits:
         place(fx, impact(int(1.6 * SR)), h, 0.55)
     for i, tk in enumerate(ticks):
-        place(fx, tick(int(0.05 * SR), 0), tk, 0.14)
+        place(fx, tick(int(0.05 * SR), 0), tk, 0.42)
     for d in dings:
         c = chime(int(2.5 * SR))
         place(fx, c, d, 0.75)
