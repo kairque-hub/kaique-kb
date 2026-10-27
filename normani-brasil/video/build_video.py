@@ -594,19 +594,19 @@ def main():
 
 
 def counter_ticks(html):
-    """instantes dos "tiques" dos contadores: um tique a cada 1/22 do caminho do número (rápido no começo, desacelerando)"""
+    """instantes dos "tiques" dos contadores: um tique a cada 1/14 do caminho do número (rápido no começo, desacelerando)"""
     import re
     ticks = []
     for sec in re.finditer(r'<section class="sc[^"]*" data-a="([\d.]+)" data-b="([\d.]+)">(.*?)</section>', html, re.S):
         a0 = float(sec.group(1))
         for d in re.findall(r'class="cnt" data-to="\d+" data-d="([\d.]+)"', sec.group(3)):
-            for k in range(1, 23):
-                p = k / 22
+            for k in range(1, 15):
+                p = k / 14
                 ticks.append(a0 + float(d) + (1 - (1 - p) ** (1 / 3)) * 1.0)     # inverso de E(p) = 1-(1-p)^3
     ticks.sort()
     out = []
     for t in ticks:
-        if not out or t - out[-1] > 0.03: out.append(t)
+        if not out or t - out[-1] > 0.05: out.append(t)
     return out
 
 
