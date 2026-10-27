@@ -23,6 +23,11 @@ FPS, W, H = 30, 1080, 1350
 BEAT = 60 / 122
 START = {}                                   # início de cada cena com nome, em segundos
 APEX = {}                                    # instante do ápice do gráfico (para o "ding")
+# faixas da Mixkit (Stock Music Free License): arquivo, BPM original, início (s) escolhido para o drop cair no fim da abertura
+TRACKS = {
+    "hazy": (M / "mixkit-132-hazy-after-hours.mp3", 121, 11.92),
+    "deep": (M / "mixkit-623-deep-urban.mp3", 124, 75.82),
+}
 GRN, YEL, INK, PAPER, DEEP = "#13B04B", "#F2EC1A", "#0B0B0C", "#F4EEDC", "#06140e"
 
 # números absolutos, todos verificados nas páginas (dados-varredura/); são piso
@@ -199,7 +204,7 @@ def build():
     scene(8, a('On X', 0.05, cls="kick", style="left:80px;top:90px") +
           rv('X created news pages', 0.1, "ttl2", "left:80px;top:140px") +
           rv('about her time <i>in Brazil.</i>', 0.25, "ttl2", "left:80px;top:225px") + st +
-          a(f'{cnt(sum(n for _, n in stories), 2.5)}<small>posts across the four pages</small>', 2.3, cls="kpi s2", style="left:80px;top:1070px"))
+          a(f'{cnt(sum(n for _, n in stories), 2.5)}<small>posts across the four pages</small>', 2.3, cls="kpi s2", style="left:80px;top:1070px"), key="x")
 
     # 4 · ensaio (palco desenhado)
     stage = ("M140 700 L940 700 M200 700 L260 560 L820 560 L880 700 M260 560 L260 330 M820 560 L820 330 "
@@ -242,7 +247,7 @@ def build():
         f'<div class="st"><b>{h}</b><h4>{t}</h4><p>{sub}</p></div></div>' for i, (s, e, h, t, sub, ic) in enumerate(stops))
     scene(20, f'<div class="map" data-cam=\'{json.dumps([[round(t, 3), x, y, s] for t, x, y, s in cam])}\'>{svg}{pins}</div>'
               '<div class="mapfade"></div>' +
-          a('Oct 17 · one night, four stops', 0.05, cls="kick", style="left:80px;top:80px") + cards, "mapsc")
+          a('Oct 17 · one night, four stops', 0.05, cls="kick", style="left:80px;top:80px") + cards, "mapsc", key="map")
 
     # 6 · TikTok (gráfico de busca)
     chart = "M0 230 L90 228 L180 226 L270 224 L360 222 L450 218 L540 205 L600 150 L660 60 L720 20"
@@ -320,7 +325,7 @@ def build():
     scene(8, a('Her visit in numbers', 0.05, cls="kick", style="left:80px;top:90px") +
           a(f'{cnt(D["tweets"], 0.3, "+")}<small>tweets about her time in Brazil</small>', 0.2, cls="num", style="top:200px") +
           a(f'{cnt(D["views"], b(2.5) + 0.1)}<small>views on X, Instagram and TikTok</small>', b(2.5), cls="num", style="top:560px") +
-          a(f'{cnt(D["likes"], b(5) + 0.1)}<small>likes</small>', b(5), cls="num", style="top:920px"))
+          a(f'{cnt(D["likes"], b(5) + 0.1)}<small>likes</small>', b(5), cls="num", style="top:920px"), key="numbers")
 
     # 11 · o agradecimento dela
     scene(8, a('Oct 25 · Normani', 0.05, cls="kick", style="left:80px;top:90px") +
@@ -559,6 +564,8 @@ def main():
     from playwright.sync_api import sync_playwright
     OUT.mkdir(parents=True, exist_ok=True)
     html, dur = page()
+    if "--audio" in sys.argv:          # só refaz a trilha, reaproveitando o vídeo sem áudio
+        mux(dur); print("ok: audio"); return
     f = OUT / "video.html"
     f.write_text(html)
     prev = [float(x) for x in sys.argv[sys.argv.index("--preview") + 1:]] if "--preview" in sys.argv else None
@@ -582,11 +589,19 @@ def main():
             enc.stdin.write(pg.screenshot(type="jpeg", quality=92))
             if i % 300 == 0: print(f"{i}/{nfr}", flush=True)
         enc.stdin.close(); enc.wait(); br.close()
-    wav = OUT / "trilha.wav"
-    trilha.make(wav, dur, drop=b(8), breakdown=START["thanks"], outro=START["outro"], dings=[START["conv"] + APEX["rel"]])
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(silent), "-i", str(wav),
-                    "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
-                    "-movflags", "+faststart", str(B / "Normani-SP-Highlights.mp4")], check=True)
+    mux(dur)
+
+
+def mux(dur):
+    """trilha editada sobre o vídeo sem áudio, uma versão por faixa"""
+    silent = B / "Normani-SP-Highlights-sem-trilha.mp4"
+    for name, (src, bpm, start) in TRACKS.items():
+        wav = OUT / f"trilha-{name}.wav"
+        trilha.make(wav, dur, src, bpm, start, drop=b(8), breakdown=START["thanks"], outro=START["outro"],
+                    dings=[START["conv"] + APEX["rel"]], hits=[START["x"], START["map"], START["numbers"]])
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(silent), "-i", str(wav),
+                        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
+                        "-movflags", "+faststart", str(B / f"Normani-SP-Highlights-{name}.mp4")], check=True)
     print(f"ok: {dur:.1f}s")
 
 

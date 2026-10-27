@@ -1,92 +1,60 @@
 #!/usr/bin/env python3
-"""Trilha original do vídeo (R&B escuro, meio tempo sobre 122 BPM): Rhodes, pad, 808, clap e hi-hats.
-Tudo sintetizado aqui com numpy, sem samples nem direitos de terceiros.
+"""Trilha do vídeo: uma faixa da Mixkit (Stock Music Free License: uso comercial em vídeo, sem crédito obrigatório)
+editada para acompanhar as cenas.
 
-make(path, dur, drop, breakdown, outro, dings) grava um WAV estéreo:
-  drop       início da batida cheia (fim da abertura)
-  breakdown  a bateria sai e fica só teclado e pad (agradecimento dela)
-  outro      a batida volta suave no fechamento
-  dings      instantes do "barulhinho" (ápice do gráfico)
+A faixa é ajustada para 122 BPM (o andamento dos cortes) e recebe uma edição por cima:
+  · abertura com filtro abrindo e uma subida que estoura no corte para a primeira cena
+  · impactos graves nas viradas importantes (páginas do X, mapa, gráfico, números)
+  · o "ding" no ápice do gráfico da conversa
+  · queda no agradecimento dela (graves e batida filtrados, mais baixo) e volta cheia no fechamento
 """
-import wave
+import subprocess, wave
 import numpy as np
 
 SR = 44100
-BEAT = 60 / 122
-STEP = BEAT / 4                     # semicolcheia
-BAR = BEAT * 4
 rng = np.random.default_rng(7)
-
-# Fm9 | Dbmaj9 | Bbm9 | C7(b9)  (MIDI)
-CHORDS = [([53, 56, 60, 63, 67], 41), ([49, 53, 56, 60, 63], 37), ([46, 49, 53, 56, 60], 34), ([48, 52, 55, 58, 61], 36)]
 hz = lambda m: 440 * 2 ** ((m - 69) / 12)
 
 
-def env(n, a, d):
-    t = np.arange(n) / SR
-    e = np.minimum(t / max(a, 1e-4), 1) * np.exp(-t / d)
-    return e
+def load(src, start, bpm, dur):
+    """trecho da faixa a partir de `start` (s, no tempo original), esticado para 122 BPM, estéreo float"""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", str(src), "-t", f"{(dur + 2) * 122 / bpm:.3f}",
+                          "-af", f"atempo={122 / bpm:.5f}", "-ac", "2", "-ar", str(SR), "-f", "s16le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.int16).reshape(-1, 2).astype(float) / 32768
+    n = int(dur * SR)
+    return np.pad(x, ((0, max(0, n - len(x))), (0, 0)))[:n]
 
 
 def lowpass(x, fc):
-    X = np.fft.rfft(x)
+    X = np.fft.rfft(x, axis=0)
     f = np.fft.rfftfreq(len(x), 1 / SR)
-    return np.fft.irfft(X / np.sqrt(1 + (f / fc) ** 4), len(x))
+    if X.ndim > 1: f = f[:, None]
+    return np.fft.irfft(X / np.sqrt(1 + (f / fc) ** 4), len(x), axis=0)
 
 
 def highpass(x, fc):
-    X = np.fft.rfft(x)
-    f = np.fft.rfftfreq(len(x), 1 / SR)
-    return np.fft.irfft(X * (1 / np.sqrt(1 + (fc / np.maximum(f, 1)) ** 4)), len(x))
+    X = np.fft.rfft(x, axis=0)
+    f = np.maximum(np.fft.rfftfreq(len(x), 1 / SR), 1)
+    if X.ndim > 1: f = f[:, None]
+    return np.fft.irfft(X / np.sqrt(1 + (fc / f) ** 4), len(x), axis=0)
 
 
-def rhodes(m, n, vel=0.5):
-    t = np.arange(n) / SR
-    f = hz(m)
-    idx = 1.8 * np.exp(-t / 0.35) + 0.25
-    tone = np.sin(2 * np.pi * f * t + idx * np.sin(2 * np.pi * f * t))
-    tine = 0.18 * np.sin(2 * np.pi * f * 7.02 * t) * np.exp(-t / 0.05)
-    trem = 1 + 0.12 * np.sin(2 * np.pi * 4.2 * t)
-    return vel * (tone + tine) * env(n, 0.004, 1.9) * trem
-
-
-def pad(ms, n):
-    t = np.arange(n) / SR
-    x = np.zeros(n)
-    for m in ms:
-        for det in (-0.08, 0.0, 0.08):
-            ph = 2 * np.pi * hz(m + det) * t + rng.uniform(0, 6.28)
-            x += (2 * ((ph / (2 * np.pi)) % 1) - 1) * 0.2
-    x = lowpass(x, 900)
-    fade = np.minimum(np.minimum(t / 0.5, 1), np.minimum((n / SR - t) / 0.4, 1))
-    return x * fade * 0.08
-
-
-def kick808(m, n):
-    t = np.arange(n) / SR
-    f = hz(m) * (1 + 2.2 * np.exp(-t / 0.025))
-    ph = 2 * np.pi * np.cumsum(f) / SR
-    x = np.sin(ph) * np.exp(-t / 0.75)
-    click = np.sin(2 * np.pi * 1800 * t) * np.exp(-t / 0.004) * 0.3
-    return np.tanh(2.2 * x) * 0.9 + click
-
-
-def clap(n):
-    t = np.arange(n) / SR
-    noise = highpass(rng.standard_normal(n), 900)
-    e = sum(np.exp(-np.maximum(t - k * 0.009, 0) / (0.008 if k < 2 else 0.12)) * (t >= k * 0.009) for k in range(3))
-    body = np.sin(2 * np.pi * 210 * t) * np.exp(-t / 0.05) * 0.4
-    return (noise * e * 0.16 + body) * 0.8
-
-
-def hat(n, open_=False):
-    t = np.arange(n) / SR
-    x = highpass(rng.standard_normal(n), 8500)
-    return x * np.exp(-t / (0.09 if open_ else 0.014)) * 0.16
+def sweep(x, f0, f1):
+    """filtro passa-baixa que abre de f0 a f1 ao longo do trecho (blocos com sobreposição)"""
+    n, blk = len(x), 4096
+    out = np.zeros_like(x)
+    win = np.hanning(blk)[:, None]
+    for i in range(0, n, blk // 2):
+        seg = x[i:i + blk]
+        if len(seg) < blk: seg = np.pad(seg, ((0, blk - len(seg)), (0, 0)))
+        y = lowpass(seg * win, f0 * (f1 / f0) ** min(1, i / n))
+        out[i:i + blk] += y[: min(blk, n - i)]
+    return out
 
 
 def chime(n):
-    """o "barulhinho": arpejo de sino brilhante + brilho"""
+    """o "barulhinho" do ápice: arpejo de sino brilhante"""
     t = np.arange(n) / SR
     x = np.zeros(n)
     for i, m in enumerate([84, 88, 91, 96, 100]):
@@ -95,73 +63,71 @@ def chime(n):
         f = hz(m)
         bell = np.sin(2 * np.pi * f * tt + 1.2 * np.exp(-tt / 0.3) * np.sin(2 * np.pi * f * 3.5 * tt))
         x[o:] += bell * np.exp(-tt / 0.9) * (0.5 - i * 0.06)
-    sparkle = highpass(rng.standard_normal(n), 9000) * np.exp(-t / 0.35) * 0.08
-    return x + sparkle
+    return x + highpass(rng.standard_normal(n), 9000) * np.exp(-t / 0.35) * 0.06
 
 
-def reverb(x, secs=2.2, decay=0.55, seed=1):
+def impact(n):
+    t = np.arange(n) / SR
+    f = 55 * (1 + 1.5 * np.exp(-t / 0.04))
+    boom = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.6)
+    air = highpass(rng.standard_normal(n), 2500) * np.exp(-t / 0.25) * 0.25
+    return np.tanh(1.5 * boom) * 0.8 + air
+
+
+def riser(n):
+    t = np.arange(n) / SR
+    k = (t / t[-1]) ** 2.5
+    tone = np.sin(2 * np.pi * np.cumsum(200 + 1400 * k) / SR) * 0.15
+    return (highpass(rng.standard_normal(n), 1500) * 0.18 + tone) * k
+
+
+def reverb(x, secs=2.0, decay=0.5, seed=1):
     r = np.random.default_rng(seed)
-    n = int(secs * SR)
-    ir = r.standard_normal(n) * np.exp(-np.arange(n) / SR / decay)
-    ir = lowpass(ir, 6000)
+    m = int(secs * SR)
+    ir = r.standard_normal(m) * np.exp(-np.arange(m) / SR / decay)
     ir /= np.sqrt((ir ** 2).sum())
-    L = len(x) + n
-    y = np.fft.irfft(np.fft.rfft(x, L) * np.fft.rfft(ir, L), L)[: len(x)]
-    return y
+    L = len(x) + m
+    return np.fft.irfft(np.fft.rfft(x, L) * np.fft.rfft(ir, L), L)[: len(x)]
 
 
 def place(buf, sig, t, gain=1.0):
     i = int(t * SR)
     if i >= len(buf): return
     j = min(len(buf), i + len(sig))
-    buf[i:j] += sig[: j - i] * gain
+    s = sig[: j - i] * gain
+    buf[i:j] += s[:, None] if s.ndim == 1 else s
 
 
-def make(path, dur, drop, breakdown, outro, dings=()):
-    n = int((dur + 0.5) * SR)
-    keys, pads, drums, bass, fx = (np.zeros(n) for _ in range(5))
-    nbars = int(dur / BAR) + 2
-    for b in range(nbars):
-        t0 = b * BAR
-        ms, root = CHORDS[b % 4]
-        for k, m in enumerate(ms):                       # acorde de Rhodes levemente arpejado
-            place(keys, rhodes(m, int(2.4 * SR), 0.22 + 0.03 * k), t0 + k * 0.012)
-        place(keys, rhodes(ms[-1] + 12, int(1.0 * SR), 0.12), t0 + 10 * STEP)   # resposta no contratempo
-        place(pads, pad(ms, int(BAR * SR) + 2000), t0)
-        full = drop <= t0 < breakdown or t0 >= outro
-        if t0 < drop:
-            continue
-        for s in range(16):                              # hats em colcheia, rolos no fim de cada 2 compassos
-            ts = t0 + s * STEP
-            if s % 2 == 0:
-                place(drums, hat(int(0.2 * SR)), ts, 0.55 * (1 if s % 4 == 0 else 0.7) * rng.uniform(.85, 1))
-            if b % 2 == 1 and s >= 13 and full:
-                for r in range(2):
-                    place(drums, hat(int(0.1 * SR)), ts + r * STEP / 2, 0.35)
-        if not full:
-            continue
-        place(drums, hat(int(0.4 * SR), True), t0 + 14 * STEP, 0.3)
-        place(drums, clap(int(0.5 * SR)), t0 + 8 * STEP, 0.9)              # meio tempo: clap no 3
-        for s, lv in [(0, 1.0), (7, 0.75), (10, 0.85)]:                   # 808 seguindo a fundamental
-            place(bass, kick808(root - 12 if s else root - 12, int(0.9 * SR)), t0 + s * STEP, lv)
-    # subida antes do drop
-    sw = int(BAR * SR)
-    swell = highpass(rng.standard_normal(sw), 3000) * np.linspace(0, 1, sw) ** 3 * 0.12
-    place(fx, swell, drop - BAR)
-    for d in dings:
-        place(fx, chime(int(2.5 * SR)), d, 0.9)
-    wet = reverb(keys * 0.7 + pads + drums * 0.04 + fx * 0.8)
-    mix = keys * 1.3 + pads * 1.2 + drums + bass * 0.75 + fx + wet * 0.35
-    st = np.stack([mix + 0.08 * reverb(keys, seed=2), mix + 0.08 * reverb(keys, seed=3)], 1)
+def make(path, dur, src, bpm, start, drop, breakdown, outro, dings=(), hits=()):
+    x = load(src, start, bpm, dur)
+    n = len(x)
     t = np.arange(n) / SR
-    st *= np.minimum(1, np.maximum(0, (dur - t) / 2.5))[:, None]          # fade final
-    st = np.tanh(st * 0.9)
-    st /= np.abs(st).max() / 0.89
+    i0, i1, i2 = int(drop * SR), int(breakdown * SR), int(outro * SR)
+    x[:i0] = sweep(x[:i0], 350, 6000) * np.minimum(1, t[:i0, None] / 0.8)        # abertura: filtro abrindo
+    if dings:                                                                    # crescente do drop até o ápice
+        g = np.clip((t - drop) / max(1, dings[0] - drop), 0, 1)
+        x[i0:] *= (0.62 + 0.38 * g[i0:] ** 1.3)[:, None]
+    xf = 0.55 * lowpass(x[i1:i2], 650)                                           # queda no agradecimento
+    xf += 0.25 * reverb(xf[:, 0])[:, None]
+    k = int(0.25 * SR)
+    ramp = np.linspace(0, 1, k)[:, None]
+    x[i1:i1 + k] = x[i1:i1 + k] * (1 - ramp) + xf[:k] * ramp
+    x[i1 + k:i2] = xf[k:]
+    fx = np.zeros((n, 2))
+    place(fx, riser(int(2.0 * SR)), drop - 2.0, 0.9)
+    place(fx, impact(int(1.6 * SR)), drop, 1.0)
+    place(fx, riser(int(1.5 * SR)), outro - 1.5, 0.6)
+    place(fx, impact(int(1.6 * SR)), outro, 0.9)
+    for h in hits:
+        place(fx, impact(int(1.6 * SR)), h, 0.55)
+    for d in dings:
+        c = chime(int(2.5 * SR))
+        place(fx, c, d, 0.75)
+        place(fx, 0.3 * reverb(c, 2.5, 0.8, 5), d)
+    mix = x * 0.9 + fx
+    mix *= np.minimum(1, np.maximum(0, (dur - t) / 2.5))[:, None]               # fade final
+    mix = np.tanh(mix * 1.05)
+    mix /= np.abs(mix).max() / 0.89
     with wave.open(str(path), "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
-        w.writeframes((st[: int(dur * SR)] * 32767).astype("<i2").tobytes())
-
-
-if __name__ == "__main__":
-    import sys
-    make(sys.argv[1] if len(sys.argv) > 1 else "trilha.wav", 30, BAR * 2, 20, 26, [12.0])
+        w.writeframes((mix * 32767).astype("<i2").tobytes())
