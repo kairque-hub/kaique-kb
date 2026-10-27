@@ -81,6 +81,13 @@ def riser(n):
     return (highpass(rng.standard_normal(n), 1500) * 0.18 + tone) * k
 
 
+def tick(n, k):
+    """tique de contador: clique curto e brilhante, com leve variação de altura"""
+    t = np.arange(n) / SR
+    f = 2600 + 500 * k
+    return (np.sin(2 * np.pi * f * t) * np.exp(-t / 0.006) + highpass(rng.standard_normal(n), 5000) * np.exp(-t / 0.003) * 0.4)
+
+
 def reverb(x, secs=2.0, decay=0.5, seed=1):
     r = np.random.default_rng(seed)
     m = int(secs * SR)
@@ -98,7 +105,7 @@ def place(buf, sig, t, gain=1.0):
     buf[i:j] += s[:, None] if s.ndim == 1 else s
 
 
-def make(path, dur, src, bpm, start, drop, breakdown, outro, dings=(), hits=()):
+def make(path, dur, src, bpm, start, drop, breakdown, outro, dings=(), hits=(), ticks=()):
     x = load(src, start, bpm, dur)
     n = len(x)
     t = np.arange(n) / SR
@@ -120,6 +127,8 @@ def make(path, dur, src, bpm, start, drop, breakdown, outro, dings=(), hits=()):
     place(fx, impact(int(1.6 * SR)), outro, 0.9)
     for h in hits:
         place(fx, impact(int(1.6 * SR)), h, 0.55)
+    for i, tk in enumerate(ticks):
+        place(fx, tick(int(0.05 * SR), (i % 3) / 2), tk, 0.22)
     for d in dings:
         c = chime(int(2.5 * SR))
         place(fx, c, d, 0.75)

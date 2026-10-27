@@ -26,7 +26,6 @@ APEX = {}                                    # instante do ápice do gráfico (p
 # faixas da Mixkit (Stock Music Free License): arquivo, BPM original, início (s) escolhido para o drop cair no fim da abertura
 TRACKS = {
     "hazy": (M / "mixkit-132-hazy-after-hours.mp3", 121, 11.92),
-    "deep": (M / "mixkit-623-deep-urban.mp3", 124, 75.82),
 }
 GRN, YEL, INK, PAPER, DEEP = "#13B04B", "#F2EC1A", "#0B0B0C", "#F4EEDC", "#06140e"
 
@@ -158,6 +157,7 @@ def conv_series():
 
 
 SCENES = []
+HTML = []
 
 
 def scene(beats, html, cls="grad", key=None):
@@ -556,6 +556,7 @@ def page():
         html += f'<section class="sc {cls}" data-a="{t:.4f}" data-b="{t + d:.4f}">{bg}{body}</section>'
         t += d
     inter = (N / "fontes/inter.css").read_text()
+    HTML[:] = [html]
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Normani takes São Paulo</title>'
             f'<style>{inter}{CSS}</style></head><body>{html}<div class="flash"></div><script>{JS}</script></body></html>'), t
 
@@ -592,16 +593,34 @@ def main():
     mux(dur)
 
 
+def counter_ticks(html):
+    """instantes dos "tiques" dos contadores: um tique a cada 1/22 do caminho do número (rápido no começo, desacelerando)"""
+    import re
+    ticks = []
+    for sec in re.finditer(r'<section class="sc[^"]*" data-a="([\d.]+)" data-b="([\d.]+)">(.*?)</section>', html, re.S):
+        a0 = float(sec.group(1))
+        for d in re.findall(r'class="cnt" data-to="\d+" data-d="([\d.]+)"', sec.group(3)):
+            for k in range(1, 23):
+                p = k / 22
+                ticks.append(a0 + float(d) + (1 - (1 - p) ** (1 / 3)) * 1.0)     # inverso de E(p) = 1-(1-p)^3
+    ticks.sort()
+    out = []
+    for t in ticks:
+        if not out or t - out[-1] > 0.03: out.append(t)
+    return out
+
+
 def mux(dur):
     """trilha editada sobre o vídeo sem áudio, uma versão por faixa"""
     silent = B / "Normani-SP-Highlights-sem-trilha.mp4"
+    ticks = counter_ticks(page()[0] if not SCENES else HTML[0])
     for name, (src, bpm, start) in TRACKS.items():
         wav = OUT / f"trilha-{name}.wav"
         trilha.make(wav, dur, src, bpm, start, drop=b(8), breakdown=START["thanks"], outro=START["outro"],
-                    dings=[START["conv"] + APEX["rel"]], hits=[START["x"], START["map"], START["numbers"]])
+                    dings=[START["conv"] + APEX["rel"]], hits=[START["x"], START["map"], START["numbers"]], ticks=ticks)
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(silent), "-i", str(wav),
                         "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
-                        "-movflags", "+faststart", str(B / f"Normani-SP-Highlights-{name}.mp4")], check=True)
+                        "-movflags", "+faststart", str(B / "Normani-SP-Highlights.mp4")], check=True)
     print(f"ok: {dur:.1f}s")
 
 
