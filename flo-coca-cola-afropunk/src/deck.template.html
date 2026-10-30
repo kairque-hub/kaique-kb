@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>FLO × Coca-Cola · AFROPUNK Bahia</title>
+<style>
+@font-face{font-family:'Anton';src:url({{FONT:Anton.ttf}}) format('truetype');}
+@page{size:1600px 900px;margin:0}
+:root{
+  --red:#E61D2B; --red2:#C8101E; --ink:#141414; --ink2:#262626; --white:#fff;
+  --cream:#FFF4E6; --gold:#D6B25E; --muted:rgba(255,255,255,.78);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111}
+body{font-family:'Inter',sans-serif;color:var(--white);-webkit-font-smoothing:antialiased}
+.slide{width:1600px;height:900px;position:relative;overflow:hidden;page-break-after:always;
+  background:var(--red);
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 34px,transparent 34px 68px);}
+.slide.dark{background-color:var(--ink);
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 34px,transparent 34px 68px);}
+.blob{position:absolute;border-radius:120px;z-index:0}
+
+.pad{position:absolute;inset:0;padding:76px 76px 0 76px}
+
+h1,h2,.anton{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.98;letter-spacing:.2px}
+h1{font-size:150px;text-shadow:5px 5px 0 rgba(0,0,0,.28)}
+h2{font-size:84px;text-shadow:4px 4px 0 rgba(0,0,0,.25)}
+.acc{color:var(--ink)}
+.dark .acc{color:var(--red)}
+.gold{color:var(--gold)}
+p.lead{font-size:23px;line-height:1.42;color:var(--muted);font-weight:400}
+.tag{position:absolute;top:66px;right:76px;background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:7px 16px;border-radius:30px;z-index:3}
+.dark .tag{background:var(--red)}
+.foot{position:absolute;left:76px;right:76px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:15px;color:rgba(255,255,255,.85);z-index:3}
+.foot .r{display:flex;align-items:center;gap:18px}
+.foot .n{background:var(--ink);border-radius:20px;padding:3px 12px;font-weight:600}
+.dark .foot .n{background:var(--red)}
+.foot img{height:34px}
+.src{position:absolute;left:76px;bottom:68px;font-size:12.5px;color:rgba(255,255,255,.7);z-index:3}
+
+.card{background:#fff;color:var(--ink);border-radius:30px;box-shadow:8px 8px 0 rgba(0,0,0,.28)}
+.tile{background:var(--ink);color:#fff;border-radius:26px;padding:24px 26px;box-shadow:7px 7px 0 rgba(0,0,0,.25)}
+.tile.hi{background:#fff;color:var(--ink)}
+.tile.hi .big{color:var(--red)}
+.dark .tile{background:var(--ink2)}
+.dark .tile.hi{background:var(--red);color:#fff}
+.dark .tile.hi .big{color:#fff}
+.big{font-family:'Anton';font-size:64px;line-height:1;white-space:nowrap}
+.tile small{display:block;font-size:16px;line-height:1.35;margin-top:8px;opacity:.85}
+.photo{position:absolute;border:9px solid #fff;border-radius:30px;overflow:hidden;box-shadow:10px 12px 0 rgba(0,0,0,.28);background:#000}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sticker{position:absolute;background:var(--ink);color:#fff;font-family:'Anton';font-size:26px;text-transform:uppercase;padding:10px 20px;border-radius:14px;box-shadow:5px 5px 0 rgba(0,0,0,.25);z-index:4}
+.sticker.w{background:#fff;color:var(--red)}
+.chip{display:inline-block;background:#fff;color:var(--ink);font-weight:600;font-size:15px;padding:7px 15px;border-radius:30px;margin:0 6px 8px 0}
+.chip.on{background:var(--ink);color:#fff}
+.quote{font-family:'Anton';text-transform:uppercase;font-size:40px;line-height:1.05}
+.cap{font-size:13px;letter-spacing:1.6px;font-weight:700;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- 01 CAPA -->
+<section class="slide">
+  <div class="blob" style="width:520px;height:520px;background:var(--ink);right:-140px;top:-220px;transform:rotate(45deg)"></div>
+  <div class="blob" style="width:700px;height:700px;background:var(--red2);right:-60px;bottom:-380px;transform:rotate(45deg)"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:26px">
+      <div class="cap" style="font-size:14px">AFROPUNK Bahia · Salvador · 7 de novembro</div>
+      <div style="background:#fff;color:var(--red);font-weight:700;font-size:15px;padding:7px 16px;border-radius:30px">Proposta de conteúdo</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:34px;margin-top:62px">
+      <img src="{{IMG:logo-flo.png}}" style="height:96px">
+      <span style="font-size:30px;opacity:.8">×</span>
+      <img src="{{LOGO_BRANCO}}" style="height:84px">
+    </div>
+    <h1 style="margin-top:44px">Therapy<br>at the <span class="acc">table</span></h1>
+    <p class="lead" style="width:760px;margin-top:30px;color:#fff">O primeiro show da FLO na Bahia, do camarim à mesa do pós-show, com Coca-Cola entre as três.</p>
+  </div>
+  <div class="photo" style="width:330px;height:440px;left:910px;top:150px;transform:rotate(-4deg)"><img src="{{IMG:trio.jpg}}"></div>
+  <div class="photo" style="width:320px;height:420px;left:1190px;top:330px;transform:rotate(5deg)"><img src="{{IMG:04-mesa.jpg}}"></div>
+  <div class="sticker" style="left:960px;top:610px;transform:rotate(-5deg)">Antes do palco</div>
+  <div class="sticker w" style="left:1300px;top:770px;transform:rotate(4deg)">Depois do palco</div>
+</section>
+
+<!-- 02 O GRUPO -->
+<section class="slide">
+  <div class="tag">O grupo</div>
+  <div class="pad">
+    <h2 style="width:720px">O girl group que renova o <span class="acc">R&amp;B</span></h2>
+    <p class="lead" style="width:640px;margin-top:26px">Trio londrino formado em 2019 por Jorja Douglas, Renée Downer e Stella Quaresma. Indicadas ao GRAMMY, primeiro girl group britânico de R&amp;B com os dois primeiros álbuns no Top 5 do Reino Unido, e indicadas a Melhor Grupo no VMA 2026, ao lado de BTS e BLACKPINK.</p>
+    <div class="card" style="width:630px;margin-top:34px;padding:24px 28px">
+      <div class="quote" style="font-size:36px">"A girl band for the new generation"</div>
+      <div class="cap" style="color:var(--red);margin-top:8px">The New York Times</div>
+    </div>
+    <div style="display:flex;gap:16px;position:absolute;left:76px;top:620px">
+      <div class="tile hi" style="width:200px;height:160px"><div class="big" style="font-size:50px">605 mi+</div><small>streams no mundo</small></div>
+      <div class="tile" style="width:200px;height:160px"><div class="big" style="font-size:50px">2,9 mi</div><small>seguidores nas redes</small></div>
+      <div class="tile" style="width:200px;height:160px"><div class="big" style="font-size:50px">#2</div><small>o Brasil entre os países que mais ouvem FLO</small></div>
+    </div>
+  </div>
+  <div class="photo" style="width:250px;height:700px;left:790px;top:110px;border-radius:130px 130px 30px 30px"><img src="{{IMG:g-jorja.jpg}}"></div>
+  <div class="photo" style="width:250px;height:640px;left:1060px;top:170px;border-radius:130px 130px 30px 30px"><img src="{{IMG:g-stella.jpg}}"></div>
+  <div class="photo" style="width:250px;height:700px;left:1330px;top:110px;border-radius:130px 130px 30px 30px"><img src="{{IMG:g-renee.jpg}}"></div>
+  <div class="src" style="bottom:66px">Fontes: equipe da FLO e Spotify for Artists, out/2026.</div>
+  {{FOOT:02}}
+</section>
+
+<!-- 03 INTEGRANTES -->
+<section class="slide">
+  <div class="tag">As integrantes</div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <h2>Três vozes, <span class="acc">um grupo</span></h2>
+      <div class="tile" style="padding:14px 22px;margin-top:40px;margin-right:180px;display:flex;gap:14px;align-items:center">
+        <div><div style="font-weight:700;font-size:18px">@flolikethis</div><div style="font-size:15px;opacity:.8">838 mil seguidores no perfil do grupo</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px">
+      {{MEMBRO:p-jorja.jpg|Jorja Douglas|@jorjadouglas|223,6 mil seguidores|Cresceu em Hertfordshire, nos arredores de Londres. Venceu o "Got What It Takes?", da CBBC, em 2017, e foi achada pelas outras duas pelos vídeos que postava cantando.}}
+      {{MEMBRO:p-renee.jpg|Renée Downer|@renee_downer|237,2 mil seguidores|Cresceu no norte de Londres ouvindo R&amp;B, house e gospel. Conheceu Stella na Sylvia Young Theatre School, onde a FLO começou a nascer.}}
+      {{MEMBRO:p-stella.jpg|Stella Quaresma|@stellaquaresma|247 mil seguidores|Nasceu em Kingston upon Thames e passou a infância entre Moçambique e o interior da Inglaterra. Cresceu ouvindo música africana e Amy Winehouse.}}
+    </div>
+  </div>
+  <div class="src">Seguidores no Instagram, out/2026.</div>
+  {{FOOT:03}}
+</section>
+
+<!-- 04 ÁLBUM -->
+<section class="slide">
+  <div class="tag">O álbum</div>
+  <div class="pad">
+    <h2>Therapy <span class="acc">at the club</span></h2>
+    <p class="lead" style="width:820px;margin-top:22px">O segundo álbum da FLO saiu em 7 de agosto de 2026, com 16 faixas. O título fala da pista como lugar de cura: depois de um coração partido, é na noite, entre amigas, que as três se soltam e se recompõem.</p>
+    <div class="card" style="width:830px;margin-top:30px;padding:26px 30px">
+      <div class="quote">"Pra gente, o club é mais do que uma noite fora. É tipo terapia."</div>
+      <div class="cap" style="color:var(--red);margin-top:10px">FLO, no anúncio do álbum · The Line of Best Fit, mai/2026</div>
+    </div>
+    <div class="tile" style="width:830px;margin-top:18px;padding:20px 30px">
+      <div style="font-size:21px">"É sobre a gente se divertir muito e usar uma à outra como terapia."</div>
+      <div class="cap" style="margin-top:8px;color:#fff;opacity:.7">Stella Quaresma · NME</div>
+    </div>
+    <div style="display:flex;gap:14px;position:absolute;left:76px;top:636px">
+      <div class="tile hi" style="width:194px;height:166px"><div class="big" style="font-size:52px">#5</div><small>estreia na parada de álbuns do Reino Unido</small></div>
+      <div class="tile" style="width:194px;height:166px"><div class="big" style="font-size:52px">#1</div><small>entre os álbuns de R&amp;B do Reino Unido</small></div>
+      <div class="tile" style="width:194px;height:166px"><div class="big" style="font-size:52px">2 de 2</div><small>os dois álbuns no Top 5</small></div>
+      <div class="tile" style="width:194px;height:166px"><div class="big" style="font-size:52px">16</div><small>faixas, com Leak It e Remedied</small></div>
+    </div>
+  </div>
+  <div class="photo" style="width:580px;height:740px;left:950px;top:96px;transform:rotate(2deg)"><img src="{{IMG:album.jpg}}"></div>
+  <div class="src">Fontes: Official Charts, NME, The Line of Best Fit, Zane Lowe (Apple Music). Citações traduzidas.</div>
+  {{FOOT:04}}
+</section>
+
+<!-- 05 O QUE A COCA-COLA ESTÁ FALANDO -->
+<section class="slide">
+  <div class="tag">A Coca-Cola agora</div>
+  <div class="pad">
+    <h2 style="width:1300px;font-size:76px">O que a Coca-Cola <span class="acc">está dizendo agora</span></h2>
+    <p class="lead" style="width:1050px;margin-top:22px">Olhando para os canais da marca e para o que ela lançou nos últimos meses, três assuntos se repetem. A FLO no AFROPUNK encosta nos três ao mesmo tempo.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px">
+      <div class="card" style="padding:30px;height:420px;display:flex;flex-direction:column">
+        <div class="cap" style="color:var(--red)">Ago/2026 · Refeições</div>
+        <div class="anton" style="font-size:42px;margin-top:10px">O mundo pode esperar</div>
+        <p style="font-size:18px;line-height:1.45;margin-top:14px;color:#333">A plataforma global de refeições da marca chegou ao Brasil no Dia dos Pais: largar o celular e estar presente à mesa, com uma Coca-Cola gelada.</p>
+        <div style="margin-top:auto;border-top:1px solid #ddd;padding-top:14px;font-size:16px;line-height:1.4;color:#333"><b style="color:var(--ink)">"Algumas das conexões mais importantes acontecem longe das telas."</b><br><span style="font-size:13px;color:#777">Raquel Ribeiro, diretora sênior da marca Coca-Cola no Brasil</span></div>
+      </div>
+      <div class="card" style="padding:30px;height:420px;display:flex;flex-direction:column;background:var(--ink);color:#fff">
+        <div class="cap gold">Set/2026 · Lançamento</div>
+        <div class="anton" style="font-size:42px;margin-top:10px">Zero Açúcar <span class="gold">Zero Cafeína</span></div>
+        <p style="font-size:18px;line-height:1.45;margin-top:14px;color:rgba(255,255,255,.85)">Lata preta e dourada, apresentada como "uma nova opção para ocasiões noturnas". A campanha de outubro aposta em OOH e em creators.</p>
+        <div style="margin-top:auto;display:flex;align-items:flex-end;gap:16px">
+          <img src="{{IMG_EXT:lata-zero.png}}" style="height:130px;transform:rotate(-6deg)">
+          <span style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.4">A noite é o território que a marca está abrindo agora.</span>
+        </div>
+      </div>
+      <div class="card" style="padding:30px;height:420px;display:flex;flex-direction:column">
+        <div class="cap" style="color:var(--red)">Desde 2021 · Cultura preta e música</div>
+        <div class="anton" style="font-size:42px;margin-top:10px">AFROPUNK e Coke Studio</div>
+        <p style="font-size:18px;line-height:1.45;margin-top:14px;color:#333">Patrocina o AFROPUNK Brasil desde a primeira edição, com "Amar é Revolucionário". Em 2025, levou o Coke Studio ao festival: música, moda e identidade preta.</p>
+        <div style="margin-top:auto;border-top:1px solid #ddd;padding-top:14px;font-size:16px;color:#333"><b style="color:var(--ink)">Em 2026, patrocinadora do festival em Salvador.</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Fontes: Coca-Cola Brasil Media Center (ago/2026), Meio &amp; Mensagem (set/2026, ago/2026 e nov/2021), Promoview (2025), Marca Pop (2026).</div>
+  {{FOOT:05}}
+</section>
+
+<!-- 06 A NARRATIVA -->
+<section class="slide">
+  <div class="blob" style="width:640px;height:640px;background:var(--red2);right:-200px;top:-260px;transform:rotate(45deg)"></div>
+  <div class="tag">A narrativa</div>
+  <div class="pad">
+    <h2 style="font-size:96px">O club é a terapia delas.<br><span class="acc">A mesa também.</span></h2>
+    <div style="display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;margin-top:70px">
+      <div class="card" style="padding:30px 32px;height:200px">
+        <div class="cap" style="color:var(--red)">O que a FLO diz</div>
+        <div class="quote" style="font-size:34px;margin-top:12px">"Usar uma à outra como terapia."</div>
+        <div style="font-size:15px;color:#666;margin-top:12px">Stella Quaresma, sobre o álbum · NME</div>
+      </div>
+      <div class="anton" style="text-align:center;font-size:72px">=</div>
+      <div class="card" style="padding:30px 32px;height:200px">
+        <div class="cap" style="color:var(--red)">O que a Coca-Cola diz</div>
+        <div class="quote" style="font-size:34px;margin-top:12px">"As conexões mais importantes acontecem longe das telas."</div>
+        <div style="font-size:15px;color:#666;margin-top:12px">Raquel Ribeiro · O Mundo Pode Esperar</div>
+      </div>
+    </div>
+    <p class="lead" style="width:1300px;margin-top:60px;color:#fff;font-size:27px">Depois de uma hora de palco, as três sentam à mesa, viram o celular pra baixo e se recompõem juntas. É exatamente o momento que a Coca-Cola quer ocupar, vivido por um girl group que fez disso um álbum. A gente leva o <i>at the club</i> para <b>at the table</b>, e a noite termina com a lata preta e dourada.</p>
+  </div>
+  {{FOOT:06}}
+</section>
+
+<!-- 07 O NOME -->
+<section class="slide">
+  <div class="tag">O nome</div>
+  <div class="pad">
+    <h2 style="font-size:96px;width:900px">Therapy at the club.<br><span class="acc">A gente só puxa uma cadeira.</span></h2>
+    <p class="lead" style="width:780px;margin-top:26px">Se o club é a terapia delas, a campanha leva o álbum para a mesa das três, antes e depois do palco. No AFROPUNK, a terapia vem gelada.</p>
+    <div class="card" style="width:860px;position:absolute;top:500px;left:76px;padding:20px 30px 8px">
+      <div class="cap" style="color:var(--red);padding-bottom:8px;border-bottom:1px solid #ddd">Faixas do álbum, no roteiro da campanha</div>
+      {{FAIXA:Small Doses|o primeiro gole entre o make e o figurino}}
+      {{FAIXA:Touché|o brinde das três antes de subir no palco}}
+      {{FAIXA:Remedied|a mesa do pós-show, celular virado pra baixo}}
+      {{FAIXA:Leak It|os bastidores que ninguém vê}}
+    </div>
+  </div>
+  <div class="photo" style="width:440px;height:580px;left:1070px;top:120px;transform:rotate(3deg)"><img src="{{IMG:04-mesa.jpg}}"></div>
+  <div class="card" style="position:absolute;left:1010px;top:640px;padding:20px 28px;background:#fff;transform:rotate(-3deg);z-index:4">
+    <div class="anton" style="font-size:46px;color:var(--red);line-height:1">Therapy at<br>the table</div>
+    <div style="font-size:15px;color:#555;margin-top:6px">O nome da campanha</div>
+  </div>
+  <div class="src">Títulos das faixas usados como chamadas. Sem uso de letras.</div>
+  {{FOOT:07}}
+</section>
+
+<!-- 08 AFROPUNK -->
+<section class="slide">
+  <div class="tag">Salvador</div>
+  <div class="pad">
+    <h2 style="width:1000px">Primeira vez na Bahia, <span class="acc">no AFROPUNK</span></h2>
+    <p class="lead" style="width:960px;margin-top:22px">No dia 7 de novembro, a FLO sobe pela primeira vez a um palco na Bahia, no AFROPUNK Brasil, em Salvador, festival que a Coca-Cola patrocina desde a primeira edição. O público já espera por elas: o Brasil é o segundo país que mais ouve FLO no mundo.</p>
+    <div class="tile" style="width:1000px;margin-top:30px;padding:22px 26px">
+      <div class="cap" style="color:#fff;opacity:.75;margin-bottom:14px">AFROPUNK Bahia · 7 e 8 de novembro · Parque de Exposições</div>
+      <span class="chip">Kehlani</span><span class="chip">Kelela</span><span class="chip on" style="background:var(--red)">FLO</span><span class="chip">Jorja Smith</span><span class="chip">Gilberto Gil</span><span class="chip">Emicida</span><span class="chip">Criolo</span><span class="chip">Gaby Amarantos</span><span class="chip">Lazzo Matumbi</span>
+    </div>
+    <div style="display:flex;gap:16px;position:absolute;left:76px;top:650px">
+      <div class="tile hi" style="width:322px;height:150px"><div class="big">#1</div><small>São Paulo é a cidade que mais ouve FLO no mundo</small></div>
+      <div class="tile" style="width:322px;height:150px"><div class="big">#2</div><small>o Brasil no ranking de países do Spotify, à frente do Reino Unido</small></div>
+      <div class="tile" style="width:322px;height:150px"><div class="big">Top 10</div><small>Itabuna, no sul da Bahia, entre as cidades que mais ouvem o grupo</small></div>
+    </div>
+  </div>
+  <div class="photo" style="width:400px;height:720px;left:1130px;top:100px;border-radius:200px 200px 30px 30px"><img src="{{IMG:mtv.jpg}}"></div>
+  <div class="src">Fontes: Rolling Stone Brasil, Afro TV, Meio &amp; Mensagem, Spotify for Artists (out/2026).</div>
+  {{FOOT:08}}
+</section>
+
+<!-- 09 A PROPOSTA -->
+<section class="slide">
+  <div class="tag">A proposta</div>
+  <div class="pad">
+    <div style="display:flex;gap:70px">
+      <h2 style="font-size:90px;width:700px">Coca-Cola na <span class="acc">rotina da FLO</span>, do camarim à mesa</h2>
+      <div style="width:680px;padding-top:40px">
+        <p class="lead" style="color:#fff">Um show é um dia inteiro de corre: hotel, van, passagem de som, camarim, palco e a volta. A proposta mostra esse dia pelo lado de dentro, com Coca-Cola nos intervalos que ninguém vê e na mesa onde as três se reencontram.</p>
+        <p class="lead" style="color:#fff;margin-top:18px">Sem estande e sem roteiro de comercial. Tudo nativo, no tom das meninas, nos perfis delas.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;position:absolute;left:76px;right:76px;top:500px">
+      <div class="card" style="padding:28px 30px;height:250px;display:flex;flex-direction:column">
+        <div class="cap" style="color:var(--red)">01</div>
+        <div class="anton" style="font-size:52px;margin-top:4px">Um reel em collab com a Coca-Cola Brasil</div>
+        <p style="margin-top:auto;font-size:18px;color:#333">No Instagram da FLO, em collab com @cocacola_br. O dia do show inteiro num vídeo só, terminando na mesa do pós-show.</p>
+      </div>
+      <div class="card" style="padding:28px 30px;height:250px;display:flex;flex-direction:column;background:var(--ink);color:#fff">
+        <div class="cap" style="color:var(--red)">02</div>
+        <div class="anton" style="font-size:52px;margin-top:4px">Três carrosséis pós-viagem</div>
+        <p style="margin-top:auto;font-size:18px;color:rgba(255,255,255,.85)">Um no perfil de cada integrante, como recap de Salvador, com a Coca-Cola Brasil marcada.</p>
+      </div>
+    </div>
+  </div>
+  {{FOOT:09}}
+</section>
+
+<!-- 10 JORNADA -->
+<section class="slide">
+  <div class="tag">A jornada</div>
+  <div class="pad">
+    <div style="display:flex;gap:60px;align-items:flex-start">
+      <h2 style="white-space:nowrap">Da chegada <span class="acc">ao recap</span></h2>
+      <p class="lead" style="width:560px;font-size:19px;margin-top:10px">A marca acompanha a viagem inteira. As peças saem quando o público já está olhando para elas: o reel no dia seguinte ao show e os carrosséis logo depois.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px">
+      {{DIA:Sex · 6/11|Chegada|Hotel e cidade|Primeiras imagens das três em Salvador.|Passagem de som|O começo do reel.|}}
+      {{DIA:Sáb · 7/11|Dia do show|Antes do palco|Van e camarim, com Coca-Cola gelada à mão.|Depois do palco|A mesa do pós-show e a volta ao hotel.|}}
+      {{DIA:Dom · 8/11|O reel no ar|Collab com @cocacola_br|O dia do show inteiro, enquanto o público ainda posta o festival.|||hi}}
+      {{DIA:Seg ou ter · 9 ou 10/11|O recap|Três carrosséis|Um por integrante, com o melhor da viagem.||| }}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:30px">
+      <div class="photo" style="position:relative;height:165px;transform:rotate(-2deg)"><img src="{{IMG:hotel-vista.jpg}}"></div>
+      <div class="photo" style="position:relative;height:165px;transform:rotate(1.5deg)"><img src="{{IMG:02-van.jpg}}" style="object-position:50% 40%"></div>
+      <div class="photo" style="position:relative;height:165px;transform:rotate(-1deg)"><img src="{{IMG:01-arrumando.jpg}}" style="object-position:50% 30%"></div>
+      <div class="photo" style="position:relative;height:165px;transform:rotate(2deg)"><img src="{{IMG:trio.jpg}}" style="object-position:50% 35%"></div>
+      <div class="photo" style="position:relative;height:165px;transform:rotate(-1.5deg)"><img src="{{IMG:04-mesa.jpg}}"></div>
+    </div>
+  </div>
+  {{FOOT:10}}
+</section>
+
+<!-- 11 O REEL -->
+<section class="slide">
+  <div class="blob" style="width:900px;height:520px;background:var(--red2);left:-200px;top:-240px"></div>
+  <div class="tag">Entrega 01</div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <h2 style="width:860px;font-size:70px">Um reel, <span class="acc">do camarim à mesa</span></h2>
+      <p class="lead" style="width:520px;font-size:18px;color:#fff;margin-top:40px">Collab no Instagram da FLO com a Coca-Cola Brasil. Gravado entre sexta e a noite de sábado, no ar no domingo, 8/11. O roteiro:</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:30px">
+      {{CENA:01-arrumando.jpg|01 · Antes|Terminando de se arrumar|Bobes no cabelo, make quase pronta e uma Coca-Cola gelada entre um retoque e outro.}}
+      {{CENA:02-van.jpg|02 · Antes|Na van|A caminho do festival, a lata passando de mão em mão.}}
+      {{CENA:03-palco.jpg|03 · Antes|O brinde das três|Os últimos minutos no backstage. Três latas, um brinde, e palco.}}
+      {{CENA:04-mesa.jpg|04 · Depois|A mesa do pós-show|Celulares virados pra baixo. A adrenalina baixa, a mesa enche, o mundo espera.}}
+      {{CENA:05-hotel.jpg|05 · Depois|De volta ao hotel|Moletom, cama e uma Coca-Cola Zero Cafeína para fechar a noite.}}
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;position:absolute;left:76px;right:76px;top:752px">
+      <div class="tile hi" style="padding:12px 22px;display:flex;align-items:center;gap:16px;border-radius:40px"><span class="big" style="font-size:40px">838 mil</span><span style="font-size:16px">seguidores da FLO</span></div>
+      <div class="tile" style="padding:12px 22px;display:flex;align-items:center;gap:16px;border-radius:40px"><span class="big" style="font-size:40px">Collab</span><span style="font-size:16px">publicado também no feed da @cocacola_br</span></div>
+      <div class="tile" style="padding:12px 22px;display:flex;align-items:center;gap:16px;border-radius:40px"><span class="big" style="font-size:40px">Dom 8/11</span><span style="font-size:16px">no ar no dia seguinte ao show</span></div>
+    </div>
+  </div>
+  <div class="src" style="bottom:40px">Imagens ilustrativas: fotos da FLO com o produto aplicado. O vídeo final é gravado em Salvador.</div>
+  {{FOOT:11}}
+</section>
+
+<!-- 12 O MOMENTO-ASSINATURA -->
+<section class="slide dark">
+  <div class="tag">O momento</div>
+  <div class="photo" style="width:640px;height:760px;left:76px;top:70px;transform:rotate(-2deg);border-color:#fff"><img src="{{IMG:04-mesa.jpg}}"></div>
+  <div class="sticker" style="left:110px;top:760px;background:var(--red);transform:rotate(-4deg)">Remedied</div>
+  <div style="position:absolute;left:790px;top:120px;width:740px">
+    <h2 style="font-size:92px">O mundo pode esperar.<br><span class="acc">A FLO também.</span></h2>
+    <p class="lead" style="margin-top:26px;font-size:22px">No camarim do pós-show, os três celulares vão pra mesa, virados pra baixo. Três Coca-Colas abertas. É o plano que fecha o reel e conversa direto com a plataforma de refeições que a marca lançou em agosto, só que com o público do AFROPUNK.</p>
+    <div style="display:flex;gap:22px;align-items:center;margin-top:34px;background:var(--ink2);border-radius:26px;padding:22px 26px;border:1px solid rgba(214,178,94,.4)">
+      <img src="{{IMG_EXT:lata-zero.png}}" style="height:150px;transform:rotate(6deg)">
+      <div>
+        <div class="cap gold">Fim de noite</div>
+        <div class="anton" style="font-size:34px;margin-top:6px">Zero Açúcar <span class="gold">Zero Cafeína</span></div>
+        <p style="font-size:17px;line-height:1.45;margin-top:8px;color:rgba(255,255,255,.82)">De volta ao hotel, a lata preta e dourada fecha o dia. A ocasião noturna que a marca está lançando, vivida depois de um show. Se a marca preferir, o reel fica só com a Original.</p>
+      </div>
+    </div>
+  </div>
+  {{FOOT:12}}
+</section>
+
+<!-- 13 CARROSSÉIS -->
+<section class="slide">
+  <div class="tag">Entrega 02</div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <h2>Três carrosséis<br><span class="acc">pós-viagem</span></h2>
+      <p class="lead" style="width:600px;font-size:19px;color:#fff">Publicados na segunda ou terça depois do festival, um no perfil de cada integrante. Cidade, van, camarim, palco e a mesa do pós-show, com a Coca-Cola Brasil marcada. Três olhares sobre a mesma viagem.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:70px;margin:30px 60px 0">
+      {{POST:car-jorja.jpg|jorjadouglas|Jorja · a viagem pelos olhos dela}}
+      {{POST:car-renee.jpg|renee_downer|Renée · Salvador, palco e o corre}}
+      {{POST:car-stella.jpg|stellaquaresma|Stella · o camarim do AFROPUNK}}
+    </div>
+    <div class="tile hi" style="position:absolute;left:76px;right:76px;top:732px;padding:12px 28px;display:flex;align-items:center;gap:26px;border-radius:40px">
+      <span class="big" style="font-size:50px">707,9 mil</span><span style="font-size:18px">de seguidores somados nos três perfis. Fotos de sexta a domingo, no ar em 9 ou 10/11.</span>
+    </div>
+  </div>
+  <div class="src" style="bottom:40px">Imagens ilustrativas: fotos da FLO com o produto aplicado. Roteiro final combinado com as meninas e a marca.</div>
+  {{FOOT:13}}
+</section>
+
+<!-- 14 O PACOTE -->
+<section class="slide">
+  <div class="blob" style="width:700px;height:700px;background:var(--ink);right:-220px;top:-300px;transform:rotate(45deg)"></div>
+  <div class="tag">Resumo</div>
+  <div class="pad">
+    <h2>O pacote</h2>
+    <div class="card" style="margin-top:30px;padding:26px 36px">
+      <table style="width:100%;border-collapse:collapse;font-size:20px">
+        <tr class="cap" style="color:var(--red);text-align:left"><th style="padding-bottom:12px;border-bottom:1px solid #ddd;width:170px">Entrega</th><th style="border-bottom:1px solid #ddd">Onde</th><th style="border-bottom:1px solid #ddd;width:90px">Qtd.</th><th style="border-bottom:1px solid #ddd;width:470px">Quando</th></tr>
+        <tr><td style="padding:22px 0;font-weight:700;font-size:24px">Reel</td><td>Instagram da FLO, collab com @cocacola_br</td><td class="anton" style="font-size:44px;color:var(--red)">1</td><td>Grava de 6 a 7/11, no ar dom 8/11</td></tr>
+        <tr><td style="padding:22px 0;font-weight:700;font-size:24px;border-top:1px solid #eee">Carrossel</td><td style="border-top:1px solid #eee">Instagram de Jorja, Renée e Stella, marcando @cocacola_br</td><td class="anton" style="font-size:44px;color:var(--red);border-top:1px solid #eee">3</td><td style="border-top:1px solid #eee">Fotos de 6 a 8/11, no ar 9 ou 10/11 como recap</td></tr>
+      </table>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px">
+      <div class="tile hi" style="height:160px"><div class="big">4</div><small>peças com a marca: um reel e três carrosséis</small></div>
+      <div class="tile" style="height:160px"><div class="big">1,5 mi</div><small>seguidores somados nos quatro perfis da FLO, mais a audiência da @cocacola_br no collab</small></div>
+      <div class="tile" style="height:160px"><div class="big">0</div><small>estande: a marca está na rotina, não num espaço</small></div>
+    </div>
+    <div class="tile" style="margin-top:22px;padding:20px 28px;display:grid;grid-template-columns:200px repeat(3,1fr);gap:24px;align-items:start">
+      <div class="anton" style="font-size:32px;line-height:1.05">Próximos passos</div>
+      <div><div class="cap" style="color:var(--red)">Até 3/11</div><div style="font-size:16px;margin-top:6px;line-height:1.4">Marca define o produto: só Original, ou Original + Zero Cafeína no fim da noite.</div></div>
+      <div><div class="cap" style="color:var(--red)">Até 5/11</div><div style="font-size:16px;margin-top:6px;line-height:1.4">Roteiro do reel e dos carrosséis aprovado com as meninas e a marca.</div></div>
+      <div><div class="cap" style="color:var(--red)">6/11</div><div style="font-size:16px;margin-top:6px;line-height:1.4">Produto gelado no hotel e no camarim em Salvador, antes da passagem de som.</div></div>
+    </div>
+  </div>
+  {{FOOT:14}}
+</section>
+
+<!-- 15 OBRIGADO -->
+<section class="slide">
+  <div class="blob" style="width:760px;height:760px;background:var(--red2);right:-120px;bottom:-420px;transform:rotate(45deg)"></div>
+  <div class="pad">
+    <div style="display:flex;align-items:center;gap:30px;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:26px">
+      <img src="{{IMG:logo-flo.png}}" style="height:62px"><span style="font-size:24px;opacity:.8">×</span><img src="{{LOGO_BRANCO}}" style="height:54px">
+    </div>
+    <h1 style="font-size:210px;margin-top:90px">Obrigado.</h1>
+    <p class="lead" style="color:#fff;margin-top:24px;font-size:25px">Vamos levar a Coca-Cola para a mesa da FLO no AFROPUNK Bahia.</p>
+    <div style="position:absolute;left:76px;bottom:50px;display:flex;align-items:center;gap:20px">
+      <img src="{{IMG:logo-brasileiro.png}}" style="height:64px">
+      <div style="font-size:16px;line-height:1.5;color:rgba(255,255,255,.85)">Preparado por <b style="color:#fff">Kaique Brasileiro</b> e <b style="color:#fff">Brasileiro Ag</b><br>@flolikethis · @cocacola_br</div>
+    </div>
+  </div>
+  <div class="photo" style="width:430px;height:620px;left:1090px;top:150px;transform:rotate(3deg)"><img src="{{IMG:final.jpg}}"></div>
+  <div class="sticker w" style="left:1040px;top:700px;transform:rotate(-4deg);z-index:5">Therapy at the table</div>
+</section>
+
+</body>
+</html>
